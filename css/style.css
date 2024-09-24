@@ -17458,3 +17458,10 @@ html[dir=rtl] .sidebar li > a .caret:before {
 {
   color: var(--raziBlue);
 }
+
+/* Main Layout Styling */
+
+.navbar-nav a 
+{
+  color: white !important;
+}
