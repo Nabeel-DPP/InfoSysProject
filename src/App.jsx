@@ -18,33 +18,61 @@ import { UserProfile } from "./pages/UserProfile.jsx";
 import { UserActivity } from "./pages/UserActivity.jsx";
 import { UserAccount } from "./pages/UserAccount.jsx";
 import { UserSetting } from "./pages/UserSetting.jsx";
+import { Dashboard } from "./pages/Dashboard.jsx";
+import { WebLayout } from "./webLayout/WebLayout.jsx";
 
 // import "../js/mono.js";
 
 
  export const App = () => {
    return (
-    <Router>
-    <Routes>
-    <Route path="/signup" element={<SignUp />} />
-    <Route path="/login" element={<Login />} />
-    <Route path="/reset" element={<Reset />} />
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/userProfile" element={<UserProfile />} />
-        <Route path="/userActivity" element={<UserActivity/>} />
-        <Route path="/userAccount" element={<UserAccount />} />
-        {/* <Route path="/userSetting" element={<UserSetting />} /> */}
-               
-        {/* <Route path="about" element={<About />} />
-        <Route path="services" element={<Services />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="table" element={<ReactTable />} /> */}
+  //   <Router>
+  //   <Routes>
+  //   <Route index element={<Home />} />
+  //   <Route path="/signup" element={<SignUp />} />
+  //   <Route path="/login" element={<Login />} />
+  //   <Route path="/reset" element={<Reset />} />
 
-      </Route>
-    </Routes>
-  </Router>
+  //     <Route path="/" element={<Layout />}>
+      
+  //       <Route path="dashboard" element={<Dashboard />} />
+  //       <Route path="analytics" element={<Analytics />} />
+  //       <Route path="userProfile" element={<UserProfile />} />
+  //       <Route path="userActivity" element={<UserActivity/>} />
+  //       <Route path="userAccount" element={<UserAccount />} />
+  //       {/* <Route path="/userSetting" element={<UserSetting />} /> */}
+               
+  //       {/* <Route path="about" element={<About />} />
+  //       <Route path="services" element={<Services />} />
+  //       <Route path="contact" element={<Contact />} />
+  //       <Route path="table" element={<ReactTable />} /> */}
+
+  //     </Route>
+  //   </Routes>
+  // </Router>
+
+  <Router>
+      <Routes>
+        {/* Routes with MainLayout for home and public pages */}
+        <Route element={<WebLayout />}>
+          <Route index element={<Home />} /> {/* Home page */}
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/reset" element={<Reset />} />
+        </Route>
+
+        {/* Routes with Layout (dashboard layout) */}
+        <Route element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/userProfile" element={<UserProfile />} />
+          <Route path="/userActivity" element={<UserActivity />} />
+          <Route path="/userAccount" element={<UserAccount />} />
+          {/* Uncomment if you want to add more paths */}
+          {/* <Route path="/userSetting" element={<UserSetting />} /> */}
+        </Route>
+      </Routes>
+    </Router>
    )
  }
  

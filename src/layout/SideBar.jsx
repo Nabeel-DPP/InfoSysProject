@@ -7,10 +7,10 @@ export const SideBar = () => {
           <div id="sidebar" className="sidebar sidebar-with-footer">
             
             <div className="app-brand">
-              <a href="/index.html">
+              <Link to="/">
                 <img src="images/Logo.png" style={{height:"45px"}} alt="Mono"/>
                 <span className="brand-name">InfoSys</span>
-              </a>
+              </Link>
             </div>
         
             <div className="sidebar-left" data-simplebar  style={{height: "100%"}}  >
@@ -32,7 +32,7 @@ export const SideBar = () => {
                       </span> 
                       </a>*/
                       }
-                       <Link to={"/"} className="sidenav-item-link">
+                       <Link to={"/dashboard"} className="sidenav-item-link">
     <i className="mdi mdi-briefcase-account-outline"></i>
     <span className="nav-text">
       Business Dashboard
