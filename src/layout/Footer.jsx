@@ -6,7 +6,7 @@ const Footer = () => {
        <footer className="footer mt-auto">
             <div className="copyright bg-white">
               <p>
-                 <span id="copy-year"></span>   All Rights Reserved &copy; <a className="text-primary" href="http://www.iamabdus.com/" target="_blank" >RAAZEE Private Limited</a>.
+                 <span id="copy-year"></span>   All Rights Reserved &copy; <a className="text-blue" href="http://www.iamabdus.com/" target="_blank" >InfoSys Private Limited</a>.
               </p>
             </div>
 

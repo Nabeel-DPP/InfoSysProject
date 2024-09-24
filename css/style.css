@@ -1,6 +1,7 @@
 
 :root {
   --blue: #007bff;
+  --raziBlue: #385F98;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -151,12 +152,15 @@ sup {
 }
 
 a {
-  color: #9e6de0;
+  /* color: #9e6de0; */
+  color: var(--raziBlue);
+  /* color: white !important; */
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #742ed3;
+  /* color: #742ed3; */
+  color: black ;
   text-decoration: underline;
 }
 
@@ -13392,6 +13396,8 @@ label {
   white-space: nowrap;
 }
 
+
+
 .sidebar .sidebar-inner > li.active > a {
   position: relative;
   z-index: 10;
@@ -13435,7 +13441,7 @@ label {
   line-height: 76px;
   width: 250px;
   transition: width 0.3s ease-in-out;
-  /* padding-left: 1.56rem; */
+  padding-left: 0.70rem;
 }
 @media (prefers-reduced-motion: reduce) {
   .app-brand a {
@@ -17160,7 +17166,7 @@ div.copied {
   z-index: 999;
 }
 #toast-container .toast-success {
-  background-color: #9e6de0;
+  background-color: var(--raziBlue);
   opacity: 1;
 }
 
@@ -17444,3 +17450,11 @@ html[dir=rtl] .sidebar li > a .caret:before {
   font-weight: 500;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+/* My Custom Styling to the Components  */
+
+.form-blue-text
+{
+  color: var(--raziBlue);
+}

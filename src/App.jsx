@@ -5,7 +5,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/style.css";
 import "../js/custom.js";
-import $ from 'jquery';
+// import $ from 'jquery';
 
 // import "../js/chart.js";
 import { SignUp } from "./pages/SignUp.jsx";
@@ -14,6 +14,10 @@ import { Login } from "./pages/Login.jsx";
 import "../js/map.js";
 import { Analytics } from "./pages/Analytics.jsx";
 import { Reset } from "./pages/Reset.jsx";
+import { UserProfile } from "./pages/UserProfile.jsx";
+import { UserActivity } from "./pages/UserActivity.jsx";
+import { UserAccount } from "./pages/UserAccount.jsx";
+import { UserSetting } from "./pages/UserSetting.jsx";
 
 // import "../js/mono.js";
 
@@ -28,6 +32,10 @@ import { Reset } from "./pages/Reset.jsx";
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/userActivity" element={<UserActivity/>} />
+        <Route path="/userAccount" element={<UserAccount />} />
+        {/* <Route path="/userSetting" element={<UserSetting />} /> */}
                
         {/* <Route path="about" element={<About />} />
         <Route path="services" element={<Services />} />

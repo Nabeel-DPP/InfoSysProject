@@ -8,8 +8,8 @@ export const SideBar = () => {
             
             <div className="app-brand">
               <a href="/index.html">
-                <img src="images/Logo.png" style={{height:"60px"}} alt="Mono"/>
-                <span className="brand-name">RAAZEE </span>
+                <img src="images/Logo.png" style={{height:"45px"}} alt="Mono"/>
+                <span className="brand-name">InfoSys</span>
               </a>
             </div>
         
@@ -20,19 +20,27 @@ export const SideBar = () => {
 
                 
                   <li
-                   className="active"
+                   className=""
                    >
-                    <a className="sidenav-item-link" >
+                    {/* <a className="sidenav-item-link" >
                       <i className="mdi mdi-briefcase-account-outline"></i>
                      
                      <span className="nav-text">
                      <Link to={"/"}> 
                       Business Dashboard
                       </Link>
-                      </span>
+                      </span> 
+                      </a>*/
+                      }
+                       <Link to={"/"} className="sidenav-item-link">
+    <i className="mdi mdi-briefcase-account-outline"></i>
+    <span className="nav-text">
+      Business Dashboard
+    </span>
+  </Link>
                      
                       
-                    </a>
+                    
                   </li>
                 
 
@@ -41,15 +49,15 @@ export const SideBar = () => {
                 
                   <li
                    >
-                    <a className="sidenav-item-link" >
-                      <i className="mdi mdi-chart-line"></i>
-                  
-                      <span className="nav-text">
-                     <Link to={"/analytics"}> 
-                     Analytics Dashboard
-                      </Link>
-                      </span>
-                    </a>
+                    
+
+
+                    <Link to={"/analytics"} className="sidenav-item-link">
+                    <i className="mdi mdi-chart-line"></i>
+                          <span className="nav-text">
+                           Analytics Dashboard
+                           </span>
+                    </Link>
                   </li>
                 
 
@@ -64,37 +72,37 @@ export const SideBar = () => {
                 
 
                 
-                  <li
+                  {/* <li
                    >
                     <a className="sidenav-item-link" href="chat.html">
                       <i className="mdi mdi-wechat"></i>
                       <span className="nav-text">Chat</span>
                     </a>
-                  </li>
+                  </li> */}
                 
 
                 
 
                 
-                  <li
+                  {/* <li
                    >
                     <a className="sidenav-item-link" href="contacts.html">
                       <i className="mdi mdi-phone"></i>
                       <span className="nav-text">Contacts</span>
                     </a>
                   </li>
-                
+                 */}
 
                 
 
-                
+{/*                 
                   <li
                    >
                     <a className="sidenav-item-link" href="team.html">
                       <i className="mdi mdi-account-group"></i>
                       <span className="nav-text">Team</span>
                     </a>
-                  </li>
+                  </li> */}
                 
 
                 
@@ -166,15 +174,15 @@ export const SideBar = () => {
                 
 
                 
-                  <li className="section-title">
+                  {/* <li className="section-title">
                     UI Elements
-                  </li>
+                  </li> */}
                 
 
                 
 
                 
-                  <li  className="has-sub" >
+                  {/* <li  className="has-sub" >
                     <a className="sidenav-item-link" data-toggle="collapse" data-target="#ui-elements"
                       aria-expanded="false" aria-controls="ui-elements">
                       <i className="mdi mdi-folder-outline"></i>
@@ -540,7 +548,7 @@ export const SideBar = () => {
                         
                       </div>
                     </ul>
-                  </li>
+                  </li> */}
                 
 
                 
@@ -587,7 +595,8 @@ export const SideBar = () => {
                   <li  className="has-sub" >
                     <a className="sidenav-item-link"  data-toggle="collapse" data-target="#users"
                       aria-expanded="false" aria-controls="users">
-                      <i className="mdi mdi-image-filter-none"></i>
+                      {/* <i className="mdi mdi-image-filter-none"></i> */}
+                      <i class="mdi mdi-account-circle"></i>
                       <span className="nav-text">User</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="users"
@@ -597,10 +606,14 @@ export const SideBar = () => {
                         
                           
                             <li >
-                              <a className="sidenav-item-link" href="user-profile.html">
+                              {/* <a className="sidenav-item-link" href="user-profile.html">
                                 <span className="nav-text">User Profile</span>
                                 
-                              </a>
+                              </a> */}
+                              <Link className="sidenav-item-link" to="/userProfile">
+                                <span className="nav-text">User Profile</span>
+                                
+                              </Link> 
                             </li>
                           
                         
@@ -609,10 +622,14 @@ export const SideBar = () => {
                         
                           
                             <li >
-                              <a className="sidenav-item-link" href="user-activities.html">
+                              {/* <a className="sidenav-item-link" href="user-activities.html">
                                 <span className="nav-text">User Activities</span>
                                 
-                              </a>
+                              </a> */}
+                              <Link className="sidenav-item-link" to="/userActivity">
+                                <span className="nav-text">User Activities</span>
+                                
+                              </Link> 
                             </li>
                           
                         
@@ -620,12 +637,16 @@ export const SideBar = () => {
                         
                         
                           
-                            <li >
+                            {/* <li >
                               <a className="sidenav-item-link" href="user-profile-settings.html">
                                 <span className="nav-text">User Profile Settings</span>
                                 
                               </a>
-                            </li>
+                              <Link className="sidenav-item-link" to="/userSetting">
+                                <span className="nav-text">User Profile Settings</span>
+                                
+                              </Link> 
+                            </li> */}
                           
                         
 
@@ -633,10 +654,17 @@ export const SideBar = () => {
                         
                           
                             <li >
-                              <a className="sidenav-item-link" href="user-account-settings.html">
+                              {/* <a className="sidenav-item-link" href="user-account-settings.html">
                                 <span className="nav-text">User Account Settings</span>
                                 
-                              </a>
+                              </a> */}
+
+                              <Link className="sidenav-item-link" to="/userAccount">
+                                
+                                <span className="nav-text">User Account Settings</span>
+                                
+                              </Link> 
+                              
                             </li>
                           
                         
@@ -644,36 +672,36 @@ export const SideBar = () => {
                         
                         
                           
-                            <li >
+                            {/* <li >
                               <a className="sidenav-item-link" href="user-planing-settings.html">
                                 <span className="nav-text">User Planing Settings</span>
                                 
                               </a>
-                            </li>
+                            </li> */}
                           
                         
 
                         
                         
                           
-                            <li >
+                            {/* <li >
                               <a className="sidenav-item-link" href="user-billing.html">
                                 <span className="nav-text">User billing</span>
                                 
                               </a>
-                            </li>
+                            </li> */}
                           
                         
 
                         
                         
                           
-                            <li >
+                            {/* <li >
                               <a className="sidenav-item-link" href="user-notify-settings.html">
                                 <span className="nav-text">User Notify Settings</span>
                                 
                               </a>
-                            </li>
+                            </li> */}
                           
                         
 
@@ -699,14 +727,23 @@ export const SideBar = () => {
                         
                           
                             <li >
-                              <a className="sidenav-item-link" >
+                              {/* <a className="sidenav-item-link" >
                                 
                                 <span className="nav-text">
                                <Link to={"/signup"}> 
                               Sign Up
                                </Link>
                          </span>
-                              </a>
+                              </a> */}
+
+                              <Link to={"/signup"} className="sidenav-item-link">
+                              
+                               <span className="nav-text">
+                                Sign Up
+                               </span>
+                             </Link>
+
+
                             </li>
                           
                         
@@ -715,7 +752,7 @@ export const SideBar = () => {
                         
                           
                             <li >
-                              <a className="sidenav-item-link" href="sign-up.html">
+                              {/* <a className="sidenav-item-link" href="sign-up.html">
                               
                                 
                               <span className="nav-text">
@@ -724,7 +761,15 @@ export const SideBar = () => {
                       </Link>
                       </span>
 
-                              </a>
+                              </a> */}
+
+                              <Link to={"/login"} className="sidenav-item-link">
+                               
+                               <span className="nav-text">
+                                Log In
+                               </span>
+                             </Link>
+
                             </li>
                           
                         
@@ -733,7 +778,7 @@ export const SideBar = () => {
                         
                           
                             <li >
-                              <a className="sidenav-item-link" href="reset-password.html">
+                              {/* <a className="sidenav-item-link" href="reset-password.html">
                                   
                               <span className="nav-text">
                      <Link to={"/reset"}> 
@@ -741,7 +786,15 @@ export const SideBar = () => {
                       </Link>
                       </span>
                                 
-                              </a>
+                              </a> */}
+
+                              <Link to={"/reset"} className="sidenav-item-link">
+                              
+                               <span className="nav-text">
+                                Reset Password
+                               </span>
+                             </Link>
+
                             </li>
                           
                         
@@ -755,7 +808,7 @@ export const SideBar = () => {
                 
 
                 
-                  <li  className="has-sub" >
+                  {/* <li  className="has-sub" >
                     <a className="sidenav-item-link"  data-toggle="collapse" data-target="#other-page"
                       aria-expanded="false" aria-controls="other-page">
                       <i className="mdi mdi-file-multiple"></i>
@@ -815,7 +868,7 @@ export const SideBar = () => {
                         
                       </div>
                     </ul>
-                  </li>
+                  </li> */}
                 
 
                {/* This is the last documentation section of Sidebar  */}

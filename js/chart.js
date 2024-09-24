@@ -46,7 +46,14 @@
 
 ====== End ======*/
 
-"use strict";
+// "use strict";
+
+
+export function  RenderCharts()
+{
+
+
+
 
 /*======== 1. SPLINA AREA CHART 01 ========*/
 var splinaArea1 = document.querySelector("#spline-area-1");
@@ -2485,4 +2492,6 @@ if (ariaChartExample !== null) {
   var chart = new ApexCharts(ariaChartExample, options);
 
   chart.render();
+}
+
 }

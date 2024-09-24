@@ -318,7 +318,7 @@ $(document).ready(function () {
       showMethod: "fadeIn",
       hideMethod: "fadeOut",
     };
-    toastr.success("Welcome to RAAZEE ", "Sir!");
+    toastr.success("Welcome to InfoSys ", "Sir!");
   }
 
   if (toaster.length != 0) {
