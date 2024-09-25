@@ -8,56 +8,80 @@
 
 
 
-
-
-
-Base styling for the navbar brand
+/* Outer logo container */
 .logo-effect {
-    position: relative;
-    display: inline-block;
-    font-family: "Arial", sans-serif;
-    color: var(--raziBlue); /* Your brand color */
-    text-decoration: none;
-    font-size: 24px;
-    transition: color 0.3s ease;
-    /* padding-right: 70px; Create space for the logo on the right */
+  width: 90px;
+  height: 50px; /* Adjust height according to your design */
+  display: inline-block;
+  perspective: 1000px;
+  text-decoration: none; /* To remove underline */
 }
 
-/* The logo SVG (hidden by default) */
-.logo-effect::after {
-    content: ''; /* Add this line to ensure the pseudo-element is created */
-    background-image: url('Logo.png'); /* Ensure this URL is correct */
-    background-size: contain; /* Adjust this property */
-    background-repeat: no-repeat;
-    position: absolute;
-
-    top: 50%;
-    transform: translateY(-50%); /* Adjust vertical centering */
-    width: 50px; /* Set an initial size */
-    height: 50px; /* Set an initial size */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease;
+/* Inner container for the flip effect */
+.logo-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
 }
 
-/* Hover effect */
-.logo-effect:hover {
-    color: transparent; /* Hides the text */
+/* Flip animation on hover */
+.logo-effect:hover .logo-inner {
+  transform: rotateY(180deg);
 }
 
-/* Display the logo on hover */
-.logo-effect:hover::after {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(-50%) scale(1); /* Maintain vertical centering */
+/* Front side - displaying the logo text */
+.logo-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Adjust size based on your requirement */
+  font-weight: bold;
+  color: #000; /* Text color */
+  background-color: #fff; /* Background of the text */
+  padding: 10px;
+  border-radius: 8px; /* Optional for a rounded effect */
 }
+
+/* Back side - displaying the logo image */
+.logo-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff; /* Set background color matching your layout */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Logo image styling */
+.logo-image {
+  width: 50px; /* Adjust width of the image */
+  height: 40px; /* Adjust height of the image */
+}
+
+
+
+
+
+
+
 
 
 
 
 
 /* Navbar Search */
-.nav-search-input {
+/* .nav-search-input {
     width: 0; 
     opacity: 0; 
     transition: width 0.5s ease, opacity 0.5s ease; 
@@ -69,7 +93,89 @@ Base styling for the navbar brand
     width: 110px; 
     opacity: 1; 
     visibility: visible; 
+} */
+ /* From Uiverse.io by vnuny */ 
+ .container {
+  position: relative;
+  box-sizing: border-box;
+  width: fit-content;
 }
+
+.mainbox {
+  box-sizing: border-box;
+  position: relative;
+  width: 50px; /* Initially only the icon width */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 200px;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+
+.checkbox:focus {
+  border: none;
+  outline: none;
+}
+
+/* When the checkbox is checked, expand the search box */
+.checkbox:checked ~ .mainbox {
+  width: 150px; /* Expanded width */
+}
+
+.checkbox:checked ~ .mainbox .search_input {
+  width: 170px; /* Expanded input width */
+  padding-left: 40px; /* Create space for the icon inside the input */
+}
+
+.checkbox {
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 17px;
+  top: 10px;
+  z-index: 9;
+  cursor: pointer;
+  opacity: 0; /* Hide checkbox itself, used only for toggle */
+}
+
+.search_input {
+  box-sizing: border-box;
+  height: 100%;
+  width: 0; /* Initially hidden */
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: white;
+  transition: all 0.3s ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.search_input::placeholder {
+  color: rgba(255, 255, 255, 0.776);
+}
+
+.iconContainer {
+  box-sizing: border-box;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.search_icon {
+  box-sizing: border-box;
+  fill: white;
+  font-size: 1.3em;
+  
+}
+
+/* Shrink the icon container padding when expanded */
+.checkbox:checked ~ .mainbox .iconContainer {
+  padding-left: 50px;
+}
+
 
 
 
@@ -87,19 +193,19 @@ Base styling for the navbar brand
 
 /* Main Layout Styling */
 
-.navbar-nav li >.nav-link 
+.Navbar-nav li >.nav-link 
 {
   color: var(--raziBlue) !important;
 }
 /* Here I set the Hover Property on the Navbar Links */
-.navbar-nav li >.nav-link {
+.Navbar-nav li >.nav-link {
     color: var(--raziBlue) !important;
     text-decoration: none; /* Remove the default underline */
     position: relative;     /* Position for the underline */
     transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.navbar-nav li >.nav-link::after {
+.Navbar-nav li >.nav-link::after {
     content: '';
     position: absolute;
     left: 0;
@@ -110,11 +216,11 @@ Base styling for the navbar brand
     transition: width 0.5s ease; /* Smooth width transition */
 }
 
-.navbar-nav li >.nav-link:hover {
+.Navbar-nav li >.nav-link:hover {
     color: var(--raziBlue) !important; /* Keep the color on hover */
 }
 
-.navbar-nav li >.nav-link:hover::after {
+.Navbar-nav li >.nav-link:hover::after {
     width: 70%; /* Expand the underline on hover */
 }
 
