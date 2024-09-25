@@ -5,9 +5,11 @@ import { WebNavbar } from './WebNavbar'
 import { WebFooter } from './WebFooter'
 export const WebLayout = () => {
   return (
-    <div className='WebLayout'>
+    <div className='overall-layout d-flex flex-column min-vh-100'>
     <WebNavbar/>
+    <div className='webOutlet flex-grow-1'>
     <Outlet/>
+    </div>
     <WebFooter/>
     </div>
   )

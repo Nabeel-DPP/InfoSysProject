@@ -1,8 +1,3 @@
-/*!
- * ApexCharts v3.6.3
- * (c) 2018-2019 Juned Chhipa
- * Released under the MIT License.
- */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -6833,95 +6828,196 @@
         };
       }
     }, {
+      // key: "drawColumnPaths",
+      // value: function drawColumnPaths(_ref2) {
+      //   var indexes = _ref2.indexes,
+      //       x = _ref2.x,
+      //       y = _ref2.y,
+      //       xDivision = _ref2.xDivision,
+      //       pathTo = _ref2.pathTo,
+      //       pathFrom = _ref2.pathFrom,
+      //       barWidth = _ref2.barWidth,
+      //       zeroH = _ref2.zeroH,
+      //       strokeWidth = _ref2.strokeWidth,
+      //       elSeries = _ref2.elSeries;
+      //   var w = this.w;
+      //   var i = indexes.i;
+      //   var j = indexes.j;
+      //   var realIndex = indexes.realIndex;
+      //   var bc = indexes.bc;
+
+      //   if (w.globals.isXNumeric) {
+      //     var seriesVal = w.globals.seriesX[i][j];
+      //     if (!seriesVal) seriesVal = 0;
+      //     x = (seriesVal - w.globals.minX) / this.xRatio - barWidth / 2;
+      //   }
+
+      //   var barXPosition = x;
+      //   var barYPosition;
+      //   var prevBarH = 0;
+
+      //   for (var k = 0; k < this.prevYF.length; k++) {
+      //     prevBarH = prevBarH + this.prevYF[k][j];
+      //   }
+
+      //   if (i > 0 && !w.globals.isXNumeric || i > 0 && w.globals.isXNumeric && w.globals.seriesX[i - 1][j] === w.globals.seriesX[i][j]) {
+      //     var bYP;
+      //     var prevYValue = this.prevY[i - 1][j];
+
+      //     if (this.prevYVal[i - 1][j] < 0) {
+      //       if (this.series[i][j] >= 0) {
+      //         bYP = prevYValue - prevBarH + (this.isReversed ? prevBarH : 0) * 2;
+      //       } else {
+      //         bYP = prevYValue;
+      //       }
+      //     } else {
+      //       if (this.series[i][j] >= 0) {
+      //         bYP = prevYValue;
+      //       } else {
+      //         bYP = prevYValue + prevBarH - (this.isReversed ? prevBarH : 0) * 2;
+      //       }
+      //     }
+
+      //     barYPosition = bYP;
+      //   } else {
+      //     // the first series will not have prevY values, also if the prev index's series X doesn't matches the current index's series X, then start from zero
+      //     barYPosition = w.globals.gridHeight - zeroH;
+      //   }
+
+      //   y = barYPosition - this.series[i][j] / this.yRatio[this.yaxisIndex] + (this.isReversed ? this.series[i][j] / this.yRatio[this.yaxisIndex] : 0) * 2;
+      //   this.yArrj.push(y);
+      //   this.yArrjF.push(Math.abs(barYPosition - y));
+      //   this.yArrjVal.push(this.series[i][j]);
+      //   pathTo = this.graphics.move(barXPosition, barYPosition);
+      //   pathFrom = this.graphics.move(barXPosition, barYPosition);
+
+      //   if (w.globals.previousPaths.length > 0) {
+      //     pathFrom = this.bar.getPathFrom(realIndex, j, false);
+      //   }
+
+      //   pathTo = pathTo + this.graphics.line(barXPosition, y) + this.graphics.line(barXPosition + barWidth - strokeWidth, y) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition, barYPosition);
+      //   pathFrom = pathFrom + this.graphics.line(barXPosition, barYPosition) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition, barYPosition);
+
+      //   if (w.config.plotOptions.bar.colors.backgroundBarColors.length > 0 && i === 0) {
+      //     if (bc >= w.config.plotOptions.bar.colors.backgroundBarColors.length) {
+      //       bc = 0;
+      //     }
+
+      //     var bcolor = w.config.plotOptions.bar.colors.backgroundBarColors[bc];
+      //     var rect = this.graphics.drawRect(barXPosition, 0, barWidth, w.globals.gridHeight, 0, bcolor, w.config.plotOptions.bar.colors.backgroundBarOpacity);
+      //     elSeries.add(rect);
+      //     rect.node.classList.add('apexcharts-backgroundBar');
+      //   }
+
+      //   x = x + xDivision;
+      //   return {
+      //     pathTo: pathTo,
+      //     pathFrom: pathFrom,
+      //     x: w.globals.isXNumeric ? x - xDivision : x,
+      //     y: y
+      //   };
+      // }
+      //I Updated this plugin function to resolve the error 
       key: "drawColumnPaths",
-      value: function drawColumnPaths(_ref2) {
-        var indexes = _ref2.indexes,
-            x = _ref2.x,
-            y = _ref2.y,
-            xDivision = _ref2.xDivision,
-            pathTo = _ref2.pathTo,
-            pathFrom = _ref2.pathFrom,
-            barWidth = _ref2.barWidth,
-            zeroH = _ref2.zeroH,
-            strokeWidth = _ref2.strokeWidth,
-            elSeries = _ref2.elSeries;
-        var w = this.w;
-        var i = indexes.i;
-        var j = indexes.j;
-        var realIndex = indexes.realIndex;
-        var bc = indexes.bc;
+value: function drawColumnPaths(_ref2) {
+    var indexes = _ref2.indexes,
+        x = _ref2.x,
+        y = _ref2.y,
+        xDivision = _ref2.xDivision,
+        pathTo = _ref2.pathTo,
+        pathFrom = _ref2.pathFrom,
+        barWidth = _ref2.barWidth,
+        zeroH = _ref2.zeroH,
+        strokeWidth = _ref2.strokeWidth,
+        elSeries = _ref2.elSeries;
+    
+    var w = this.w;
+    var i = indexes.i;
+    var j = indexes.j;
+    var realIndex = indexes.realIndex;
+    var bc = indexes.bc;
 
-        if (w.globals.isXNumeric) {
-          var seriesVal = w.globals.seriesX[i][j];
-          if (!seriesVal) seriesVal = 0;
-          x = (seriesVal - w.globals.minX) / this.xRatio - barWidth / 2;
+    // Handle numeric x values
+    if (w.globals.isXNumeric) {
+        var seriesVal = w.globals.seriesX[i][j] || 0; // Default to 0 if seriesVal is undefined
+        x = (seriesVal - w.globals.minX) / this.xRatio - barWidth / 2;
+    }
+
+    var barXPosition = x;
+    var barYPosition;
+    var prevBarH = 0;
+
+    // Calculate previous bar height
+    for (var k = 0; k < this.prevYF.length; k++) {
+        prevBarH += this.prevYF[k][j];
+    }
+
+    // Determine barYPosition based on previous values
+    if (i > 0 && !w.globals.isXNumeric || (i > 0 && w.globals.isXNumeric && w.globals.seriesX[i - 1][j] === w.globals.seriesX[i][j])) {
+        var prevYValue = this.prevY[i - 1][j];
+        barYPosition = (this.prevYVal[i - 1][j] < 0) 
+            ? (this.series[i][j] >= 0 ? prevYValue - prevBarH + (this.isReversed ? prevBarH : 0) * 2 : prevYValue) 
+            : (this.series[i][j] >= 0 ? prevYValue : prevYValue + prevBarH - (this.isReversed ? prevBarH : 0) * 2);
+    } else {
+        barYPosition = w.globals.gridHeight - zeroH;
+    }
+
+    y = barYPosition - this.series[i][j] / this.yRatio[this.yaxisIndex] + (this.isReversed ? this.series[i][j] / this.yRatio[this.yaxisIndex] : 0) * 2;
+    this.yArrj.push(y);
+    this.yArrjF.push(Math.abs(barYPosition - y));
+    this.yArrjVal.push(this.series[i][j]);
+    pathTo = this.graphics.move(barXPosition, barYPosition);
+    pathFrom = this.graphics.move(barXPosition, barYPosition);
+
+    if (w.globals.previousPaths.length > 0) {
+        pathFrom = this.bar.getPathFrom(realIndex, j, false);
+    }
+
+    pathTo += this.graphics.line(barXPosition, y) +
+               this.graphics.line(barXPosition + barWidth - strokeWidth, y) +
+               this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) +
+               this.graphics.line(barXPosition, barYPosition);
+
+    pathFrom += this.graphics.line(barXPosition, barYPosition) +
+                 this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) +
+                 this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) +
+                 this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) +
+                 this.graphics.line(barXPosition, barYPosition);
+
+    // Ensure backgroundBarColors has values
+    if (w.config.plotOptions.bar.colors.backgroundBarColors.length > 0 && i === 0) {
+        if (bc >= w.config.plotOptions.bar.colors.backgroundBarColors.length) {
+            bc = 0; // Wrap bc to prevent out-of-bounds access
         }
 
-        var barXPosition = x;
-        var barYPosition;
-        var prevBarH = 0;
+        var bcolor = w.config.plotOptions.bar.colors.backgroundBarColors[bc];
 
-        for (var k = 0; k < this.prevYF.length; k++) {
-          prevBarH = prevBarH + this.prevYF[k][j];
-        }
+        // Debugging Logs
+        console.log("barXPosition:", barXPosition);
+        console.log("barWidth:", barWidth);
+        console.log("gridHeight:", w.globals.gridHeight);
+        console.log("bcolor:", bcolor);
+        console.log("elSeries:", elSeries);
 
-        if (i > 0 && !w.globals.isXNumeric || i > 0 && w.globals.isXNumeric && w.globals.seriesX[i - 1][j] === w.globals.seriesX[i][j]) {
-          var bYP;
-          var prevYValue = this.prevY[i - 1][j];
-
-          if (this.prevYVal[i - 1][j] < 0) {
-            if (this.series[i][j] >= 0) {
-              bYP = prevYValue - prevBarH + (this.isReversed ? prevBarH : 0) * 2;
-            } else {
-              bYP = prevYValue;
-            }
-          } else {
-            if (this.series[i][j] >= 0) {
-              bYP = prevYValue;
-            } else {
-              bYP = prevYValue + prevBarH - (this.isReversed ? prevBarH : 0) * 2;
-            }
-          }
-
-          barYPosition = bYP;
+        var rect = this.graphics.drawRect(barXPosition, 0, barWidth, w.globals.gridHeight, 0, bcolor, w.config.plotOptions.bar.colors.backgroundBarOpacity);
+        
+        if (rect) {
+            elSeries.add(rect); // Ensure rect is valid before adding
+            rect.node.classList.add('apexcharts-backgroundBar');
         } else {
-          // the first series will not have prevY values, also if the prev index's series X doesn't matches the current index's series X, then start from zero
-          barYPosition = w.globals.gridHeight - zeroH;
+            console.error("Failed to create rectangle.");
         }
+    }
 
-        y = barYPosition - this.series[i][j] / this.yRatio[this.yaxisIndex] + (this.isReversed ? this.series[i][j] / this.yRatio[this.yaxisIndex] : 0) * 2;
-        this.yArrj.push(y);
-        this.yArrjF.push(Math.abs(barYPosition - y));
-        this.yArrjVal.push(this.series[i][j]);
-        pathTo = this.graphics.move(barXPosition, barYPosition);
-        pathFrom = this.graphics.move(barXPosition, barYPosition);
+    x += xDivision;
+    return {
+        pathTo: pathTo,
+        pathFrom: pathFrom,
+        x: w.globals.isXNumeric ? x - xDivision : x,
+        y: y
+    };
+}
 
-        if (w.globals.previousPaths.length > 0) {
-          pathFrom = this.bar.getPathFrom(realIndex, j, false);
-        }
-
-        pathTo = pathTo + this.graphics.line(barXPosition, y) + this.graphics.line(barXPosition + barWidth - strokeWidth, y) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition, barYPosition);
-        pathFrom = pathFrom + this.graphics.line(barXPosition, barYPosition) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition + barWidth - strokeWidth, barYPosition) + this.graphics.line(barXPosition, barYPosition);
-
-        if (w.config.plotOptions.bar.colors.backgroundBarColors.length > 0 && i === 0) {
-          if (bc >= w.config.plotOptions.bar.colors.backgroundBarColors.length) {
-            bc = 0;
-          }
-
-          var bcolor = w.config.plotOptions.bar.colors.backgroundBarColors[bc];
-          var rect = this.graphics.drawRect(barXPosition, 0, barWidth, w.globals.gridHeight, 0, bcolor, w.config.plotOptions.bar.colors.backgroundBarOpacity);
-          elSeries.add(rect);
-          rect.node.classList.add('apexcharts-backgroundBar');
-        }
-
-        x = x + xDivision;
-        return {
-          pathTo: pathTo,
-          pathFrom: pathFrom,
-          x: w.globals.isXNumeric ? x - xDivision : x,
-          y: y
-        };
-      }
     }]);
 
     return BarStacked;

@@ -1,13 +1,22 @@
 import React from 'react'
+import {useEffect} from 'react';
+// import "./webLayout.css";
+import initSearch from './Animation';
+import { Link } from 'react-router-dom'
 export const WebNavbar = () => {
+  useEffect(() => {
+    initSearch(); // Initialize the search functionality
+}, []);
+
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom-0">
+    <nav class="navbar custom-navbar sticky-top navbar-expand-lg bg-body-tertiary border-bottom-0  ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">InfoSys</a>
+      
+      <a class="navbar-brand logo-effect brand-name" href="#">InfoSys</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span> <i class="fa-solid fa-bars"></i> </span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -30,14 +39,39 @@ export const WebNavbar = () => {
           <li class="nav-item">
             <a class="nav-link" href="#">Download</a>
           </li>
-          </ul>
-        <form class="d-flex" role="search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <li class="nav-item">
+            <Link class="nav-link" to="/dashboard"> Dashboard</Link>
+          </li>
           
-        </form>
+          </ul>
+       
+        <form class="d-flex" role="search" id="searchForm">
+    <span class="nav-search-icon" id="searchIcon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </span>
+    <input class="form-control me-2 nav-search-input" type="search" placeholder="Search" aria-label="Search" id="searchInput"/>
+</form>
+
+        
       </div>
+      <div className="account-btn">
+      <div class="button">
+  <div class="button-wrapper">
+    <div class="text">Sign Up</div>
+    <span class="icon">
+      <i class="fa-solid fa-user-plus"></i>
+    </span>
+  </div>
+</div>
+<div class="button">
+  <div class="button-wrapper">
+    <div class="text">Login</div>
+    <span class="icon">
+    <i class="fa-solid fa-user-shield"></i>
+    </span>
+  </div>
+</div>
+</div>
     </div>
   </nav>
   )

@@ -122,7 +122,7 @@ export const UserProfile = () => {
 </div>
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     
     <div class="card card-default" data-scroll-height="530">
       <div class="card-header">
@@ -187,7 +187,7 @@ export const UserProfile = () => {
       </div>
     </div>
   </div>
-  <div class="col-lg-6">
+  {/* <div class="col-lg-6">
     
     <div class="card card-default pb-4" id="todo">
       <div class="card-header mb-3">
@@ -255,7 +255,7 @@ export const UserProfile = () => {
 
 
 
-  </div>
+  </div> */}
 </div>
             
                 <div class="row">
