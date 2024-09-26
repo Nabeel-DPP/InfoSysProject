@@ -1,10 +1,37 @@
-.overall-layout {
-    background-image: url("backgroundImage.jpg"); /* Update with your image path */
-    background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    min-height: 100vh; /* Ensure it covers the full viewport height */
+/* .overall-layout {
+    background-image: url("backgroundImage.jpg"); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    min-height: 100vh; 
 }
+
+.overall-layout::before {
+  content: ''; 
+  position: absolute; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+ 
+  z-index: 1;
+} */
+
+/* Ensure content stays above the overlay */
+.overall-layout * {
+  position: relative;
+  z-index: 2; /* Keeps content above the overlay */
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -41,7 +68,8 @@
   align-items: center;
   justify-content: center;
   font-size: 24px; /* Adjust size based on your requirement */
-  font-weight: bold;
+  font-weight:700 !important;
+  font-family: "PT Serif" ,sans-serif !important;
   color: #000; /* Text color */
   background-color: #fff; /* Background of the text */
   padding: 10px;
@@ -95,7 +123,7 @@
     visibility: visible; 
 } */
  /* From Uiverse.io by vnuny */ 
- .container {
+ .searchContainer {
   position: relative;
   box-sizing: border-box;
   width: fit-content;
@@ -104,12 +132,14 @@
 .mainbox {
   box-sizing: border-box;
   position: relative;
-  width: 50px; /* Initially only the icon width */
+  width: 40px; /* Initially only the icon width */
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 200px;
+  border-radius: 220px;
+  color: white !important;
+  font-size: 14px ;
   background-color: rgb(0, 0, 0);
   transition: all 0.3s ease;
 }
@@ -126,7 +156,7 @@
 
 .checkbox:checked ~ .mainbox .search_input {
   width: 170px; /* Expanded input width */
-  padding-left: 40px; /* Create space for the icon inside the input */
+  padding-left: 20px; /* Create space for the icon inside the input */
 }
 
 .checkbox {
@@ -200,6 +230,8 @@
 /* Here I set the Hover Property on the Navbar Links */
 .Navbar-nav li >.nav-link {
     color: var(--raziBlue) !important;
+    font-family: "PT Sans" ,sans-serif !important;
+    font-weight: 600 !important;
     text-decoration: none; /* Remove the default underline */
     position: relative;     /* Position for the underline */
     transition: color 0.3s ease; /* Smooth color transition */
@@ -212,7 +244,7 @@
     bottom: 0;
     width: 0;
     height: 2px; /* Thickness of the underline */
-    background-color: var(--raziBlue); /* Same color as the link */
+    background-color: black !important; /* Same color as the link */
     transition: width 0.5s ease; /* Smooth width transition */
 }
 
@@ -243,6 +275,9 @@
 .custom-navbar
 {
     background-color: white !important;
+    z-index: 1030 !important;
+    position: sticky; /* Makes the navbar sticky */
+    top: 0; /* Sticks to the top of the viewport */
 }
 .custom-footer
 {
@@ -366,6 +401,7 @@
   {
     display: flex ;
     gap: 10px !important;
+    margin-left: 50px;
   }
 
 
@@ -373,3 +409,54 @@
   
   
   
+/* Media Queries for the web layout */
+
+/* Remove left margin from the collapsed navbar on mobile screens */
+@media (max-width: 768px) {
+  .searchContainer {
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+    padding-left: 7px;
+    margin-bottom: 25px ;
+    width: 90% ;
+  }
+
+  .mainbox {
+    justify-content: flex-end; /* Align the search bar and icon to the right */
+  }
+
+  .checkbox:checked ~ .mainbox {
+    width: 100%; /* Expand to full width on mobile */
+     
+  }
+
+  .checkbox:checked ~ .mainbox .search_input {
+    width: 100%; /* Ensure input expands fully to the right */
+    padding-right: 20px; /* Space for the icon inside the input */
+    padding-left: 0; /* Adjust left padding to 0 */
+  }
+
+  .search_icon {
+    position: absolute;
+    right: 10px; /* Position icon on the right side */
+    top: -10px;
+  }
+
+
+  .Navbar-nav li >.nav-link:hover::after {
+    width: 10%; /* Expand the underline on hover */
+}
+.account-btn
+{
+  justify-content: space-around;
+  padding-left: 0px;
+  margin-bottom: 10px !important;
+  margin-left: 0;
+}
+
+
+
+
+
+}

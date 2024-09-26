@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect , useState } from 'react';
 import { RenderCharts } from '../../js/chart';
 // import "../js/chart.js";
-import ApexCharts from 'apexcharts'
 export const Dashboard = () => {
   useEffect(() => {
 //     // Chart 1

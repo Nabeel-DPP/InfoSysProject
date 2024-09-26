@@ -45,7 +45,7 @@ export const WebLayout = () => {
       ) : (
         <>
           <WebNavbar />
-          <div className='webOutlet flex-grow-1'>
+          <div className='webOutlet flex-grow-1 mx-0 px-0 py-0'>
             <Outlet />
           </div>
           <WebFooter />

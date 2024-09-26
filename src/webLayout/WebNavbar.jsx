@@ -10,7 +10,7 @@ export const WebNavbar = () => {
 }, []);
 
   return (
-    <div class="navbar custom-navbar sticky-top navbar-expand-lg bg-body-tertiary border-bottom-0  ">
+    <div class="navbar custom-navbar navbar-expand-lg bg-body-tertiary border-bottom-0  ">
     <div class="container-fluid">
       
       {/* <a class="navbar-brand logo-effect brand-name" href="#">InfoSys</a> */}
@@ -25,7 +25,7 @@ export const WebNavbar = () => {
   </div>
 </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span> <i class="fa-solid fa-bars"></i> </span>
       </button>
       <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
@@ -37,13 +37,13 @@ export const WebNavbar = () => {
             <a class="nav-link" href="#">Operations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Stock & Salary</a>
+            <a class="nav-link" href="#">Stock</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Management</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">User & Rights</a>
+            <a class="nav-link" href="#">Rights</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Reports</a>
@@ -64,7 +64,7 @@ export const WebNavbar = () => {
     <input class="form-control me-2 nav-search-input" type="search" placeholder="Search" aria-label="Search" id="searchInput"/>
 </form> */}
 
-<div class="container" id="searchContainer">
+<div class="searchContainer" id="searchContainer">
   <input id="checkbox" class="checkbox" type="checkbox" />
   <div class="mainbox">
     <div class="iconContainer">
@@ -74,11 +74,7 @@ export const WebNavbar = () => {
   </div>
 </div>
 
-
-
-        
-      </div>
-      <div className="account-btn">
+<div className="account-btn">
       <div class="button">
   <div class="button-wrapper">
     <div class="text">Sign Up</div>
@@ -96,6 +92,10 @@ export const WebNavbar = () => {
   </div>
 </div>
 </div>
+
+        
+      </div>
+     
     </div>
   </div>
   )
