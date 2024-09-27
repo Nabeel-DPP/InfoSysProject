@@ -1,11 +1,11 @@
 import React from 'react'
 import "./Distributer.css";
-// import Table from './components/Table';
+import Table from './Table';
 export const Distributer = () => {
   return (
    <>
-   {/* <Table/> */}
-   This is Distributer
+   <Table/>
+   
    </>
   )
 }
