@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.1",
+    "@mui/styled-engine-sc": "^6.1.1",
+    "@mui/x-data-grid": "^7.18.0",
     "apexcharts": "^3.53.0",
     "axios": "^1.7.7",
     "bootstrap": "^4.4.1",
@@ -32,7 +37,8 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-top-loading-bar": "^2.3.1",
-    "sass": "^1.53.0"
+    "sass": "^1.53.0",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

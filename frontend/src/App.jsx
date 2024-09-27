@@ -5,6 +5,8 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/style.css";
 import "../js/custom.js";
+// import "../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js";
+
 // import $ from 'jquery';
 
 // import "../js/chart.js";
@@ -23,6 +25,7 @@ import { WebLayout } from "./webLayout/WebLayout.jsx";
 import { OrderSection } from "./OrderSection.jsx";
 import { StockSection } from "./StockSection.jsx";
 import { ManageSection } from "./ManageSection.jsx";
+import { Distributer } from "./Distributer.jsx";
 // import "../js/mono.js";
 
 
@@ -44,6 +47,7 @@ import { ManageSection } from "./ManageSection.jsx";
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/orders" element={<OrderSection />} />
           <Route path="/stocks" element={<StockSection />} />
+          <Route path="/dist" element={<Distributer/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/userActivity" element={<UserActivity />} />

@@ -244,7 +244,7 @@ export const SideBar = () => {
   </Link>
                             </li>
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/dist"} className="sidenav-item-link">
     
     <span className="nav-text">
       Distributors
