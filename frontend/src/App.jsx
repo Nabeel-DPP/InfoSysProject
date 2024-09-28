@@ -26,6 +26,7 @@ import { OrderSection } from "./OrderSection.jsx";
 import { StockSection } from "./StockSection.jsx";
 import { ManageSection } from "./ManageSection.jsx";
 import { Distributer } from "./Distributer.jsx";
+import { TableForm } from "./TableForm.jsx";
 // import "../js/mono.js";
 
 
@@ -48,6 +49,7 @@ import { Distributer } from "./Distributer.jsx";
           <Route path="/orders" element={<OrderSection />} />
           <Route path="/stocks" element={<StockSection />} />
           <Route path="/dist" element={<Distributer/>} />
+          <Route path="/tableForm" element={<TableForm/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/userActivity" element={<UserActivity />} />
