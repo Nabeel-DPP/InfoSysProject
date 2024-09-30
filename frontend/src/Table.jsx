@@ -2,7 +2,6 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import "./Table.css";
-import { TableForm } from './TableForm';
 import { useNavigate , useLocation} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState , useEffect } from 'react';
@@ -89,9 +88,11 @@ export default function Table() {
       width: 100,
       renderCell: (params) => (
         <div className="text-center">
+          <Link to="/signUp">
         <button variant="contained" color="primary">
           <i  class="tableIcons login-btn fa-solid fa-user-plus"></i>
         </button>
+        </Link>
         </div>
       ),
     },

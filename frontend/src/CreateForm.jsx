@@ -74,34 +74,7 @@ export function CreateForm() {
               onChange={handleInputChange}
             />
           </div>
-           {/* <div className="col-md-5 mb-3">
-            <label htmlFor="saleArea" className="form-label">Sale Area</label>
-            <input
-              type="text"
-              className="form-control"
-              id="saleArea"
-              name="saleArea"
-              value={formData.saleArea}
-              onChange={handleInputChange}
-            />
-          </div> */}
-
-
-
-{/* <div class="col-md-5">
-<label htmlFor="saleArea" className="form-label">Sale Area</label>
-  <div class="select-container">
-    <select>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-  </div>
-</div>
-         */}
-
-
-
+          
 
 
 <div className="col-md-5 mb-3">
@@ -165,17 +138,7 @@ export function CreateForm() {
         </div>
 
         <div className="row">
-          {/* <div className="col-md-6 mb-3">
-            <label htmlFor="distSince" className="form-label">Distributor Since</label>
-            <input
-              type="text"
-              className="form-control"
-              id="distSince"
-              name="distSince"
-              value={formData.distSince}
-              onChange={handleInputChange}
-            />
-          </div> */}
+         
           <div className="col-md-2 mb-3">
             <label htmlFor="adTax" className="form-label">Ad Tax</label>
             <input
@@ -212,28 +175,7 @@ export function CreateForm() {
         </div>
 
         <div className="row">
-          {/* <div className="col-md-3 mb-3">
-            <label htmlFor="ssr" className="form-label">Distributor Type</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ssr"
-              name="ssr"
-              value={formData.ssr}
-              onChange={handleInputChange}
-            />
-          </div> */}
-
-{/* <div class="col-md-3">
-<label htmlFor="distName" className="form-label">Distributor Type</label>
-  <div class="select-container">
-    <select>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-  </div>
-</div> */}
+         
 <div className="col-md-3 mb-3">
             <label htmlFor="distType" className="form-label">Distributor Type</label>
             <select
@@ -249,29 +191,7 @@ export function CreateForm() {
             </select>
           </div>
 
-          {/* <div className="col-md-3 mb-3">
-            <label htmlFor="ssr" className="form-label">Zone</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ssr"
-              name="ssr"
-              value={formData.ssr}
-              onChange={handleInputChange}
-            />
-          </div> */}
-
-{/* <div class="col-md-3">
-<label htmlFor="zone" className="form-label">Zone</label>
-  <div class="select-container">
-    <select>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-  </div>
-</div> */}
-
+          
 
 <div className="col-md-3 mb-3">
             <label htmlFor="zone" className="form-label">Zone</label>
@@ -288,29 +208,6 @@ export function CreateForm() {
             </select>
           </div>
 
-
-          {/* <div className="col-md-2 mb-3">
-            <label htmlFor="ssr" className="form-label">Province</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ssr"
-              name="ssr"
-              value={formData.ssr}
-              onChange={handleInputChange}
-            />
-          </div> */}
-
-{/* <div class="col-md-2">
-<label htmlFor="province" className="form-label">Province</label>
-  <div class="select-container">
-    <select>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-  </div>
-</div> */}
 <div className="col-md-2 mb-3">
             <label htmlFor="province" className="form-label">Province</label>
             <select
@@ -325,33 +222,6 @@ export function CreateForm() {
               <option value="Province2">Province 2</option>
             </select>
           </div>
-
-
-
-
-          {/* <div className="col-md-2 mb-3">
-            <label htmlFor="ssr" className="form-label">Status</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ssr"
-              name="ssr"
-              value={formData.ssr}
-              onChange={handleInputChange}
-            />
-          </div> */}
-
-
-{/* <div class="col-md-2">
-<label htmlFor="status" className="form-label">Status</label>
-  <div class="select-container">
-    <select>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-  </div>
-</div> */}
 
 
 
@@ -371,28 +241,7 @@ export function CreateForm() {
           </div>
 
 
-          {/* <div className="col-md-2 mb-3">
-            <label htmlFor="ssr" className="form-label">SSR Status</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ssr"
-              name="ssr"
-              value={formData.ssr}
-              onChange={handleInputChange}
-            />
-          </div> */}
-
-{/* <div class="col-md-2">
-<label  htmlFor="ssr" className="form-label">SSR Status</label>
-  <div class="select-container">
-    <select>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-  </div>
-</div> */}
+          
 
 
 <div className="col-md-2 mb-3">
@@ -423,29 +272,7 @@ export function CreateForm() {
 
 
         <div className="row">
-          {/* <div className="col-md-3 mb-3">
-            <label htmlFor="ssr" className="form-label">Distributor Type</label>
-            <input
-              type="text"
-              className="form-control"
-              id="ssr"
-              name="ssr"
-              value={formData.ssr}
-              onChange={handleInputChange}
-            />
-          </div> */}
-
-
-{/* <div class="col-md-3">
-<label htmlFor="strn" className="form-label">STRN</label>
-  <div class="select-container">
-    <select>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-  </div>
-</div> */}
+         
 
 <div className="col-md-2 mb-3">
             <label htmlFor="strn" className="form-label">STRN</label>
