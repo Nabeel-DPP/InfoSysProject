@@ -1,7 +1,11 @@
 import React from 'react'
 import { useEffect , useState } from 'react';
 import { RenderCharts } from '../../js/chart';
+// import "../../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"
 // import "../js/chart.js";
+import "../../js/custom.js"
+// import "../../js/mono.js"
+// import "../../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js";
 export const Dashboard = () => {
   useEffect(() => {
 //     // Chart 1
@@ -250,6 +254,7 @@ export const Dashboard = () => {
 
   return (
     <div  className='content-wrapper' >
+      
       <div className="content">                
                 
                   <div className="row">

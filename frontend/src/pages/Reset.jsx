@@ -4,16 +4,16 @@ export const Reset = () => {
   return (
     <div>
          <body className="bg-light-gray" id="body">
-          <div className="container d-flex align-items-center justify-content-center" style={{height: "100vh"}}>
+          <div className="container form d-flex align-items-center justify-content-center" style={{height: "100vh"}}>
           <div className="d-flex flex-column justify-content-between">
             <div className="row justify-content-center mt-5">
               <div className="col-md-10">
-                <div className="card card-default">
+                <div className="card card-default form-container">
                   <div className="card-header">
                     <div className="app-brand w-100 d-flex justify-content-center border-bottom-0">
                       <a className="w-auto pl-0" href="/index.html">
-                        <img src="images/logo.png" alt="Mono"/>
-                        <span className="brand-name text-dark">RAAZEE</span>
+                        <img src="images/logo.png" style={{height:"50px"}} alt="RAAZEE"/>
+                        <span className="brand-name form-head text-dark">InfoSys</span>
                       </a>
                     </div>
                   </div>
@@ -26,7 +26,7 @@ export const Reset = () => {
                         </div>
 
                         <div className="col-md-12">
-                          <button type="submit" className="btn btn-primary btn-pill mb-4">Submit</button>
+                          <button type="submit" className="btn btn-blue btn-pill mb-4">Submit</button>
 
                           <p>Already have an account?
 

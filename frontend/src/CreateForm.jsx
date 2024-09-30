@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./TableForm.css";
-export function TableForm() {
-  const location = useLocation();
+export function CreateForm() {
   const navigate = useNavigate();
-  const { row } = location.state || {}; // Retrieve the passed row from navigation state
+ 
 
   const [formData, setFormData] = useState({
     id: "",
@@ -15,24 +14,21 @@ export function TableForm() {
     distSince: "",
     status: "",
     ssr: "",
-    adTax: ""
+    adTax: "",
+    phone1:"",
+    phone2:"",
+    lock:"",
+    address:"",
+    distType:"",
+    zone: "",
+    province:"",
+    strn:"",
+    ntc:"",
+    cnic:"",
+    glCustomer:""
   });
 
-  // Populate the form with the row data on load
-  useEffect(() => {
-    if (row) {
-      setFormData({
-        id: row.id,
-        distName: row.distName,
-        saleArea: row.saleArea,
-        email: row.email,
-        distSince: row.distSince,
-        status: row.status,
-        ssr: row.ssr,
-        adTax: row.adTax
-      });
-    }
-  }, [row]);
+ 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,12 +41,14 @@ export function TableForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form data submitted:", formData);
-    navigate("/dist"); // Navigate back to the table after submission
+    navigate("/dist", { state: { formData } });
+    
+    // navigate("/dist"); // Navigate back to the table after submission
   };
 
   return (
     <div className="border mt-5 p-3 form-container">
-      <h3 className="text-center col-md-12 border form-head-text p-2">Edit Distributor's Details</h3>
+      <h3 className="text-center col-md-12 border form-head-text p-2">Add Distributor's Details</h3>
       <form className="form mt-5"  onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-md-2 mb-3">
@@ -62,7 +60,7 @@ export function TableForm() {
               name="id"
               value={formData.id}
               onChange={handleInputChange}
-              disabled
+              
             />
           </div>
           <div className="col-md-5 mb-3">
@@ -76,6 +74,36 @@ export function TableForm() {
               onChange={handleInputChange}
             />
           </div>
+           {/* <div className="col-md-5 mb-3">
+            <label htmlFor="saleArea" className="form-label">Sale Area</label>
+            <input
+              type="text"
+              className="form-control"
+              id="saleArea"
+              name="saleArea"
+              value={formData.saleArea}
+              onChange={handleInputChange}
+            />
+          </div> */}
+
+
+
+{/* <div class="col-md-5">
+<label htmlFor="saleArea" className="form-label">Sale Area</label>
+  <div class="select-container">
+    <select>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+  </div>
+</div>
+         */}
+
+
+
+
+
 <div className="col-md-5 mb-3">
             <label htmlFor="saleArea" className="form-label">Sale Area</label>
             <select
@@ -102,13 +130,13 @@ export function TableForm() {
 
         <div className="row">
         <div className="col-md-2 mb-3">
-            <label htmlFor="email" className="form-label">Lock Days</label>
+            <label htmlFor="lock" className="form-label">Lock Days</label>
             <input
               type="number"
               className="form-control"
               id="lock"
               name="lock"
-              value={formData.email}
+              value={formData.lock}
               onChange={handleInputChange}
             />
           </div>
@@ -368,17 +396,17 @@ export function TableForm() {
 
 
 <div className="col-md-2 mb-3">
-            <label htmlFor="ssr" className="form-label">SSR Status</label>
+            <label htmlFor="ssrStatus" className="form-label">SSR Status</label>
             <select
               className="form-control"
-              id="ssr"
-              name="ssr"
+              id="ssrStatus"
+              name="ssrStatus"
               value={formData.ssr}
               onChange={handleInputChange}
             >
-              <option value="">SSR</option>
-              <option value="ssr1">SSR 1</option>
-              <option value="ssr2">SSR 2</option>
+              <option value={formData.ssr}>{formData.ssr}</option>
+              <option value="SSR1">SSR 1</option>
+              <option value="SSR2">SSR 2</option>
             </select>
           </div>
 
@@ -418,7 +446,23 @@ export function TableForm() {
     </select>
   </div>
 </div> */}
+
 <div className="col-md-2 mb-3">
+            <label htmlFor="strn" className="form-label">STRN</label>
+            <select
+              className="form-control"
+              id="strn"
+              name="strn"
+              value={formData.strn}
+              onChange={handleInputChange}
+            >
+              <option value="">SSR Status</option>
+              <option value="SSR1">SSR 1</option>
+              <option value="SSR2">SSR 2</option>
+            </select>
+          </div>
+
+          <div className="col-md-2 mb-3">
             <label htmlFor="distSince" className="form-label">Distributor Since</label>
             <input
               type="date"
@@ -431,31 +475,8 @@ export function TableForm() {
           </div>
 
 
-
-
-
-
-
-
-<div className="col-md-2 mb-3">
-            <label htmlFor="strn" className="form-label">STRN</label>
-            <select
-              className="form-control"
-              id="strn"
-              name="strn"
-              value={formData.strn}
-              onChange={handleInputChange}
-            >
-              <option value="">STRN Status</option>
-              <option value="STRN1">SSR 1</option>
-              <option value="STRN2">SSR 2</option>
-            </select>
-          </div>
-
-
-
-
-          <div className="col-md-2 mb-3">
+         
+   <div className="col-md-2 mb-3">
             <label htmlFor="ntc" className="form-label">NTC</label>
             <input
               type="text"
@@ -508,6 +529,8 @@ export function TableForm() {
           </div>
         </div>
       </form>
+     
+     
     </div>
   );
 }

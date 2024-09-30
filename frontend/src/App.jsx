@@ -5,6 +5,8 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/style.css";
 import "../js/custom.js";
+import 'react-quill/dist/quill.snow.css';
+import hotkeys from 'hotkeys-js';
 // import "../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js";
 
 // import $ from 'jquery';
@@ -27,6 +29,7 @@ import { StockSection } from "./StockSection.jsx";
 import { ManageSection } from "./ManageSection.jsx";
 import { Distributer } from "./Distributer.jsx";
 import { TableForm } from "./TableForm.jsx";
+import { CreateForm } from "./CreateForm.jsx";
 // import "../js/mono.js";
 
 
@@ -37,12 +40,13 @@ import { TableForm } from "./TableForm.jsx";
         {/* Routes with MainLayout for home and public pages */}
         {/* <Route element={<WebLayout />}>
           <Route index element={<Home />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/reset" element={<Reset />} />
+          
         </Route> */}
 
         {/* Routes with Layout (dashboard layout) */}
+        <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/reset" element={<Reset />} />
         <Route element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />
@@ -50,6 +54,7 @@ import { TableForm } from "./TableForm.jsx";
           <Route path="/stocks" element={<StockSection />} />
           <Route path="/dist" element={<Distributer/>} />
           <Route path="/tableForm" element={<TableForm/>} />
+          <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/userActivity" element={<UserActivity />} />

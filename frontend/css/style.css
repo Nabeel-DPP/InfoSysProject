@@ -3650,8 +3650,8 @@ input[type=button].btn-block {
 }
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #ffffff;
-  border-color: #9e6de0;
-  background-color: #9e6de0;
+  border-color: #00669c;
+  background-color: #00669c;
 }
 .custom-control-input:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 0.2rem transparent;
@@ -11506,7 +11506,7 @@ p {
 }
 
 ::selection {
-  background-color: #9e6de0;
+  background-color:#0070cc;
   color: #ffffff;
 }
 
@@ -17459,3 +17459,8 @@ html[dir=rtl] .sidebar li > a .caret:before {
   color: var(--raziBlue);
 }
 
+.form-head
+{
+  font-size: 35px !important;
+  font-weight: 600 !important;
+}

@@ -1,20 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import "../TableForm.css";
 export const SignUp = () => {
   return (
     <div>
-         <body className="bg-light-gray" id="body">
+         <body className="bg-light-gray border-4" id="body">
           <div className="container d-flex align-items-center justify-content-center" style={{height: "100vh"}}>
-          <div className="d-flex flex-column justify-content-between">
+          <div className="d-flex flex-column justify-content-between ">
             <div className="row justify-content-center">
-              <div className="col-lg-6 col-xl-5 col-md-10 ">
-                <div className="card card-default mb-0">
+              <div className="col-lg-6 col-xl-5 col-md-10">
+                <div className="card card-default mb-0 form-container">
                   <div className="card-header pb-0">
                     <div className="app-brand w-100 d-flex justify-content-center border-bottom-0">
                       <a className="w-auto pl-0" href="/index.html">
-                        <img src="images/logo.png" alt="Mono"/>
-                        <span className="brand-name text-dark">RAAZEE</span>
+                        <img src="images/logo.png" style={{height:"50px"}}  alt="RAAZEE"/>
+                        <span className="brand-name form-head text-dark">InfoSys</span>
                       </a>
                     </div>
                   </div>
@@ -44,7 +44,7 @@ export const SignUp = () => {
 
                           </div>
 
-                          <button type="submit" className="btn btn-primary btn-pill mb-4">Sign Up</button>
+                          <button type="submit" className="btn btn-blue mb-4 btn-pill">Sign Up</button>
 
                           <p>Already have an account?
                          <Link to="/login" className="form-blue-text" >Login</Link>
