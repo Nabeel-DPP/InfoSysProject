@@ -367,19 +367,18 @@ export function TableForm() {
 </div> */}
 
 
-<div className="col-md-2 mb-3">
+
+
+          <div className="col-md-2 mb-3">
             <label htmlFor="ssr" className="form-label">SSR Status</label>
-            <select
+            <input
+              type="boolean"
               className="form-control"
               id="ssr"
               name="ssr"
               value={formData.ssr}
               onChange={handleInputChange}
-            >
-              <option value="">SSR</option>
-              <option value="ssr1">SSR 1</option>
-              <option value="ssr2">SSR 2</option>
-            </select>
+            />
           </div>
 
 
@@ -421,7 +420,7 @@ export function TableForm() {
 <div className="col-md-2 mb-3">
             <label htmlFor="distSince" className="form-label">Distributor Since</label>
             <input
-              type="date"
+              type="text"
               className="form-control"
               id="distSince"
               name="distSince"

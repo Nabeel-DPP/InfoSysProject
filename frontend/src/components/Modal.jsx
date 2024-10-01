@@ -12,8 +12,8 @@ export const PopUpModal = () => {
       </div>
       
       <div class="modal-footer">
-        <button  class="btn btn-outline-danger" data-bs-dismiss="modal">Yes</button>
-        <button  class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close" >No</button>
+        <button  class="btn btn-danger" data-bs-dismiss="modal">Yes</button>
+        <button  class="btn btn-blue" data-bs-dismiss="modal" aria-label="Close" >No</button>
       </div>
     </div>
   </div>

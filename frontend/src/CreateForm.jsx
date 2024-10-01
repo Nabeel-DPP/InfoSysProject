@@ -244,7 +244,7 @@ export function CreateForm() {
           
 
 
-<div className="col-md-2 mb-3">
+{/* <div className="col-md-2 mb-3">
             <label htmlFor="ssrStatus" className="form-label">SSR Status</label>
             <select
               className="form-control"
@@ -257,8 +257,22 @@ export function CreateForm() {
               <option value="SSR1">SSR 1</option>
               <option value="SSR2">SSR 2</option>
             </select>
-          </div>
+          </div> */}
 
+
+
+
+<div className="col-md-2 mb-3">
+            <label htmlFor="sssr" className="form-label">SSR Status</label>
+            <input
+              type="text"
+              className="form-control"
+              id="ssr"
+              name="ssr"
+              value={formData.ssr}
+              onChange={handleInputChange}
+            />
+          </div>
 
 
 
