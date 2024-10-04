@@ -30,6 +30,7 @@ import { ManageSection } from "./ManageSection.jsx";
 import { Distributer } from "./Distributer.jsx";
 import { TableForm } from "./TableForm.jsx";
 import { CreateForm } from "./CreateForm.jsx";
+import DemoForm from "./DemoForm.jsx";
 // import "../js/mono.js";
 
 
@@ -54,6 +55,7 @@ import { CreateForm } from "./CreateForm.jsx";
           <Route path="/stocks" element={<StockSection />} />
           <Route path="/dist" element={<Distributer/>} />
           <Route path="/tableForm" element={<TableForm/>} />
+          <Route path="/demo" element={<DemoForm/>} />
           <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />

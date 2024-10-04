@@ -1,0 +1,120 @@
+/* Distributor Form Container */
+.distributor-form__container {
+    width: 1000px ;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #1D1F26;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Form Title */
+  .distributor-form__title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    color: #1a73e8;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Input Group */
+  .distributor-input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Input Fields */
+  .distributor-input {
+    width: 100%;
+    padding: 1rem;
+    border: 1.5px solid #9e9e9e;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #333333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .distributor-input:focus {
+    border-color: #1a73e8;
+    outline: none;
+  }
+  
+  /* Floating Labels */
+  .distributor-label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777777;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  
+  .distributor-input:focus ~ .distributor-label,
+  .distributor-input:valid ~ .distributor-label {
+    top: -2px;
+    background-color: #ffffff;
+    padding: 0 5px;
+    color: #1a73e8;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  /* Radio Button Styling */
+  .distributor-radio-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .distributor-radio-label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .distributor-radio-options {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .distributor-radio-option input {
+    margin-right: 0.5rem;
+  }
+  
+  /* Checkbox Styling */
+  .distributor-checkbox-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .distributor-checkbox-label {
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .distributor-checkbox-label input {
+    margin-right: 0.5rem;
+  }
+  
+  /* Submit Button */
+  .distributor-submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1a73e8;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .distributor-submit-btn:hover {
+    background-color: #155bb5;
+  }
+  
