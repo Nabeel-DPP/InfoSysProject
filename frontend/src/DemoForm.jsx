@@ -28,9 +28,10 @@ const DemoForm = () => {
   };
 
   return (
-    <div className="distributor-form__container">
-      <h1 className="distributor-form__title">Distributor Information</h1>
+    <div className="distributor-form__container mt-5">
+     
       <form onSubmit={handleSubmit}>
+      <h1 className="distributor-form__title p-1 w-50">Distributor Information</h1>
         <div className="row">
           <div className="col-md-6">
             <div className="distributor-input-group">
@@ -46,38 +47,32 @@ const DemoForm = () => {
               <label className="distributor-label">Distributor Name</label>
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="distributor-input-group">
-              <input
+          <div className="distributor-input-group col-md-6">
+              <select
                 required
-                type="text"
-                name="contactPerson"
-                value={formData.contactPerson}
+                name="Sale Area"
+                value={formData.distributorCategory}
                 onChange={handleChange}
                 className="distributor-input"
-                autoComplete="off"
-              />
-              <label className="distributor-label">Contact Person</label>
+              >
+                <option value="" disabled hidden>
+                  
+                </option>
+                <option value="Wholesale">Wholesale</option>
+                <option value="Retail">Retail</option>
+                <option value="Dropshipping">Dropshipping</option>
+              </select>
+              <label className="distributor-label">Sale Area</label>
             </div>
-          </div>
-        </div>
+   </div>
+
+
+
+        
 
         <div className="row">
-          <div className="col-md-6">
-            <div className="distributor-input-group">
-              <input
-                required
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="distributor-input"
-                autoComplete="off"
-              />
-              <label className="distributor-label">Phone</label>
-            </div>
-          </div>
-          <div className="col-md-6">
+         
+        <div className="col-md-6">
             <div className="distributor-input-group">
               <input
                 required
@@ -91,10 +86,26 @@ const DemoForm = () => {
               <label className="distributor-label">Email</label>
             </div>
           </div>
+         
+          <div className="col-md-6">
+            <div className="distributor-input-group">
+              <input
+                required
+                type="number"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="distributor-input"
+                autoComplete="off"
+              />
+              <label className="distributor-label">Phone</label>
+            </div>
+          </div>
+          
         </div>
 
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-6">
             <div className="distributor-input-group">
               <input
                 required
@@ -108,10 +119,65 @@ const DemoForm = () => {
               <label className="distributor-label">Address</label>
             </div>
           </div>
-        </div>
 
+          <div className="col-md-6">
+            <div className="distributor-input-group">
+              <input
+                required
+                type="text"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                className="distributor-input"
+                autoComplete="off"
+              />
+              <label className="distributor-label">Lock Days</label>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+        <h1 className="distributor-form__title p-1 w-50">Area Information</h1>
         {/* Radio Button Group */}
         <div className="row">
+        
+<div class="custom-radio-group">
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option1" />
+    <span class="custom-radio-checkmark"></span>
+    Option 1
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option2" />
+    <span class="custom-radio-checkmark"></span>
+    Option 2
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option3" />
+    <span class="custom-radio-checkmark"></span>
+    Option 3
+  </label>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <div className="col-md-12">
             <div className="distributor-radio-group">
               <label className="distributor-radio-label">Distributor Type</label>
@@ -170,7 +236,7 @@ const DemoForm = () => {
                 className="distributor-input"
               >
                 <option value="" disabled hidden>
-                  Select Category
+                  
                 </option>
                 <option value="Wholesale">Wholesale</option>
                 <option value="Retail">Retail</option>
