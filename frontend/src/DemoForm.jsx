@@ -35,6 +35,7 @@ const DemoForm = () => {
         <div className="row">
           <div className="col-md-6">
             <div className="distributor-input-group">
+               <i className="input-icon fa fa-user"></i>
               <input
                 required
                 type="text"
@@ -45,6 +46,7 @@ const DemoForm = () => {
                 autoComplete="off"
               />
               <label className="distributor-label">Distributor Name</label>
+              <i className="input-icon fa fa-user"></i>
             </div>
           </div>
           <div className="distributor-input-group col-md-6">
@@ -131,7 +133,7 @@ const DemoForm = () => {
                 className="distributor-input"
                 autoComplete="off"
               />
-              <label className="distributor-label">Lock Days</label>
+              <label className="distributor-label">Distributor Since</label>
             </div>
           </div>
 
@@ -142,9 +144,12 @@ const DemoForm = () => {
         </div>
         <h1 className="distributor-form__title p-1 w-50">Area Information</h1>
         {/* Radio Button Group */}
+
         <div className="row">
-        
+<div className="col-md-6">
+<span className='label-head'> Distributor Type :</span>
 <div class="custom-radio-group">
+
   <label class="custom-radio-container">
     <input type="radio" name="custom-radio" value="option1" />
     <span class="custom-radio-checkmark"></span>
@@ -161,50 +166,80 @@ const DemoForm = () => {
     Option 3
   </label>
 </div>
+  
+</div>        
 
+<div className="col-md-6">
+<span className='label-head'> Zone :</span>
+<div class="custom-radio-group">
 
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option1" />
+    <span class="custom-radio-checkmark"></span>
+    Option 1
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option2" />
+    <span class="custom-radio-checkmark"></span>
+    Option 2
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option3" />
+    <span class="custom-radio-checkmark"></span>
+    Option 3
+  </label>
+</div>
+  
+</div> 
 
+        </div>
+        <div className="row">
+<div className="col-md-6">
+<span className='label-head'> Province :</span>
+<div class="custom-radio-group">
 
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option1" />
+    <span class="custom-radio-checkmark"></span>
+    Option 1
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option2" />
+    <span class="custom-radio-checkmark"></span>
+    Option 2
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option3" />
+    <span class="custom-radio-checkmark"></span>
+    Option 3
+  </label>
+</div>
+  
+</div>        
 
+<div className="col-md-6">
+<span className='label-head'> Status :</span>
+<div class="custom-radio-group">
 
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option1" />
+    <span class="custom-radio-checkmark"></span>
+    Option 1
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option2" />
+    <span class="custom-radio-checkmark"></span>
+    Option 2
+  </label>
+  <label class="custom-radio-container">
+    <input type="radio" name="custom-radio" value="option3" />
+    <span class="custom-radio-checkmark"></span>
+    Option 3
+  </label>
+</div>
+  
+</div> 
 
-
-
-
-
-
-
-
-
-
-
-          <div className="col-md-12">
-            <div className="distributor-radio-group">
-              <label className="distributor-radio-label">Distributor Type</label>
-              <div className="distributor-radio-options">
-                <label className="distributor-radio-option">
-                  <input
-                    type="radio"
-                    name="distributorType"
-                    value="Local"
-                    checked={formData.distributorType === 'Local'}
-                    onChange={handleChange}
-                  />
-                  Local
-                </label>
-                <label className="distributor-radio-option">
-                  <input
-                    type="radio"
-                    name="distributorType"
-                    value="International"
-                    checked={formData.distributorType === 'International'}
-                    onChange={handleChange}
-                  />
-                  International
-                </label>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Checkbox for Updates */}
@@ -224,9 +259,79 @@ const DemoForm = () => {
           </div>
         </div>
 
+
+
+        <div className="row">
+          <div className="col-md-6">
+            <div className="distributor-input-group">
+              <input
+                required
+                type="text"
+                name="distributorName"
+                value={formData.distributorName}
+                onChange={handleChange}
+                className="distributor-input"
+                autoComplete="off"
+              />
+              <label className="distributor-label">NTC</label>
+            </div>
+          </div>
+
+
+          <div className="col-md-6">
+            <div className="distributor-input-group">
+              <input
+                required
+                type="text"
+                name="distributorName"
+                value={formData.distributorName}
+                onChange={handleChange}
+                className="distributor-input"
+                autoComplete="off"
+              />
+              <label className="distributor-label">CNIC</label>
+            </div>
+          </div>
+         
+   </div>
+   <div className="row">
+          <div className="col-md-6">
+            <div className="distributor-input-group">
+              <input
+                required
+                type="text"
+                name="distributorName"
+                value={formData.distributorName}
+                onChange={handleChange}
+                className="distributor-input"
+                autoComplete="off"
+              />
+              <label className="distributor-label">GL Customer ID</label>
+            </div>
+          </div>
+
+
+          <div className="col-md-6">
+            <div className="distributor-input-group">
+              <input
+                required
+                type="text"
+                name="distributorName"
+                value={formData.distributorName}
+                onChange={handleChange}
+                className="distributor-input"
+                autoComplete="off"
+              />
+              <label className="distributor-label">SSR Status</label>
+            </div>
+          </div>
+         
+   </div>
+
+
         {/* Select Dropdown for Distributor Category */}
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-6">
             <div className="distributor-input-group">
               <select
                 required
@@ -242,19 +347,41 @@ const DemoForm = () => {
                 <option value="Retail">Retail</option>
                 <option value="Dropshipping">Dropshipping</option>
               </select>
-              <label className="distributor-label">Distributor Category</label>
+              <label className="distributor-label">STRN</label>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="distributor-input-group">
+              <input
+                required
+                type="text"
+                name="distributorName"
+                value={formData.distributorName}
+                onChange={handleChange}
+                className="distributor-input"
+                autoComplete="off"
+              />
+              <label className="distributor-label">Lock Days</label>
             </div>
           </div>
         </div>
 
         {/* Submit Button */}
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-3">
             <button type="submit" className="distributor-submit-btn">
               Submit
             </button>
           </div>
+          <div className="col-md-3">
+            <button type="submit" className="distributor-reset-btn">
+              Reset
+            </button>
+          </div>
         </div>
+
+        
+        
       </form>
     </div>
   );

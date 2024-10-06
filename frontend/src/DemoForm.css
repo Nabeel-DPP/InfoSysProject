@@ -6,6 +6,7 @@
     padding: 2rem;
     background-color: #1D1F26;
   
+  
     /* background-color: #b7b9be; */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -35,7 +36,7 @@
     border: 1.5px solid #9e9e9e;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #f9f9f9;
+    background-color: #EFF0F4;
     color: #333333;
     transition: border-color 0.3s ease;
   }
@@ -51,20 +52,23 @@
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #777777;
-    font-size: 1rem;
+    color: #26282e;
+    font-size: 1.2rem;
+    font-family:"Poppins", sans-serif !important;
     pointer-events: none;
+    
     transition: all 0.2s ease;
   }
   
   .distributor-input:focus ~ .distributor-label,
   .distributor-input:valid ~ .distributor-label {
     top: -2px;
-    background-color: #ffffff;
+    background-color: #26282e;
     padding: 0 5px;
     color: #1a73e8;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 500;
+    
   }
   
   /* Radio Button Styling */
@@ -82,8 +86,7 @@
   .distributor-radio-options {
     display: flex;
     gap: 1rem;
-  
-  }
+     }
   
   .distributor-radio-option input {
     margin-right: 0.5rem;
@@ -123,10 +126,30 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
+
+
+.distributor-reset-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #616368;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
   
   .distributor-submit-btn:hover {
     background-color: #155bb5;
   }
+   .distributor-reset-btn:hover {
+    background-color: #262627;
+  }
+  
   
   
 
@@ -144,18 +167,19 @@
   display: flex;
   flex-direction: row;
   gap: 12px;
+  justify-content: start;
   width: 500px;
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.2);
+  /* background: red ; */
   padding: 16px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); */
 }
 .custom-radio-container {
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 12px 20px;
+  padding: 10px 20px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.2);
   transition:
@@ -225,4 +249,32 @@
   100% {
     transform: scale(1.2);
   }
+}
+
+
+
+
+
+
+
+
+
+.label-head
+{
+ color: white;
+ font-size: 20px ;
+ font-weight: 500;
+ font-family: "Montserrat" , sans-serif !important;
+}
+
+
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Icon aligned to the right */
+  transform: translateY(-50%);
+  color: #1D1F26; /* Adjust icon color */
+  font-size: 20px;
+  pointer-events: none; /* Prevent click events on the icon */
 }
