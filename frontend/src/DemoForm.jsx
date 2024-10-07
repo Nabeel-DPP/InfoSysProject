@@ -20,15 +20,6 @@ const DemoForm = () => {
     distType: ''
   });
 
-
-
-
-
-
-
-
-
-
   const [validated, setValidated] = useState(false); 
 
   const handleChange = (e) => {
