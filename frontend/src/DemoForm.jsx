@@ -76,7 +76,7 @@ const DemoForm = () => {
       <form onSubmit={handleSubmit} noValidate className={`needs-validation ${validated ? 'was-validated' : ''}`} >
       <h1 className="distributor-form__title p-1 w-50 mb-5 ">Distributor Information</h1>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
                <i className="input-icon fa fa-user"></i>
               <input
@@ -94,7 +94,7 @@ const DemoForm = () => {
               <i className="input-icon fa fa-user"></i>
             </div>
           </div>
-          <div className="distributor-input-group col-md-6">
+          <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
           <i class="input-icon fa-solid fa-street-view mr-5"></i>
               <select
                 required
@@ -127,7 +127,7 @@ const DemoForm = () => {
 
         <div className="row">
          
-        <div className="col-md-6">
+        <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -146,7 +146,7 @@ const DemoForm = () => {
             </div>
           </div>
          
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -167,7 +167,7 @@ const DemoForm = () => {
         </div>
 
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -185,7 +185,7 @@ const DemoForm = () => {
             </div>
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -212,16 +212,16 @@ const DemoForm = () => {
         {/* Radio Button Group */}
 
         <div className="row">
-<div className="col-md-6">
+<div className="col-md-12 col-lg-6 col-sm-12">
 <span className='label-head' name="distType"> Distributor Type :</span>
 <div class="custom-radio-group row ">
 
-  <label class="custom-radio-container col-md-5">
+  <label class="custom-radio-container   col-md-12 col-lg-5 col-sm-12">
     <input type="radio" name="dist-type-radio" value="option1" id='instArea' />
     <span class="custom-radio-checkmark"></span>
    Institutional Area
   </label>
-  <label class="custom-radio-container col-md-5">
+  <label class="custom-radio-container  col-md-12 col-lg-5 col-sm-12">
     <input type="radio" name="dist-type-radio" value="option2" id='regArea' />
     <span class="custom-radio-checkmark"></span>
     Regional Area
@@ -237,21 +237,21 @@ const DemoForm = () => {
 
 
 
-<div className="col-md-6">
+<div className="col-md-12 col-lg-6 col-sm-12">
 <span className='label-head'> Zone :</span>
 <div class="custom-radio-group row">
 
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container  col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="zone-radio" value="option1" id='zone1' />
     <span class="custom-radio-checkmark"></span>
     Zone 1
   </label>
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="zone-radio" value="option2" id='zone2' />
     <span class="custom-radio-checkmark"></span>
     Zone 2
   </label>
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="zone-radio" value="option3" id='zone3' />
     <span class="custom-radio-checkmark"></span>
     Zone 3
@@ -262,21 +262,21 @@ const DemoForm = () => {
 
         </div>
         <div className="row">
-<div className="col-md-6">
+<div className="col-md-12 col-lg-6 col-sm-12">
 <span className='label-head'> Province :</span>
 <div class="custom-radio-group row">
 
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="province-radio" value="pn" />
     <span class="custom-radio-checkmark"></span>
     Punjab
   </label>
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="province-radio" value="sn" />
     <span class="custom-radio-checkmark"></span>
    Sindh
   </label>
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="province-radio" value="kpk" />
     <span class="custom-radio-checkmark"></span>
     KPK
@@ -287,21 +287,21 @@ const DemoForm = () => {
   
 </div>        
 
-<div className="col-md-6">
+<div className="col-md-12 col-lg-6 col-sm-12">
 <span className='label-head'> Status :</span>
 <div class="custom-radio-group row">
 
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="status-radio" value="open" />
     <span class="custom-radio-checkmark"></span>
     Open
   </label>
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="status-radio" value="close" />
     <span class="custom-radio-checkmark"></span>
     Close
   </label>
-  <label class="custom-radio-container col-md-3">
+  <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
     <input type="radio" name="status-radio" value="pending" />
     <span class="custom-radio-checkmark"></span>
     Pending
@@ -317,7 +317,7 @@ const DemoForm = () => {
 
 
         <div className="row mt-5">
-          <div className="col-md-6">
+          <div className=" col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -336,7 +336,7 @@ const DemoForm = () => {
           </div>
 
 
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -356,7 +356,7 @@ const DemoForm = () => {
          
    </div>
    <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -375,7 +375,7 @@ const DemoForm = () => {
           </div>
 
 
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -398,7 +398,7 @@ const DemoForm = () => {
 
         {/* Select Dropdown for Distributor Category */}
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <select
                 required
@@ -408,7 +408,7 @@ const DemoForm = () => {
                 className="distributor-input"
               >
                 <option value="" disabled hidden>
-                  
+
                 </option>
                 
                 <option value="Wholesale">Registered</option>
@@ -421,7 +421,7 @@ const DemoForm = () => {
               <i class="input-icon mr-2 fa-regular fa-file-lines"></i>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-12 col-lg-6 col-sm-12">
             <div className="distributor-input-group">
               <input
                 required
@@ -442,12 +442,12 @@ const DemoForm = () => {
 
         {/* Submit Button */}
         <div className="row">
-          <div className="col-md-3">
+          <div className=" col-md-12 col-lg-3 col-sm-12">
             <button type="submit" className="distributor-submit-btn">
               Submit
             </button>
           </div>
-          <div className="col-md-3">
+          <div className=" col-md-12 col-lg-3 col-sm-12">
             <button type="reset" className="distributor-reset-btn">
               Reset
             </button>
