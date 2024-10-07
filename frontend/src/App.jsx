@@ -3,6 +3,8 @@ import Layout from "./layout/Layout";
 import { Home } from "./Home";
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import "../css/style.css";
 import "../js/custom.js";
 import 'react-quill/dist/quill.snow.css';
