@@ -6,7 +6,6 @@ const DemoForm = () => {
   const [formData, setFormData] = useState({
     distName: '',
     saleArea: '',
-    contactPerson: '',
     phone: '',
     email: '',
     address: '',
@@ -17,7 +16,10 @@ const DemoForm = () => {
      ntc:'',
      strn:'',
      lockDays:'',
-    distType: ''
+    distType: '',
+    zone:'',
+    status:'',
+    province:''
   });
 
   const [validated, setValidated] = useState(false); 
@@ -29,6 +31,39 @@ const DemoForm = () => {
       [name]: type === 'checkbox' ? checked : value
     });
   };
+
+
+  // const handleRadioChange = (event) => {
+  //   setFormData({
+  //     ...formData,
+  //     distType: event.target.value,
+  //     zone: event.target.value,
+  //     status: event.target.value,
+  //     province: event.target.value,
+     
+  //   });
+  // };
+
+
+
+  const handleRadioChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value, // Dynamically update the form field based on the name attribute
+    });
+  };
+
+
+
+
+
+
+
+
+
+
+
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -79,8 +114,8 @@ const DemoForm = () => {
                 className="distributor-input"
                 autoComplete="off"
               />
-            <div className="valid-feedback">Looks good!</div>
-            <div className="invalid-feedback">Please enter a valid distributor name.</div>
+            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback">  <i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid distributor name </div>
               <label className="distributor-label">Distributor Name</label>
               <i className="input-icon fa fa-user"></i>
             </div>
@@ -106,8 +141,8 @@ const DemoForm = () => {
               
               
              <label className="distributor-label ml-2" >Sale Area</label>
-              <div className="valid-feedback">Looks good!</div>
-            <div className="invalid-feedback">Please select a sale area.</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
               
             </div>
    </div>
@@ -132,8 +167,8 @@ const DemoForm = () => {
               
               <label className="distributor-label">Email</label>
               <i class="input-icon fa-solid fa-envelope"></i>
-              <div className="valid-feedback">Looks good!</div>
-              <div className="invalid-feedback">Please enter a valid email address.</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+              <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid email address</div>
             </div>
           </div>
          
@@ -150,8 +185,8 @@ const DemoForm = () => {
               />
               <label className="distributor-label">Phone</label>
               <i class="input-icon fa-solid fa-phone-flip"></i>
-              <div className="valid-feedback">Looks good!</div>
-              <div className="invalid-feedback">Please enter a valid 11-digit phone number.</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+              <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
             </div>
           </div>
           
@@ -171,8 +206,8 @@ const DemoForm = () => {
               />
               <label className="distributor-label">Address</label>
               <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-              <div className="valid-feedback">Looks good!</div>
-              <div className="invalid-feedback">Please enter a valid address.</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+              <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
             </div>
           </div>
 
@@ -189,8 +224,8 @@ const DemoForm = () => {
               />
               <label className="distributor-label">Distributor Since</label>
               <i class="input-icon fa-solid fa-calendar-days"></i>
-              <div className="valid-feedback">Looks good!</div>
-              <div className="invalid-feedback">Please enter the year since the distributor started.</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+              <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
             </div>
           </div>
 
@@ -208,12 +243,20 @@ const DemoForm = () => {
 <div class="custom-radio-group row ">
 
   <label class="custom-radio-container   col-md-12 col-lg-5 col-sm-12">
-    <input type="radio" name="dist-type-radio" value="option1" id='instArea' />
+    <input type="radio" name="distType" value="Institutional Area" id='instArea' 
+    onChange={handleRadioChange}
+    checked={formData.distType === 'Institutional Area'}
+    
+    />
     <span class="custom-radio-checkmark"></span>
    Institutional Area
   </label>
   <label class="custom-radio-container  col-md-12 col-lg-5 col-sm-12">
-    <input type="radio" name="dist-type-radio" value="option2" id='regArea' />
+    <input type="radio" name="distType" value="Regional Area" id='regArea' 
+     onChange={handleRadioChange}
+     checked={formData.distType === 'Regional Area'}
+    
+    />
     <span class="custom-radio-checkmark"></span>
     Regional Area
   </label>
@@ -229,21 +272,33 @@ const DemoForm = () => {
 
 
 <div className="col-md-12 col-lg-6 col-sm-12">
-<span className='label-head'> Zone :</span>
+<span className='label-head' name="zone"> Zone :</span>
 <div class="custom-radio-group row">
 
   <label class="custom-radio-container  col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="zone-radio" value="option1" id='zone1' />
+    <input type="radio" name="zone" value="Zone 1" id='zone1' 
+    
+    onChange={handleRadioChange}
+    checked={formData.zone === 'Zone 1'}
+    
+    />
     <span class="custom-radio-checkmark"></span>
     Zone 1
   </label>
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="zone-radio" value="option2" id='zone2' />
+    <input type="radio" name="zone" value="Zone 2" id='zone2' 
+    onChange={handleRadioChange}
+    checked={formData.zone === 'Zone 2'}/>
     <span class="custom-radio-checkmark"></span>
     Zone 2
   </label>
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="zone-radio" value="option3" id='zone3' />
+    <input type="radio" name="zone" value="Zone 3" id='zone3' 
+    onChange={handleRadioChange}
+    checked={formData.zone === 'Zone 3'}
+    
+    
+    />
     <span class="custom-radio-checkmark"></span>
     Zone 3
   </label>
@@ -254,21 +309,35 @@ const DemoForm = () => {
         </div>
         <div className="row">
 <div className="col-md-12 col-lg-6 col-sm-12">
-<span className='label-head'> Province :</span>
+<span className='label-head' name="province"> Province :</span>
 <div class="custom-radio-group row">
 
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="province-radio" value="pn" />
+    <input type="radio" name="province" value="Punjab" id='pn' 
+    onChange={handleRadioChange}
+    checked={formData.province === 'Punjab'}
+
+
+    />
     <span class="custom-radio-checkmark"></span>
     Punjab
   </label>
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="province-radio" value="sn" />
+    <input type="radio" name="province" value="Sindh" id='sn' 
+     onChange={handleRadioChange}
+     checked={formData.province === 'Sindh'}
+     />
     <span class="custom-radio-checkmark"></span>
    Sindh
   </label>
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="province-radio" value="kpk" />
+    <input type="radio" name="province" value="KPK" id='kpk' 
+    
+    onChange={handleRadioChange}
+    checked={formData.province === 'KPK'}
+
+    
+    />
     <span class="custom-radio-checkmark"></span>
     KPK
   </label>
@@ -279,21 +348,37 @@ const DemoForm = () => {
 </div>        
 
 <div className="col-md-12 col-lg-6 col-sm-12">
-<span className='label-head'> Status :</span>
+<span className='label-head' name="status"> Status :</span>
 <div class="custom-radio-group row">
 
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="status-radio" value="open" />
+    <input type="radio" name="status" value="Open" id='op'  
+      onChange={handleRadioChange}
+      checked={formData.status === 'Open'}
+  
+    
+    />
     <span class="custom-radio-checkmark"></span>
     Open
   </label>
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="status-radio" value="close" />
+    <input type="radio" name="status" value="Close" id='cl' 
+   
+   onChange={handleRadioChange}
+    checked={formData.status === 'Close'}
+    />
+
     <span class="custom-radio-checkmark"></span>
     Close
   </label>
   <label class="custom-radio-container col-md-12 col-lg-3 col-sm-12">
-    <input type="radio" name="status-radio" value="pending" />
+    <input type="radio" name="status" value="Pending" id='pend' 
+    
+    onChange={handleRadioChange}
+    checked={formData.status === 'Pending'}
+    
+/>
+
     <span class="custom-radio-checkmark"></span>
     Pending
   </label>
@@ -320,8 +405,8 @@ const DemoForm = () => {
                 autoComplete="off"
               />
               <label className="distributor-label">NTC</label>
-              <div className="valid-feedback">Looks good!</div>
-            <div className="invalid-feedback">Please enter a valid NTC Value.</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid NTC Value</div>
               <i class="input-icon fa-brands fa-cc-diners-club"></i>
             </div>
           </div>
@@ -338,8 +423,8 @@ const DemoForm = () => {
                 className="distributor-input"
                 autoComplete="off"
               />
-              <div className="valid-feedback">Looks good!</div>
-              <div className="invalid-feedback">Please enter a valid CNIC Number.</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+              <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid CNIC Number</div>
               <label className="distributor-label">CNIC</label>
               <i class="input-icon fa-solid fa-address-card"></i>
             </div>
@@ -359,8 +444,8 @@ const DemoForm = () => {
                 autoComplete="off"
               />
               <label className="distributor-label">GL Customer ID</label>
-              <div className="valid-feedback">Looks good!</div>
-            <div className="invalid-feedback">Please enter a valid GL Customer ID</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid GL Customer ID</div>
               <i class="input-icon fa-regular fa-address-card"></i>
             </div>
           </div>
@@ -378,8 +463,9 @@ const DemoForm = () => {
                 autoComplete="off"
               />
               <label className="distributor-label">SSR Status</label>
-              <div className="valid-feedback">Looks good!</div>
-            <div className="invalid-feedback">Please enter a valid Status of SSR</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid Status of SSR
+            </div>
               <i class="input-icon fa-solid fa-file-shield"></i>
             </div>
           </div>
@@ -407,8 +493,8 @@ const DemoForm = () => {
                 
               </select>
               <label className="distributor-label">STRN</label>
-              <div className="valid-feedback">Looks good!</div>
-            <div className="invalid-feedback">Please enter a valid STRN Status</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid STRN Status</div>
               <i class="input-icon mr-2 fa-regular fa-file-lines"></i>
             </div>
           </div>
@@ -424,8 +510,8 @@ const DemoForm = () => {
                 autoComplete="off"
               />
               <label className="distributor-label">Lock Days</label>
-              <div className="valid-feedback">Looks good!</div>
-            <div className="invalid-feedback">Please enter a valid number of Days</div>
+              <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid number of Days</div>
               <i class="input-icon fa-solid fa-lock"></i>
             </div>
           </div>

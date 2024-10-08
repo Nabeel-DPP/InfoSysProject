@@ -4,6 +4,7 @@ import "../TableForm.css";
 export const SignUp = () => {
   return (
     <div>
+         
          <body className="bg-light-gray border-4" id="body">
           <div className="container d-flex align-items-center justify-content-center" style={{height: "100vh"}}>
           <div className="d-flex flex-column justify-content-between ">
@@ -60,7 +61,11 @@ export const SignUp = () => {
           </div>
         </div>
 
+
+
 </body>
+
+
     </div>
   )
 }

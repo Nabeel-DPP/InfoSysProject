@@ -10,7 +10,7 @@ const Layout = () => {
     //I Add Wrapper Class Here 
     <div className="wrapper min-vh-100">
       <SideBar/>
-      <div className="page-wrapper flex-grow-1">
+      <div className="page-wrapper">
       <Navbar />
       
       <Outlet />
