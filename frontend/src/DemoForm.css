@@ -49,6 +49,7 @@ transition: box-shadow 0.3s ease-in-out; /* Smooth transition on hover or focus 
   .distributor-input-group {
     position: relative;
     margin-bottom: 1.5rem;
+  
   }
   
   /* Input Fields */
@@ -328,4 +329,26 @@ transition: box-shadow 0.3s ease-in-out; /* Smooth transition on hover or focus 
     margin-top: 10px;
   }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.LoginContainerForm
+{
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #9e3f7f);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }

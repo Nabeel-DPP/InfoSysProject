@@ -195,7 +195,8 @@ export default function Table() {
     const handleCreate =  (row) => {
       console.log('Edit Row', row);
      setEditRow(row);
-     navigate("/tableForm", { state: { row } });
+    //  navigate("/tableForm", { state: { row } });
+     navigate("/edit", { state: { row } });
      
       // Add your create logic here
     };
@@ -218,7 +219,7 @@ export default function Table() {
   return (
     <div className="container   mt-5">
      <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/createForm" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/demo" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
     <PopUpModal/>
     
     </div>

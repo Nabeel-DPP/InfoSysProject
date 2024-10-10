@@ -32,7 +32,10 @@ import { ManageSection } from "./ManageSection.jsx";
 import { Distributer } from "./Distributer.jsx";
 import { TableForm } from "./TableForm.jsx";
 import { CreateForm } from "./CreateForm.jsx";
+import EditDistForm from "./EditDistForm.jsx";
 import DemoForm from "./DemoForm.jsx";
+import { LoginDemo } from "./demo/LoginDemo.jsx";
+
 // import "../js/mono.js";
 
 
@@ -48,8 +51,9 @@ import DemoForm from "./DemoForm.jsx";
 
         {/* Routes with Layout (dashboard layout) */}
         <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/reset" element={<Reset />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/reset" element={<Reset />} />
+        <Route path="/lgDemo" element={<LoginDemo />} />
         <Route element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />
@@ -57,14 +61,15 @@ import DemoForm from "./DemoForm.jsx";
           <Route path="/stocks" element={<StockSection />} />
           <Route path="/dist" element={<Distributer/>} />
           <Route path="/tableForm" element={<TableForm/>} />
+          
           <Route path="/demo" element={<DemoForm/>} />
+          <Route path="/edit" element={<EditDistForm/>} />
           <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />
           <Route path="/userActivity" element={<UserActivity />} />
           <Route path="/userAccount" element={<UserAccount />} />
-          {/* Uncomment if you want to add more paths */}
-          {/* <Route path="/userSetting" element={<UserSetting />} /> */}
+          
         </Route>
       </Routes>
     </Router>

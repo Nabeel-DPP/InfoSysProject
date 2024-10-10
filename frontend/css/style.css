@@ -13610,7 +13610,7 @@ label {
 
 /* Sidebar Minified */
 .sidebar-minified .left-sidebar {
-  width: 250px;
+  width: 0px !important;
   z-index: 1050;
   transform: translateX(0);
   transition: transform 0.3s ease-in-out;
@@ -13841,10 +13841,10 @@ label {
   }
 }
 
-/* Sidebar Fixed With Minified Layout Container */
+/* This will handle the width of the page wrapper content when the sidebar is hidden */
 @media (min-width: 768px) {
   .sidebar-fixed.sidebar-minified .page-wrapper {
-    padding-left: 5.25rem;
+    padding-left: 0rem;
     transition: padding-left 0.3s ease-in-out;
   }
 }
@@ -13853,9 +13853,10 @@ label {
     transition: none;
   }
 }
+/* This will handle the width of the navbar when the sidebar is hidden */
 @media (min-width: 768px) {
   .sidebar-fixed.sidebar-minified.navbar-fixed .page-wrapper .main-header {
-    padding-left: 4.69rem;
+    padding-left: 0rem;
     transition: padding-left 0.3s ease-in-out;
   }
 }

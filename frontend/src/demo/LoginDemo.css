@@ -1,0 +1,95 @@
+/* Background styling with blue gradient */
+.login-container {
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Soft blue gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Glassmorphism card container with blue hues */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    /* background: transparent !important; */
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px); /* Glass effect */
+    -webkit-backdrop-filter: blur(50px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  /* Form header */
+  .form-header h2 {
+    font-size: 28px;
+    color: #f0f7ff; /* Light blue-white text */
+  }
+  
+  .form-header p {
+    color: #cfd8e6; /* Muted blue tone */
+    margin-bottom: 20px;
+  }
+  
+  /* Glassmorphism input with blue shades */
+  .glass-input {
+    background: rgba(255, 255, 255, 0.15); /* Input background */
+    border: none;
+    border-radius: 10px;
+    color: #000000; /* Soft light blue text */
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .glass-input::placeholder {
+    color: #bfd3e5; /* Soft blue placeholder */
+  }
+  
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.3); /* Increase opacity on focus */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Button styles with blue gradient */
+  .glass-button {
+    background: linear-gradient(135deg, #0072ff, #00c6ff); /* Bold blue gradient */
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .glass-button:hover {
+    background: linear-gradient(135deg, #3399ff, #66ccff); /* Lighter blue on hover */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Forgot and sign-up links */
+  .forgot-link, .signup-link {
+    color: #d6eaff; /* Light blue link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .forgot-link:hover, .signup-link:hover {
+    color: white;
+  }
+  
+  /* Checkbox styling */
+  .form-check-input {
+    accent-color: #00c6ff; /* Blue checkbox */
+  }
+  
+  .lg-head-text
+  {
+    color: white !important;
+    font-size: 18px ;
+    font-family: "Poppins" , sans-serif !important;
+  }

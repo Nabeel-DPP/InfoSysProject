@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import './DemoForm.css'; // Separate CSS file for custom styling
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap
-import { useNavigate } from 'react-router-dom';
-const DemoForm = () => {
+import { useLocation, useNavigate } from "react-router-dom";
+const EditDistForm = () => {
+
+  const location = useLocation();
   const navigate = useNavigate();
+  const { row } = location.state || {};
+
   const [formData, setFormData] = useState({
     distName: '',
     saleArea: '',
@@ -22,6 +26,35 @@ const DemoForm = () => {
     status:'',
     province:''
   });
+
+  useEffect(() => {
+    if (row) {
+      setFormData({
+        id:row.id,
+        distName: row.distName,
+        saleArea: row.saleArea,
+        phone: row.phone,
+        email: row.email,
+        address: row.address,
+         distSince: row.distSince ,
+         ssr:row.ssr,
+         glId:row.glId,
+         cnic:row.cnic,
+         ntc:row.ntc,
+         strn:row.strn,
+         lockDays:row.lockDays,
+        distType: row.distType,
+        zone:row.zone,
+        status:row.status,
+        province:row.province
+    
+      });
+    }
+  }, [row]);
+
+
+
+
 
   const [validated, setValidated] = useState(false); 
 
@@ -541,4 +574,4 @@ const DemoForm = () => {
   );
 };
 
-export default DemoForm;
+export default EditDistForm;
