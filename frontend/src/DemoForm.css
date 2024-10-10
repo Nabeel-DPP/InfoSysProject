@@ -31,15 +31,16 @@ background: linear-gradient(135deg, rgba(247,158,192,0.8) 26%, rgba(255,162,181,
 /* background: rgb(255,0,127);
 background: linear-gradient(135deg, rgba(255,0,127,0.8) 26%, rgba(255,137,181,1) 43%, rgba(128,202,255,1) 70%); */
 
-background: rgb(255,255,255);
-background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(225,225,225,1) 100%);
+/* background: rgb(255,255,255);
+background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(225,225,225,1) 100%); */
 
 
+/* pink gradient with white  */
+/* background: rgb(240,224,239);
+background: linear-gradient(135deg, rgba(240,224,239,1) 0%, rgba(228,196,226,1) 38%, rgba(247,187,233,1) 66%, rgba(145,10,106,0.8099614845938375) 100%); */
 
-
-
-
-
+/* pink Gradient  */
+background: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
 
 
 
