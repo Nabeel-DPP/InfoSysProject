@@ -71,23 +71,53 @@ const DemoForm = () => {
   //   console.log('Distributor Information:', formData);
   // };
 
+  // Form Submission Function 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const form = e.currentTarget;
+
+  //   // Check if form is valid
+  //   if (form.checkValidity() === false) {
+  //     e.preventDefault();
+  //     console.log("Form data submitted:", formData);
+  //     navigate("/dist", { state: { formData } });
+  //   }
+
+  //   setValidated(true);
+
+  //   if (form.checkValidity() === true) {
+  //     console.log('Distributor Information:', formData);
+  //   }
+  // };
+
+
+  // Updated Form Submission Function 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-
+  
     // Check if form is valid
     if (form.checkValidity() === false) {
-      e.preventDefault();
-      console.log("Form data submitted:", formData);
+      e.stopPropagation();  // Prevent further handling when form is invalid
+    }
+  
+    setValidated(true);
+  
+    if (form.checkValidity() === true) {
+      console.log("Distributor Information:", formData);
+      // Redirect to /dist route when form is valid
       navigate("/dist", { state: { formData } });
     }
-
-    setValidated(true);
-
-    if (form.checkValidity() === true) {
-      console.log('Distributor Information:', formData);
-    }
   };
+  
+
+
+
+
+
+
+
+
 
 
 

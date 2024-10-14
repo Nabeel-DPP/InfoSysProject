@@ -35,6 +35,7 @@ import { CreateForm } from "./CreateForm.jsx";
 import EditDistForm from "./EditDistForm.jsx";
 import DemoForm from "./DemoForm.jsx";
 import { LoginDemo } from "./demo/LoginDemo.jsx";
+import AreaForm from "./pages/AreaForm.jsx";
 
 // import "../js/mono.js";
 
@@ -61,6 +62,7 @@ import { LoginDemo } from "./demo/LoginDemo.jsx";
           <Route path="/stocks" element={<StockSection />} />
           <Route path="/dist" element={<Distributer/>} />
           <Route path="/tableForm" element={<TableForm/>} />
+          <Route path="/areaForm" element={<AreaForm/>} />
           
           <Route path="/demo" element={<DemoForm/>} />
           <Route path="/edit" element={<EditDistForm/>} />

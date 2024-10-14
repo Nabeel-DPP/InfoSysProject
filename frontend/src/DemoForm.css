@@ -40,7 +40,27 @@ background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 
 background: linear-gradient(135deg, rgba(240,224,239,1) 0%, rgba(228,196,226,1) 38%, rgba(247,187,233,1) 66%, rgba(145,10,106,0.8099614845938375) 100%); */
 
 /* pink Gradient  */
-background: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+/* background: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+
+/* Pink and White Gradient  */
+/* background: rgb(242,199,240);
+background: linear-gradient(135deg, rgba(242,199,240,1) 26%, rgba(199,175,255,1) 51%, rgba(255,255,255,1) 94%); */
+
+/* Pink and Blue Gradient  */
+ /* background: rgb(199,175,255);
+background: linear-gradient(135deg, rgba(199,175,255,1) 29%, rgba(148,181,255,1) 100%); */
+
+
+/* Pink and Sea Green Shade  */
+/* background: rgb(68,136,153);
+background: linear-gradient(135deg, rgba(68,136,153,1) 36%, rgba(120,0,87,1) 100%); */
+
+
+/* Pink White and Sea Green Shade */
+/* background: rgb(215,55,201);
+background: linear-gradient(135deg, rgba(215,55,201,1) 2%, rgba(68,148,153,1) 63%, rgba(255,255,255,1) 100%); */
+
+
 
 
 
@@ -49,7 +69,7 @@ background: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), /* Outer shadow with a soft blur */
     0 6px 20px rgba(0, 0, 0, 0.1); /* Additional shadow for more depth */
-transition: box-shadow 0.3s ease-in-out; /* Smooth transition on hover or focus */
+transition: box-shadow 0.1s ease-in-out; /* Smooth transition on hover or focus */
 
    
 backdrop-filter: blur(50px); /* Glass effect */
