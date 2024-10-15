@@ -34,17 +34,7 @@ const DemoForm = () => {
   };
 
 
-  // const handleRadioChange = (event) => {
-  //   setFormData({
-  //     ...formData,
-  //     distType: event.target.value,
-  //     zone: event.target.value,
-  //     status: event.target.value,
-  //     province: event.target.value,
-     
-  //   });
-  // };
-
+ 
 
 
   const handleRadioChange = (event) => {
@@ -66,29 +56,7 @@ const DemoForm = () => {
 
 
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log('Distributor Information:', formData);
-  // };
 
-  // Form Submission Function 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const form = e.currentTarget;
-
-  //   // Check if form is valid
-  //   if (form.checkValidity() === false) {
-  //     e.preventDefault();
-  //     console.log("Form data submitted:", formData);
-  //     navigate("/dist", { state: { formData } });
-  //   }
-
-  //   setValidated(true);
-
-  //   if (form.checkValidity() === true) {
-  //     console.log('Distributor Information:', formData);
-  //   }
-  // };
 
 
   // Updated Form Submission Function 
@@ -270,7 +238,7 @@ const DemoForm = () => {
         <h1 className="distributor-form__title p-1 w-50">Area Information</h1>
         {/* Radio Button Group */}
 
-        <div className="row">
+        {/* <div className="row">
 <div className="col-md-12 col-lg-6 col-sm-12">
 <span className='label-head' name="distType"> Distributor Type :</span>
 <div class="custom-radio-group row ">
@@ -304,7 +272,7 @@ const DemoForm = () => {
 
 
 
-<div className="col-md-12 col-lg-6 col-sm-12">
+ <div className="col-md-12 col-lg-6 col-sm-12">
 <span className='label-head' name="zone"> Zone :</span>
 <div class="custom-radio-group row">
 
@@ -337,10 +305,10 @@ const DemoForm = () => {
   </label>
 </div>
   
-</div> 
+</div>  
 
-        </div>
-        <div className="row">
+        </div> */}
+        {/* <div className="row">
 <div className="col-md-12 col-lg-6 col-sm-12">
 <span className='label-head' name="province"> Province :</span>
 <div class="custom-radio-group row">
@@ -419,7 +387,7 @@ const DemoForm = () => {
   
 </div> 
 
-        </div>
+        </div> */}
 
       
     

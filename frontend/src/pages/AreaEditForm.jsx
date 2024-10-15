@@ -1,290 +1,13 @@
-// import React, { useState } from 'react';
-// import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-// import axios from 'axios';
-// const AreaForm = () => {
-//   const [formData, setFormData] = useState({
-//     AreaId: '',
-//     AreaName: '',
-//     ZoneId: '',
-//     status: '',
-//     arr_date: '',
-//     lead_days: '',
-//     Manager: '',
-//     E_Mail: '',
-//     Manager_nick: '',
-//     area_manager: '',
-//     area_manager_email: '',
-//     area_manager_phone: '',
-//     manager_phone: '',
-//     FixPay: ''
-//   });
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //  console.log("Submitted Data of Form : ", formData);
-  //   try {
-        
-  //       const response = await axios.post("http://localhost:5555/area", formData); // Post request to the server's '/area' endpoint
-          
-  //       if (response.status === 201) {  // Check if the response is OK
-  //         alert('Area added successfully!');
-  //         setFormData({
-  //           AreaId: '',
-  //           AreaName: '',
-  //           ZoneId: '',
-  //           status: '',
-  //           arr_date: '',
-  //           lead_days: '',
-  //           Manager: '',
-  //           E_Mail: '',
-  //           Manager_nick: '',
-  //           area_manager: '',
-  //           area_manager_email: '',
-  //           area_manager_phone: '',
-  //           manager_phone: '',
-  //           FixPay: ''
-  //         });
-  //       } else {
-  //         alert('Failed to add area.');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //       alert('Error occurred while submitting the form.');
-  //     }
-    
-  // };
-
-//   return (
-//     <Container className="mt-5">
-//       <Row className="justify-content-center">
-//         <Col md={8}>
-//           <h3 className="text-center mb-4">Add New Area</h3>
-//           <Form onSubmit={handleSubmit}>
-//             <Form.Group className="mb-3" controlId="AreaId">
-//               <Form.Label>Area ID</Form.Label>
-//               <Form.Control
-//                 type="number"
-//                 name="AreaId"
-//                 value={formData.AreaId}
-//                 onChange={handleChange}
-//                 placeholder="Enter Area ID"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="AreaName">
-//               <Form.Label>Area Name</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="AreaName"
-//                 value={formData.AreaName}
-//                 onChange={handleChange}
-//                 placeholder="Enter Area Name"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="ZoneId">
-//               <Form.Label>Zone ID</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="ZoneId"
-//                 value={formData.ZoneId}
-//                 onChange={handleChange}
-//                 placeholder="Enter Zone ID"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="status">
-//               <Form.Label>Status</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="status"
-//                 value={formData.status}
-//                 onChange={handleChange}
-//                 placeholder="Enter Status (e.g., Active, Inactive)"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="arr_date">
-//               <Form.Label>Arrival Date</Form.Label>
-//               <Form.Control
-//                 type="date"
-//                 name="arr_date"
-//                 value={formData.arr_date}
-//                 onChange={handleChange}
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="lead_days">
-//               <Form.Label>Lead Days</Form.Label>
-//               <Form.Control
-//                 type="number"
-//                 name="lead_days"
-//                 value={formData.lead_days}
-//                 onChange={handleChange}
-//                 placeholder="Enter Lead Days"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="Manager">
-//               <Form.Label>Manager</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="Manager"
-//                 value={formData.Manager}
-//                 onChange={handleChange}
-//                 placeholder="Enter Manager Name"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="E_Mail">
-//               <Form.Label>Manager Email</Form.Label>
-//               <Form.Control
-//                 type="email"
-//                 name="E_Mail"
-//                 value={formData.E_Mail}
-//                 onChange={handleChange}
-//                 placeholder="Enter Manager Email"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="Manager_nick">
-//               <Form.Label>Manager Nickname</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="Manager_nick"
-//                 value={formData.Manager_nick}
-//                 onChange={handleChange}
-//                 placeholder="Enter Manager Nickname"
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="area_manager">
-//               <Form.Label>Area Manager</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="area_manager"
-//                 value={formData.area_manager}
-//                 onChange={handleChange}
-//                 placeholder="Enter Area Manager Name"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="area_manager_email">
-//               <Form.Label>Area Manager Email</Form.Label>
-//               <Form.Control
-//                 type="email"
-//                 name="area_manager_email"
-//                 value={formData.area_manager_email}
-//                 onChange={handleChange}
-//                 placeholder="Enter Area Manager Email"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="area_manager_phone">
-//               <Form.Label>Area Manager Phone</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="area_manager_phone"
-//                 value={formData.area_manager_phone}
-//                 onChange={handleChange}
-//                 placeholder="Enter Area Manager Phone"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="manager_phone">
-//               <Form.Label>Manager Phone</Form.Label>
-//               <Form.Control
-//                 type="text"
-//                 name="manager_phone"
-//                 value={formData.manager_phone}
-//                 onChange={handleChange}
-//                 placeholder="Enter Manager Phone"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="FixPay">
-//               <Form.Label>Fix Pay</Form.Label>
-//               <Form.Control
-//                 type="number"
-//                 name="FixPay"
-//                 value={formData.FixPay}
-//                 onChange={handleChange}
-//                 placeholder="Enter Fix Pay"
-//                 required
-//               />
-//             </Form.Group>
-
-//             <Button variant="primary" type="submit" className="w-100">
-//               Submit
-//             </Button>
-//           </Form>
-//         </Col>
-//       </Row>
-//     </Container>
-//   );
-// };
-
-// export default AreaForm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React, { useState,} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AreaEditForm = () => {
-  // const location = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
-  // const { rowData } = location.state || {}; // Get the passed row data
+  const { rowData } = location.state || {}; // Get the passed row data
 
   // State to manage form data
   const [formData, setFormData] = useState({
@@ -304,28 +27,28 @@ const AreaEditForm = () => {
   });
 
   // Populate form data from row data
-  // useEffect(() => {
-  //   console.log("This is the Data coming from Area Table : ", rowData);
-  //   if (rowData) {
-  //     setFormData({
-  //       AreaId: rowData.AreaId,
-  //       AreaName: rowData.AreaName,
-  //       Manager: rowData.Manager,
-  //       E_Mail: rowData.E_Mail,
-  //       ZoneId: rowData.ZoneId,
-  //       status: rowData.status,
-  //       lead_days: rowData.lead_days,
-  //       Manager_nick: rowData.Manager_nick,
-  //       area_manager: rowData.area_manager,
-  //       area_manager_email: rowData.area_manager_email,
-  //       area_manager_phone: rowData.area_manager_phone,
-  //       manager_phone: rowData.manager_phone,
-  //       FixPay: rowData.FixPay
-  //     });
+  useEffect(() => {
+    console.log("This is the Data coming from Area Table : ", rowData);
+    if (rowData) {
+      setFormData({
+        AreaId: rowData.AreaId,
+        AreaName: rowData.AreaName,
+        Manager: rowData.Manager,
+        E_Mail: rowData.E_Mail,
+        ZoneId: rowData.ZoneId,
+        status: rowData.status,
+        lead_days: rowData.lead_days,
+        Manager_nick: rowData.Manager_nick,
+        area_manager: rowData.area_manager,
+        area_manager_email: rowData.area_manager_email,
+        area_manager_phone: rowData.area_manager_phone,
+        manager_phone: rowData.manager_phone,
+        FixPay: rowData.FixPay
+      });
 
       
-  //   }
-  // }, [rowData]);
+    }
+  }, [rowData]);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -338,76 +61,50 @@ const AreaEditForm = () => {
 
 
 
-  
-
-  // Handle form submission
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //    console.log('Inserted Data : ',formData)
-  //   try {
-  //    const response = await axios.post("http://localhost:5555/area", formData);
-      
-  //    if (response.status === 201)
-  //    {
-  //    navigate("/areaTable"); // Navigate back to AreaTable after successful update
-  //    }
-   
-  //   } catch (error) {
-  //     console.error("Error: Inserting area data: ", error);
-  //   }
-  // };
-
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-   console.log("Submitted Data of Form : ", formData);
-    try {
-        
-        const response = await axios.post("http://localhost:5555/area", formData); // Post request to the server's '/area' endpoint
-          console.log(response);
-        if (response.status === 201) {  // Check if the response is OK
-          alert('Area added successfully!');
-          
-          setFormData({
-            AreaId: '',
-            AreaName: '',
-            ZoneId: '',
-            status: '',
-            arr_date: '',
-            lead_days: '',
-            Manager: '',
-            E_Mail: '',
-            Manager_nick: '',
-            area_manager: '',
-            area_manager_email: '',
-            area_manager_phone: '',
-            manager_phone: '',
-            FixPay: ''
-          });
-          navigate("/areaTable");
-        } else {
-          alert('Failed to add area.');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Error occurred while submitting the form.');
-      }
-    
+  const handleRadioChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value, // Dynamically update the form field based on the name attribute
+    });
   };
 
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-
-
-
-
-
-
-
-
+    try {
+      await axios.put(`http://localhost:5555/area/${rowData._id}`, formData);
+      navigate("/areaTable"); // Navigate back to AreaTable after successful update
+    } catch (error) {
+      console.error("Error updating area data: ", error);
+    }
+  };
 
   return (
-   
+    // this edit form is working perfectly
+    // <div className="distributor-form__container mt-5">
+    //   <form onSubmit={handleSubmit} noValidate>
+    //     <h1 className="area-edit-form__title p-1 w-50 mb-5">Edit Area Information</h1>
+
+    //     {Object.keys(formData).map((key) => (
+    //       <div className="mb-3" key={key}>
+    //         <label htmlFor={key} className="form-label">{key.replace(/_/g, ' ')}</label>
+    //         <input
+    //           type="text"
+    //           className="form-control"
+    //           id={key}
+    //           name={key}
+    //           value={formData[key]}
+    //           onChange={handleChange}
+    //           required
+    //         />
+    //       </div>
+    //     ))}
+
+    //     <button type="submit" className="btn btn-primary">Update Area</button>
+    //   </form>
+    // </div>
     <div className="distributor-form__container mt-5">
      
     <form onSubmit={handleSubmit} >
@@ -709,7 +406,7 @@ const AreaEditForm = () => {
             <input
               required
               type="number"
-              name="ZoneId"
+              name="zoneId"
               value={formData.ZoneId}
               onChange={handleChange}
               className="distributor-input"
@@ -728,7 +425,7 @@ const AreaEditForm = () => {
             <input
               required
               type="number"
-              name="lead_days"
+              name="lead"
               value={formData.lead_days}
               onChange={handleChange}
               className="distributor-input"

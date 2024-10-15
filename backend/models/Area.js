@@ -63,8 +63,7 @@ const areaSchema = new mongoose.Schema({
   }
 }, {
   timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
-}) ;
+}) ; 
 
 export const  Area = mongoose.model('Area', areaSchema);
-
-
+// export default Area;

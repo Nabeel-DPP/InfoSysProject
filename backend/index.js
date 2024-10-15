@@ -2,7 +2,9 @@ import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import { Area } from './models/area.js';
+// import AreaRoute from "./routes/areaRoute.js";
+// import areaRoutes from "./routes/areaRoute.js";
+import areaRoute from "./routes/areaRoute.js";
 
 const app = express();
 
@@ -31,7 +33,9 @@ app.get('/', (request, response) => {
 // app.use('/users', usersRoute);
 // app.use('/login', loginRoute);
 // app.use('/report', reportRoute);
-app.use('/area', Area );
+
+
+app.use("/area", areaRoute );
 
 
 

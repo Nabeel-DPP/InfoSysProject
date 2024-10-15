@@ -36,6 +36,8 @@ import EditDistForm from "./EditDistForm.jsx";
 import DemoForm from "./DemoForm.jsx";
 import { LoginDemo } from "./demo/LoginDemo.jsx";
 import AreaForm from "./pages/AreaForm.jsx";
+import AreaTable from "./pages/AreaTable.jsx";
+import AreaEditForm from "./pages/AreaEditForm.jsx";
 
 // import "../js/mono.js";
 
@@ -63,7 +65,8 @@ import AreaForm from "./pages/AreaForm.jsx";
           <Route path="/dist" element={<Distributer/>} />
           <Route path="/tableForm" element={<TableForm/>} />
           <Route path="/areaForm" element={<AreaForm/>} />
-          
+          <Route path="/areaTable" element={<AreaTable/>} />
+          <Route path="/areaEdit" element={<AreaEditForm/>} />
           <Route path="/demo" element={<DemoForm/>} />
           <Route path="/edit" element={<EditDistForm/>} />
           <Route path="/createForm" element={<CreateForm/>} />

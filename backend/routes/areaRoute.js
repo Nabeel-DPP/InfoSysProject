@@ -1,16 +1,20 @@
-const router = express.Router();
-// const Area = require('../models/Area.js');  // Import your Area model
-import { Area } from '../models/area';
-
+import express from 'express';
+// import Area from '../models/Area';
+import {Area} from "../models/Area.js"
+ const router = express.Router();
 // Create a new Area
 router.post('/', async (req, res) => {
   
     try {
-    console.log(req.body);
-    const newArea = new Area(req.body);  // Assume the form data is in the request body
+    
+    const newArea = new Area(req.body); 
+    console.log("insert Request Reached at Route" , newArea);
+    // Assume the form data is in the request body
     const savedArea = await newArea.save();
+    console.log("confirmation of Save : " ,savedArea)
     res.status(201).json(savedArea);
   } catch (err) {
+    
     res.status(400).json({ message: err.message });
   }
 });
@@ -58,4 +62,5 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+// module.exports = router;
+export default router;

@@ -220,7 +220,7 @@ export const SideBar = () => {
                             </li>
                       
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/areaTable"} className="sidenav-item-link">
     
     <span className="nav-text">
     Area of Sale
