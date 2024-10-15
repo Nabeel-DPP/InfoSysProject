@@ -60,7 +60,18 @@ const areaSchema = new mongoose.Schema({
   {
     type: Number,
     required:true,
+  },
+  type:
+  {
+    type: String,
+    required:true,
+  },
+  province:
+  {
+    type: String,
+    required:true,
   }
+
 }, {
   timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
 }) ; 

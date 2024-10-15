@@ -22,7 +22,7 @@ const bankSchema = new mongoose.Schema({
     default: Date.now,  // Set the default to the current date
   },
   bank_abr: {
-    type: string,  // Number of lead days
+    type: String,  // Number of lead days
     required: true,
   }
 }, {

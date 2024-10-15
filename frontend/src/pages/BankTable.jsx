@@ -7,7 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 
-export default function AreaTable() {
+export default function BankTable() {
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
@@ -18,7 +18,7 @@ export default function AreaTable() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/area");
+        const response = await axios.get("http://localhost:5555/bank");
         setRows(response.data);
         setLoading(false);
       } catch (error) {
@@ -34,6 +34,12 @@ export default function AreaTable() {
     const selectedRow = rows.find((row) => row._id === id);
     navigate('/areaEdit', { state: { rowData: selectedRow } });
   };
+
+//   const handleDeleteClick = (id) => {
+//     setRows(rows.filter((row) => row._id !== id)); // Adjusted to use _id
+//   };
+
+
 
 
 
@@ -55,7 +61,7 @@ const confirmDelete = async () => {
   if (recordToDelete) {
     try {
       // Send DELETE request to the server
-      await axios.delete(`http://localhost:5555/area/${recordToDelete}`); // Adjust to your delete endpoint
+      await axios.delete(`http://localhost:5555/bank/${recordToDelete}`); // Adjust to your delete endpoint
       // Update local state to remove the deleted record
       setRows(rows.filter((row) => row._id !== recordToDelete));
     } catch (error) {
@@ -107,28 +113,13 @@ const cancelDelete = () => {
 
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
-    { field: 'AreaId', headerName: 'Area ID', width: 130 },
-    { field: 'AreaName', headerName: 'Area Name', width: 150 },
-    { field: 'Manager', headerName: 'Manager', width: 150 },
-    { field: 'E_Mail', headerName: 'Email ID', width: 180 },
-    { field: 'ZoneId', headerName: 'Zone ID', width: 130 },
-    { field: 'status', headerName: 'Status', width: 120 },
-    // {
-    //     field: 'arr_date',
-    //     headerName: 'Arrival Date',
-    //     width: 150,
-    //     valueGetter: (params) => new Date(params.row.arr_date), // Transforming string to Date object
-    //     type: 'date',
-    //   },
-    { field: 'lead_days', headerName: 'Lead Days', width: 130 },
-    { field: 'Manager_nick', headerName: 'Manager Nickname', width: 150 },
-    { field: 'area_manager', headerName: 'Area Manager', width: 150 },
-    { field: 'area_manager_email', headerName: 'Area Manager Email', width: 180 },
-    { field: 'area_manager_phone', headerName: 'Area Manager Phone', width: 150 },
-    { field: 'manager_phone', headerName: 'Manager Phone', width: 150 },
-    { field: 'FixPay', headerName: 'Fixed Pay', width: 130 },
-    { field: 'type', headerName: 'Type', width: 130 },
-    { field: 'province', headerName: 'Province', width: 130 },
+    { field: 'bank_id', headerName: 'Bank ID', width: 130 },
+    { field: 'bank_name', headerName: 'Bank Name', width: 150 },
+    { field: 'status', headerName: 'Status', width: 150 },
+    { field: 'branch_code', headerName: 'Branch Code', width: 180 },
+    { field: 'add_date', headerName: 'Date', width: 130 },
+    { field: 'bank_abr', headerName: 'Bank Abbrevation', width: 120 },
+  
     {
         field: 'action',
         headerName: 'Actions',
@@ -176,7 +167,7 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/areaForm" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/bankInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>

@@ -38,7 +38,8 @@ import { LoginDemo } from "./demo/LoginDemo.jsx";
 import AreaForm from "./pages/AreaForm.jsx";
 import AreaTable from "./pages/AreaTable.jsx";
 import AreaEditForm from "./pages/AreaEditForm.jsx";
-
+import BankTable from "./pages/BankTable.jsx";
+import BankInsert from "./pages/BankInsert.jsx";
 // import "../js/mono.js";
 
 
@@ -67,6 +68,8 @@ import AreaEditForm from "./pages/AreaEditForm.jsx";
           <Route path="/areaForm" element={<AreaForm/>} />
           <Route path="/areaTable" element={<AreaTable/>} />
           <Route path="/areaEdit" element={<AreaEditForm/>} />
+          <Route path="/bankTable" element={<BankTable/>} />
+          <Route path="/bankInsert" element={<BankInsert/>} />
           <Route path="/demo" element={<DemoForm/>} />
           <Route path="/edit" element={<EditDistForm/>} />
           <Route path="/createForm" element={<CreateForm/>} />

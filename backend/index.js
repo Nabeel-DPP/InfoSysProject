@@ -5,7 +5,7 @@ import cors from 'cors';
 // import AreaRoute from "./routes/areaRoute.js";
 // import areaRoutes from "./routes/areaRoute.js";
 import areaRoute from "./routes/areaRoute.js";
-
+import bankRoute from "./routes/bankRoute.js";
 const app = express();
 
 // Middleware for parsing request body
@@ -36,7 +36,7 @@ app.get('/', (request, response) => {
 
 
 app.use("/area", areaRoute );
-
+app.use("/bank", bankRoute );
 
 
 
