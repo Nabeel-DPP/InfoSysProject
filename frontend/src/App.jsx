@@ -40,6 +40,14 @@ import AreaTable from "./pages/AreaTable.jsx";
 import AreaEditForm from "./pages/AreaEditForm.jsx";
 import BankTable from "./pages/BankTable.jsx";
 import BankInsert from "./pages/BankInsert.jsx";
+import BankEdit from "./pages/BankEdit.jsx";
+import DistTable from "./DistTable.jsx";
+import DistInsert from "./DistInsert.jsx";
+import DistEdit from "./DistEdit.jsx";
+import Goods from "./Goods.jsx";
+import GoodsInsert from "./GoodsInsert.jsx";
+import GoodsEdit from "./GoodsEdit.jsx";
+
 // import "../js/mono.js";
 
 
@@ -70,7 +78,14 @@ import BankInsert from "./pages/BankInsert.jsx";
           <Route path="/areaEdit" element={<AreaEditForm/>} />
           <Route path="/bankTable" element={<BankTable/>} />
           <Route path="/bankInsert" element={<BankInsert/>} />
+          <Route path="/bankEdit" element={<BankEdit/>} />
+          <Route path="/distInsert" element={<DistInsert/>} />
+          <Route path="/distEdit" element={<DistEdit/>} />
+          <Route path="/goodsTable" element={<Goods/>} />
+          <Route path="/goodsInsert" element={<GoodsInsert/>} />
+          <Route path="/goodsEdit" element={<GoodsEdit/>} />
           <Route path="/demo" element={<DemoForm/>} />
+          <Route path="/distTable" element={<DistTable/>} />
           <Route path="/edit" element={<EditDistForm/>} />
           <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />

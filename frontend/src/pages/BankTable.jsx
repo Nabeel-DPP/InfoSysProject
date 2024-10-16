@@ -32,19 +32,8 @@ export default function BankTable() {
 
   const handleEditClick = (id) => {
     const selectedRow = rows.find((row) => row._id === id);
-    navigate('/areaEdit', { state: { rowData: selectedRow } });
+    navigate('/bankEdit', { state: { rowData: selectedRow } });
   };
-
-//   const handleDeleteClick = (id) => {
-//     setRows(rows.filter((row) => row._id !== id)); // Adjusted to use _id
-//   };
-
-
-
-
-
-
-
 
 
 
@@ -79,51 +68,19 @@ const cancelDelete = () => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const handleDeleteClick = async (id) => {
-//     try {
-//       await axios.delete(`http://localhost:5555/area/${id}`); // Adjust the path as per your API
-//       setRows(rows.filter((row) => row._id !== id)); // Update local state
-//     } catch (error) {
-//       console.error('Error deleting the row:', error);
-//     }
-//   };
-
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
-    { field: 'bank_id', headerName: 'Bank ID', width: 130 },
+    { field: 'bank_id', headerName: 'Bank ID', width: 150 },
     { field: 'bank_name', headerName: 'Bank Name', width: 150 },
     { field: 'status', headerName: 'Status', width: 150 },
     { field: 'branch_code', headerName: 'Branch Code', width: 180 },
-    { field: 'add_date', headerName: 'Date', width: 130 },
-    { field: 'bank_abr', headerName: 'Bank Abbrevation', width: 120 },
+    { field: 'add_date', headerName: 'Date', width: 150 },
+    { field: 'bank_abr', headerName: 'Bank Abbrevation', width: 180 },
   
     {
         field: 'action',
         headerName: 'Actions',
-        width: 150,
+        width: 200,
         sortable: false,
         renderCell: (params) => (
           <>
@@ -171,9 +128,11 @@ const cancelDelete = () => {
    
     
     </div>
+    <div className="table-caption">
+    <h3 className="text-center col-md-6 border form-head-text p-2">Bank List</h3>
+    </div>
 
-
-    <Paper style={{ height: 400, width: '100%' , marginTop:20 }}>
+    <Paper style={{ height: "60%", width: '100%'  }}>
    
       <DataGrid
         rows={rows}

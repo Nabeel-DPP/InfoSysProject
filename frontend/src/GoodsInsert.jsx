@@ -1,21 +1,19 @@
 import React, { useState,} from 'react';
-import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
+import './DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const BankInsert = () => {
+const GoodsInsert = () => {
 
   const navigate = useNavigate();
  
   const [formData, setFormData] = useState({
-    bank_id: '',
-    bank_name: '',
+    gt_id: '',
+    gt_name: '',
+    added_date: Date,
     status: '',
-    branch_code: '',
-    add_date: Date,
-    bank_abr: '',
-    
+        
   });
 
  
@@ -39,23 +37,20 @@ const BankInsert = () => {
    console.log("Submitted Data of Form : ", formData);
     try {
         
-        const response = await axios.post("http://localhost:5555/bank", formData); // Post request to the server's '/area' endpoint
+        const response = await axios.post("http://localhost:5555/goods", formData); // Post request to the server's '/area' endpoint
           console.log(response);
         if (response.status === 201) {  // Check if the response is OK
           alert('Area added successfully!');
           
           setFormData({
-            bank_id: '',
-    bank_name: '',
-    status: '',
-    branch_code: '',
-    add_date: '',
-    bank_abr: '',
-    
+            gt_id: '',
+            gt_name: '',
+            added_date: Date,
+            status: '',
           });
-          navigate("/bankTable");
+          navigate("/goodsTable");
         } else {
-          alert('Failed to add area.');
+          alert('Failed to add Goods.');
         }
       } catch (error) {
         console.error('Error:', error);
@@ -79,7 +74,7 @@ const BankInsert = () => {
     <div className="distributor-form__container mt-5">
      
     <form onSubmit={handleSubmit} >
-    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Bank Information</h1>
+    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Goods Transporter Information</h1>
       <div className="row">
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
@@ -87,15 +82,15 @@ const BankInsert = () => {
             <input
               required
               type="number"
-              name="bank_id"
-              value={formData.bank_id}
+              name="gt_id"
+              value={formData.gt_id}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
             />
           <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback">  <i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid distributor name </div>
-            <label className="distributor-label">Bank ID</label>
+            <label className="distributor-label">Goods Transporter ID</label>
             <i className="input-icon fa fa-user"></i>
           </div>
         </div>
@@ -136,15 +131,15 @@ const BankInsert = () => {
           <div className="distributor-input-group">
             <input
               required
-              type="text"
-              name="bank_name"
-              value={formData.bank_name}
+              type="date"
+              name="added_date"
+              value={formData.added_date}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
             />
             
-            <label className="distributor-label">Bank Name</label>
+            <label className="distributor-label">Date</label>
             <i class="input-icon fa-solid fa-envelope"></i>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid email address</div>
@@ -155,14 +150,14 @@ const BankInsert = () => {
           <div className="distributor-input-group">
             <input
               required
-              type="number"
-              name="branch_code"
-              value={formData.branch_code}
+              type="text"
+              name="gt_name"
+              value={formData.gt_name}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
             />
-            <label className="distributor-label">Branch Code</label>
+            <label className="distributor-label">Goods Transporter Name</label>
             <i class="input-icon fa-solid fa-phone-flip"></i>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
@@ -171,7 +166,7 @@ const BankInsert = () => {
         
       </div>
 
-      <div className="row">
+      {/* <div className="row">
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
             <input
@@ -209,7 +204,7 @@ const BankInsert = () => {
         </div>
 
       </div>
-      
+       */}
       {/* Submit Button */}
       <div className="row">
         <div className=" col-md-12 col-lg-3 col-sm-12">
@@ -231,7 +226,7 @@ const BankInsert = () => {
   );
 };
 
-export default BankInsert;
+export default GoodsInsert;
 
 
 

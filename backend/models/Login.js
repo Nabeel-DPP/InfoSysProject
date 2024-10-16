@@ -37,7 +37,7 @@ const loginSchema = new mongoose.Schema({
   areaName: {
     type: String,  // Nickname of the manager
   },
-  DistId: {
+  distId: {
     type: String,  // Name of the area manager
     required: true,
   },

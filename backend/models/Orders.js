@@ -18,8 +18,8 @@ const ordersSchema = new mongoose.Schema({
     required: true,
   },
    subAreaId: {
-    type: String,  // Date when the area was added or arrived
-    default: Date.now,  // Set the default to the current date
+    type: String,  
+     
   },
   FeedDate: {
     type: Date,  // Number of lead days
@@ -73,7 +73,7 @@ invoice_date:
 },
 cancel_date:
 { type: Date  },
-restor_date:
+restore_date:
 {
     type : Date
 },
@@ -193,12 +193,12 @@ type: Number
 validatePayment:
 {
     type: Number
-},
+},}, {
+    timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
+  }
 
+);
 
-  timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
-});
-
-export const Orders = mongoose.model('Orders', orderDetailSchema);
+export const Orders = mongoose.model('Orders', ordersSchema);
 
 

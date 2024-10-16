@@ -1,24 +1,42 @@
-import React, { useState,} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const BankInsert = () => {
-
+const BankEdit = () => {
+  const location = useLocation();
   const navigate = useNavigate();
- 
+  const { rowData } = location.state || {}; // Get the passed row data
+
+  // State to manage form data
   const [formData, setFormData] = useState({
     bank_id: '',
     bank_name: '',
     status: '',
     branch_code: '',
     add_date: Date,
-    bank_abr: '',
+    bank_abr: ''
     
   });
 
- 
+  // Populate form data from row data
+  useEffect(() => {
+    console.log("This is the Data coming from Area Table : ", rowData);
+    if (rowData) {
+      setFormData({
+        bank_id:rowData.bank_id,
+        bank_name:rowData.bank_name,
+        status:rowData.status,
+        branch_code: rowData.branch_code,
+        add_date:rowData.add_date,
+        bank_abr: rowData.bank_abr
+      });
+
+      
+    }
+  }, [rowData]);
+
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,49 +48,25 @@ const BankInsert = () => {
 
 
 
-  
-
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-   console.log("Submitted Data of Form : ", formData);
-    try {
-        
-        const response = await axios.post("http://localhost:5555/bank", formData); // Post request to the server's '/area' endpoint
-          console.log(response);
-        if (response.status === 201) {  // Check if the response is OK
-          alert('Area added successfully!');
-          
-          setFormData({
-            bank_id: '',
-    bank_name: '',
-    status: '',
-    branch_code: '',
-    add_date: '',
-    bank_abr: '',
-    
-          });
-          navigate("/bankTable");
-        } else {
-          alert('Failed to add area.');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Error occurred while submitting the form.');
-      }
-    
+  const handleRadioChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value, // Dynamically update the form field based on the name attribute
+    });
   };
 
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-
-
-
-
-
-
-
-
+    try {
+      await axios.put(`http://localhost:5555/bank/${rowData._id}`, formData);
+      navigate("/bankTable"); // Navigate back to AreaTable after successful update
+    } catch (error) {
+      console.error("Error updating area data: ", error);
+    }
+  };
 
   return (
    
@@ -184,7 +178,7 @@ const BankInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Date</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
+            {/* <i class="input-icon  fa-solid fa-location-crosshairs"></i> */}
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
@@ -231,7 +225,7 @@ const BankInsert = () => {
   );
 };
 
-export default BankInsert;
+export default BankEdit;
 
 
 

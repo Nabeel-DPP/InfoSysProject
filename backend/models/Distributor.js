@@ -5,63 +5,59 @@ const distributorSchema = new mongoose.Schema({
     required: true,
     unique: true,  // Ensures no two areas have the same AreaId
   },
-  DistName: {
+  distName: {
     type: String,
     required: true,
   },
-  AreaID: {
+  areaID: {
     type: String,  // Use String or Number depending on the ZoneId format
     required: true,
   },
-  ZoneID: {
+  zoneID: {
     type: String,  // Example: 'Active', 'Inactive', or other statuses
     required: true,
   },
-  Status: {
-    type: Date,  // Date when the area was added or arrived
-    default: Date.now,  // Set the default to the current date
-  },
-  Status: {
+ status: {
     type: String,  // Number of lead days
     required: true,
   }
   ,
-  Address: {
+  address: {
     type: String,  // Number of lead days
     required: true,
   },
 
-  Balance : 
+  balance : 
   {
     type : Number ,
     required: true
 
   },
-  closing_balance: 
+  closingBalance: 
   {
     type: Number , 
 
   },
-  dist_type:
+  distType:
   {
     type: String 
  },
- ssr_type: 
+ ssrType: 
  {
     type: String
  }
  ,
- factory_code : 
+ factorCode : 
  {
    type: String
  }
  ,
- Arr_Date:
+ arrDate:
  {
    type: Date ,
    required : true 
  },
- email_id: 
+ emailId: 
  {
     type : String ,
 
@@ -70,24 +66,24 @@ const distributorSchema = new mongoose.Schema({
  phone1:
  {
  type: Number ,
- required: ture
+ required:true
  }
  , 
  phone2:
  {
     type:Number 
  },
- lock_days:
+ LockDays:
  {
     type: Number 
  }
  ,
- NTN: 
+ ntn: 
  {
-   type: String 
+   type: Number
  }
  ,
- CNIC : 
+ cnic : 
  {
     type: Number
  }
@@ -97,6 +93,6 @@ const distributorSchema = new mongoose.Schema({
   timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
 });
 
-export const Dist = mongoose.model('Dist', distributorSchema);
+export const Distributor = mongoose.model('Distributor', distributorSchema);
 
 

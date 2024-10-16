@@ -2,12 +2,12 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
-import "../Table.css";
+import "./Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { PopUpModal } from '../components/Modal';
+import { PopUpModal } from './components/Modal';
 
-export default function AreaTable() {
+export default function Goods() {
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
@@ -18,11 +18,11 @@ export default function AreaTable() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/area");
+        const response = await axios.get("http://localhost:5555/goods");
         setRows(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching the areas data: ", error);
+        console.error("Error fetching the Goods data: ", error);
         setError(error);
         setLoading(false);
       }
@@ -32,13 +32,8 @@ export default function AreaTable() {
 
   const handleEditClick = (id) => {
     const selectedRow = rows.find((row) => row._id === id);
-    navigate('/areaEdit', { state: { rowData: selectedRow } });
+    navigate('/goodsEdit', { state: { rowData: selectedRow } });
   };
-
-
-
-
-
 
 
 
@@ -55,7 +50,7 @@ const confirmDelete = async () => {
   if (recordToDelete) {
     try {
       // Send DELETE request to the server
-      await axios.delete(`http://localhost:5555/area/${recordToDelete}`); // Adjust to your delete endpoint
+      await axios.delete(`http://localhost:5555/goods/${recordToDelete}`); // Adjust to your delete endpoint
       // Update local state to remove the deleted record
       setRows(rows.filter((row) => row._id !== recordToDelete));
     } catch (error) {
@@ -73,66 +68,17 @@ const cancelDelete = () => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const handleDeleteClick = async (id) => {
-//     try {
-//       await axios.delete(`http://localhost:5555/area/${id}`); // Adjust the path as per your API
-//       setRows(rows.filter((row) => row._id !== id)); // Update local state
-//     } catch (error) {
-//       console.error('Error deleting the row:', error);
-//     }
-//   };
-
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
-    { field: 'AreaId', headerName: 'Area ID', width: 130 },
-    { field: 'AreaName', headerName: 'Area Name', width: 150 },
-    { field: 'Manager', headerName: 'Manager', width: 150 },
-    { field: 'E_Mail', headerName: 'Email ID', width: 180 },
-    { field: 'ZoneId', headerName: 'Zone ID', width: 130 },
-    { field: 'status', headerName: 'Status', width: 120 },
-    // {
-    //     field: 'arr_date',
-    //     headerName: 'Arrival Date',
-    //     width: 150,
-    //     valueGetter: (params) => new Date(params.row.arr_date), // Transforming string to Date object
-    //     type: 'date',
-    //   },
-    { field: 'lead_days', headerName: 'Lead Days', width: 130 },
-    { field: 'Manager_nick', headerName: 'Manager Nickname', width: 150 },
-    { field: 'area_manager', headerName: 'Area Manager', width: 150 },
-    { field: 'area_manager_email', headerName: 'Area Manager Email', width: 180 },
-    { field: 'area_manager_phone', headerName: 'Area Manager Phone', width: 150 },
-    { field: 'manager_phone', headerName: 'Manager Phone', width: 150 },
-    { field: 'FixPay', headerName: 'Fixed Pay', width: 130 },
-    { field: 'type', headerName: 'Type', width: 130 },
-    { field: 'province', headerName: 'Province', width: 130 },
+    { field: 'gt_id', headerName: 'Goods Transporter ID', width: 250 },
+    { field: 'gt_name', headerName: 'Goods Transporter Name', width: 250},
+    { field: 'added_date', headerName: 'Date', width: 250 },
+    { field: 'status', headerName: 'Status', width: 250 },
+    
     {
         field: 'action',
         headerName: 'Actions',
-        width: 150,
+        width: 200,
         sortable: false,
         renderCell: (params) => (
           <>
@@ -176,15 +122,15 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/areaForm" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/goodsInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>
-    <div className="table-caption">
-    <h3 className="text-center col-md-6 border form-head-text p-2">Area List</h3>
-    </div>
 
-    <Paper style={{ height: 400, width: '100%' }}>
+    <div className="table-caption">
+    <h3 className="text-center col-md-6 border form-head-text p-2">Goods Transporter List</h3>
+    </div>
+    <Paper style={{ height: "60%", width: '100%'  }}>
    
       <DataGrid
         rows={rows}

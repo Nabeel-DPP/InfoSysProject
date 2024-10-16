@@ -156,17 +156,9 @@ svn:
 InvNotes:
 {
     type: String
-},
-
-
-
-
-
-
-
-
-  timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
-});
+},}, {
+    timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
+  });
 
 export const OrderDetail = mongoose.model('OrderDetail', orderDetailSchema);
 

@@ -6,6 +6,11 @@ import cors from 'cors';
 // import areaRoutes from "./routes/areaRoute.js";
 import areaRoute from "./routes/areaRoute.js";
 import bankRoute from "./routes/bankRoute.js";
+import goodsRoute from "./routes/goodsRoute.js";
+import loginRoute from "./routes/loginRoute.js";
+import distRoute from "./routes/distRoute.js";
+import orderRoute from "./routes/orderRoute.js";
+import orderDetailRoute from "./routes/orderDetailRoute.js";
 const app = express();
 
 // Middleware for parsing request body
@@ -37,8 +42,11 @@ app.get('/', (request, response) => {
 
 app.use("/area", areaRoute );
 app.use("/bank", bankRoute );
-
-
+app.use("/goods", goodsRoute );
+app.use("/login", loginRoute );
+app.use("/distributor", distRoute );
+app.use("/order", orderRoute );
+app.use("/orderDetail", orderDetailRoute );
 
 mongoose
   .connect(mongoDBURL)
