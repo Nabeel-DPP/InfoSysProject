@@ -47,7 +47,13 @@ import DistEdit from "./DistEdit.jsx";
 import Goods from "./Goods.jsx";
 import GoodsInsert from "./GoodsInsert.jsx";
 import GoodsEdit from "./GoodsEdit.jsx";
-
+import LoginTable from "./pages/LoginTable.jsx";
+import LoginInsert from "./pages/LoginInsert.jsx";
+import LoginEdit from "./pages/LoginEdit.jsx";
+import OrderTable from "./pages/OrderTable.jsx";
+import OrderInsert from "./pages/OrderInsert.jsx";
+import OrderEdit from "./pages/OrderEdit.jsx";
+import DispatchTable from "./pages/DispatchTable.jsx";
 // import "../js/mono.js";
 
 
@@ -87,6 +93,13 @@ import GoodsEdit from "./GoodsEdit.jsx";
           <Route path="/demo" element={<DemoForm/>} />
           <Route path="/distTable" element={<DistTable/>} />
           <Route path="/edit" element={<EditDistForm/>} />
+          <Route path="/loginTable" element={<LoginTable/>} />
+          <Route path="/loginInsert" element={<LoginInsert/>} />
+          <Route path="/loginEdit" element={<LoginEdit/>} />
+          <Route path="/orderTable" element={<OrderTable/>} />
+          <Route path="/orderEdit" element={<OrderEdit/>} />
+          <Route path="/orderInsert" element={<OrderInsert/>} />
+          <Route path="/dispatchTable" element={<DispatchTable/>} />
           <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />

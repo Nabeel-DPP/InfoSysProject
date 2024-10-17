@@ -6,19 +6,19 @@ const ordersSchema = new mongoose.Schema({
     unique: true,  // Ensures no two areas have the same AreaId
   },
    tblDistId: {
-    type: String,
+    type: Number,
     required: true,
   },
   tblAreaId: {
-    type: String,  // Use String or Number depending on the ZoneId format
+    type: Number,  // Use String or Number depending on the ZoneId format
     required: true,
   },
   instiId: {
-    type: String,  // Example: 'Active', 'Inactive', or other statuses
+    type: Number,  // Example: 'Active', 'Inactive', or other statuses
     required: true,
   },
    subAreaId: {
-    type: String,  
+    type: Number,  
      
   },
   FeedDate: {
@@ -30,7 +30,7 @@ const ordersSchema = new mongoose.Schema({
     required: true,
   },
   order_value: {
-    type: String,  // Email of the manager
+    type: Number,  // Email of the manager
     required: true,
     
   },
@@ -50,7 +50,7 @@ ddNumber: {
 },
 
 orderType: {
-    type: Number,  
+    type: String,  
     required: true,
 
 },
@@ -137,7 +137,7 @@ forward_by:
 },
 edit_status: 
 {
-    type: String
+    type: Number
 },
 discount: 
 {
@@ -178,8 +178,8 @@ prvs_frwd_date :
 {
     type:Date
 },
-dd_blanks:
-{ type: Number },
+dd_banks:
+{ type: String },
 
 
 payment_max_date:

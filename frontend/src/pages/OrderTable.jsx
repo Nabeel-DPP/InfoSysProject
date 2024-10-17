@@ -7,7 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 
-export default function AreaTable() {
+export default function OrderTable() {
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
@@ -18,7 +18,7 @@ export default function AreaTable() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/area");
+        const response = await axios.get("http://localhost:5555/order");
         setRows(response.data);
         setLoading(false);
       } catch (error) {
@@ -32,7 +32,7 @@ export default function AreaTable() {
 
   const handleEditClick = (id) => {
     const selectedRow = rows.find((row) => row._id === id);
-    navigate('/areaEdit', { state: { rowData: selectedRow } });
+    navigate('/orderEdit', { state: { rowData: selectedRow } });
   };
 
 
@@ -55,7 +55,7 @@ const confirmDelete = async () => {
   if (recordToDelete) {
     try {
       // Send DELETE request to the server
-      await axios.delete(`http://localhost:5555/area/${recordToDelete}`); // Adjust to your delete endpoint
+      await axios.delete(`http://localhost:5555/order/${recordToDelete}`); // Adjust to your delete endpoint
       // Update local state to remove the deleted record
       setRows(rows.filter((row) => row._id !== recordToDelete));
     } catch (error) {
@@ -77,21 +77,49 @@ const cancelDelete = () => {
 
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
-    { field: 'AreaId', headerName: 'Area ID', width: 130 },
-    { field: 'AreaName', headerName: 'Area Name', width: 150 },
-    { field: 'Manager', headerName: 'Manager', width: 150 },
-    { field: 'E_Mail', headerName: 'Email ID', width: 180 },
-    { field: 'ZoneId', headerName: 'Zone ID', width: 130 },
-    { field: 'status', headerName: 'Status', width: 120 },
-    { field: 'lead_days', headerName: 'Lead Days', width: 130 },
-    { field: 'Manager_nick', headerName: 'Manager Nickname', width: 150 },
-    { field: 'area_manager', headerName: 'Area Manager', width: 150 },
-    { field: 'area_manager_email', headerName: 'Area Manager Email', width: 180 },
-    { field: 'area_manager_phone', headerName: 'Area Manager Phone', width: 150 },
-    { field: 'manager_phone', headerName: 'Manager Phone', width: 150 },
-    { field: 'FixPay', headerName: 'Fixed Pay', width: 130 },
-    { field: 'type', headerName: 'Type', width: 130 },
-    { field: 'province', headerName: 'Province', width: 130 },
+    { field: 'OrderId', headerName: 'Order ID', width: 130 },
+    { field: 'tblDistId', headerName: 'Distributor ID', width: 180 },
+    { field: 'tblAreaId', headerName: 'Area ID', width: 150 },
+    { field: 'instiId', headerName: 'Institute ID', width: 150 },
+    { field: 'subAreaId', headerName: 'Sub Area ID', width: 150 },
+    { field: 'FeedDate', headerName: 'Feed Date', width: 150 },
+    { field: 'dd_amount', headerName: 'DD Amount', width: 130 },
+    { field: 'order_value', headerName: 'Order Value', width: 130 },
+    { field: 'Period', headerName: 'Period', width: 100 },
+    { field: 'instructions', headerName: 'Instructions', width: 200 },
+    { field: 'ddNumber', headerName: 'DD Number', width: 130 },
+    { field: 'orderType', headerName: 'Order Type', width: 120 },
+    { field: 'status', headerName: 'Status', width: 100 },
+    { field: 'forward_date', headerName: 'Forward Date', width: 150 },
+    { field: 'confirm_date', headerName: 'Confirm Date', width: 150 },
+    { field: 'invoice_date', headerName: 'Invoice Date', width: 150 },
+    { field: 'cancel_date', headerName: 'Cancel Date', width: 150 },
+    { field: 'restore_date', headerName: 'Restore Date', width: 150 },
+    { field: 'crem', headerName: 'Crem', width: 130 },
+    { field: 'userId', headerName: 'User ID', width: 130 },
+    { field: 'userIp', headerName: 'User IP', width: 130 },
+    { field: 'invoiceNo', headerName: 'Invoice Number', width: 150 },
+    { field: 'invoiceDate', headerName: 'Invoice Date', width: 150 },
+    { field: 'truckNo', headerName: 'Truck Number', width: 130 },
+    { field: 'siv', headerName: 'SIV', width: 130 },
+    { field: 'dispatch_mode', headerName: 'Dispatch Mode', width: 150 },
+    { field: 'edit_by', headerName: 'Edited By', width: 150 },
+    { field: 'confirm_by', headerName: 'Confirmed By', width: 150 },
+    { field: 'forward_by', headerName: 'Forwarded By', width: 150 },
+    { field: 'edit_status', headerName: 'Edit Status', width: 130 },
+    { field: 'discount', headerName: 'Discount', width: 130 },
+    { field: 'stockist', headerName: 'Stockist', width: 130 },
+    { field: 'perage', headerName: 'Perage', width: 130 },
+    { field: 'disp_date', headerName: 'Dispatch Date', width: 150 },
+    { field: 'Return_stock', headerName: 'Return Stock', width: 150 },
+    { field: 'stock_aginst_orderNo', headerName: 'Stock Against Order No', width: 150 },
+    { field: 'purchase_against_type', headerName: 'Purchase Against Type', width: 150 },
+    { field: 'edit_date', headerName: 'Edit Date', width: 150 },
+    { field: 'prvs_frwd_date', headerName: 'Previous Forward Date', width: 150 },
+    { field: 'dd_banks', headerName: 'DD Banks', width: 130 },
+    { field: 'payment_max_date', headerName: 'Payment Max Date', width: 150 },
+    { field: 'AdvTax', headerName: 'Advance Tax', width: 130 },
+    { field: 'validatePayment', headerName: 'Validate Payment', width: 130 },
     {
         field: 'action',
         headerName: 'Actions',
@@ -139,12 +167,12 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/areaForm" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/orderInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>
     <div className="table-caption">
-    <h3 className="text-center col-md-6 border form-head-text p-2">Area List</h3>
+    <h3 className="text-center col-md-6 border form-head-text p-2">Orders List</h3>
     </div>
 
     <Paper style={{ height: 400, width: '100%' }}>

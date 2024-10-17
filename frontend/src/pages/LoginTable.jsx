@@ -7,7 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 
-export default function AreaTable() {
+export default function LoginTable() {
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
@@ -18,7 +18,7 @@ export default function AreaTable() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/area");
+        const response = await axios.get("http://localhost:5555/login");
         setRows(response.data);
         setLoading(false);
       } catch (error) {
@@ -32,7 +32,7 @@ export default function AreaTable() {
 
   const handleEditClick = (id) => {
     const selectedRow = rows.find((row) => row._id === id);
-    navigate('/areaEdit', { state: { rowData: selectedRow } });
+    navigate('/loginEdit', { state: { rowData: selectedRow } });
   };
 
 
@@ -55,7 +55,7 @@ const confirmDelete = async () => {
   if (recordToDelete) {
     try {
       // Send DELETE request to the server
-      await axios.delete(`http://localhost:5555/area/${recordToDelete}`); // Adjust to your delete endpoint
+      await axios.delete(`http://localhost:5555/login/${recordToDelete}`); // Adjust to your delete endpoint
       // Update local state to remove the deleted record
       setRows(rows.filter((row) => row._id !== recordToDelete));
     } catch (error) {
@@ -77,21 +77,22 @@ const cancelDelete = () => {
 
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
-    { field: 'AreaId', headerName: 'Area ID', width: 130 },
-    { field: 'AreaName', headerName: 'Area Name', width: 150 },
-    { field: 'Manager', headerName: 'Manager', width: 150 },
-    { field: 'E_Mail', headerName: 'Email ID', width: 180 },
-    { field: 'ZoneId', headerName: 'Zone ID', width: 130 },
-    { field: 'status', headerName: 'Status', width: 120 },
-    { field: 'lead_days', headerName: 'Lead Days', width: 130 },
-    { field: 'Manager_nick', headerName: 'Manager Nickname', width: 150 },
-    { field: 'area_manager', headerName: 'Area Manager', width: 150 },
-    { field: 'area_manager_email', headerName: 'Area Manager Email', width: 180 },
-    { field: 'area_manager_phone', headerName: 'Area Manager Phone', width: 150 },
-    { field: 'manager_phone', headerName: 'Manager Phone', width: 150 },
-    { field: 'FixPay', headerName: 'Fixed Pay', width: 130 },
-    { field: 'type', headerName: 'Type', width: 130 },
-    { field: 'province', headerName: 'Province', width: 130 },
+    { field: 'loginId', headerName: 'Login ID', width: 130 },
+    { field: 'login', headerName: 'Login', width: 150 },
+    { field: 'password', headerName: 'Password', width: 150 },
+    { field: 'name', headerName: 'Name', width: 180 },
+    { field: 'desig', headerName: 'Designation', width: 130 },
+    { field: 'type', headerName: 'Type', width: 120 },
+    { field: 'dept', headerName: 'Department', width: 130 },
+    { field: 'areaId', headerName: 'Area ID', width: 150 },
+    { field: 'areaName', headerName: 'Area Name', width: 150 },
+    { field: 'distId', headerName: 'Distributor ID', width: 180 },
+    { field: 'created', headerName: 'Date', width: 150 },
+    { field: 'active', headerName: 'Active', width: 150 },
+    { field: 'passw', headerName: 'Pass', width: 130 },
+    { field: 'zonal', headerName: 'Zonal', width: 130 },
+    { field: 'nickName', headerName: 'Nick Name', width: 130 },
+    { field: 'subArea', headerName: 'Sub Area', width: 130 },
     {
         field: 'action',
         headerName: 'Actions',
@@ -139,12 +140,12 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/areaForm" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/loginInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>
     <div className="table-caption">
-    <h3 className="text-center col-md-6 border form-head-text p-2">Area List</h3>
+    <h3 className="text-center col-md-6 border form-head-text p-2">Login List</h3>
     </div>
 
     <Paper style={{ height: 400, width: '100%' }}>

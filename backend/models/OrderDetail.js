@@ -13,15 +13,15 @@ const orderDetailSchema = new mongoose.Schema({
     type: String,  // Use String or Number depending on the ZoneId format
     required: true,
   },
-  units: {
+  base_units: {
     type: String,  // Example: 'Active', 'Inactive', or other statuses
     required: true,
   },
-   price: {
+   cash_price: {
     type: Date,  // Date when the area was added or arrived
     default: Date.now,  // Set the default to the current date
   },
-  bonus: {
+  bonus_units: {
     type: Number,  // Number of lead days
     required: true,
   },
@@ -43,17 +43,17 @@ const orderDetailSchema = new mongoose.Schema({
     required: true,
 
 },
-pending_units: {
-    type: Number,  
-    required: true,
+// pending_units: {
+//     type: Number,  
+//     required: true,
 
-},
+// },
 
-batchNo: {
-    type: Number,  
-    required: true,
+// batchNo: {
+//     type: Number,  
+//     required: true,
 
-},
+// },
 sch: 
 {
     type:Number,
@@ -63,61 +63,61 @@ pack_on_sch:
 {
     type:Number
 },
-invoice_date:
-{
-  type: Date
-},
-invoice_no:
-{
-    type: String ,
-    required : true
-},
-disp_date:
-{
-    type: Date
-},
-type: 
-{
-    type: Number
-},
-pending_date:
-{
-    type : String 
-},
-builtyNo:
-{
-    type: String
+// invoice_date:
+// {
+//   type: Date
+// },
+// invoice_no:
+// {
+//     type: String ,
+//     required : true
+// },
+// disp_date:
+// {
+//     type: Date
+// },
+// type: 
+// {
+//     type: Number
+// },
+// pending_date:
+// {
+//     type : String 
+// },
+// builtyNo:
+// {
+//     type: String
 
-},
-addaName: 
-{
-    type: Number
-},
-cartons:
-{
-    type: String
-},
-dispatch_entry_date:
-{
-    type: Date
-},
-dist_receiving:
-{
-    type: String
-},
-dist_flag_date:
-{
-    type: Date
-},
-dist_flag_month:
-{
-    type:String
-},
-dist_flag_entry:
-{
-    type: Number
-},
-dist_price:
+// },
+// addaName: 
+// {
+//     type: Number
+// },
+// cartons:
+// {
+//     type: String
+// },
+// dispatch_entry_date:
+// {
+//     type: Date
+// },
+// dist_receiving:
+// {
+//     type: String
+// },
+// dist_flag_date:
+// {
+//     type: Date
+// },
+// dist_flag_month:
+// {
+//     type:String
+// },
+// dist_flag_entry:
+// {
+//     type: Number
+// },
+trade_price:
 {
     type:Number
 },
@@ -125,10 +125,10 @@ product_scheme:
 {
     type:Number
 },
-bilty_charges:
-{
-    type:Number
-},
+// bilty_charges:
+// {
+//     type:Number
+// },
 units_convert_date:
 {
   type: Date

@@ -10,7 +10,7 @@ const loginSchema = new mongoose.Schema({
     required: true,
   },
   password: {
-    type: String,  // Use String or Number depending on the ZoneId format
+    type:String,  // Use String or Number depending on the ZoneId format
     required: true,
   },
   name: {
@@ -18,11 +18,11 @@ const loginSchema = new mongoose.Schema({
     required: true,
   },
   desig: {
-    type: Date,  // Date when the area was added or arrived
-    default: Date.now,  // Set the default to the current date
+    type: String,  // Date when the area was added or arrived
+     // Set the default to the current date
   },
   type: {
-    type: Number,  // Number of lead days
+    type: String,  // Number of lead days
     required: true,
   },
   dept: {
@@ -30,15 +30,15 @@ const loginSchema = new mongoose.Schema({
     required: true,
   },
   areaId: {
-    type: String,  // Email of the manager
+    type: Number,  // Email of the manager
     required: true,
-    match: /.+\@.+\..+/,  // Simple email validation
+      // Simple email validation
   },
   areaName: {
     type: String,  // Nickname of the manager
   },
   distId: {
-    type: String,  // Name of the area manager
+    type: Number,  // Name of the area manager
     required: true,
   },
   created: {
@@ -47,7 +47,7 @@ const loginSchema = new mongoose.Schema({
     match: /.+\@.+\..+/,  // Simple email validation
   },
   active: {
-    type: String,  // Example: 'Active', 'Inactive', or other statuses
+    type: Number,  // Example: 'Active', 'Inactive', or other statuses
     required: true,
   },
 passw:
@@ -70,7 +70,7 @@ passw:
   ,
   subArea:
   {
-    type: String,
+    type: Number,
     required:true,
   }
 }, {

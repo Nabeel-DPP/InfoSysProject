@@ -11,6 +11,10 @@ import loginRoute from "./routes/loginRoute.js";
 import distRoute from "./routes/distRoute.js";
 import orderRoute from "./routes/orderRoute.js";
 import orderDetailRoute from "./routes/orderDetailRoute.js";
+import dispatchRoute from "./routes/dispatchRoute.js";
+import rightsRoute from "./routes/rightsRoute.js";
+import rightsSectionRoute from "./routes/rightsSectionRoute.js";
+import roleRoute from "./routes/roleRoute.js";
 const app = express();
 
 // Middleware for parsing request body
@@ -47,6 +51,19 @@ app.use("/login", loginRoute );
 app.use("/distributor", distRoute );
 app.use("/order", orderRoute );
 app.use("/orderDetail", orderDetailRoute );
+app.use("/dispatch", dispatchRoute );
+app.use("/rights", rightsRoute );
+app.use("/rtSection", rightsSectionRoute );
+app.use("/role", roleRoute );
+
+
+
+
+
+
+
+
+
 
 mongoose
   .connect(mongoDBURL)
