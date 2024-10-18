@@ -10,11 +10,11 @@ const areaSchema = new mongoose.Schema({
     required: true,
   },
   ZoneId: {
-    type: String,  // Use String or Number depending on the ZoneId format
+    type: Number,  // Use String or Number depending on the ZoneId format
     required: true,
   },
   status: {
-    type: String,  // Example: 'Active', 'Inactive', or other statuses
+    type: Number,  // Example: 'Active', 'Inactive', or other statuses
     required: true,
   },
   arr_date: {
@@ -26,50 +26,50 @@ const areaSchema = new mongoose.Schema({
     required: true,
   },
   Manager: {
-    type: String,  // Name of the manager
-    required: true,
+    type:Number ,  // 
+    // required: true,
   },
   E_Mail: {
     type: String,  // Email of the manager
-    required: true,
-    match: /.+\@.+\..+/,  // Simple email validation
+    // required: true,
+   
   },
   Manager_nick: {
     type: String,  // Nickname of the manager
   },
   area_manager: {
-    type: String,  // Name of the area manager
-    required: true,
+    type: Number,  // Name of the area manager
+    
   },
   area_manager_email: {
     type: String,  // Email of the area manager
-    required: true,
-    match: /.+\@.+\..+/,  // Simple email validation
+    
+  
   },
   area_manager_phone: {
     type: String,  // Example: 'Active', 'Inactive', or other statuses
-    required: true,
+    
   },
   manager_phone:
   {
     type: String,
-    required: true,
+    // required: true,
   }
   ,
   FixPay:
   {
     type: Number,
-    required:true,
+    // required:true,
   },
   type:
   {
-    type: String,
-    required:true,
+    type: Number,
+  
   },
   province:
   {
     type: String,
-    required:true,
+    
   }
 
 }, {

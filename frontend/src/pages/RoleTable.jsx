@@ -6,9 +6,8 @@ import "../Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
-import { format } from 'date-fns'; // Make sure to install date-fns
 
-export default function BankTable() {
+export default function RoleTable() {
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
@@ -19,11 +18,11 @@ export default function BankTable() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/bank");
+        const response = await axios.get("http://localhost:5555/role");
         setRows(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching the areas data: ", error);
+        console.error("Error fetching the Role data: ", error);
         setError(error);
         setLoading(false);
       }
@@ -33,8 +32,13 @@ export default function BankTable() {
 
   const handleEditClick = (id) => {
     const selectedRow = rows.find((row) => row._id === id);
-    navigate('/bankEdit', { state: { rowData: selectedRow } });
+    navigate('/roleEdit', { state: { rowData: selectedRow } });
   };
+
+
+
+
+
 
 
 
@@ -51,7 +55,7 @@ const confirmDelete = async () => {
   if (recordToDelete) {
     try {
       // Send DELETE request to the server
-      await axios.delete(`http://localhost:5555/bank/${recordToDelete}`); // Adjust to your delete endpoint
+      await axios.delete(`http://localhost:5555/role/${recordToDelete}`); // Adjust to your delete endpoint
       // Update local state to remove the deleted record
       setRows(rows.filter((row) => row._id !== recordToDelete));
     } catch (error) {
@@ -69,24 +73,24 @@ const cancelDelete = () => {
 };
 
 
+
+
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
-    { field: 'bank_id', headerName: 'Bank ID', width: 150 },
-    { field: 'bank_name', headerName: 'Bank Name', width: 150 },
+    { field: 'rd_id', headerName: 'Role ID', width: 130 },
+    { field: 'userId', headerName: 'User ID', width: 150 },
+    { field: 'AreaId', headerName: 'Area ID', width: 150 },
+    { field: 'subAreaId', headerName: 'Sub Area ID' , width: 180 },
+    { field: 'DistId', headerName: 'Distributor ID', width: 130 },
+    { field: 'instiId', headerName: 'Institute ID', width: 120 },
+    { field: 'zoneId', headerName: 'Zone ID', width: 130 },
+    { field: 'rightId', headerName: 'RIghts ID', width: 150 },
     { field: 'status', headerName: 'Status', width: 150 },
-    { field: 'branch_code', headerName: 'Branch Code', width: 180 },
-    { field: 'add_date', headerName: 'Date', width: 150 },
-    // { field: 'add_date', headerName: 'Date', width: 150, 
-    //   renderCell: (params) => (
-    //     <span>{params.value ? format(new Date(params.value), 'MM/dd/yyyy') : ''}</span>
-    //   ) 
-    // },
-    { field: 'bank_abr', headerName: 'Bank Abbrevation', width: 180 },
-  
+    { field: 'rptType', headerName: 'RPT Type', width: 180 },
     {
         field: 'action',
         headerName: 'Actions',
-        width: 200,
+        width: 150,
         sortable: false,
         renderCell: (params) => (
           <>
@@ -130,15 +134,15 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/bankInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/areaForm" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>
     <div className="table-caption">
-    <h3 className="text-center col-md-6 border form-head-text p-2">Bank List</h3>
+    <h3 className="text-center col-md-6 border form-head-text p-2">Role List</h3>
     </div>
 
-    <Paper style={{ height: "60%", width: '100%'  }}>
+    <Paper style={{ height: 400, width: '100%' }}>
    
       <DataGrid
         rows={rows}

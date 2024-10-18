@@ -9,7 +9,7 @@ const roleSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  areaId: {
+  AreaId: {
     type: Number,  // Use String or Number depending on the ZoneId format
     required: true,
   },
@@ -18,10 +18,10 @@ const roleSchema = new mongoose.Schema({
 
   subAreaId: {
     type: Number,  // Use String or Number depending on the format of your AreaId
-    required: true,
-    unique: true,  // Ensures no two areas have the same AreaId
+    // required: true,
+    unique:false,  // Ensures no two areas have the same AreaId
   },
-  distId: {
+  DistId: {
     type: Number,
     required: true,
   },
@@ -34,19 +34,19 @@ const roleSchema = new mongoose.Schema({
   zoneId: {
     type: Number,  // Use String or Number depending on the format of your AreaId
     required: true,
-    unique: true,  // Ensures no two areas have the same AreaId
+    // unique: true,  // Ensures no two areas have the same AreaId
   },
   rightId: {
-    type: Number,
+    type: String,
     required: true,
   },
   status: {
-    type: Number,  // Use String or Number depending on the ZoneId format
+    type: String,  // Use String or Number depending on the ZoneId format
     required: true,
   },
   rptType: {
     type: String,  // Use String or Number depending on the ZoneId format
-    required: true,
+    // required: true,
   },
 }, {
   timestamps: true,  // Adds createdAt and updatedAt timestamps automatically

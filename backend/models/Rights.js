@@ -3,7 +3,7 @@ const rightsSchema = new mongoose.Schema({
   r_id: {
     type: Number,  // Use String or Number depending on the format of your AreaId
     required: true,
-    unique: true,  // Ensures no two areas have the same AreaId
+    // unique: true,  // Ensures no two areas have the same AreaId
   },
   r_code: {
     type: String,

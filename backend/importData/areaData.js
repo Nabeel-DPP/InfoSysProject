@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';  // Add this import
 import xlsx from 'xlsx';
-import { Goods } from '../models/Goods.js';  // Adjust the path if needed
+import { Area } from '../models/Area.js';  // Adjust the path if needed
 
 // Function to read Excel file and insert data into MongoDB
-export const importExcelData = async () => {
+export const importAreaData = async () => {
   try {
     // Use path.resolve to construct the absolute file path
-    const filePath = path.resolve('./importData/goodsTable.xlsx');  // Adjust path accordingly
+    const filePath = path.resolve('./importData/areaTable.xlsx');  // Adjust path accordingly
 
     // Check if the file exists
     if (!fs.existsSync(filePath)) {
@@ -30,7 +30,7 @@ export const importExcelData = async () => {
     // console.log('Data extracted from Excel:', sheetData);
 
     // Insert data into MongoDB
-    const result = await Goods.insertMany(sheetData);
+    const result = await Area.insertMany(sheetData);
     console.log('Data inserted successfully into MongoDB:', result);
 
   } catch (err) {

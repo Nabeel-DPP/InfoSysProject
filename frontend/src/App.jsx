@@ -55,7 +55,9 @@ import OrderInsert from "./pages/OrderInsert.jsx";
 import OrderEdit from "./pages/OrderEdit.jsx";
 import DispatchTable from "./pages/DispatchTable.jsx";
 // import "../js/mono.js";
-
+import RoleTable from "./pages/RoleTable.jsx";
+import OrderDetailTable from "./pages/OrderDetail.jsx";
+import OrderDetailInsert from "./pages/OrderDetailInsert.jsx";
 
  export const App = () => {
    return (
@@ -94,12 +96,16 @@ import DispatchTable from "./pages/DispatchTable.jsx";
           <Route path="/distTable" element={<DistTable/>} />
           <Route path="/edit" element={<EditDistForm/>} />
           <Route path="/loginTable" element={<LoginTable/>} />
+          
           <Route path="/loginInsert" element={<LoginInsert/>} />
           <Route path="/loginEdit" element={<LoginEdit/>} />
           <Route path="/orderTable" element={<OrderTable/>} />
           <Route path="/orderEdit" element={<OrderEdit/>} />
           <Route path="/orderInsert" element={<OrderInsert/>} />
+          <Route path="/orderDetail" element={<OrderDetailTable/>} />
+          <Route path="/orderDetailInsert" element={<OrderDetailInsert/>} />
           <Route path="/dispatchTable" element={<DispatchTable/>} />
+          <Route path="/roleTable" element={<RoleTable/>}/>
           <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />

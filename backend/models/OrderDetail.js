@@ -1,41 +1,41 @@
 import mongoose, { Schema } from 'mongoose';
 const orderDetailSchema = new mongoose.Schema({
- orderDetailID: {
-    type: Number,  // Use String or Number depending on the format of your AreaId
+ order_detail_id: {
+    type: Number,  
     required: true,
-    unique: true,  // Ensures no two areas have the same AreaId
+    unique: true,  
   },
-   orderID: {
-    type: String,
+   order_id: {
+    type: Number,
     required: true,
   },
-  productID: {
-    type: String,  // Use String or Number depending on the ZoneId format
+  product_id: {
+    type: Number,  
     required: true,
   },
   base_units: {
-    type: String,  // Example: 'Active', 'Inactive', or other statuses
+    type: Number,  
     required: true,
   },
    cash_price: {
-    type: Date,  // Date when the area was added or arrived
-    default: Date.now,  // Set the default to the current date
+    type: Number,  
+    required: true  
   },
   bonus_units: {
-    type: Number,  // Number of lead days
+    type: Number,  
     required: true,
   },
   value: {
-    type: Number,  // Name of the manager
+    type: Number,  
     required: true,
   },
   comments: {
-    type: String,  // Email of the manager
+    type: String,
     required: true,
     
   },
   prd_remarks: {
-    type: String,  //
+    type: String, 
   },
   dispatch_status: 
   { 
@@ -43,17 +43,7 @@ const orderDetailSchema = new mongoose.Schema({
     required: true,
 
 },
-// pending_units: {
-//     type: Number,  
-//     required: true,
 
-// },
-
-// batchNo: {
-//     type: Number,  
-//     required: true,
-
-// },
 sch: 
 {
     type:Number,
@@ -63,72 +53,17 @@ pack_on_sch:
 {
     type:Number
 },
-// invoice_date:
-// {
-//   type: Date
-// },
-// invoice_no:
-// {
-//     type: String ,
-//     required : true
-// },
-// disp_date:
-// {
-//     type: Date
-// },
-// type: 
-// {
-//     type: Number
-// },
-// pending_date:
-// {
-//     type : String 
-// },
-// builtyNo:
-// {
-//     type: String
 
-// },
-// addaName: 
-// {
-//     type: Number
-// },
-// cartons:
-// {
-//     type: String
-// },
-// dispatch_entry_date:
-// {
-//     type: Date
-// },
-// dist_receiving:
-// {
-//     type: String
-// },
-// dist_flag_date:
-// {
-//     type: Date
-// },
-// dist_flag_month:
-// {
-//     type:String
-// },
-// dist_flag_entry:
-// {
-//     type: Number
-// },
 trade_price:
 {
-    type:Number
+    type:Number ,
+     required : true
 },
 product_scheme:
 {
     type:Number
 },
-// bilty_charges:
-// {
-//     type:Number
-// },
+
 units_convert_date:
 {
   type: Date
@@ -153,11 +88,11 @@ svn:
 {
     type:Number
 },
-InvNotes:
+inv_notes:
 {
     type: String
 },}, {
-    timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
+    timestamps: true,  
   });
 
 export const OrderDetail = mongoose.model('OrderDetail', orderDetailSchema);
