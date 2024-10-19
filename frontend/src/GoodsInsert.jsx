@@ -128,23 +128,19 @@ const GoodsInsert = () => {
       <div className="row">
        
       <div className="col-md-12 col-lg-6 col-sm-12">
-          <div className="distributor-input-group">
-            <input
-              required
-              type="date"
-              name="added_date"
-              value={formData.added_date}
-              onChange={handleChange}
-              className="distributor-input"
-              autoComplete="off"
-            />
-            
-            <label className="distributor-label">Date</label>
-            <i class="input-icon fa-solid fa-envelope"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid email address</div>
-          </div>
-        </div>
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="added_date"
+      value={formData.added_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Added Date</label>
+  </div>
+</div>
+
        
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">

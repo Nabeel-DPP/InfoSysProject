@@ -22,7 +22,10 @@ const productLogSchema = new mongoose.Schema({
   // Set the default to the current date
   },
 
-
+  tp: {
+    type: Number,  // Number of lead days
+    required: true,
+  },
   entry_date: {
     type:Date,  // Date when the area was added or arrived
   // Set the default to the current date
@@ -45,10 +48,7 @@ const productLogSchema = new mongoose.Schema({
   // Set the default to the current date
   },
 
-  tp: {
-    type: Number,  // Number of lead days
-    required: true,
-  },
+ 
 
 mrp:
 {

@@ -51,7 +51,8 @@ const DistEdit = () => {
         distType: rowData.distType,
         ssrType: rowData.ssrType,
         factorCode: rowData.factorCode,
-        arrDate: rowData.arrDate,
+        // arrDate: rowData.arrDate,
+        arrDate: rowData.arrDate ? new Date(rowData.arrDate).toISOString().split('T')[0] : '',
         emailId: rowData.emailId,
         phone1:rowData.phone1,
         phone2:rowData.phone2,
@@ -375,7 +376,7 @@ const DistEdit = () => {
 
 
       <div className="row">
-        <div className="col-md-12 col-lg-6 col-sm-12">
+        {/* <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
             <input
               required
@@ -391,7 +392,21 @@ const DistEdit = () => {
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
-        </div>
+        </div> */}
+        <div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="arrDate"
+      value={formData.arrDate}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Date</label>
+  </div>
+</div>
+
 
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">

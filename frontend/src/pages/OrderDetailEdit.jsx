@@ -1,12 +1,14 @@
-import React, { useState,} from 'react';
+import React, { useState, useEffect} from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const OrderDetailInsert = () => {
-
-  const navigate = useNavigate();
+const OrderDetailEdit = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { rowData } = location.state || {}; // Get the passed row data
+  
  
   const [formData, setFormData] = useState({
     orderDetailId:'',
@@ -43,110 +45,54 @@ const OrderDetailInsert = () => {
     });
   };
 
+  useEffect(() => {
+    console.log("This is the Data coming from Area Table : ", rowData);
+    if (rowData) {
+      setFormData({
+        orderDetailId: rowData.orderDetailId || '',
+        order_id: rowData.order_id || '',
+        product_id: rowData.product_id || '',
+        base_units: rowData.base_units || '',
+        cash_price: rowData.cash_price || '',
+        bonus_units: rowData.bonus_units || '',
+        value: rowData.value || '',
+        comments: rowData.comments || '',
+        prd_remarks: rowData.prd_remarks || '',
+        dispatch_status: rowData.dispatch_status || '',
+        sch: rowData.sch || '',
+        pack_on_sch: rowData.pack_on_sch || '',
+        trade_price: rowData.trade_price || '',
+        product_scheme: rowData.product_scheme || '',
+        // units_convert_date: rowData.units_convert_date || '',
+        units_convert_date: rowData.units_convert_date ? new Date(rowData.units_convert_date).toISOString().split('T')[0] : '',
+        old_units: rowData.old_units || '',
+        old_bonus: rowData.old_bonus || '',
+        old_price: rowData.old_price || '',
+        old_value: rowData.old_value || '',
+        svn: rowData.svn || '',
+        inv_notes: rowData.inv_notes || '',
+      });
+    }
+  }, [rowData]);
 
 
   
 
 
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //  console.log("Submitted Data of Form : ", formData);
-  //   try {
-        
-  //       const response = await axios.post("http://localhost:5555/orderDetail", formData); // Post request to the server's '/area' endpoint
-  //         console.log( "This is the Insertion Response" ,response);
-  //       if (response.status === 201) {  // Check if the response is OK
-  //         alert('Order added successfully!');
-          
-  //         setFormData({
-            
-  //           order_detail_id:'',
-  //           order_id:'',
-  //           product_id:'',
-  //           base_units:'',
-  //           cash_price:'',
-  //           bonus_units:'',
-  //           value:'',
-  //           comments:'',
-  //           prd_remarks:'',
-  //           dispatch_status:'',
-  //           sch: '',           
-  //           pack_on_sch: '',        
-  //           trade_price: '',        
-  //           product_scheme: '',    
-  //           units_convert_date: '', 
-  //           old_units: '',          
-  //           old_bonus: '',          
-  //           old_price: '',          
-  //           old_value: '',          
-  //           svn: '',                
-  //           inv_notes: ''    
-    
-  //         });
-  //         navigate("/orderDetailTable");
-  //       } else {
-  //         alert('Failed to add Order Detail.');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //       alert('Error occurred while submitting the form.');
-  //     }
-    
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Data of Form : ", formData);
-    try {
-      const response = await axios.post("http://localhost:5555/orderDetail", formData);
-      console.log("This is the Insertion Response", response);
-      if (response.status === 201) {
-        alert('Order added successfully!');
-        setFormData({
-          orderDetailId:'',
-          order_id: '',
-          product_id: '',
-          base_units: '',
-          cash_price: '',
-          bonus_units: '',
-          value: '',
-          comments: '',
-          prd_remarks: '',
-          dispatch_status: '',
-          sch: '',
-          pack_on_sch: '',
-          trade_price: '',
-          product_scheme: '',
-          units_convert_date: '',
-          old_units: '',
-          old_bonus: '',
-          old_price: '',
-          old_value: '',
-          svn: '',
-          inv_notes: ''
-        });
-        navigate("/orderDetail");
-      } else {
-        alert('Failed to add Order Detail.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.error('Server Error:', error.response.data);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error('Network Error:', error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error('Error:', error.message);
-      }
-      alert('Error occurred while submitting the form.');
-    }
+   console.log("Submitted Data of Form : ", formData);
+   try {
+    await axios.put(`http://localhost:5555/orderDetail/${rowData._id}`, formData);
+    navigate("/orderDetail"); // Navigate back to AreaTable after successful update
+  } catch (error) {
+    console.error("Error updating area data: ", error);
+  }
+    
   };
-  
+
+
 
 
 
@@ -517,11 +463,10 @@ const OrderDetailInsert = () => {
       
     </form>
   </div>
-
   );
 };
 
-export default OrderDetailInsert;
+export default OrderDetailEdit;
 
 
 

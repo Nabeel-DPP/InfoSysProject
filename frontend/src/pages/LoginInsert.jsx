@@ -21,7 +21,7 @@ const LoginInsert = () => {
     distId:'',
     active:'',
     passw:'',
-    created: new Date(),
+    created: Date,
     zonal:'',
     nickName:'',
     subArea:'',
@@ -67,7 +67,7 @@ const LoginInsert = () => {
     distId:'',
     active:'',
     passw:'',
-    created: Date,
+    created: '',
     zonal:'',
     nickName:'',
     subArea:'',
@@ -357,23 +357,19 @@ const LoginInsert = () => {
 
 
       <div className="row">
-        <div className="col-md-12 col-lg-6 col-sm-12">
-          <div className="distributor-input-group">
-            <input
-              required
-              type="date"
-              name="created"
-              value={formData.created}
-              onChange={handleChange}
-              className="distributor-input"
-              autoComplete="off"
-            />
-            <label className="distributor-label">Date</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
-          </div>
-        </div>
+      <div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="created"
+      value={formData.created}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Created Date</label>
+  </div>
+</div>
 
     
 

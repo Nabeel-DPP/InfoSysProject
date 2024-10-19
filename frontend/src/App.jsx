@@ -54,10 +54,24 @@ import OrderTable from "./pages/OrderTable.jsx";
 import OrderInsert from "./pages/OrderInsert.jsx";
 import OrderEdit from "./pages/OrderEdit.jsx";
 import DispatchTable from "./pages/DispatchTable.jsx";
+import DispatchInsert from "./pages/DispatchInsert.jsx";
 // import "../js/mono.js";
 import RoleTable from "./pages/RoleTable.jsx";
 import OrderDetailTable from "./pages/OrderDetail.jsx";
 import OrderDetailInsert from "./pages/OrderDetailInsert.jsx";
+import OrderDetailEdit from "./pages/OrderDetailEdit.jsx";
+import DispatchEdit from "./pages/DispatchEdit.jsx";
+import ProductTable from "./pages/ProductTable.jsx";
+import ProductInsert from "./pages/ProductInsert.jsx";
+import ProductEdit from "./pages/ProductEdit.jsx";
+import ProductLog from "./pages/ProductLog.jsx";
+import PdLoginInsert from "./pages/PdLogInsert.jsx";
+import PdLogEdit from "./pages/PdLogEdit.jsx";
+
+
+
+
+
 
  export const App = () => {
    return (
@@ -96,7 +110,6 @@ import OrderDetailInsert from "./pages/OrderDetailInsert.jsx";
           <Route path="/distTable" element={<DistTable/>} />
           <Route path="/edit" element={<EditDistForm/>} />
           <Route path="/loginTable" element={<LoginTable/>} />
-          
           <Route path="/loginInsert" element={<LoginInsert/>} />
           <Route path="/loginEdit" element={<LoginEdit/>} />
           <Route path="/orderTable" element={<OrderTable/>} />
@@ -104,7 +117,16 @@ import OrderDetailInsert from "./pages/OrderDetailInsert.jsx";
           <Route path="/orderInsert" element={<OrderInsert/>} />
           <Route path="/orderDetail" element={<OrderDetailTable/>} />
           <Route path="/orderDetailInsert" element={<OrderDetailInsert/>} />
+          <Route path="/orderDetailEdit" element={<OrderDetailEdit/>} />
           <Route path="/dispatchTable" element={<DispatchTable/>} />
+          <Route path="/dispatchInsert" element={<DispatchInsert/>} />
+          <Route path="/dispatchEdit" element={<DispatchEdit/>} />
+          <Route path="/productTable" element={<ProductTable/>} />
+          <Route path="/productEdit" element={<ProductEdit/>} />
+          <Route path="/productInsert" element={<ProductInsert/>} />
+          <Route path="/pdLoginInsert" element={<PdLoginInsert/>} />
+          <Route path="/pdLogEdit" element={<PdLogEdit/>} />
+          <Route path="/productLog" element={<ProductLog/>} />
           <Route path="/roleTable" element={<RoleTable/>}/>
           <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />

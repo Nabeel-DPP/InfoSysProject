@@ -75,12 +75,14 @@ const cancelDelete = () => {
     { field: 'bank_name', headerName: 'Bank Name', width: 150 },
     { field: 'status', headerName: 'Status', width: 150 },
     { field: 'branch_code', headerName: 'Branch Code', width: 180 },
-    { field: 'add_date', headerName: 'Date', width: 150 },
-    // { field: 'add_date', headerName: 'Date', width: 150, 
-    //   renderCell: (params) => (
-    //     <span>{params.value ? format(new Date(params.value), 'MM/dd/yyyy') : ''}</span>
-    //   ) 
-    // },
+    // { field: 'add_date', headerName: 'Date', width: 150 },
+   
+   { field: 'add_date',
+    headerName: 'Add Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.add_date ? format(new Date(params.row.add_date), 'dd/MM/yyyy') : '',
+  },
     { field: 'bank_abr', headerName: 'Bank Abbrevation', width: 180 },
   
     {

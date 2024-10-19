@@ -6,7 +6,7 @@ import "../Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
-
+import { format } from 'date-fns';
 export default function LoginTable() {
   const navigate = useNavigate();
 
@@ -87,7 +87,14 @@ const cancelDelete = () => {
     { field: 'areaId', headerName: 'Area ID', width: 150 },
     { field: 'areaName', headerName: 'Area Name', width: 150 },
     { field: 'distId', headerName: 'Distributor ID', width: 180 },
-    { field: 'created', headerName: 'Date', width: 150 },
+    // { field: 'created', headerName: 'Date', width: 150 },
+    {
+      field: 'created',
+      headerName: 'Create Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.created ? format(new Date(params.row.created), 'dd/MM/yyyy') : '',
+    },
     { field: 'active', headerName: 'Active', width: 150 },
     { field: 'passw', headerName: 'Pass', width: 130 },
     { field: 'zonal', headerName: 'Zonal', width: 130 },

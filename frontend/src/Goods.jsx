@@ -6,7 +6,7 @@ import "./Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from './components/Modal';
-
+import { format } from 'date-fns';
 export default function Goods() {
   const navigate = useNavigate();
 
@@ -72,7 +72,18 @@ const cancelDelete = () => {
     // { field: '_id', headerName: 'ID', width: 90 },
     { field: 'gt_id', headerName: 'Goods Transporter ID', width: 250 },
     { field: 'gt_name', headerName: 'Goods Transporter Name', width: 250},
-    { field: 'added_date', headerName: 'Date', width: 250 },
+    // { field: 'added_date', headerName: 'Date', width: 250 },
+
+    {
+      field: 'added_date',
+      headerName: 'Added Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.added_date ? format(new Date(params.row.added_date), 'dd/MM/yyyy') : '',
+    },
+
+
+
     { field: 'status', headerName: 'Status', width: 250 },
     
     {

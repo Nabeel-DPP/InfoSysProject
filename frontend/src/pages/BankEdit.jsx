@@ -29,7 +29,8 @@ const BankEdit = () => {
         bank_name:rowData.bank_name,
         status:rowData.status,
         branch_code: rowData.branch_code,
-        add_date:rowData.add_date,
+        // add_date:rowData.add_date,
+        add_date: rowData.add_date ? new Date(rowData.add_date).toISOString().split('T')[0] : '',
         bank_abr: rowData.bank_abr
       });
 
@@ -166,23 +167,27 @@ const BankEdit = () => {
       </div>
 
       <div className="row">
+       
+
         <div className="col-md-12 col-lg-6 col-sm-12">
-          <div className="distributor-input-group">
-            <input
-              required
-              type="date"
-              name="add_date"
-              value={formData.add_date}
-              onChange={handleChange}
-              className="distributor-input"
-              autoComplete="off"
-            />
-            <label className="distributor-label">Date</label>
-            {/* <i class="input-icon  fa-solid fa-location-crosshairs"></i> */}
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
-          </div>
-        </div>
+    <div className="distributor-input-group">
+      <i className="input-icon fa fa-calendar"></i>
+      <input
+        required
+        type="date"
+        name="add_date"
+        value={formData.add_date}
+        onChange={handleChange}
+        className="distributor-input"
+        autoComplete="off"
+      />
+      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+      <div className="invalid-feedback">
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Feed Date.
+      </div>
+      <label className="distributor-label">Add Date</label>
+    </div>
+  </div>
 
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">

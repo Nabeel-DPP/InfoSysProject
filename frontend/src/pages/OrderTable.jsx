@@ -6,7 +6,7 @@ import "../Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
-
+import { format } from 'date-fns';
 export default function OrderTable() {
   const navigate = useNavigate();
 
@@ -78,48 +78,114 @@ const cancelDelete = () => {
   const columns = [
     // { field: '_id', headerName: 'ID', width: 90 },
     { field: 'OrderId', headerName: 'Order ID', width: 130 },
-    { field: 'tblDistId', headerName: 'Distributor ID', width: 180 },
-    { field: 'tblAreaId', headerName: 'Area ID', width: 150 },
-    { field: 'instiId', headerName: 'Institute ID', width: 150 },
-    { field: 'subAreaId', headerName: 'Sub Area ID', width: 150 },
-    { field: 'FeedDate', headerName: 'Feed Date', width: 150 },
-    { field: 'dd_amount', headerName: 'DD Amount', width: 130 },
-    { field: 'order_value', headerName: 'Order Value', width: 130 },
-    { field: 'Period', headerName: 'Period', width: 100 },
-    { field: 'instructions', headerName: 'Instructions', width: 200 },
-    { field: 'ddNumber', headerName: 'DD Number', width: 130 },
-    { field: 'orderType', headerName: 'Order Type', width: 120 },
-    { field: 'status', headerName: 'Status', width: 100 },
-    { field: 'forward_date', headerName: 'Forward Date', width: 150 },
-    { field: 'confirm_date', headerName: 'Confirm Date', width: 150 },
-    { field: 'invoice_date', headerName: 'Invoice Date', width: 150 },
-    { field: 'cancel_date', headerName: 'Cancel Date', width: 150 },
-    { field: 'restore_date', headerName: 'Restore Date', width: 150 },
-    { field: 'crem', headerName: 'Crem', width: 130 },
-    { field: 'userId', headerName: 'User ID', width: 130 },
-    { field: 'userIp', headerName: 'User IP', width: 130 },
-    { field: 'invoiceNo', headerName: 'Invoice Number', width: 150 },
-    { field: 'invoiceDate', headerName: 'Invoice Date', width: 150 },
-    { field: 'truckNo', headerName: 'Truck Number', width: 130 },
-    { field: 'siv', headerName: 'SIV', width: 130 },
-    { field: 'dispatch_mode', headerName: 'Dispatch Mode', width: 150 },
-    { field: 'edit_by', headerName: 'Edited By', width: 150 },
-    { field: 'confirm_by', headerName: 'Confirmed By', width: 150 },
-    { field: 'forward_by', headerName: 'Forwarded By', width: 150 },
-    { field: 'edit_status', headerName: 'Edit Status', width: 130 },
-    { field: 'discount', headerName: 'Discount', width: 130 },
-    { field: 'stockist', headerName: 'Stockist', width: 130 },
-    { field: 'perage', headerName: 'Perage', width: 130 },
-    { field: 'disp_date', headerName: 'Dispatch Date', width: 150 },
-    { field: 'Return_stock', headerName: 'Return Stock', width: 150 },
-    { field: 'stock_aginst_orderNo', headerName: 'Stock Against Order No', width: 150 },
-    { field: 'purchase_against_type', headerName: 'Purchase Against Type', width: 150 },
-    { field: 'edit_date', headerName: 'Edit Date', width: 150 },
-    { field: 'prvs_frwd_date', headerName: 'Previous Forward Date', width: 150 },
-    { field: 'dd_banks', headerName: 'DD Banks', width: 130 },
-    { field: 'payment_max_date', headerName: 'Payment Max Date', width: 150 },
-    { field: 'AdvTax', headerName: 'Advance Tax', width: 130 },
-    { field: 'validatePayment', headerName: 'Validate Payment', width: 130 },
+  { field: 'tblDistId', headerName: 'Distributor ID', width: 180 },
+  { field: 'tblAreaId', headerName: 'Area ID', width: 150 },
+  { field: 'instiId', headerName: 'Institute ID', width: 150 },
+  { field: 'subAreaId', headerName: 'Sub Area ID', width: 150 },
+  {
+    field: 'FeedDate',
+    headerName: 'Entry Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.FeedDate ? format(new Date(params.row.FeedDate), 'dd/MM/yyyy') : '',
+  },
+  { field: 'dd_amount', headerName: 'DD Amount', width: 130 },
+  { field: 'order_value', headerName: 'Order Value', width: 130 },
+  { field: 'Period', headerName: 'Period', width: 100 },
+  { field: 'instructions', headerName: 'Instructions', width: 200 },
+  { field: 'ddNumber', headerName: 'DD Number', width: 130 },
+  { field: 'orderType', headerName: 'Order Type', width: 120 },
+  { field: 'status', headerName: 'Status', width: 100 },
+  {
+    field: 'forward_date',
+    headerName: 'Forward Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.forward_date ? format(new Date(params.row.forward_date), 'dd/MM/yyyy') : '',
+  },
+  {
+    field: 'confirm_date',
+    headerName: 'Confirm Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.confirm_date ? format(new Date(params.row.confirm_date), 'dd/MM/yyyy') : '',
+  },
+  {
+    field: 'invoice_date',
+    headerName: 'Invoice Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.invoice_date ? format(new Date(params.row.invoice_date), 'dd/MM/yyyy') : '',
+  },
+  {
+    field: 'cancel_date',
+    headerName: 'Cancel Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.cancel_date ? format(new Date(params.row.cancel_date), 'dd/MM/yyyy') : '',
+  },
+  {
+    field: 'restore_date',
+    headerName: 'Restore Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.restore_date ? format(new Date(params.row.restore_date), 'dd/MM/yyyy') : '',
+  },
+  { field: 'crem', headerName: 'Crem', width: 130 },
+  { field: 'userId', headerName: 'User ID', width: 130 },
+  { field: 'userIp', headerName: 'User IP', width: 130 },
+  { field: 'invoiceNo', headerName: 'Invoice Number', width: 150 },
+  {
+    field: 'invoiceDate',
+    headerName: 'Invoice Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.invoiceDate ? format(new Date(params.row.invoiceDate), 'dd/MM/yyyy') : '',
+  },
+  { field: 'truckNo', headerName: 'Truck Number', width: 130 },
+  { field: 'siv', headerName: 'SIV', width: 130 },
+  { field: 'dispatch_mode', headerName: 'Dispatch Mode', width: 150 },
+  { field: 'edit_by', headerName: 'Edited By', width: 150 },
+  { field: 'confirm_by', headerName: 'Confirmed By', width: 150 },
+  { field: 'forward_by', headerName: 'Forwarded By', width: 150 },
+  { field: 'edit_status', headerName: 'Edit Status', width: 130 },
+  { field: 'discount', headerName: 'Discount', width: 130 },
+  { field: 'stockist', headerName: 'Stockist', width: 130 },
+  { field: 'perage', headerName: 'Perage', width: 130 },
+  {
+    field: 'disp_date',
+    headerName: 'Dispatch Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.disp_date ? format(new Date(params.row.disp_date), 'dd/MM/yyyy') : '',
+  },
+  { field: 'Return_stock', headerName: 'Return Stock', width: 150 },
+  { field: 'stock_aginst_orderNo', headerName: 'Stock Against Order No', width: 150 },
+  { field: 'purchase_against_type', headerName: 'Purchase Against Type', width: 150 },
+  {
+    field: 'edit_date',
+    headerName: 'Edit Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.edit_date ? format(new Date(params.row.edit_date), 'dd/MM/yyyy') : '',
+  },
+  {
+    field: 'prvs_frwd_date',
+    headerName: 'Previous Forward Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.prvs_frwd_date ? format(new Date(params.row.prvs_frwd_date), 'dd/MM/yyyy') : '',
+  },
+  { field: 'dd_banks', headerName: 'DD Banks', width: 130 },
+  {
+    field: 'payment_max_date',
+    headerName: 'Payment Max Date',
+    width: 150,
+    renderCell: (params) =>
+      params.row.payment_max_date ? format(new Date(params.row.payment_max_date), 'dd/MM/yyyy') : '',
+  },
+  { field: 'AdvTax', headerName: 'Advance Tax', width: 130 },
+  { field: 'validatePayment', headerName: 'Validate Payment', width: 130 },
     {
         field: 'action',
         headerName: 'Actions',

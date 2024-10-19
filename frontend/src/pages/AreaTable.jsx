@@ -6,7 +6,7 @@ import "../Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
-
+import { format } from 'date-fns';
 export default function AreaTable() {
   const navigate = useNavigate();
 

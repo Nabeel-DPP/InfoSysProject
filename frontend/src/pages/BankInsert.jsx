@@ -1,4 +1,4 @@
-import React, { useState,} from 'react';
+import React, { useState} from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -172,24 +172,21 @@ const BankInsert = () => {
       </div>
 
       <div className="row">
-        <div className="col-md-12 col-lg-6 col-sm-12">
-          <div className="distributor-input-group">
-            <input
-              required
-              type="date"
-              name="add_date"
-              value={formData.add_date}
-              onChange={handleChange}
-              className="distributor-input"
-              autoComplete="off"
-            />
-            <label className="distributor-label">Date</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
-          </div>
-        </div>
-
+        
+  <div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="FeedDate"
+      value={formData.FeedDate}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Add Date</label>
+  </div>
+</div>
+         
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
             <input

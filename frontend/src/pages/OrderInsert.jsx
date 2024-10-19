@@ -14,7 +14,7 @@ const OrderInsert = () => {
     tblAreaId: '',
     instiId: '',
     subAreaId: '',
-    FeedDate: new Date(),
+    FeedDate: Date,
     dd_amount: '',
     order_value: '',
     Period: '',
@@ -258,25 +258,24 @@ const OrderInsert = () => {
     </div>
   </div>
 
+
+
   <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-calendar"></i>
-      <input
-        required
-        type="date"
-        name="FeedDate"
-        value={formData.FeedDate}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Feed Date.
-      </div>
-      <label className="distributor-label">Feed Date</label>
-    </div>
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="FeedDate"
+      value={formData.FeedDate}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Feed Date</label>
   </div>
+</div>
+
+
+
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -425,108 +424,76 @@ const OrderInsert = () => {
 
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="date"
-        name="forward_date"
-        value={formData.forward_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
-      </div>
-      <label className="distributor-label">Forward Date</label>
-    </div>
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="forward_date"
+      value={formData.forward_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Forward Date</label>
   </div>
+</div>
+
 
 
 
 
   <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="date"
-        name="confirm_date"
-        value={formData.confirm_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
-      </div>
-      <label className="distributor-label">Confirm Date</label>
-    </div>
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="confirm_date"
+      value={formData.confirm_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Confirm Date</label>
   </div>
+</div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-calendar"></i>
-      <input
-        required
-        type="date"
-        name="invoiceDate"
-        value={formData.invoiceDate}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Feed Date.
-      </div>
-      <label className="distributor-label">Invoice Date</label>
-    </div>
-  </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
-      <input
-        required
-        type="date"
-        name="cancel_date"
-        value={formData.cancel_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid DD Amount.
-      </div>
-      <label className="distributor-label">Cancel Date</label>
-    </div>
-  </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
-      <input
-        required
-        type="date"
-        name="restore_date"
-        value={formData.restore_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Order Value.
-      </div>
-      <label className="distributor-label">Restore Date</label>
-    </div>
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="cancel_date"
+      value={formData.cancel_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Cancel Date</label>
   </div>
+</div>
+
+
+
+
+
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="restore_date"
+      value={formData.restore_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Restore Date</label>
+  </div>
+</div>
+
+
+
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -618,25 +585,20 @@ const OrderInsert = () => {
     </div>
   </div>
 
+  
   <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="date"
-        name="invoiceDate"
-        value={formData.invoiceDate}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
-      </div>
-      <label className="distributor-label">Invoice Date</label>
-    </div>
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="invoiceDate"
+      value={formData.invoiceDate}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Invoice Date</label>
   </div>
+</div>
 
 
 
@@ -862,25 +824,22 @@ const OrderInsert = () => {
 
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="date"
-        name="disp_date"
-        value={formData.disp_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
-      </div>
-      <label className="distributor-label">Dispatch Date</label>
-    </div>
+ 
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="disp_date"
+      value={formData.disp_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Dispatch Date</label>
   </div>
+</div>
 
 
 
@@ -945,45 +904,39 @@ const OrderInsert = () => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
-      <input
-        required
-        type="date"
-        name="edit_date"
-        value={formData.edit_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Order Value.
-      </div>
-      <label className="distributor-label">Edit Date</label>
-    </div>
-  </div>
+  
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-calendar"></i>
-      <input
-        required
-        type="date"
-        name="prvs_frwd_date"
-        value={formData.prvs_frwd_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Period.
-      </div>
-      <label className="distributor-label">Previous Forward Date</label>
-    </div>
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="edit_date"
+      value={formData.edit_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Edit Date</label>
   </div>
+</div>
+
+ 
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="prvs_frwd_date"
+      value={formData.prvs_frwd_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Previous Forward Date</label>
+  </div>
+</div>
 
 
   <div className="col-md-12 col-lg-6 col-sm-12">
@@ -1007,25 +960,21 @@ const OrderInsert = () => {
   </div>
 
 
+  
+
   <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-calendar"></i>
-      <input
-        required
-        type="date"
-        name="payment_max_date"
-        value={formData.payment_max_date}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Period.
-      </div>
-      <label className="distributor-label">Payment Max Date</label>
-    </div>
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="payment_max_date"
+      value={formData.payment_max_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Payment Max Date</label>
   </div>
+</div>
 
 
   <div className="col-md-12 col-lg-6 col-sm-12">

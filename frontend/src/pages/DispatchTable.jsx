@@ -6,7 +6,7 @@ import "../Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
-
+import { format } from 'date-fns';
 export default function DispatchTable() {
   const navigate = useNavigate();
 
@@ -73,19 +73,47 @@ const cancelDelete = () => {
     { field: 'dispatch_id', headerName: 'Dispatch ID', width: 150 },
     { field: 'pending_units', headerName: 'Pending Units', width: 150 },
     { field: 'batchNo', headerName: 'Batch No', width: 150 },
-    { field: 'invoice_date', headerName: 'Invoice Date', width: 180 },
+    // { field: 'invoice_date', headerName: 'Invoice Date', width: 180 },
+    {
+      field: 'invoice_date',
+      headerName: 'Invoice Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.invoice_date ? format(new Date(params.row.invoice_date), 'dd/MM/yyyy') : '',
+    },
     { field: 'invoice_no', headerName: 'Invoice Number', width: 150 },
    
 
-    { field: 'pending_date', headerName: 'Pending Date', width: 150 },
+    // { field: 'pending_date', headerName: 'Pending Date', width: 150 },
+    {
+      field: 'pending_date',
+      headerName: 'Pending Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.pending_date ? format(new Date(params.row.pending_date), 'dd/MM/yyyy') : '',
+    },
     { field: 'biltyNo', headerName: 'Builty No', width: 150 },
     { field: 'gtId', headerName: 'Goods Transporter ID', width: 150 },
     { field: 'cartons', headerName: 'Cartons', width: 180 },
-    { field: 'dispatch_entry_date', headerName: 'Dispatch Entry Date', width: 150 },
+    // { field: 'dispatch_entry_date', headerName: 'Dispatch Entry Date', width: 150 },
+    {
+      field: 'dispatch_entry_date',
+      headerName: 'Dispatch Entry Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.dispatch_entry_date ? format(new Date(params.row.dispatch_entry_date), 'dd/MM/yyyy') : '',
+    },
     { field: 'dist_receiving', headerName: 'Distributor Receiving', width: 180 },
   
 
-    { field: 'dist_flag_date', headerName: 'Distributor Flag Date', width: 150 },
+    // { field: 'dist_flag_date', headerName: 'Distributor Flag Date', width: 150 },
+    {
+      field: 'dist_flag_date',
+      headerName: 'Distributor Flag Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.dist_flag_date ? format(new Date(params.row.dist_flag_date), 'dd/MM/yyyy') : '',
+    },
     { field: 'dist_flag_month', headerName: 'Distributor Flad Month', width: 150 },
     { field: 'dist_flag_entry', headerName: 'Distributor Flag Entry', width: 150 },
     { field: 'bilty_charges', headerName: 'Bilty Charges', width: 180 },
@@ -137,7 +165,7 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/bankInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/dispatchInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>

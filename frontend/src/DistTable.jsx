@@ -6,7 +6,7 @@ import "./Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from './components/Modal';
-
+import { format } from 'date-fns';
 export default function DistTable() {
   const navigate = useNavigate();
 
@@ -81,7 +81,14 @@ const cancelDelete = () => {
     { field: 'distType', headerName: 'Distributor Type', width: 120 },
     { field: 'ssrType', headerName: 'SSR Type', width: 120 },
     { field: 'factorCode', headerName: 'Factory Code', width: 120 },
-    { field: 'arrDate', headerName: 'Date', width: 120 },
+    // { field: 'arrDate', headerName: 'Date', width: 120 },
+    {
+      field: 'arrDate',
+      headerName: 'Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.arrDate ? format(new Date(params.row.arrDate), 'dd/MM/yyyy') : '',
+    },
     { field: 'emailId', headerName: 'Email ID', width: 120 },
     { field: 'phone1', headerName: 'Phone 1', width: 120 },
     { field: 'phone2', headerName: 'Phone 2 ', width: 120 },
