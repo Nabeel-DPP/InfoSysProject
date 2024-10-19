@@ -71,7 +71,7 @@ useEffect(() => {
    console.log("Submitted Data of Form : ", formData);
    try {
     await axios.put(`http://localhost:5555/prodLog/${rowData._id}`, formData);
-    navigate("/orderTable"); // Navigate back to AreaTable after successful update
+    navigate("/productLog"); // Navigate back to AreaTable after successful update
   } catch (error) {
     console.error("Error updating Order data: ", error);
   }
