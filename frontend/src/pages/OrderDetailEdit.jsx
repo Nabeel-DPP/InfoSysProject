@@ -11,7 +11,7 @@ const OrderDetailEdit = () => {
   
  
   const [formData, setFormData] = useState({
-    orderDetailId:'',
+    orderDetailID:'',
     order_id:'',
     product_id:'',
     base_units:'',
@@ -49,7 +49,7 @@ const OrderDetailEdit = () => {
     console.log("This is the Data coming from Area Table : ", rowData);
     if (rowData) {
       setFormData({
-        orderDetailId: rowData.orderDetailId || '',
+        orderDetailID: rowData.orderDetailID || '',
         order_id: rowData.order_id || '',
         product_id: rowData.product_id || '',
         base_units: rowData.base_units || '',
@@ -115,8 +115,8 @@ const OrderDetailEdit = () => {
           <input
             required
             type="number"
-            name="orderDetailId"
-            value={formData.orderDetailId}
+            name="orderDetailID"
+            value={formData.orderDetailID}
             onChange={handleChange}
             className="distributor-input"
             autoComplete="off"

@@ -9,7 +9,7 @@ const OrderDetailInsert = () => {
   const navigate = useNavigate();
  
   const [formData, setFormData] = useState({
-    orderDetailId:'',
+    orderDetailID:'',
     order_id:'',
     product_id:'',
     base_units:'',
@@ -104,7 +104,7 @@ const OrderDetailInsert = () => {
       if (response.status === 201) {
         alert('Order added successfully!');
         setFormData({
-          orderDetailId:'',
+          orderDetailID:'',
           order_id: '',
           product_id: '',
           base_units: '',
@@ -169,8 +169,8 @@ const OrderDetailInsert = () => {
           <input
             required
             type="number"
-            name="orderDetailId"
-            value={formData.orderDetailId}
+            name="orderDetailID"
+            value={formData.orderDetailID}
             onChange={handleChange}
             className="distributor-input"
             autoComplete="off"

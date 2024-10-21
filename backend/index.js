@@ -63,7 +63,7 @@ app.use("/rights", rightsRoute );
 app.use("/rtSection", rightsSectionRoute );
 app.use("/role", roleRoute );
 app.use("/prodLog", productLogRoute );
-app.use("/prdQuota", productQuotaRoute );
+app.use("/pdQuota", productQuotaRoute );
 app.use("/product", productRoute );
 
 

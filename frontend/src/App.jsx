@@ -56,7 +56,6 @@ import OrderEdit from "./pages/OrderEdit.jsx";
 import DispatchTable from "./pages/DispatchTable.jsx";
 import DispatchInsert from "./pages/DispatchInsert.jsx";
 // import "../js/mono.js";
-import RoleTable from "./pages/RoleTable.jsx";
 import OrderDetailTable from "./pages/OrderDetail.jsx";
 import OrderDetailInsert from "./pages/OrderDetailInsert.jsx";
 import OrderDetailEdit from "./pages/OrderDetailEdit.jsx";
@@ -67,11 +66,18 @@ import ProductEdit from "./pages/ProductEdit.jsx";
 import ProductLog from "./pages/ProductLog.jsx";
 import PdLoginInsert from "./pages/PdLogInsert.jsx";
 import PdLogEdit from "./pages/PdLogEdit.jsx";
-
-
-
-
-
+import ProductQuota from "./pages/ProductQuota.jsx";
+import PdQuotaInsert from "./pages/PdQuotaInsert.jsx";
+import PdQuotaEdit from "./pages/PdQuotaEdit.jsx";
+import Role from "./pages/Role.jsx";
+import RoleInsert from "./pages/RoleInsert.jsx";
+import RoleEdit from "./pages/RoleEdit.jsx";
+import RightSection from "./pages/RightSection.jsx";
+import RtInsert from "./pages/RtInsert.jsx";
+import RtEdit from "./pages/RtEdit.jsx";
+import Rights from "./pages/Rights.jsx";
+import RightsInsert from "./pages/RightsInsert.jsx";
+import RightsEdit from "./pages/RightsEdit.jsx";
 
  export const App = () => {
    return (
@@ -93,8 +99,8 @@ import PdLogEdit from "./pages/PdLogEdit.jsx";
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/orders" element={<OrderSection />} />
           <Route path="/stocks" element={<StockSection />} />
-          <Route path="/dist" element={<Distributer/>} />
-          <Route path="/tableForm" element={<TableForm/>} />
+          {/* <Route path="/dist" element={<Distributer/>} /> */}
+          {/* <Route path="/tableForm" element={<TableForm/>} /> */}
           <Route path="/areaForm" element={<AreaForm/>} />
           <Route path="/areaTable" element={<AreaTable/>} />
           <Route path="/areaEdit" element={<AreaEditForm/>} />
@@ -127,7 +133,18 @@ import PdLogEdit from "./pages/PdLogEdit.jsx";
           <Route path="/pdLoginInsert" element={<PdLoginInsert/>} />
           <Route path="/pdLogEdit" element={<PdLogEdit/>} />
           <Route path="/productLog" element={<ProductLog/>} />
-          <Route path="/roleTable" element={<RoleTable/>}/>
+          <Route path="/productQuota" element={<ProductQuota/>} />
+          <Route path="/pdQuotaInsert" element={<PdQuotaInsert/>} />
+          <Route path="/pdQuotaEdit" element={<PdQuotaEdit/>} />
+          <Route path="/roleTable" element={<Role/>}/>
+          <Route path="/roleInsert" element={<RoleInsert/>}/>
+          <Route path="/roleEdit" element={<RoleEdit/>}/>
+          <Route path="/rightSection" element={<RightSection/>}/>
+          <Route path="/rtInsert" element={<RtInsert/>}/>
+          <Route path="/rtEdit" element={<RtEdit/>}/>
+          <Route path="/rights" element={<Rights/>}/>
+          <Route path="/rightsInsert" element={<RightsInsert/>}/>
+          <Route path="/rightsEdit" element={<RightsEdit/>}/>
           <Route path="/createForm" element={<CreateForm/>} />
           <Route path="/management" element={<ManageSection />} />
           <Route path="/userProfile" element={<UserProfile />} />

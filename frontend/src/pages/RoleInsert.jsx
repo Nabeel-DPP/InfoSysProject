@@ -1,73 +1,28 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState,} from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const ProductEdit = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { rowData } = location.state || {};
-  
+const RoleInsert = () => {
+
+  const navigate = useNavigate();
  
   const [formData, setFormData] = useState({
-    prod_id: '',           
-  prod_name: '',           
-  prod_form_id: '',       
-  prod_form_name: '',     
-  prd_type: '',          
-  generic: '',           
-  compose: '',            
-  pack: '',               
-  thera: '',               
-  strength: '',           
-  status: '',             
-  arr_date: Date,            
-  ter_date: Date,            
-  change_price_date: Date,  
-  ssr_enabled: '',         
-  trading: '',             
+    rd_id: '',           
+  userId: '',           
+  AreaId: '',       
+  subAreaId: '',     
+  DistId: '',        
+  instiId: '',           
+  zoneId: '',           
+  rightId: '',       
+  status: '',     
+  rptType: '',          
+           
   });
 
  
-
-  useEffect(() => {
-    if (rowData) {
-      setFormData({
-        prod_id: rowData.prod_id || '',                 
-      prod_name: rowData.prod_name || '',             
-      prod_form_id: rowData.prod_form_id || '',       
-      prod_form_name: rowData.prod_form_name || '',  
-      prd_type: rowData.prd_type || '',               
-      generic: rowData.generic || '',                
-      compose: rowData.compose || '',                
-      pack: rowData.pack || '',                       
-      thera: rowData.thera || '',                    
-      strength: rowData.strength || '',              
-      status: rowData.status || '',                 
-      
-      // Handle dates, if provided format them correctly, otherwise use the current date
-      arr_date: rowData.arr_date ? new Date(rowData.arr_date).toISOString().split('T')[0] : '',   
-      ter_date: rowData.ter_date ? new Date(rowData.ter_date).toISOString().split('T')[0] : '',   
-      change_price_date: rowData.change_price_date ? new Date(rowData.change_price_date).toISOString().split('T')[0] : '',
-
-      ssr_enabled: rowData.ssr_enabled || '',         
-      trading: rowData.trading || '',                 
-        
-      });
-    }
-  }, [rowData]);
-
-
-
-
-
-
-
-
-
-
-
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,12 +41,33 @@ const ProductEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
    console.log("Submitted Data of Form : ", formData);
-   try {
-    await axios.put(`http://localhost:5555/product/${rowData._id}`, formData);
-    navigate("/productTable"); // Navigate back to AreaTable after successful update
-  } catch (error) {
-    console.error("Error updating Product data: ", error);
-  }
+    try {
+        
+        const response = await axios.post("http://localhost:5555/role", formData); // Post request to the server's '/area' endpoint
+          console.log(response);
+        if (response.status === 201) {  // Check if the response is OK
+          alert('Product added successfully!');
+          
+          setFormData({
+            rd_id: '',           
+            userId: '',           
+            AreaId: '',       
+            subAreaId: '',     
+            DistId: '',        
+            instiId: '',           
+            zoneId: '',           
+            rightId: '',       
+            status: '',     
+            rptType: '',             
+          });
+          navigate("/roleTable");
+        } else {
+          alert('Failed to Insert Role Data.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error occurred while submitting the form.');
+      }
     
   };
 
@@ -110,7 +86,7 @@ const ProductEdit = () => {
     <div className="distributor-form__container mt-5">
      
     <form onSubmit={handleSubmit} >
-    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product Information</h1>
+    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product Quota Information</h1>
     <div className="row">
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -118,8 +94,8 @@ const ProductEdit = () => {
       <input
         required
         type="number"
-        name="prod_id"
-        value={formData.prod_id}
+        name="rd_id"
+        value={formData.rd_id}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -128,7 +104,7 @@ const ProductEdit = () => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Order ID.
       </div>
-      <label className="distributor-label">Product ID</label>
+      <label className="distributor-label">RD ID</label>
     </div>
   </div>
 
@@ -137,9 +113,9 @@ const ProductEdit = () => {
       <i className="input-icon fa fa-user"></i>
       <input
         required
-        type="text"
-        name="prod_name"
-        value={formData.prod_name}
+        type="number"
+        name="userId"
+        value={formData.userId}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -148,7 +124,7 @@ const ProductEdit = () => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Distributor ID.
       </div>
-      <label className="distributor-label">Product Name</label>
+      <label className="distributor-label">User ID</label>
     </div>
   </div>
 
@@ -158,8 +134,8 @@ const ProductEdit = () => {
       <input
         required
         type="number"
-        name="prod_form_id"
-        value={formData.prod_form_id}
+        name="AreaId"
+        value={formData.AreaId}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -168,7 +144,7 @@ const ProductEdit = () => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
       </div>
-      <label className="distributor-label">Product Form ID</label>
+      <label className="distributor-label">Area ID</label>
     </div>
   </div>
 
@@ -179,9 +155,9 @@ const ProductEdit = () => {
       <i className="input-icon fa fa-user"></i>
       <input
         required
-        type="text"
-        name="prod_form_name"
-        value={formData.prod_form_name}
+        type="number"
+        name="subAreaId"
+        value={formData.subAreaId}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -190,7 +166,7 @@ const ProductEdit = () => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
       </div>
-      <label className="distributor-label">Product Form Name</label>
+      <label className="distributor-label">Sub Area ID</label>
     </div>
   </div>
 
@@ -203,8 +179,8 @@ const ProductEdit = () => {
       <input
         required
         type="number"
-        name="prd_type"
-        value={formData.prd_type}
+        name="DistId"
+        value={formData.DistId}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -213,53 +189,9 @@ const ProductEdit = () => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
       </div>
-      <label className="distributor-label">Product Type</label>
+      <label className="distributor-label">Distributor ID</label>
     </div>
   </div>
-
-
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="text"
-        name="generic"
-        value={formData.generic}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
-      </div>
-      <label className="distributor-label">Generic</label>
-    </div>
-  </div>
-
-
-
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="text"
-        name="compose"
-        value={formData.compose}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
-      </div>
-      <label className="distributor-label">Compose</label>
-    </div>
-  </div>
-
 
 
 
@@ -269,9 +201,9 @@ const ProductEdit = () => {
       <i className="input-icon fa fa-user"></i>
       <input
         required
-        type="text"
-        name="pack"
-        value={formData.pack}
+        type="number"
+        name="instiId"
+        value={formData.instiId}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -280,7 +212,30 @@ const ProductEdit = () => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
       </div>
-      <label className="distributor-label">Pack</label>
+      <label className="distributor-label">Institute ID</label>
+    </div>
+  </div>
+
+
+
+
+  <div className="col-md-12 col-lg-6 col-sm-12">
+    <div className="distributor-input-group">
+      <i className="input-icon fa fa-user"></i>
+      <input
+        required
+        type="number"
+        name="zoneId"
+        value={formData.zoneId}
+        onChange={handleChange}
+        className="distributor-input"
+        autoComplete="off"
+      />
+      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+      <div className="invalid-feedback">
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
+      </div>
+      <label className="distributor-label">Zone ID</label>
     </div>
   </div>
 
@@ -293,8 +248,8 @@ const ProductEdit = () => {
       <input
         required
         type="text"
-        name="thera"
-        value={formData.thera}
+        name="rightId"
+        value={formData.rightId}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -303,39 +258,11 @@ const ProductEdit = () => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
       </div>
-      <label className="distributor-label">Thera</label>
+      <label className="distributor-label">Right ID</label>
     </div>
   </div>
 
 
-
-
-  
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="text"
-        name="strength"
-        value={formData.strength}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
-      </div>
-      <label className="distributor-label">Strength</label>
-    </div>
-  </div>
-
-
-
-
-
-  
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
@@ -358,99 +285,25 @@ const ProductEdit = () => {
 
 
 
-
-
-  <div className="col-md-12 col-lg-6 col-sm-12">
-  <div className="distributor-input-group">
-    <input
-      type="date"
-      name="arr_date"
-      value={formData.arr_date}
-      onChange={handleChange}
-      className="distributor-input"
-      autoComplete="off"
-    />
-    <label className="distributor-label">Arrival Date</label>
-  </div>
-</div>
-
-
-
-
-<div className="col-md-12 col-lg-6 col-sm-12">
-  <div className="distributor-input-group">
-    <input
-      type="date"
-      name="ter_date"
-      value={formData.ter_date}
-      onChange={handleChange}
-      className="distributor-input"
-      autoComplete="off"
-    />
-    <label className="distributor-label">Ter Date</label>
-  </div>
-</div>
-
-
-
-<div className="col-md-12 col-lg-6 col-sm-12">
-  <div className="distributor-input-group">
-    <input
-      type="date"
-      name="change_price_date"
-      value={formData.change_price_date}
-      onChange={handleChange}
-      className="distributor-input"
-      autoComplete="off"
-    />
-    <label className="distributor-label">Change Price Date</label>
-  </div>
-</div>
-
-
-
-
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
+      <i className="input-icon fa fa-user"></i>
       <input
         required
-        type="number"
-        name="ssr_enabled"
-        value={formData.ssr_enabled}
+        type="text"
+        name="rptType"
+        value={formData.rptType}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
       />
       <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
       <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid DD Amount.
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Institute ID.
       </div>
-      <label className="distributor-label">SSR Enabled</label>
+      <label className="distributor-label">Report Type</label>
     </div>
   </div>
-
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
-      <input
-        required
-        type="number"
-        name="trading"
-        value={formData.trading}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Order Value.
-      </div>
-      <label className="distributor-label">Trading</label>
-    </div>
-  </div>
-
-  
 
 
 </div>
@@ -480,7 +333,7 @@ const ProductEdit = () => {
   );
 };
 
-export default ProductEdit;
+export default RoleInsert;
 
 
 

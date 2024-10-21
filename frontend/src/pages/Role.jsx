@@ -6,11 +6,9 @@ import "../Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
-import { format } from 'date-fns';
+import { format } from 'date-fns'; // Make sure to install date-fns
 
-// ...
-
-export default function OrderDetailTable() {
+export default function Role() {
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
@@ -21,11 +19,11 @@ export default function OrderDetailTable() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/orderDetail");
+        const response = await axios.get("http://localhost:5555/role");
         setRows(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching the Order Details data: ", error);
+        console.error("Error fetching the Role data: ", error);
         setError(error);
         setLoading(false);
       }
@@ -35,13 +33,8 @@ export default function OrderDetailTable() {
 
   const handleEditClick = (id) => {
     const selectedRow = rows.find((row) => row._id === id);
-    navigate('/orderDetailEdit', { state: { rowData: selectedRow } });
+    navigate('/roleEdit', { state: { rowData: selectedRow } });
   };
-
-
-
-
-
 
 
 
@@ -58,7 +51,7 @@ const confirmDelete = async () => {
   if (recordToDelete) {
     try {
       // Send DELETE request to the server
-      await axios.delete(`http://localhost:5555/orderDetail/${recordToDelete}`); // Adjust to your delete endpoint
+      await axios.delete(`http://localhost:5555/role/${recordToDelete}`); // Adjust to your delete endpoint
       // Update local state to remove the deleted record
       setRows(rows.filter((row) => row._id !== recordToDelete));
     } catch (error) {
@@ -75,41 +68,69 @@ const cancelDelete = () => {
   setRecordToDelete(null); // Clear the record ID
 };
 
-
-
-
-  const columns = [
-    // { field: '_id', headerName: 'ID', width: 90 },
-    { field: 'orderDetailID', headerName: 'Order Detail ID', width: 130 },
-    { field: 'order_id', headerName: 'Order ID', width: 180 },
-    { field: 'product_id', headerName: 'Product ID', width: 150 },
-    { field: 'base_units', headerName: 'Base Units', width: 150 },
-    { field: 'cash_price', headerName: 'Cash Price', width: 150 },
-    { field: 'bonus_units', headerName: 'Bonus Units', width: 150 },
-    { field: 'value', headerName: 'Value', width: 130 },
-    { field: 'comments', headerName: 'Comments', width: 130 },
-    { field: 'prd_remarks', headerName: 'PRD Remarks', width: 100 },
-    { field: 'dispatch_status', headerName: 'Dispatch Status ', width: 200 },
-    { field: 'sch', headerName: 'SCH', width: 130 },
-    { field: 'pack_on_sch', headerName: 'Pack on Sch', width: 120 },
-    { field: 'trade_price', headerName: 'Trade Price ', width: 100 },
-    { field: 'product_scheme', headerName: 'Product Scheme', width: 150 },
-    // { field: 'units_convert_date', headerName: 'Units Convert Date', width: 150 },
-    {
-      field: 'units_convert_date',
-      headerName: 'Units Convert Date',
-      width: 150,
-      renderCell: (params) =>
-        params.row.units_convert_date ? format(new Date(params.row.units_convert_date), 'dd/MM/yyyy') : '',
-    },
-  
-    { field: 'old_units', headerName: 'Old Units', width: 150 },
-    { field: 'old_bonus', headerName: 'Old Bonus', width: 150 },
-    { field: 'old_price', headerName: 'Old Price', width: 150 },
-    { field: 'old_value', headerName: 'Old Value', width: 130 },
-    { field: 'svn', headerName: 'SVN', width: 130 },
-    { field: 'inv_notes', headerName: 'Invoice Notes', width: 130 },
-
+const columns = [
+    { 
+        field: 'rd_id', 
+        headerName: 'RD ID', 
+        width: 150, 
+        type: 'number' 
+      },
+      { 
+        field: 'userId', 
+        headerName: 'User ID', 
+        width: 150, 
+        type: 'number' 
+      },
+      { 
+        field: 'AreaId', 
+        headerName: 'Area ID', 
+        width: 150, 
+        type: 'number' 
+      },
+      { 
+        field: 'subAreaId', 
+        headerName: 'Sub Area ID', 
+        width: 150, 
+        type: 'number', 
+        sortable: false // Unique is false, so not necessarily needed for sorting
+      },
+      { 
+        field: 'DistId', 
+        headerName: 'Distributor ID', 
+        width: 150, 
+        type: 'number' 
+      },
+      { 
+        field: 'instiId', 
+        headerName: 'Institute ID', 
+        width: 150, 
+        type: 'number' 
+      },
+      { 
+        field: 'zoneId', 
+        headerName: 'Zone ID', 
+        width: 150, 
+        type: 'number' 
+      },
+      { 
+        field: 'rightId', 
+        headerName: 'Right ID', 
+        width: 150, 
+        type: 'string' 
+      },
+      { 
+        field: 'status', 
+        headerName: 'Status', 
+        width: 150, 
+        type: 'string' 
+      },
+      { 
+        field: 'rptType', 
+        headerName: 'Report Type', 
+        width: 150, 
+        type: 'string' // Required is false so this column may be optional
+      }
+   ,
     {
         field: 'action',
         headerName: 'Actions',
@@ -157,15 +178,15 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/orderDetailInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/roleInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>
     <div className="table-caption">
-    <h3 className="text-center col-md-6 border form-head-text p-2">Order Detail List</h3>
+    <h3 className="text-center col-md-6 border form-head-text p-2">Role List</h3>
     </div>
 
-    <Paper style={{ height: 400, width: '100%' }}>
+    <Paper style={{ height: "60%", width: '100%'  }}>
    
       <DataGrid
         rows={rows}

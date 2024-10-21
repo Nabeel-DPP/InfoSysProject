@@ -6,6 +6,7 @@ const router = express.Router();
 // CREATE: Add a new rights entry
 router.post('/', async (req, res) => {
   try {
+    console.log("This is the Request Body",req.body)
     const newRights = new Rights(req.body); 
     console.log("Insert Request Reached at Route", newRights);
     const savedRights = await newRights.save();

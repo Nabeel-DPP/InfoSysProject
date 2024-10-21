@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 const orderDetailSchema = new mongoose.Schema({
- orderDetailId: {
+ orderDetailID: {
     type: Number,  
     required: true,
     unique: true,  
