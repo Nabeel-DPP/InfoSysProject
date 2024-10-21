@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
+import ThemeToggle from '../components/ThemeToggle';
 import axios from 'axios';
 
 const BankInsert = () => {
@@ -17,11 +18,18 @@ const BankInsert = () => {
     bank_abr: '',
     
   });
-  const [theme, setTheme] = useState('white');
+  // const [theme, setTheme] = useState('white');
   
  
-  const handleToggleChange = () => {
-    setTheme(prevTheme => (prevTheme === 'white' ? 'pinkblue' : 'white')); // Toggle between themes
+  // const handleToggleChange = () => {
+  //   setTheme(prevTheme => (prevTheme === 'white' ? 'pinkblue' : 'white')); // Toggle between themes
+  // };
+
+
+  const [theme, setTheme] = useState('white'); // Initial form theme
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme); // Update the form theme
   };
 
 
@@ -89,7 +97,7 @@ const BankInsert = () => {
       {/* <button className='btn btn-primary' onClick={handleWhiteTheme}>White Theme</button>
       <button className='btn btn-primary' onClick={handlePinkBlueTheme}>Pink/Blue Theme</button> */}
    
-   <div className="bauble_box  ">
+   {/* <div className="bauble_box  ">
         <input
           className="bauble_input"
           type="checkbox"
@@ -97,8 +105,8 @@ const BankInsert = () => {
           onChange={handleToggleChange}
         />
         <label className="bauble_label" htmlFor="themeToggle"></label>
-      </div>
-   
+      </div> */}
+      <ThemeChanger onThemeChange={handleThemeChange} />
     <div className={` distributor-form__container ${theme}`}>
      
     <form onSubmit={handleSubmit} >
