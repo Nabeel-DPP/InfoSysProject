@@ -17,8 +17,18 @@ const BankInsert = () => {
     bank_abr: '',
     
   });
-
+  const [theme, setTheme] = useState('white');
+  
  
+  const handleToggleChange = () => {
+    setTheme(prevTheme => (prevTheme === 'white' ? 'pinkblue' : 'white')); // Toggle between themes
+  };
+
+
+
+
+
+
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -75,8 +85,21 @@ const BankInsert = () => {
 
 
   return (
+    <div className="bankInsert">
+      {/* <button className='btn btn-primary' onClick={handleWhiteTheme}>White Theme</button>
+      <button className='btn btn-primary' onClick={handlePinkBlueTheme}>Pink/Blue Theme</button> */}
    
-    <div className="distributor-form__container mt-5">
+   <div className="bauble_box  ">
+        <input
+          className="bauble_input"
+          type="checkbox"
+          id="themeToggle"
+          onChange={handleToggleChange}
+        />
+        <label className="bauble_label" htmlFor="themeToggle"></label>
+      </div>
+   
+    <div className={` distributor-form__container ${theme}`}>
      
     <form onSubmit={handleSubmit} >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Bank Information</h1>
@@ -224,6 +247,7 @@ const BankInsert = () => {
       
       
     </form>
+  </div>
   </div>
   );
 };
