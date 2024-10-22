@@ -106,7 +106,7 @@ const BankInsert = () => {
         />
         <label className="bauble_label" htmlFor="themeToggle"></label>
       </div> */}
-      <ThemeChanger onThemeChange={handleThemeChange} />
+      <ThemeToggle onThemeChange={handleThemeChange} />
     <div className={` distributor-form__container ${theme}`}>
      
     <form onSubmit={handleSubmit} >

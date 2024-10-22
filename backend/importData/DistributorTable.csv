@@ -1,0 +1,178 @@
+DistId,distName,areaID,zoneID,Status,address,balance,closingBalance,distType,ssrType,factorCode,arrDate,emailId,phone1,phone2,LockDays,ntn,cnic
+9,PREMIER SALES (PVT) LTD. BANNU,3,1,OPEN,Plot No: 94-B Small Industrial Estate Town Ship Bannu. Riffatullah,,,7.5,Y,0.1,24-06-24,premier_bannu@outlook.com,0334-8788998,,45,6925517-8,14301-2010878-7
+10,PREMIER SALES (PVT) LTD. SWAT,16,1,OPEN,Faizabad Road Opp.Hurain Wedding Hall Saidu Shareef Tehsil Babuzi District Swat.  Fazal Majeed,,,7.5,Y,0.1,24-06-24,premier.mingora@gmail.com,0334-8786039,,45,6925517-8,
+11,PREMIER SALES (PVT) LTD. MARDAN,11,1,OPEN,Malaknad Road near Al Rauf Steal Gujar Garhi Mardan. B.M. Ishfaq Sab 0334-8780227,,,7.5,Y,0.1,24-06-24,premier.mrd@hotmail.com,0334-8780227,,45,6925517-8,
+12,PREMIER SALES (PVT) LTD. SWABI,15,1,OPEN,"Maneri Bala, Gaar Banda mardan Road, Tehsil & Dist Swabi. B.M. Noor Ul Wahab",,,7.5,Y,0.1,24-06-24,premier.swabi@outlook.com,0334-8788924,,45,6925517-8,
+13,PREMIER SALES (PVT) LTD. MANSEHRA,10,1,OPEN,"Khan baba Plaza Behind Bank AL- habib, Opposite: Fauji Foundation Hospital Road District Mansehra.
+M.Usman",,,7.5,Y,0.1,24-06-24,premier_mansehra@outlook.com,0334-8788910,,45,6925517-8,
+14,PREMIER SALES (PVT) LTD. HARIPUR,7,1,OPEN,"Shah Muhammad, Near Monnon Road, Ali Khan, G.T Road, Haripur. Anas Manzoor",,,7.5,Y,0.1,24-06-24,premier.haripur@gmail.com,0312-9597410,,45,6925517-8,
+15,PREMIER SALES (PVT) LTD. ABBOTABAD,1,1,OPEN,"Near Brother CNG Pump Opposite Gillani Mart Kalapul, Abbottabad. Asfand Yaar",,,7.5,Y,0.1,24-06-24,prm.abbt@gmail.com,0334-8788926,,45,6925517-8,
+16,RABBANI,2,1,OPEN,"Hs # R-36, Mohallah Shed Attock",,,9.5,Y,0.1,24-06-24,rabbani.traders123@gmail.com,0312-1511009,,45,,17301-1492134-3
+17,SALMAN AND BROTHERS MEDICOSE,9,1,OPEN,"House No.45, Street No 4,  Sector 10 K.D.A Kohat",,,7.5,Y,0.1,24-06-24,salmanbrotherskht@gmail.com,0335-9979437,,45,,14301-2010878-7
+18,SHIFA MEDICAL COMPANY,17,1,OPEN,OPP. DHQ HOSPITAL TIMMERGARA MR. GOHAR 0344-9779468,,,7.5,Y,0,24-06-24,shifa.5585@yahoo.com,0344-9779468,,45,,15302-8511184-9
+19,AL-QAMAR KASUR DISTRIBUTORS,20,2,OPEN,"Main Ferozpur Road,Near New Kasur City Opposite, New Bus Stand Tehsil & District Kasur. Mr.Khalid Afaq : 0322-4073890",,,7.5,Y,0.1,24-06-24,alqamarkasur@gmail.com,0300-4264821,,45,6650472-3,
+20,BABAR MEDICINE COMPANY,22,2,OPEN,3-Km Faisalabad Bypass Road Near Sharaqpur Chowk Opposite United Cancrete Tehsil & Dist. Sheikhupura- Imran 0322-4190539,,,7.5,Y,0.1,24-06-24,bmcshkp@yahoo.com,0334-4666371,,45,1851762-5,
+21,BASHIR PHARMA,19,2,OPEN,"Ehtisham Colony Opp-Jamia Haqqani, Sui Gas Office Road, Gujaranwala
+Irshad Ahamd
+Mob# 0322-8118005",,,7.5,Y,0.1,24-06-24,bashirpharmalinkgrw@gmail.com,0322-8118005,,45,,34101-2988457-3
+22,BUTT BROTHERS DISTRIBUTORS,23,2,OPEN,"Moti Bazar Near Ahmad Shahzad Pharmacy Tehsil Wazirabad,District Gujranwala. Ayyaz Butt 0301-6205579",,,7.5,Y,0.1,24-06-24,shakeelahmadsabeeh@gmail.com,0301-6205579,,45,8979549-6,
+23,DECENT ENTERPRISES,21,2,OPEN,"1-Canal Park Opp Forces Academy Sikandar Malli Road, Gulberg-1 Lahore Ph: # 042-35874634-36",,,7.5,Y,0.1,24-06-24,decentent3@gmail.com,0321-4471962,,45,,35202-9806731-5
+24,MUHAMMADIA MEDICAL STORE,18,2,OPEN,Nikka Bazar  Ali Pur Chatha. Muhammad Waheed Ph# 0300-7429660,,,7.5,Y,0.1,24-06-24,shakeelahmadsabeeh@gmail.com,0300-7429660,,45,,34104-2248215-5
+25,PARAMOUNT,19,2,OPEN,Gill Road Gujranwala Ph: # 0553-859966,,,7.5,Y,0.1,24-06-24,paramountdistributors@gmail.com,0321-7441000,,45,,34101-2676801-9
+26,AL-ROOHAN DISTRIBUTION NETWORKS,38,5,OPEN,Keyani Road Al-Waheed Sopping Centre Sanghar Maqbool Ahmed # 0332-2045490,,,9.5,Y,0.1,24-06-24,alroohan.distribution@gmail.com,0333-2868308,,30,,44205-0686596-3
+27,ARSLAN MEDICINE COMPANY,27,3,OPEN,"Nabeel Town Near Kamal Marriage Hall Tehsil Haronnabad
+
+
+Mr. Zulfiqar 0334-1179683",,,7.5,Y,0.1,24-06-24,0,0,,45,0,31104-3812208-3
+28,ASLAM TRADERS,29,3,OPEN,"Model Town Near Town Hall Rahim Yar Khan 
+Mr.Amaar Waheed 0322-8810963, 068-5873292-93",,,7.5,Y,0.1,24-06-24,bmcit.ryk@gmail.com,0303-0391314,,45,0693832-9,
+29,BABAR SONS MEDICINE COMPANY,25,3,OPEN,"Babar Sons Medicine Company, 2/C Allam Colony, Small Industrial Estate, Bahawalpur.
+Contact #:
+0622884193-4
+0622883512",,,7.5,Y,0.1,24-06-24,bsmcbwp@gmail.com,0300-8680027,,45,4355817-8,
+30,DANIYAL DISTRIBUTOR,30,3,OPEN,OLD R.C.A. FACTORY NEAR JILLANI HOSPITAL SADIQABAD MR. TAHIR 0301-8770009,,,7.5,Y,0.1,24-06-24,daniyaldistributorsdk@gmail.com,0301-8770009,,45,,31304-6786818-1
+31,GOHAR MEDICAL STORE,28,3,OPEN,SHOP NO. 44 TO 46 QUAID-E-AZAM MARKET HASILPUR DIST BAHAWALPUR 0332-1601000,,,7.5,Y,0.1,24-06-24,goharwholesale@gmail.com,0306-4970000,,30,,31203-3709497-1
+32,HANIF & SONS PHARMA,26,3,OPEN,"Hussain Colony Chishtian Tehsil Chishtian Dist. Bahawalnagar
+Imaran Hanif: 0300-6987007",,,7.5,Y,0.1,24-06-24,imranraazee@gmail.com,0300-6989059,,30,,31102-8816041-9
+33,HUSNAIN MEDICINE COMPANY,24,3,OPEN,"House No 5/A Near Zahida Shaheen Hospital Model Twon Bahawalnager. MD Husnain Khan, 0333-0910101",,,7.5,Y,0.1,24-06-24,hmc.bwn@gmail.com,0333-0910101,,45,9879217,31304-6786818-1
+34,MMM BAIG ENTERPRISES,24,3,OPEN,"Old bus Stand Near Govt.Post Office Tehsil & Distric Bahawalnagar. Email:mmmbaigbwn@gmail.com Zonal Manager:Mirza Imran Qadeer 0333-7468569,0300-9426307",,,7.5,Y,0.1,24-06-24,0,0,,45,0,31101-9892537-5
+35,NASEEM,36,5,OPEN,"53-58 1ST Floor Pak Shopping Mall,  Sir Syed road, Mir Pur Khas (Sindh)  Ph: # 0233-875134",,,9.5,Y,0.1,24-06-24,alnaseemdrugagency@yahoo.com,0300-3321550,,35,,44103-0321133-7
+36,PHARMA ZONE DISTRIBUTOR,37,5,OPEN,NEAR ABDUL QADIR PARK NAWAB SHAH M. HUSSAIN 0332-2846122,,,9.5,Y,0.1,24-06-24,pharmazone@gmail.com,0313-3244780,,30,9418618-1,
+37,PREMIER SALES (PVT) LTD. GHOTKI,32,5,OPEN,Near Rais Abass Petroleum Pump Bypass Ghotki Hafeezullah 0333-7223002,,,7.5,Y,0.1,24-06-24,bom.ghotki@premiergroup.com.pk,0333-7223002,,45,6925517-8,
+38,PREMIER SALES (PVT) LTD. HYDERABAD,33,5,OPEN,A/10 Site Area Hyderabad -- Bismillah Khan 0334-8788581-- Adnan Ali Khan 0334-8788580,,,7.5,Y,0.1,24-06-24,pa.hyd@premiergroup.com.pk,0334-8788581,,45,6925517-8,42201-8340252-1
+39,PREMIER SALES (PVT) LTD. JACCOBABAD,34,5,OPEN,"Talani Rice Mill Near Aqsa Masjid Quetta Road Jacobabad
+Wahid Bux 0331-3111948",,,7.5,Y,0.1,24-06-24,bom.jcd@premiergroup.com.pk,0334-8788511,,45,6925517-8,
+40,R.J TRADERS DISTRIBUTORS WHOLE SALE DRUG AGENCY,31,5,OPEN,"Naseem City Center Badin M Jawad Akbar 0333-2526664, Shahuid Ali Shah 0333-2629943",,,9.5,Y,0.1,24-06-24,rjbdn74000@gmail.com,0333-2526664,,30,4540341-8,
+41,SAQR PHARMA,35,5,OPEN,"R-6 Row 10 Block D- National Cement Society Gulshan-E-Iqbal Block-10-A
+M.R. IMRAN 0332-2922906",,,9.5,Y,2,24-06-24,imrankhanmef@gmail.com,0332-2922906,,15,,42201-8340252-1
+42,AAMIR MEDICINE,52,4,OPEN,Hameed Nazami Road  Sangla Hill (Distt: Nanakana Sahab) Ph # 056-3700902 Mr. Faisal 0300-6604508/0321-7667282,,,7.5,Y,0.1,24-06-24,virkfaisal@gmail.com,0300-6604508,,45,,35403-4715081-3
+43,AKRAM TRADERS JHANG,45,4,OPEN,Yousaf Shah Road Jhang Sadar Tel: # 047-7610252 Mr. Zeeshan Akram,,,7.5,Y,0.1,24-06-24,z_akram38@yahoo.com,0321-6528953,,45,,33202-7652601-5
+44,AL-UBAID MEDICOSE,46,4,OPEN,Mianwali Bannu Road Kamar Mashani Haji Ubaid Ur Rehman Mobile # 0301-3958324,,,7.5,Y,0.1,24-06-24,tanzeelmedicose@gmail.com,0301-3958324,,40,,38301-1900136-7
+45,AMAN,48,4,OPEN,"House # E/316, Near Govt High School Road, Gali Qabristan Wali Whandhi Ghund Wali, Mianwali Phone # 0459-34820",,,7.5,Y,0.1,24-06-24,malikamanullah@gmail.com,0302-3951871,,45,,38302-0931028-5
+46,AWAN PHARMA DISTRIBUTORS,47,4,OPEN,"Awan House, Street Taj Cinema  Khushab Ph: # 0454-712777 Mob # 0300-9603706",,,7.5,Y,0.1,24-06-24,awan.pharma2008@gmail.com,0301-6343170,,45,,38201-1568503-9
+47,BILAL MEDICINE COMPANY,43,4,OPEN,Near D.H.Q Hospital Bhakkar (Distt: Darya Khan) Ph: # 0453-513896 Cell: # 0333-6842020,,,7.5,Y,0.1,24-06-24,bilal_bmc@yahoo.com,0333-6842020,,40,,38102-0877310-7
+48,CHAUDHARY MEDICINE COMPANY,48,4,OPEN,"House No:H/199, Lodhi Street, Muslim Bazar, Mianwali",,,7.5,Y,0.1,24-06-24,mithajutt.fs@gmail.com,0300-6087317,,30,,38302-9610845-3
+49,H & M PHARMA,50,4,OPEN,"Hospital Road Shahdab Colony Near D.H.Q, Pakpattan 0304-8444490",,,7.5,Y,0.1,24-06-24,hmpharma2017@gmail.com,0304-8444490,,30,,36302-0425729-2
+51,LIFE LINE DISTRIBUTOR,49,4,OPEN,House # 12 Faisal Colony No-1 Faisalabad Road Okara  Ph: # 0442-512123,,,7.5,Y,0.1,24-06-24,lifelinedistributorokara@gmail.com,0344-7575751,,45,2725757-6,
+52,MASHALLAH PHARMACY,39,4,OPEN,"MASHA ALLAH Pharmacy, Muhammadi Town, ArifWala, District Pakpattan.  M.Ishaq 0301-7253647",,,7.5,Y,0.1,24-06-24,mapharmacy147@gmail.com,0301-7253647,,30,,36401-3163794-7
+53,MUSHTAQ DISTRIBUTORS,54,4,OPEN,"Shop# 43-58, Housing Colony 1, Toba Tek Singh. Dr Naveed Asghar 0333-6875555",,,7.5,Y,0.1,24-06-24,mushtaqdistributors@gmail.com,0333-7875555,,45,,33303-2401470-1
+54,MUSHTAQ PHARMA,44,4,OPEN,"25-W-13, Canal Road, Madina Town Faisalabad Tel: 041-8559680 & 2020155",,,14,Y,0.1,24-06-24,mushtaqpharmafsd@gmail.com,0306-0097962,0306-0097962,45,5053602-3,0
+55,MUSHTAQ PHARMACEUTICALS DISTRIBUTORS,41,4,OPEN,"Madina Market, Opposite Quaid-e-Azam Park, Faisalabad Road, Chiniot. Waqar Ali 0306-0097962",,,7.5,Y,0.1,24-06-24,mushtaqpharmaceutical@gmail.com,0323-0176176,,45,5053602-3,
+56,N & G ENTERPRISES,51,4,OPEN,"N & G Enterprises 554/B-7 Police Line Road, Sahiwal",,,7.5,Y,0.1,24-06-24,ngenterprises554@gmail.com,0340-4259992,,30,,36502-7602244-3
+57,NEW EX-AIR TRADERS,53,4,OPEN,"House# 331, Block D, Satelite Town Sargodha.",,,7.5,Y,0.1,24-06-24,newexairtraders@gmail.com,0303-7510415,,45,,38403-7756818-5
+59,PREMIER SALES (PVT) LTD. D. I. KHAN,42,4,OPEN,"Baloch House, Diyal Road, D.I.Khan. Ajamal Sb 0334-8788930, Mohsin Mehmood 0334-8788939",,,7.5,Y,0.1,24-06-24,premier_dik@hotmail.com,0334-8788939,,45,6925517-8,
+60,ZMS DISTRIBUTORS,51,4,OPEN,"ZMS Distributors, 4, Main Market Fateh Sher Colony Sahiwal. Sajjad Ahamd - 0304-7912233",,,7.5,Y,0.1,24-06-24,zamzam_swl@hotmail.com,0304-7912233,,45,A343777-4,
+61,AL-SYED MEDICINE DISTRIBUTORS,59,3,OPEN,"Gali No 2, Near Bilal Masjid, Sultan Town, Phalia Road, City, Tehsil & District Mandi Bahauddin",,,7.5,Y,0.1,24-06-24,alsyedpharmacymbdin@gmail.com,0321-7742534,,45,,34402-2149977-9
+62,ATIF DISTRIBUTOR,60,3,OPEN,"No.136, New Industrial Estate Road, Lal Manzil, SectorD/4 Mir Pur (A.k) - M.Farooq 0300-5406165",,,7.5,Y,0.1,24-06-24,alfatehenterprisesvehari@gmail.com,0300-5406165,,45,,81302-9565862-6
+63,CITY DISTRIBUTORS,62,3,OPEN,"Jhor Town, Near Rashinwal Phatak, New Lahore Road, Narowal.
+Phone:0542-410200
+Cell: 0321-5563455",,,7.5,Y,0.1,24-06-24,citynwl.sales@gmail.com,0321-5563455,,45,7953061-4,
+64,AL FATEH ENTERPRISESS,64,3,OPEN,"Warehouse # 2, Qazafi market, Hasilpur road, Vehari",,,14,Y,0.1,24-06-24,alfatehenterprisesvehari@gmail.com,0300-2809280,0300-2809280,45,0,36601-8848035-1
+65,GUJRAT TRADERS,57,3,OPEN,"Qamar Sialvi Road,Inside Lady Dr. Rubina Sajid Hosp.Gujrat.
+Qazi Zia Ul Hassan.
+0300-6203879",,,7.5,Y,0.1,24-06-24,umair.ahmad7079@gmail.com,0300-6203879,,30,,34201-0694412-9
+66,PAKISTAN DISTRIBUTORS,57,3,OPEN,"PAKISTAN MEDICAL STORE
+BUTT TRADERS
+NEAR KIRAN CINEMA
+SARGODHA ROAD
+GUJRAT
+03009623206
+AMJAD PERVAIZ BUTT",,,7.5,Y,0.1,24-06-24,,0300-9623206,,35,,34201-0574210-3
+67,PHARMA LINK DISTRIBUTOR,56,3,OPEN,"G.T Road, Ramzan Plaza, Gaga Stop,Tehsil Daska District Sialkot
+Hassan Anjum- 0324-8649693",,,7.5,Y,0.1,24-06-24,sales.pldsa@gmail.com,0324-8649693,,45,,34603-3595860-1
+68,PREMIER SALES (PVT) LTD. MULTAN,61,3,OPEN,"Near MCB Bank Chowk Shah Abbasi Vehari Road Multan
+Manager:Mazhar Hussain 0334-8788532",,,7.5,Y,0.1,24-06-24,premier.multan@yahoo.com,0334-8788532,,45,6925517-8,
+69,PREMIER SALES (PVT) LTD. KHANEWAL,58,3,OPEN,"House No.247 Near DHQ Hospital Khanewal
+Branch Manager: Usama 0334-8788764",,,7.5,Y,0.1,24-06-24,psplkhanewal@gmail.com,0334-8788764,,45,6925517-8,
+70,PUBLIC MEDICAL CENTRE,55,3,OPEN,"Model town, Kachehry road, near Zong tower, Burewala",,,14,Y,0.1,24-06-24,publicburewala@gmail.com,0321-6990936,0321-6990936,45,0,36601-2578302-7
+71,QAISER PHARMA,57,3,OPEN,SHAHDAULA ROAD MOHALLAH CHH BERIWALA GUJRAT MR. QAISER RASHEED 0300-6228248,,,7.5,Y,0.1,24-06-24,qaiserpharma78@gmail.com,0300-6228248,,30,,34201-0703794-3
+72,UNIVERSAL ENTERPRISES,64,3,OPEN,House No:48 Street:3 Sarhand Colony Tehsil & District Vehari Proprietor M.Irfan 0306-4253825,,,7.5,Y,0.1,24-06-24,universalmedicinecompany786@gmail.com,0306-4253825,,30,5053550-5,
+73,W.A PHARMACY DISTRIBUTORS,63,3,OPEN,"77 Mir Hassan Road Model Town, Sialkot 
+052-458801
+Mr.Waqar 0321-4562843
+Malik Arif Awan
+0321-6171207",,,7.5,Y,0.1,24-06-24,wa.pharma.sialkot@gmail.com,0321-6171207,,45,,34603-3770531-9
+74,ZULNORAIN MEDICINE COMPANY,64,3,OPEN,"zulnorain Medicine Comapny, Sheikh Cotton Colony, Near Madina Clony Chowk, Vehari. Muhammad Saleem 0300-7654758",,,7.5,Y,0.1,24-06-24,albarkat7588@gmail.com,0300-7654758,,30,,33100-1025182-9
+75,AL SADAAT MEDICAL STORE,69,5,OPEN,Near Khwajgan Masjid Road Zhob (Balochistan) Cell # 0323-8120076/0321-8158280,,,9.5,Y,0,24-06-24,,0323-8120076,,30,,56503-1500131-7
+76,AL-NUSRAT MEDICAL STORE,66,5,OPEN,"Qandhari Road Haji Hassan Masjid Chaman Mr. Hafeez 0313-8202050, 0313-8202042",,,1,Y,0.1,24-06-24,ahsanullahkhan191@gmail.com,0313-8202042,0313-8202042,35,0,54201-0615474-7
+77,ISRAR MEDICINE AGENCY,67,5,OPEN,"Israr Medicine Agency, Metmail Street, Quetta
+0302-3839040 
+Raffiuddin",,,9.5,Y,2,24-06-24,,0302-3839040,,20,,54303-5884419-3
+78,SAMIULLAH & CO.,67,5,OPEN,Yet Road Quetta Mr.Yasir Khan Ph# 0305-8246305,,,9.5,Y,2,24-06-24,,0305-8246305,,20,,54303-2040364-9
+79,SHAHEEN MEDICINE AGENCY,67,5,OPEN,"2nd Floor Flat No. 01 Rana Plaza, Archer Road Quetta Ph: # 081-2005764 Mob: # 0343-8000415",,,2,Y,0.1,24-06-24,shaheenmedicine@yahoo.com,0343-8000415,0343-8000415,30,0,54401-3647299-7
+80,UMER HAMZA PHARMACEUTICAL,68,5,OPEN,Jinnah Road Sibbi (Balochistan) Mr. Wasim 0333-7724455\0333-7345403,,,9.5,Y,0,24-06-24,,0333-7345403,,35,,55302-0625235-7
+90,HEAD OFFICE,70,9,CLOSED,"48KM LAHORE-KASUR ROAD, KASUR",,,0,N,2,24-06-24,AAMIRKNAAM@GMAIL.COM,,,0,0,
+91,HAFIZ MADICINE COMPNAY,53,4,OPEN,"House #77, Block # 16,  Sargodha Ph: # 728315  Cell # 0300-6020765
+",,,7.5,Y,0.1,24-06-24,<miantasleem@yahoo.com>,0300-6020765,,45,,"38403-2208233-5"
+92,NOOR MEDICINE COMPANY,40,4,OPEN,MANDI TOWN BHAKKAR MR. LATIF 0333-4809701,,,7.5,Y,0.1,24-06-24,umerfaroq5421@gmail.com>,0333-4809701,,45,,"38101-0667649-5"
+93,SARWAR MEDICAL STORE,40,4,OPEN,,,,7.5,Y,2,24-06-24,0,0,,30,0,
+94,AL-SHAFA ENTERPRISES,82,3,OPEN,Jaskani Commercial Centre Balakh Sarwar City Dera Ghazi Khan Mr. Abbas 0333-8319934/0333-6483238,,,7.5,Y,0.1,24-06-24,0,0,,30,0,32103-1254536-7
+95,NISAR ENTERPRISES,3,1,OPEN,"MILAD PARK BANNU CITY
+
+Rehan 0333-9739909
+0320-2739909",,,7.5,Y,2,24-06-24,0,0,,45,0,11101-5275007-9
+96,AMIN TRADERS,13,1,OPEN,"Block H/A, Gull Plaza Opposite Charsadda Bus Stand, Charsadda Road Peshawar Mr. Amjad Amin Ph # 0300-5875416",,,7.5,Y,2,24-06-24,0,0,,45,0,17301-2994359-7
+97,RAJA,32,5,OPEN,Latif Market  Ghotki Tel: # 0723-682254 Mr. Shahid 0321-3412813/0300-9318287,,,9.5,Y,2,24-06-24,0,0,,35,0,45102-5939444-9
+98,AL - NOOR TRADERS,32,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,45,0,
+99,RAZA ENTERPRISES,78,5,OPEN,Allah Abad Near Opposite Attock petrol pump LARKANA MR. RAZA 0311-3523281,,,9.5,Y,2,24-06-24,0,0,,35,0,43203-1070496-9
+100,ZEM HEALTH CARE PHARMA,78,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+101,AL-RASHEED DISTRIBUTION,71,5,OPEN,"Near Chohan House, Duaa Chowk Bunder Road Sukkur",,,9.5,Y,2,24-06-24,0,0,,30,0,45504-9883042-7
+102,BASIL ENTERPRISES,33,5,OPEN,"House # 2391, Bhatti Road Phulali Hyderabad. Ahmad Ali  Mobile # 0333-2687072",,,9.5,Y,2,24-06-24,0,0,,30,0,41303-6223593-5
+103,BLUE SEA AGENCY,33,5,OPEN,H # B-41/C BLOCK-D UNIT # 6 LATIFABAD HYDERABAD Mr. SHAKEEL 0333-369669 0314-2168198,,,9.5,Y,2,24-06-24,0,0,,40,0,41303-1004154-1
+104,BALOCHISTAN TRADING COMPANY,67,5,OPEN,Muslim Plaza 2nd Floor  Office# 2 Dr Bano Road Quetta M. Baseer # 0310-8030678,,,9.5,Y,2,24-06-24,0,0,,20,0,54401-7918188-7
+105,YA KARIMO ENTERPRISES,35,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,15,0,
+106,IQBAL ENTERPRISES,81,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,40,0,
+107,AL-FAZAL MEDICOSE,87,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+108,S.J. MEDICINE HOUSE,87,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,45,0,
+109,SAMBHWANI ENTERPRISES,79,5,OPEN,Thal Bazar Umerkot Ph# 0238571361,,,9.5,Y,2,24-06-24,0,0,,35,0,44401-1317690-5
+110,BABAR DISTRIBUTION,41,4,OPEN,Babar Distributers Near Sabzi Mandi Jhang Road Chiniot. Cell # 0321-7701759,,,7.5,Y,0.1,24-06-24,babermed@gmail.com,0321-7701759,,32,,33201-4203530-1
+111,SHAH LATIF M/S,31,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+112,M.M DISTRIBUTOR BADIN,31,5,OPEN,CENTER GOLARCHI ROAD BADIN. MR. SHAHID ALI SHAH PH.# 0336-3080724,,,9.5,Y,2,24-06-24,0,0,,30,0,41104-5953509-9
+113,ARIF MEDICINE AGENCY,83,5,OPEN,Syed Abdul Qadir Road Lora Lai Cell# 0332-8099096/0333-8585350,,,9.5,Y,2,24-06-24,0,0,,25,0,
+114,M.Z MEDICINE TRADERS,83,5,OPEN,M.Z Medicine Traders Tahsil Road Lora Lai Abdul Qadir Khan Mobile # 0333-7939563,,,9.5,Y,2,24-06-24,0,0,,30,0,56302-0842946-9
+115,RASKOH MEDICAL STORE,73,5,OPEN,Main Bazaar  Kharan Cell: # 0333-7912057,,,9.5,Y,2,24-06-24,,0333-7912057,,20,,51301-2136882-7
+116,VICKY MEDICINE HOUSE,80,5,OPEN,Old Anaj Mandi Daherki Distt: Ghotki Sindh Ph: # 0723-642274 Mr. Vikram Lal: 0331-6344410,,,9.5,Y,2,24-06-24,0,0,,30,0,
+117,AL QADIR MEDICINE DISTRIBUTOR,85,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,45,0,
+118,AL-MUSTAFA MEDICOS,77,5,OPEN,NEAR UBL BANK KHAIRPUR CITY DIST. KHAIRPUR 0300-9318815 M. Akram Sheikh,,,9.5,Y,2,24-06-24,0,0,,20,0,
+119,HABIB MEDICAL STORE,77,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+120,SHAFQUAT MEDICAL STORE,77,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+121,RAM & COMPANY,77,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+122,PUBLIC MEDICAL STORE,76,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+123,NEW MODREN MEDICAL STORE,76,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,30,0,
+124,NANIK MEDICAL STORE,91,5,OPEN,BHAGNARI DIST BOLAN  BALOCHISTIAN  VINOD KUMAR  MOBILE # 03348294800,,,9.5,Y,2,24-06-24,0,0,,35,0,53303-0780719-3
+125,NADEEM MEDICAL AGENCY,84,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,20,0,
+126,MURSHID MEDICAL STORE,74,5,OPEN,Murshid M/S High School  Thul. Mr. Satia Pal 0333-3951477,,,9.5,Y,2,24-06-24,0,0,,40,0,43105-2435758-5
+127,WAHE GURU MEDICINE HOUSE,90,5,OPEN,"Wahe Guru Medicine House Mir Pur Mathelo, District Ghotki. Dharampal Ph# 0300-3198844",,,9.5,Y,2,24-06-24,0,0,,30,0,45104-2776046-9
+128,JAVED MEDICAL STORE,89,5,OPEN,JINAH ROAD USTA MUHAMMAD DIST. JAFFERABAD MR. DR. SOHAIL 0300-3434536,,,9.5,Y,2,24-06-24,0,0,,35,0,
+129,AL-SIDDIQUE MEDICAL STORE,72,3,OPEN,"Mohallah Naqshabandi, Tehsil Jalalpur Pir Wala Multan Mr. Qasim Hussain # 0331-7539047",,,7.5,Y,0.1,24-06-24,0,0,,30,0,36301-8168339-3
+130,SANWAL MEDICAL STORE,88,5,OPEN,,,,9.5,Y,2,24-06-24,0,0,,35,0,
+131,ASHABI MEDICOSE,75,5,OPEN,"Shah Kamal Road Doctor Street Thatta.
+
+M.Rameez 0333-3812614",,,9.5,Y,2,24-06-24,0,0,,30,0,41409-5635716-1
+132,AIM DISTRIBUTION,33,5,OPEN,"Banglow No:111- B, Block-B Latifabad Unit No:6 Hyderabad
+
+
+Mirza Noman Baig 
+Mobile# 0334-2625522",,,9.5,Y,2,24-06-24,0,0,,40,0,41304-9274713-1
+133,ALI MEDICINE HOUSE,74,5,OPEN,Kandhkot Road Riaz Chowk Thul- Qadir Bux 0333-7331322,,,9.5,Y,2,24-06-24,0,0,,40,0,43105-4942811-9
+134,ALI & HATIM ENTERPRISES,77,5,OPEN,"Wah Canal Road Near City School Khairpur
+
+Mr. Shahid 0301-2187902",,,9.5,Y,2,24-06-24,0,0,,30,0,45504-2240132-5
+135,FAUJI MEDICINE COMPANY,11,1,OPEN,"University Raod Near Bibi salwa Hospital cannal Road Mardan
+Waheed Ahmad 0333-9867450
+",,,7.5,Y,0.1,24-06-24,0,0,,45,0,"16101-5227437-7
+"
+1,GENERAL DISTRIBUTORS,14,1,OPEN,"SHOP # 13,14,16,19 AL-KARIM MARKET GORDON COLLEGE ROAD RAWALPINDI Mr. SAJID",,,7.5,Y,0.1,24-06-24,sale.generalrwp@gmail.com,0321-5181200,051-5555529,45,1626540-8,
+2,HAJI SONS PHARMA DISTRIBUTOR,8,1,OPEN,"Street No:02 Muhammad Khan Colony,Opposite the Leather Point G.T Road,Hassanabdal.Dsit.",,,7.5,Y,0.1,24-06-24,hajisonsdistributor13@gmail.com,057-2520226,,45,8212775-5,17301-1492134-3
+3,MAKKAH ENTERPRISES,4,1,OPEN,Gokand Road Qala Tehsil Daggar District Buner  Rafiq Ahmad,,,7.5,Y,0,24-06-24,makkahbuner@gmail.com,0333-9474012,0333-9480511,45,,15602-1047846-7
+4,MALIK MEDICOSE & MEDICINE SUPPLIER,6,1,OPEN,"Main Bazar Sharqi Road Deer Uper Khalid Mehmood",,,7.5,Y,0,24-06-24,Khalidmepkm@gmail.com,0334-9322588,0343-3129465,45,,15701-0264404-1
+5,MAYAR MEDICINE POINT,17,1,OPEN,Oposite DHQ Hospital TIMMERGRA Imtiaze Ahmad,,,7.5,Y,0,24-06-24,imtiazahmadmayar@gmail.com,0336-4477001,,45,,15303-5263586-9
+6,PREMIER SALES (PVT) LTD. PESHAWAR,13,1,OPEN,"G.T Road, Pul Ring Road, Near Jamia Numania Chughalpura, Peshawar. Mahfooz",,,7.5,Y,0.1,24-06-24,peshawar_premier@hotmail.com,0334-8788942,0334-8788903,45,6925517-8,15701-1162218-1
+7,PREMIER SALES (PVT) LTD. MZD AJ&K,12,1,OPEN,"Lower Chattar (Thuri), Muzaffarabad.- Masood Ul Haq",,,7.5,Y,0.1,24-06-24,pa.mzd@premiergroup.com.pk,0334-8786059,,45,6925517-8,
+8,PREMIER SALES (PVT) LTD. CHAKWAL,5,1,OPEN,"Near Odherwal Chowk Talagang Road, District Chakwal. Qazi Abdul",,,7.5,Y,0.1,24-06-24,premier.chakwal@gmail.com,0334-8788885,,45,6925517-8,
+136,TANVEER ENTERPRISES,19,5,OPEN,"Fareed road, Fareed town, Gujranwala",,,1,Y,0.1,24-06-24,tanveerenterprises@hotmail.com,0321-7417001,0321-7417001,45,0,34101-7460563-9
+137,ZAFAR SONS PHARMACY SERVICES,27,3,OPEN,"Shop # 89/C, Jamia masjid bazar, near Tariq pharmacy, Haroonabad, Dist.. Bahawalnagar",,,1,Y,0.1,03-07-24,muzamil3013@gmail.com,0333-6317211,0300-8560833,45,0,31104-1672906-9
+138,NISAR SONS MEDICINE COMPANY,55,3,OPEN,"NISAR SONS MEDICINE COMPANY, HOUSE NO.48,ST NO 01,NEAR BUS STAND, BUREWALA",,,1,Y,0.1,27-09-24,nisarsonsmedicinecompany@gmail.com,0302-8895390,0302-8895390,45,0,3660197381015
+139,PREMIER SALES (PVT) LTD. LAYYAH,92,3,OPEN,"PREMIER SALES, MAIN CHOWK AZAM ROAD, NEAR GRID STATION, LAYYAH",,,1,Y,0.1,27-09-24,bom.layyah@premiergroup.com.pk,0334-8788255,0334-8788255,45,6925517-8,0
+140,PREMIER SALES (PVT) LTD. RAWALPINDI,14,1,OPEN,"PLOT NO.2,STREET NO.6-E,NEAR HBL,KHANNA PULL,LEHTRAR ROAD,ISLAMABAD",,,1,Y,0.1,08-10-24,pa.isl2@premiergroup.com.pk,0334-8788852,0334-8788868,45,6925517-8,0
+141,PREMIER SALES (PVT) LTD. ISLAMABAD,93,1,OPEN,"PLOT NO.160,STREET NO.9,INDUSTRIAL AREA,SECTOR 1-10/3,ISLAMABAD",,,1,Y,0.1,08-10-24,pa.isl@premiergroup.com.pk,0334-8788994,0334-8948098,45,6925517-8,0

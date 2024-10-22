@@ -3,7 +3,7 @@ import '../DemoForm.css'; // Assuming you have a separate CSS file for custom st
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import ThemeToggle from '../components/ThemeToggle';
 const AreaEditForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -61,6 +61,16 @@ const AreaEditForm = () => {
 
 
 
+  const [theme, setTheme] = useState('white'); // Initial form theme
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme); // Update the form theme
+  };
+
+
+
+
+
   const handleRadioChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -82,30 +92,10 @@ const AreaEditForm = () => {
   };
 
   return (
-    // this edit form is working perfectly
-    // <div className="distributor-form__container mt-5">
-    //   <form onSubmit={handleSubmit} noValidate>
-    //     <h1 className="area-edit-form__title p-1 w-50 mb-5">Edit Area Information</h1>
+    <div className="areaEdit">
 
-    //     {Object.keys(formData).map((key) => (
-    //       <div className="mb-3" key={key}>
-    //         <label htmlFor={key} className="form-label">{key.replace(/_/g, ' ')}</label>
-    //         <input
-    //           type="text"
-    //           className="form-control"
-    //           id={key}
-    //           name={key}
-    //           value={formData[key]}
-    //           onChange={handleChange}
-    //           required
-    //         />
-    //       </div>
-    //     ))}
-
-    //     <button type="submit" className="btn btn-primary">Update Area</button>
-    //   </form>
-    // </div>
-    <div className="distributor-form__container mt-5">
+     <ThemeToggle onThemeChange={handleThemeChange} />
+    <div className={` distributor-form__container ${theme} mt-5`}>
      
     <form onSubmit={handleSubmit} >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Area Information</h1>
@@ -609,6 +599,7 @@ const AreaEditForm = () => {
       
       
     </form>
+  </div>
   </div>
   );
 };

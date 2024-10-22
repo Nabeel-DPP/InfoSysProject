@@ -3,7 +3,7 @@ import '../DemoForm.css'; // Assuming you have a separate CSS file for custom st
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import ThemeToggle from '../components/ThemeToggle';
 const PdQuotaEdit = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -75,13 +75,21 @@ const PdQuotaEdit = () => {
 
 
 
+  const [theme, setTheme] = useState('white'); // Initial form theme
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme); // Update the form theme
+  };
+
 
 
 
 
   return (
-   
-    <div className="distributor-form__container mt-5">
+    <div> 
+
+    <ThemeToggle onThemeChange={handleThemeChange} />
+   <div className={` distributor-form__container ${theme} mt-5`}>
      
     <form onSubmit={handleSubmit} >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product Quota Information</h1>
@@ -215,6 +223,7 @@ const PdQuotaEdit = () => {
       
       
     </form>
+  </div>
   </div>
   );
 };

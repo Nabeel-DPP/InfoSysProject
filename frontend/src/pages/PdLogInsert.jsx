@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 // import { keyframes } from '@emotion/react';
-
+import ThemeToggle from '../components/ThemeToggle';
 const PdLoginInsert = () => {
 
   const navigate = useNavigate();
@@ -76,6 +76,11 @@ const PdLoginInsert = () => {
 
 
 
+  const [theme, setTheme] = useState('white'); // Initial form theme
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme); // Update the form theme
+  };
 
 
 
@@ -85,8 +90,9 @@ const PdLoginInsert = () => {
  
 
   return (
-   
-    <div className="distributor-form__container mt-5">
+    <div className="pdI">
+   <ThemeToggle onThemeChange={handleThemeChange} />
+   <div className={` distributor-form__container ${theme} mt-5`}>
       <form onSubmit={handleSubmit} >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product Log Information</h1>
     <div className="row">
@@ -343,6 +349,7 @@ const PdLoginInsert = () => {
       
     </form>
    
+  </div>
   </div>
   );
 };
