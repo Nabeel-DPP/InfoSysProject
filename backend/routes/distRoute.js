@@ -2,10 +2,12 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { Distributor } from '../models/Distributor.js'; // Assuming Distributor model is already defined
 const router = express.Router();
+import { Area } from '../models/Area.js'; // Adjust the import path as necessary
 
 // CREATE: Add a new distributor entry
 router.post('/', async (req, res) => {
   try {
+    console.log("Data Coming from Form",req.body);
     const newDist = new Distributor(req.body); 
     console.log("Insert Request Reached at Route", newDist);
     await newDist.validate();
@@ -17,6 +19,30 @@ router.post('/', async (req, res) => {
   }
 });
 
+// router.post('/', async (req, res) => {
+//   try {
+//     // Extract AreaName from the request body
+//     const { formData } = req.body;
+//    console.log(req.body);
+  
+//     // Find the corresponding area by AreaName
+   
+
+//     // Create a new Distributor with the found areaID
+//     const newDist = new Distributor(
+//       formData);
+
+//     console.log("Insert Request Reached at Route", newDist);
+//     await newDist.validate();
+//     const savedDist = await newDist.save();
+//     console.log("Confirmation of Save:", savedDist);
+
+//     // Respond with the saved distributor object
+//     res.status(201).json(savedDist);
+//   } catch (err) {
+//     res.status(400).json({ message: err.message });
+//   }
+// });
 
 // This is also a method to create and Store document in the Database
 

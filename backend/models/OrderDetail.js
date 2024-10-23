@@ -53,6 +53,16 @@ pack_on_sch:
 {
     type:Number
 },
+dispatch_date:
+{
+  type:Date
+},
+type:
+{
+  type:String
+}
+,
+
 
 trade_price:
 {

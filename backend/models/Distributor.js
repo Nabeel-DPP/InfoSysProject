@@ -9,9 +9,14 @@ const distributorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // areaID: {
+  //   type: String,  // Use String or Number depending on the ZoneId format
+  //   required: true,
+  // },
   areaID: {
-    type: String,  // Use String or Number depending on the ZoneId format
+    type: Number, // Reference to the Area document
     required: true,
+    ref: 'Area' // This should match the model name
   },
   zoneID: {
     type: String,  // Example: 'Active', 'Inactive', or other statuses

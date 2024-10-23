@@ -92,6 +92,14 @@ const cancelDelete = () => {
     { field: 'dispatch_status', headerName: 'Dispatch Status ', width: 200 },
     { field: 'sch', headerName: 'SCH', width: 130 },
     { field: 'pack_on_sch', headerName: 'Pack on Sch', width: 120 },
+    {
+      field: 'dispatch_date',
+      headerName: 'Dispatch Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.dispatch_date ? format(new Date(params.row.dispatch_date), 'dd/MM/yyyy') : '',
+    },
+    { field: 'type', headerName: 'Order Type', width: 100 } ,
     { field: 'trade_price', headerName: 'Trade Price ', width: 100 },
     { field: 'product_scheme', headerName: 'Product Scheme', width: 150 },
     // { field: 'units_convert_date', headerName: 'Units Convert Date', width: 150 },

@@ -1,14 +1,14 @@
-import React, { useState} from 'react';
+import React, { useState , useEffect} from 'react';
 import './DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 // import { keyframes } from '@emotion/react';
-
+import ThemeToggle from './components/ThemeToggle';
 const DistInsert = () => {
 
   const navigate = useNavigate();
- 
+  const [areas, setAreas] = useState([]);
   const [formData, setFormData] = useState({
     DistId: '',
     distName: '',
@@ -42,7 +42,17 @@ const DistInsert = () => {
   };
 
 
+  
 
+
+  useEffect(() => {
+    // Fetch areas for the dropdown
+    const fetchAreas = async () => {
+      const response = await axios.get("http://localhost:5555/area"); // Adjust the API endpoint accordingly
+      setAreas(response.data);
+    };
+    fetchAreas();
+  }, []);
   
 
 
@@ -60,7 +70,7 @@ const DistInsert = () => {
           setFormData({
             DistId: '',
     distName: '',
-    areaID: '',
+    areaID:'',
     zoneID: '',
     status:'',
     address:'',
@@ -92,6 +102,13 @@ const DistInsert = () => {
 
 
 
+  const [theme, setTheme] = useState('white'); // Initial form theme
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme); // Update the form theme
+  };
+
+
 
 
 
@@ -100,8 +117,9 @@ const DistInsert = () => {
 
 
   return (
-   
-    <div className="distributor-form__container mt-5">
+    <div> 
+    <ThemeToggle onThemeChange={handleThemeChange} />
+    <div className={` distributor-form__container ${theme} mt-5`}>
      
     <form onSubmit={handleSubmit} >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Distributor Information</h1>
@@ -125,8 +143,49 @@ const DistInsert = () => {
           </div>
         </div>
 
+        {/* <select name="areaID" onChange={handleChange} required>
+        <option value="">Select Area</option>
+        {areas.map(area => (
+          <option key={area.AreaId} value={area.AreaId}>{area.AreaName}</option>
+        ))}
+      </select> */}
 
-        <div className="col-md-12 col-lg-6 col-sm-12">
+
+      <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
+        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+            
+
+
+            <select name="areaID" className="distributor-input" onChange={handleChange} required>
+        <option value=""></option>
+        {areas.map(area => (
+          <option key={area.AreaId} value={area.AreaId}>{area.AreaName}</option>
+        ))}
+      </select>
+            
+            
+           <label className="distributor-label ml-2" >Area Name</label>
+            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div className="col-md-1 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
              <i className="input-icon fa fa-user"></i>
             <input
@@ -147,24 +206,11 @@ const DistInsert = () => {
 
 
 
-
-
-
-
-        
- </div>
-
-
-
-      
-
-      <div className="row">
-       
-      <div className="col-md-12 col-lg-6 col-sm-12">
+        {/* <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
             <input
               required
-              type="text"
+              type="number"
               name="areaID"
               value={formData.areaID}
               onChange={handleChange}
@@ -177,9 +223,9 @@ const DistInsert = () => {
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid email address</div>
           </div>
-        </div>
-       
-        <div className="col-md-12 col-lg-6 col-sm-12">
+        </div> */}
+
+<div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
             <input
               required
@@ -196,6 +242,21 @@ const DistInsert = () => {
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
           </div>
         </div>
+
+
+
+        
+ </div>
+
+
+
+      
+
+      <div className="row">
+       
+      
+       
+        
         
       </div>
 
@@ -544,6 +605,7 @@ const DistInsert = () => {
       
       
     </form>
+  </div>
   </div>
   );
 };

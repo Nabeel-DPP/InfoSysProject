@@ -1,0 +1,117 @@
+prod_id,prod_name,prod_form_id,prod_form_name,prd_type,generic,compose,pack,thera,strength,arr_date,ter_date,change_price_date,ssr_enabled,trading
+27,Cyox 250mg Inj,6,Inj,0,Cefotaxime Sodium 250mg,,1 's,0,,14-06-24,,06-09-24,1,0
+28,Cyox 500mg Inj,6,Inj,0,Cefotaxime Sodium 500mg,,1 's,0,,14-06-24,,23-09-24,1,0
+29,Derocon Cap 150mg,1,Cap,0,Fluconazole 150mg,,1 's,0,,14-06-24,,,1,25
+30,Derocon Cap 50mg,1,Cap,0,Fluconazole 50mg,,0,0,,14-06-24,,,0,0
+31,Derocon Susp,3,Susp,0,Fluconazole 50mg/5ml,,35 ml,0,,14-06-24,,,1,0
+32,Drovirine Tab,2,Tab,0,Drotaverine HCL 40mg,,0,0,,14-06-24,,,0,0
+33,Emperole Cap,1,Cap,0,Omeprazole 20mg,,14' s,0,,14-06-24,,28-08-24,1,0
+34,Eupazole Cap 20mg,1,Cap,0,Esomeprazole 20mg,,14' s,0,,14-06-24,,,1,0
+35,Eupazole Cap 40mg,1,Cap,0,Esomeprazole 40mg,,14' s,0,,14-06-24,,,1,0
+36,Ferogad Oral Drops,7,Drops,0,Iron III Hydroxide Polymaltose 30ml,,30 ml,0,,14-06-24,,,1,0
+37,Ferogad Syp 60ml,4,Syp,0,Iron Hydroxide Polymaltose Complex 50mg/5ml,,0,0,,14-06-24,,,0,0
+38,Ferogad Tab,2,Tab,0,Iron polymaltose Complex,,0,0,,14-06-24,,,0,0
+39,Ferogad-F Tab,2,Tab,0,Iron polymaltose Complex & Folic Acid,,0,0,,14-06-24,,,0,0
+40,Ferozi Syp 60ml,4,Syp,0,Iron Protein Succinylate 40mg/15ml,,0,0,,14-06-24,,,0,0
+41,Gemex Tab 320mg,2,Tab,0,Gemifloxacin 320mg,,0,0,,14-06-24,,,0,0
+42,Gravx Tab 100mg,2,Tab,0,Nimesulide B.P 100mg,,20 's,0,,14-06-24,,,1,25
+43,Hipril Tab 10mg,2,Tab,0,Enalapril Maleate 10mg,,0,0,,14-06-24,,,0,0
+44,Hipril Tab 5mg,2,Tab,0,Enalapril Maleate 5mg,,0,0,,14-06-24,,,1,0
+45,Inzel Syp,4,Syp,0,Ibuprofen,,0,0,,14-06-24,,,0,0
+46,Iprin Tab,2,Tab,0,Citalopram 20mg,,10 's,0,,14-06-24,,,1,0
+47,Lamx Inj,6,Inj,0,Mecobalamin 500mcg/1ml,,10 's,0,,14-06-24,,,1,0
+48,Lamx Tab 500mcg,2,Tab,0,Mecobalamin 500mcg,,0,0,,14-06-24,,,1,0
+49,Lebx Infusion,5,Inf,0,Ofloxacin 200mg,,0,0,,14-06-24,,,0,0
+50,Lebx Tab,2,Tab,0,Ofloxacin 200mg,,10 's,0,,14-06-24,,,1,0
+51,LevoRx Infusion,5,Inf,0,Levofloxacin 100ml,,100 ml *1.s,0,,14-06-24,,,1,0
+52,Levorx Tab 250mg,2,Tab,0,Levofloxacin 250mg,,10 's,0,,14-06-24,,,1,0
+53,Levorx Tab 500mg,2,Tab,0,Levofloxacin 500mg,,10 's,0,,14-06-24,,,1,0
+54,Lixom 400mg,2,Tab,0,Moxifloxacin 400mg,,5 's,0,,14-06-24,,,1,0
+55,Lixom Infusion,5,Inf,0,Moxifloxacin 400mg/250ml,,1 's,0,,14-06-24,,22-06-24,1,0
+116,Loacid Susp 120ml,4,Syp,0,Famotidine 10mg,,120 ml,0,,14-06-24,,,1,0
+56,Loacid Susp 60ml,4,Syp,0,Famotidine 10mg,,60 ml,0,,14-06-24,,,1,0
+57,Maxor Tab,2,Tab,0,Pantoprazole 40mg,,10 's,0,,14-06-24,,,1,30
+58,Mipine Tab,2,Tab,0,Mirtazapine 30mg,,0,0,,14-06-24,,,0,0
+59,Montekarl 10mg,2,Tab,0,Montelukast 10mg,,14 's,0,,14-06-24,,,1,25
+60,Montekarl 4mg,2,Tab,0,Montelukast 4mg,,0,0,,14-06-24,,,0,0
+61,Narobe Infusion,5,Inf,0,Metronidazole 500mg,,100 ml*1.s,0,,14-06-24,,05-09-24,1,5
+62,Niflor 125mg Syp,4,Syp,0,Cefaclor USP 125mg/5ml,,0,0,,14-06-24,,,1,0
+63,Niflor 250mg Cap,1,Cap,0,Cefaclor 250mg,,0,0,,14-06-24,,,0,0
+64,Niflor 250mg Syp,4,Syp,0,Cefaclor USP 125mg/5ml,,0,0,,14-06-24,,,0,0
+65,Niflor 500mg Cap,1,Cap,0,Cefaclor 500mg,,0,0,,14-06-24,,,0,0
+66,Nysol,4,Syp,0,Oral Electrolyte Solution 500ml,,0,0,,14-06-24,,,1,0
+67,Orifral Syp,4,Syp,0,Sodium Valproate 250mg/5ml,,0,0,,14-06-24,,,0,0
+68,Pafro 100mg Tab,2,Tab,0,Sparfloxacin USAN 100mg,,0,0,,14-06-24,,,0,0
+69,Pertral Tab,2,Tab,0,Sertraline 50mg,,0,0,,14-06-24,,,0,0
+70,Pethil Tab,2,Tab,0,Piracetam 800mg,,0,0,,14-06-24,,,0,0
+72,Previx Tab 75mg,2,Tab,0,Clopidogrel 75mg,,0,0,,14-06-24,,,0,0
+73,Pyritol Syp,4,Syp,0,Pyritinol 80.5mg/5ml,,0,0,,14-06-24,,,0,0
+74,Pyritol Tab,2,Tab,0,Pyritinol 100mg,,0,0,,14-06-24,,,0,0
+75,Reduse 10mg Tab,2,Tab,0,Atorvastatin 10mg,,10 's,0,,14-06-24,,,1,0
+76,Reduse 20mg Tab,2,Tab,0,Atorvastatin 20mg,,10 's,0,,14-06-24,,,1,0
+77,Reduse 40mg Tab,2,Tab,0,Atorvastatin 40mg,,0,0,,14-06-24,,,0,0
+78,Repaglin 2mg Tab,2,Tab,0,Repaglinide 2mg,,0,0,,14-06-24,,,0,0
+79,Sporex 1GM Inj,6,Inj,0,Ceftriaxone 1GM,,1 's,0,,14-06-24,,10-09-24,1,0
+80,Sporex 250mg Inj,6,Inj,0,Ceftriaxone 250mg,,1 's,0,,14-06-24,,07-09-24,1,0
+81,Sporex 500mg Inj,6,Inj,0,Ceftriaxone 500mg,,1 's,0,,14-06-24,,10-09-24,1,0
+82,Taivor 3mg Tab,2,Tab,0,Oxybutynin HCL U.S.P 3mg,,3 *10's,0,,14-06-24,,10-09-24,1,20
+83,Taivor 5mg Tab,2,Tab,0,Oxybutynin HCL U.S.P 5mg,,30,0,,14-06-24,,24-06-24,1,30
+84,Texcol - E Syrup 120ml,4,Syp,0,Guaiphenesin 50mg + Salbutamol 1mg/5ml,,120 ml,0,,14-06-24,,,1,13
+85,Texcol - E Syrup 60ml,4,Syp,0,Guaiphenesin 50mg + Salbutamol 1mg/5ml,,60 ml,0,,14-06-24,,,1,13
+86,Texcol Allergy Susp,3,Susp,0,Loratadine 5mg/5ml,,0,0,,14-06-24,,,1,0
+87,Texcol Allergy Syrup,4,Syp,0,Loratadine 5mg/5ml,,0,0,,14-06-24,,,1,0
+88,Texcol Allergy Tab,2,Tab,0,Loratadine 10mg,,10 's,0,,14-06-24,,10-09-24,1,0
+89,Texcol Bronco Syp 120ml,4,Syp,0,Acefylline Piperazine 125mg,,120 ml,0,,14-06-24,,,1,0
+117,Texcol Bronco Syp 60ml,4,Syp,,Acefylline Piperazine 125mg,,60 ml,,,19-07-24,,10-09-24,1,0
+90,Texcol Bronco Syp 90ml,4,Syp,0,Acefylline Piperazine 125mg /5ml,,0,0,,14-06-24,,,0,0
+91,Texcol DM Syrup,4,Syp,0,Dextromethorphan 10mg/5ml,,120 ml,0,,14-06-24,,,1,10
+92,Texcol DMD Syp,4,Syp,0,Diphenhydramine HCL + Dextromethorphan HBR,,120 ml,0,,14-06-24,,,1,13
+93,Texcol Ex Syp 120ml,4,Syp,0,Acefylline Piperazine 45mg Diphenhydramine HCl 8mg,,120 ml,0,,14-06-24,,10-09-24,1,0
+94,Texcol Ex Syp 60ml,4,Syp,0,Acefylline Piperazine 45mg,,60 ml,0,,14-06-24,,,1,0
+95,Texcol Plus Syrup,4,Syp,0,Dextromethorphan + 10mg Chlorphenramine + 4mg,,0,0,,14-06-24,,,0,0
+96,Tonsic Tab,2,Tab,0,Tizanidine HCL 2mg,,0,0,,14-06-24,,,0,0
+97,Truzole Syrup 120ml,4,Syp,0,Metronidazole 75mg + Furazolidone 25mg/5ml,,0,0,,14-06-24,,,1,0
+98,Truzole Syrup 60ml,4,Syp,0,Metronidazole 75mg + Furazolidone 25mg/5ml,,60 ml,0,,14-06-24,,01-10-24,1,0
+99,Truzole Tab 100s,2,Tab,0,Metronidazole 300mg + Furazolidone 100mg,,0,0,,14-06-24,,,0,0
+100,Truzole Tab 20's,2,Tab,0,Metronidazole 300mg + Furazolidone 100mg,,0,0,,14-06-24,,,0,0
+101,Veskor Tab 10mg,2,Tab,0,Lisinopril Dihydrate 10mg,,0,0,,14-06-24,,,0,0
+102,Veskor Tab 5mg,2,Tab,0,Lisinopril Dihydrate 5mg,,0,0,,14-06-24,,,0,0
+103,Virol Cap 200mg,1,Cap,0,Ribavirin USP 200mg,,0,0,,14-06-24,,,0,0
+104,Virol Cap 400mg,1,Cap,0,Ribavirin USP 400mg,,10 's,0,,14-06-24,,10-09-24,1,0
+105,Virol Syp,4,Syp,0,Ribavirin USP 50mg/5ml,,60 ml,0,,14-06-24,,,1,0
+106,Virol Tab 600mg,2,Tab,0,Ribavirin USP 600mg,,0,0,,14-06-24,,,1,0
+107,Xomal Cap,1,Cap,0,Artemether 40mg,,0,0,,14-06-24,,,0,0
+108,Xomal Inj,6,Inj,0,Artemether 80mg/1ml,,6 's,0,,14-06-24,,10-09-24,1,0
+109,Xomal Plus DS,2,Tab,0,Artemether + Lumefantrine,,8 's,0,,14-06-24,,10-09-24,1,0
+110,Xomal Plus Susp 30ml,3,Susp,0,Artemether 15mg + Lumefantrine 90,,30 ml,0,,14-06-24,,06-09-24,1,0
+111,Xomal Plus Susp 60ml,3,Susp,0,Artermether 15mg + Lumefantrine 90mg,,60 ml,0,,14-06-24,,,1,0
+112,Xomal Plus Tab,2,Tab,0,Artemether 20mg + Lumefantrine 120mg,,16 's,0,,14-06-24,,24-06-24,1,0
+113,Xteem Cap,1,Cap,0,Temazepam 30mg,,0,0,,14-06-24,,,0,0
+114,Zaron Tab,2,Tab,0,Clonazepam 2mg,,0,0,,14-06-24,,,0,0
+115,Zerax 20mg Tabs,2,Tab,0,Piroxicam 20mg,,1 *10 's,0,,14-06-24,,10-09-24,1,0
+1,Aerocef Cap,1,Cap,0,Cefixime 400mg,,5 's,0,,14-06-24,,06-09-24,1,0
+2,Aerocef DS 200mg Susp,3,Susp,0,Cefixime 200mg,,30 ml,0,,14-06-24,,18-09-24,1,8
+3,Aerocef Susp 30ml,3,Susp,0,Cefixime 100mg USP,,30 ml,0,,14-06-24,,06-09-24,1,10
+4,Aerocef Susp 60ml,3,Susp,0,Cefixime 100mg USP,,60 ml,0,,14-06-24,,,1,10
+5,Aminocid Syp 120ml,4,Syp,0,L-Ornithine L-AsPartate,,0,0,,14-06-24,,,1,0
+6,Azene Cap 20mg,1,Cap,0,Fluoxetine 20mg,,1*14's,0,,14-06-24,,,1,0
+7,Azene Liquid 60ml,4,Syp,0,Fluoxetine 20mg/5ml,,60 ml,0,,14-06-24,,,1,0
+8,Azit Cap 250mg,1,Cap,0,Azithromycin Dihydrate USP 250mg,,6 's,0,,14-06-24,,04-09-24,1,10
+9,Azit Susp,3,Susp,0,Azithromycin Dihydrate USP 200mg,,15 ml,0,,14-06-24,,04-09-24,1,20
+10,Calfort-C,2,Tab,0,Calcium + Vitamin C,,0,0,,14-06-24,,,0,0
+11,Calgesic SR,2,Tab,0,Naproxen Sodium 750mg,,0,0,,14-06-24,,,0,0
+12,Calgesic Tab 550mg,2,Tab,0,Naproxen Sodium 550mg,,0,0,,14-06-24,,,1,0
+13,Catex Infusion,5,Inf,0,Ciprofloxacin 200mg,,100 ml*1.s,0,,14-06-24,,,1,0
+14,Catex Tab 250mg,2,Tab,0,Ciprofloxacin 250mg,,10 's,0,,14-06-24,,,1,0
+15,Catex Tab 500mg,2,Tab,0,Ciprofloxacin 500mg,,10 's,0,,14-06-24,,,1,0
+16,Cestonil Plus Syrup 120ml,4,Syp,0,Pizotifen 0.5mg + Vitamin B.Complex /5ml,,120 ml,0,,14-06-24,,,1,0
+17,Cestonil Plus Syrup 60ml,4,Syp,0,Pizotifen 0.5mg + Vitamin B.Complex /5ml,,60 ml,0,,14-06-24,,,1,0
+18,Cestonil Syrup 120ml,4,Syp,0,Pizotifen 0.5mg /10ml,,120 ml,0,,14-06-24,,,1,0
+19,Cestonil Syrup 60ml,4,Syp,0,Pizotifen 0.5mg /10ml,,60 ml,0,,14-06-24,,,1,0
+20,Cestonil Tab,2,Tab,0,Pizotifen 0.5mg,,30 's,0,,14-06-24,,,1,0
+21,Clarx 250mg Tab,2,Tab,0,Clarithromycin USP 250mg,,0,0,,14-06-24,,,1,0
+22,Clarx 500mg Tab,2,Tab,0,Clarithromycin USP 500mg,,0,0,,14-06-24,,,1,0
+23,Clarx Susp,3,Susp,0,Clarithromycin USP,,60 ml,0,,14-06-24,,,1,0
+24,Corik H Tab,2,Tab,0,Losartan Potassium 50mg + Hydrochlorothizde,,2*10 's,0,,14-06-24,,,1,0
+25,Corik Tab,2,Tab,0,Losartan Potassium 50mg,,2*10 's,0,,14-06-24,,,1,0
+26,Cyox 1gm Inj,6,Inj,0,Cefotaxime Sodium 1gm,,1 's,0,,14-06-24,,,1,0
