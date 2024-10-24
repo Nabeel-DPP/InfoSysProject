@@ -21,6 +21,7 @@ export default function ProductLog() {
       try {
         const response = await axios.get("http://localhost:5555/prodLog");
         setRows(response.data);
+        console.log(response);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching the Product Log data: ", error);
@@ -69,8 +70,13 @@ const cancelDelete = () => {
 };
 
 const columns = [
-    { 
-      field: 'prd_id', 
+  { 
+    field: 'prod_log_id', 
+    headerName: 'Product Log ID', 
+    width: 150 
+  }, 
+  { 
+      field: 'prod_id', 
       headerName: 'Product ID', 
       width: 150 
     },

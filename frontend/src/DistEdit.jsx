@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useNavigate , useLocation} from 'react-router-dom';
 import axios from 'axios';
 // import { keyframes } from '@emotion/react';
-
+import ThemeToggle from './components/ThemeToggle';
 const DistEdit = () => {
     const location = useLocation();
     // const navigate = useNavigate();
@@ -143,6 +143,11 @@ const DistEdit = () => {
 
 
 
+  const [theme, setTheme] = useState('white'); // Initial form theme
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme); // Update the form theme
+  };
 
 
 
@@ -150,8 +155,10 @@ const DistEdit = () => {
 
 
   return (
-   
-    <div className="distributor-form__container mt-5">
+    <div>
+
+    <ThemeToggle onThemeChange={handleThemeChange} />
+    <div className={` distributor-form__container ${theme} mt-5`}>
      
     <form onSubmit={handleSubmit} >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Distributor Information</h1>
@@ -587,6 +594,7 @@ const DistEdit = () => {
       
       
     </form>
+  </div>
   </div>
   );
 };

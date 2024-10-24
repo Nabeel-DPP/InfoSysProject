@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState , useEffect} from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useNavigate } from 'react-router-dom';
@@ -10,18 +10,33 @@ const PdLoginInsert = () => {
   const navigate = useNavigate();
  
   const [formData, setFormData] = useState({
-    prd_id: '',             // Product ID (Number)
+    prod_log_id:'',
+    prod_id: '',             // Product ID (Number)
     scheme_id: '',          // Scheme ID (Number)
     bonus_scheme: '',       // Bonus Scheme (Number)
     bonus_units: '',        // Bonus Units (Number)
     fp: '',                 // Financial Parameter (Number)
-    entry_date: new Date(), // Entry Date (Date)
+    entry_date: Date, // Entry Date (Date)
     remarks: '',            // Remarks (String)
     type: '',               // Type (Number)
     bonus_status: '',       // Bonus Status (String)
     tp: '',                 // Lead Days (Number)
     mrp: '',                // Maximum Retail Price (Number)
 });
+ 
+const [products ,setProducts] = useState([]);
+
+useEffect(() => {
+  // Fetch areas for the dropdown
+  const fetchProducts = async () => {
+    const response = await axios.get("http://localhost:5555/product"); // Adjust the API endpoint accordingly
+    setProducts(response.data);
+    console.log (response);
+  };
+  fetchProducts();
+}, []);
+
+
 
  
   // Handle input changes
@@ -39,6 +54,9 @@ const PdLoginInsert = () => {
 
 
 
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
    console.log("Submitted Data of Form : ", formData);
@@ -50,7 +68,8 @@ const PdLoginInsert = () => {
           alert('Area added successfully!');
           
           setFormData({
-            prd_id: '',             // Product ID (Number)
+            prod_log_id:'',
+            prod_id: '',             // Product ID (Number)
             scheme_id: '',          // Scheme ID (Number)
             bonus_scheme: '',       // Bonus Scheme (Number)
             bonus_units: '',        // Bonus Units (Number)
@@ -63,7 +82,7 @@ const PdLoginInsert = () => {
             mrp: '',                // Maximum Retail Price (Number)
     
           });
-          navigate("/distTable");
+          navigate("/prodcutLog");
         } else {
           alert('Failed to add area.');
         }
@@ -96,14 +115,14 @@ const PdLoginInsert = () => {
       <form onSubmit={handleSubmit} >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product Log Information</h1>
     <div className="row">
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
         required
         type="number"
         name="prd_id"
-        value={formData.prd_id}
+        value={formData.prod_id}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -114,7 +133,51 @@ const PdLoginInsert = () => {
       </div>
       <label className="distributor-label">Product ID</label>
     </div>
+  </div> */}
+   <div className="col-md-12 col-lg-6 col-sm-12">
+    <div className="distributor-input-group">
+      <i className="input-icon fa fa-user"></i>
+      <input
+        required
+        type="number"
+        name="prod_log_id"
+        value={formData.prod_log_id}
+        onChange={handleChange}
+        className="distributor-input"
+        autoComplete="off"
+      />
+      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+      <div className="invalid-feedback">
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Distributor ID.
+      </div>
+      <label className="distributor-label">Log ID</label>
+    </div>
   </div>
+
+{/* Product name coming from the Product Table  */}
+
+<div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
+        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+            
+
+
+            <select name="prod_id" className="distributor-input" onChange={handleChange} required>
+        <option value=""></option>
+        {products.map(product => (
+          <option key={product.prod_id} value={product.prod_id}>{product.prod_name}</option>
+        ))}
+      </select>
+            
+            
+           <label className="distributor-label ml-2" >Product Name</label>
+            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            
+          </div>
+
+
+
+
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">

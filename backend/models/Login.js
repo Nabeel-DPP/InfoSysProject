@@ -32,6 +32,7 @@ const loginSchema = new mongoose.Schema({
   areaId: {
     type: Number,  // Email of the manager
     required: true,
+    ref:"Area"
       // Simple email validation
   },
   areaName: {
@@ -40,6 +41,7 @@ const loginSchema = new mongoose.Schema({
   distId: {
     type: Number,  // Name of the area manager
     required: true,
+    ref:"Distributor"
   },
   created: {
     type: Date,  // Email of the area manager

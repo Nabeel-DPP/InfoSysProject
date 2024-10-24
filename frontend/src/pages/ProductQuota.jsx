@@ -147,7 +147,7 @@ const columns = [
     
     </div>
     <div className="table-caption">
-    <h3 className="text-center col-md-6 border form-head-text p-2">Product Log List</h3>
+    <h3 className="text-center col-md-6 border form-head-text p-2">Product Quota List</h3>
     </div>
 
     <Paper style={{ height: "60%", width: '100%'  }}>

@@ -1,9 +1,22 @@
 import mongoose from 'mongoose';
 const productLogSchema = new mongoose.Schema({
-  prd_id: {
-    type: Number,  // Use String or Number depending on the format of your AreaId
+  prod_log_id:
+  {
+    type: Number ,
     required: true,
-    unique: true,  // Ensures no two areas have the same AreaId
+    unique:true
+    
+  },
+  // prd_id: {
+  //   type: Number,  // Use String or Number depending on the format of your AreaId
+  //   required: true,
+  //   unique: true,  // Ensures no two areas have the same AreaId
+  // },
+
+  prod_id: {
+    type: Number, // Reference to the Area document
+    required: true,
+    ref: 'Product' // This should match the model name
   },
   scheme_id: {
     type: Number,

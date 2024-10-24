@@ -12,12 +12,13 @@ const PdLogEdit = () => {
   
  
   const [formData, setFormData] = useState({
-    prd_id: '',             // Product ID (Number)
+    prod_log_id:'',
+    prod_id: '',             // Product ID (Number)
     scheme_id: '',          // Scheme ID (Number)
     bonus_scheme: '',       // Bonus Scheme (Number)
     bonus_units: '',        // Bonus Units (Number)
     fp: '',                 // Financial Parameter (Number)
-    entry_date: new Date(), // Entry Date (Date)
+    entry_date: Date, // Entry Date (Date)
     remarks: '',            // Remarks (String)
     type: '',               // Type (Number)
     bonus_status: '',       // Bonus Status (String)
@@ -32,7 +33,8 @@ const PdLogEdit = () => {
 useEffect(() => {
     if (rowData) {
       setFormData({
-        prd_id: rowData.prd_id || '',                       // Product ID
+        prod_log_id: rowData.prod_log_id || '',
+        prod_id: rowData.prod_id || '',                       // Product ID
         scheme_id: rowData.scheme_id || '',                 // Scheme ID
         bonus_scheme: rowData.bonus_scheme || '',           // Bonus Scheme
         bonus_units: rowData.bonus_units || '',             // Bonus Units
@@ -106,8 +108,8 @@ useEffect(() => {
       <input
         required
         type="number"
-        name="prd_id"
-        value={formData.prd_id}
+        name="prod_id"
+        value={formData.prod_id}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -117,6 +119,25 @@ useEffect(() => {
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Order ID.
       </div>
       <label className="distributor-label">Product ID</label>
+    </div>
+  </div>
+  <div className="col-md-12 col-lg-6 col-sm-12">
+    <div className="distributor-input-group">
+      <i className="input-icon fa fa-user"></i>
+      <input
+        required
+        type="number"
+        name="prod_log_id"
+        value={formData.prod_log_id}
+        onChange={handleChange}
+        className="distributor-input"
+        autoComplete="off"
+      />
+      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+      <div className="invalid-feedback">
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Distributor ID.
+      </div>
+      <label className="distributor-label">Log ID</label>
     </div>
   </div>
 

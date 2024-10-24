@@ -50,6 +50,7 @@ const DistInsert = () => {
     const fetchAreas = async () => {
       const response = await axios.get("http://localhost:5555/area"); // Adjust the API endpoint accordingly
       setAreas(response.data);
+      // console.log(response);
     };
     fetchAreas();
   }, []);
@@ -143,12 +144,7 @@ const DistInsert = () => {
           </div>
         </div>
 
-        {/* <select name="areaID" onChange={handleChange} required>
-        <option value="">Select Area</option>
-        {areas.map(area => (
-          <option key={area.AreaId} value={area.AreaId}>{area.AreaName}</option>
-        ))}
-      </select> */}
+       
 
 
       <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
