@@ -16,7 +16,7 @@ const OrderEdit = () => {
     tblAreaId: '',
     instiId: '',
     subAreaId: '',
-    FeedDate: new Date(),
+    FeedDate: Date,
     dd_amount: '',
     order_value: '',
     Period: '',
@@ -24,16 +24,16 @@ const OrderEdit = () => {
     ddNumber: '',
     orderType: '',
     status: '',
-    forward_date: new Date(),
-    confirm_date: new Date(),
-    invoice_date: new Date(),
-    cancel_date: new Date(),
-    restore_date: new Date(),
+    forward_date: Date,
+    confirm_date: Date,
+    invoiceDate: Date,
+    cancel_date: Date,
+    restore_date: Date,
     crem: '',
     userId: '',
     userIp: '',
     invoiceNo: '',
-    invoiceDate: new Date(),
+    // invoiceDate: Date,
     truckNo: '',
     siv: '',
     dispatch_mode: '',
@@ -44,14 +44,14 @@ const OrderEdit = () => {
     discount: '',
     stockist: '',
     perage: '',
-    disp_date: new Date(),
+    disp_date: Date,
     Return_stock: '',
     stock_aginst_orderNo: '',
     purchase_against_type: '',
-    edit_date: new Date(),
-    prvs_frwd_date: new Date(),
+    edit_date: Date,
+    prvs_frwd_date: Date,
     dd_banks: '',
-    payment_max_date: new Date(),
+    payment_max_date: Date,
     AdvTax: '',
     validatePayment: '',
   });
@@ -65,8 +65,9 @@ const OrderEdit = () => {
         tblAreaId: rowData.tblAreaId || '',
         instiId: rowData.instiId || '',
         subAreaId: rowData.subAreaId || '',
-        // FeedDate: rowData.FeedDate ? new Date(rowData.FeedDate) : new Date(),
-        FeedDate: rowData.FeedDate ? new Date(rowData.FeedDate).toISOString().split('T')[0] : '',
+        
+        FeedDate: rowData.FeedDate ? new Date(rowData.FeedDate).toISOString().split('T')[0] : '', 
+       
         dd_amount: rowData.dd_amount || '',
         order_value: rowData.order_value || '',
         Period: rowData.Period || '',
@@ -74,16 +75,20 @@ const OrderEdit = () => {
         ddNumber: rowData.ddNumber || '',
         orderType: rowData.orderType || '',
         status: rowData.status || '',
-        forward_date: rowData.forward_date ? new Date(rowData.forward_date) : new Date(),
-        confirm_date: rowData.confirm_date ? new Date(rowData.confirm_date) : new Date(),
-        invoice_date: rowData.invoice_date ? new Date(rowData.invoice_date) : new Date(),
-        cancel_date: rowData.cancel_date ? new Date(rowData.cancel_date) : new Date(),
-        restore_date: rowData.restore_date ? new Date(rowData.restore_date) : new Date(),
+        forward_date: rowData.forward_date ? new Date(rowData.forward_date).toISOString().split('T')[0] : '',
+        confirm_date: rowData.confirm_date ? new Date(rowData.confirm_date).toISOString().split('T')[0] : '',
+        // confirm_date: rowData.confirm_date ? new Date(rowData.confirm_date) : new Date(),
+        invoiceDate: rowData.invoiceDate ? new Date(rowData.invoiceDate).toISOString().split('T')[0] : '',
+        
+        cancel_date: rowData.cancel_date ? new Date(rowData.cancel_date).toISOString().split('T')[0] : '',
+        // cancel_date: rowData.cancel_date ? new Date(rowData.cancel_date) : new Date(),
+        restore_date: rowData.restore_date ? new Date(rowData.restore_date).toISOString().split('T')[0] : '',
+        // restore_date: rowData.restore_date ? new Date(rowData.restore_date) : new Date(),
         crem: rowData.crem || '',
         userId: rowData.userId || '',
         userIp: rowData.userIp || '',
         invoiceNo: rowData.invoiceNo || '',
-        invoiceDate: rowData.invoiceDate ? new Date(rowData.invoiceDate) : new Date(),
+        // invoiceDate: rowData.invoiceDate ? new Date(rowData.invoiceDate) : new Date(),
         truckNo: rowData.truckNo || '',
         siv: rowData.siv || '',
         dispatch_mode: rowData.dispatch_mode || '',
@@ -94,14 +99,18 @@ const OrderEdit = () => {
         discount: rowData.discount || '',
         stockist: rowData.stockist || '',
         perage: rowData.perage || '',
-        disp_date: rowData.disp_date ? new Date(rowData.disp_date) : new Date(),
+        disp_date: rowData.disp_date ? new Date(rowData.disp_date).toISOString().split('T')[0] : '',
+        // disp_date: rowData.disp_date ? new Date(rowData.disp_date) : new Date(),
         Return_stock: rowData.Return_stock || '',
         stock_aginst_orderNo: rowData.stock_aginst_orderNo || '',
         purchase_against_type: rowData.purchase_against_type || '',
-        edit_date: rowData.edit_date ? new Date(rowData.edit_date) : new Date(),
-        prvs_frwd_date: rowData.prvs_frwd_date ? new Date(rowData.prvs_frwd_date) : new Date(),
+        edit_date: rowData.edit_date ? new Date(rowData.edit_date).toISOString().split('T')[0] : '',
+        // edit_date: rowData.edit_date ? new Date(rowData.edit_date) : new Date(),
+        prvs_frwd_date: rowData.prvs_frwd_date ? new Date(rowData.prvs_frwd_date).toISOString().split('T')[0] : '',
+        // prvs_frwd_date: rowData.prvs_frwd_date ? new Date(rowData.prvs_frwd_date) : new Date(),
         dd_banks: rowData.dd_banks || '',
-        payment_max_date: rowData.payment_max_date ? new Date(rowData.payment_max_date) : new Date(),
+        payment_max_date: rowData.payment_max_date ? new Date(rowData.payment_max_date).toISOString().split('T')[0] : '',
+        // payment_max_date: rowData.payment_max_date ? new Date(rowData.payment_max_date) : new Date(),
         AdvTax: rowData.AdvTax || '',
         validatePayment: rowData.validatePayment || '',
       });
@@ -544,25 +553,6 @@ const handleSubmit = async (e) => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-calendar"></i>
-      <input
-        required
-        type="date"
-        name="invoiceDate"
-        value={formData.invoiceDate}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Feed Date.
-      </div>
-      <label className="distributor-label">Invoice Date</label>
-    </div>
-  </div>
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -625,7 +615,18 @@ const handleSubmit = async (e) => {
   </div>
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  
+
+  {/* Repeat similar divs for all other fields in formData */}
+
+</div>
+
+   
+
+
+<div className="row">
+
+<div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-calendar"></i>
       <input
@@ -646,14 +647,8 @@ const handleSubmit = async (e) => {
   </div>
 
 
-  {/* Repeat similar divs for all other fields in formData */}
-
-</div>
-
-   
 
 
-<div className="row">
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
@@ -779,25 +774,7 @@ const handleSubmit = async (e) => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
-      <input
-        required
-        type="text"
-        name="edit_by"
-        value={formData.edit_by}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid DD Amount.
-      </div>
-      <label className="distributor-label">Edit By</label>
-    </div>
-  </div>
+ 
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -1089,7 +1066,7 @@ const handleSubmit = async (e) => {
       <input
         required
         type="date"
-        name="payment_max_date"
+        name="payment_max_date)"
         value={formData.payment_max_date}
         onChange={handleChange}
         className="distributor-input"
@@ -1144,7 +1121,25 @@ const handleSubmit = async (e) => {
     </div>
   </div>
 
-
+  <div className="col-md-12 col-lg-6 col-sm-12">
+    <div className="distributor-input-group">
+      <i className="input-icon fa fa-dollar-sign"></i>
+      <input
+        required
+        type="text"
+        name="edit_by"
+        value={formData.edit_by}
+        onChange={handleChange}
+        className="distributor-input"
+        autoComplete="off"
+      />
+      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+      <div className="invalid-feedback">
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid DD Amount.
+      </div>
+      <label className="distributor-label">Edit By</label>
+    </div>
+  </div>
  
 
 </div>

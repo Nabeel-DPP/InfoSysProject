@@ -84,7 +84,7 @@ const cancelDelete = () => {
   { field: 'subAreaId', headerName: 'Sub Area ID', width: 150 },
   {
     field: 'FeedDate',
-    headerName: 'Entry Date',
+    headerName: 'Feed Date',
     width: 150,
     renderCell: (params) =>
       params.row.FeedDate ? format(new Date(params.row.FeedDate), 'dd/MM/yyyy') : '',
