@@ -8,10 +8,12 @@ const ordersSchema = new mongoose.Schema({
    tblDistId: {
     type: Number,
     required: true,
+    ref:"Distributor"
   },
   tblAreaId: {
     type: Number,  // Use String or Number depending on the ZoneId format
     required: true,
+    ref:"Area"
   },
   instiId: {
     type: Number,  // Example: 'Active', 'Inactive', or other statuses

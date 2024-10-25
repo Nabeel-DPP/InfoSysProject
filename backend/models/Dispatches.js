@@ -39,7 +39,8 @@ biltyNo:
 },
 gtId: 
 {
-    type: Number
+    type: Number,
+    required: true 
 },
 cartons:
 {

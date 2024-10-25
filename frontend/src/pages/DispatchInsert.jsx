@@ -1,4 +1,4 @@
-import React, { useState,} from 'react';
+import React, { useState, useEffect} from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import ThemeToggle from '../components/ThemeToggle';
 const DispatchInsert = () => {
 
   const navigate = useNavigate();
- 
+  const [goods , setGoods] = useState([]);
   const [formData, setFormData] = useState({
     dispatch_id: '',
   pending_units: '',
@@ -47,7 +47,15 @@ const DispatchInsert = () => {
   };
 
 
-
+  useEffect(() => {
+    // Fetch areas for the dropdown
+    const fetchGoods = async () => {
+      const response = await axios.get("http://localhost:5555/goods"); // Adjust the API endpoint accordingly
+      setGoods(response.data);
+      console.log ("This is 1st Response", response);
+    };
+    fetchGoods();
+  }, []);
   
 
 
@@ -247,7 +255,7 @@ const DispatchInsert = () => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-dollar-sign"></i>
       <input
@@ -265,7 +273,26 @@ const DispatchInsert = () => {
       </div>
       <label className="distributor-label">Goods Transporter ID</label>
     </div>
-  </div>
+  </div> */}
+
+<div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
+        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+            
+
+
+            <select name="gtId" className="distributor-input" onChange={handleChange} required>
+        <option value=""></option>
+        {goods.map(g => (
+          <option key={g.gt_id} value={g.gt_id}>{g.gt_id}</option>
+        ))}
+      </select>
+            
+            
+           <label className="distributor-label ml-2" >Goods Transporter ID</label>
+            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            
+          </div>
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">

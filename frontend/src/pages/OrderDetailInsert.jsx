@@ -1,4 +1,4 @@
-import React, { useState,} from 'react';
+import React, { useState, useEffect} from 'react';
 import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,10 @@ const OrderDetailInsert = () => {
 
   const navigate = useNavigate();
  
+const [order , setOrder ] =useState([]);
+const [product , setProduct ] =useState([]);
+
+
   const [formData, setFormData] = useState({
     orderDetailID:'',
     order_id:'',
@@ -42,6 +46,36 @@ const OrderDetailInsert = () => {
       [name]: value
     });
   };
+
+
+  useEffect(() => {
+    // Fetch areas for the dropdown
+    const fetchOrder = async () => {
+      const response = await axios.get("http://localhost:5555/order"); // Adjust the API endpoint accordingly
+      setOrder(response.data);
+      console.log ("This is 1st Response", response);
+    };
+    fetchOrder();
+  }, []);
+  
+  useEffect(() => {
+    // Fetch areas for the dropdown
+    const fetchProduct = async () => {
+      const response = await axios.get("http://localhost:5555/product"); // Adjust the API endpoint accordingly
+      setProduct(response.data);
+      console.log ("This is 2nd Response",response);
+    };
+    fetchProduct();
+  }, []);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -194,7 +228,7 @@ const OrderDetailInsert = () => {
       </div>
 
       {/* Order ID */}
-      <div className="col-md-12 col-lg-6 col-sm-12">
+      {/* <div className="col-md-12 col-lg-6 col-sm-12">
         <div className="distributor-input-group">
           <input
             required
@@ -207,10 +241,37 @@ const OrderDetailInsert = () => {
           />
           <label className="distributor-label">Order ID</label>
         </div>
-      </div>
+      </div> */}
+
+<div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
+        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+            
+
+
+            <select name="order_id" className="distributor-input" onChange={handleChange} required>
+        <option value=""></option>
+        {order.map(o => (
+          <option key={o.OrderId} value={o.OrderId}>{o.OrderId}</option>
+        ))}
+      </select>
+            
+            
+           <label className="distributor-label ml-2" >Order ID</label>
+            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            
+          </div>
+
+
+
+
+
+
+
+
 
       {/* Product ID */}
-      <div className="col-md-12 col-lg-6 col-sm-12">
+      {/* <div className="col-md-12 col-lg-6 col-sm-12">
         <div className="distributor-input-group">
           <input
             required
@@ -223,7 +284,35 @@ const OrderDetailInsert = () => {
           />
           <label className="distributor-label">Product ID</label>
         </div>
-      </div>
+      </div> */}
+
+
+
+<div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
+        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+            
+
+
+            <select name="product_id" className="distributor-input" onChange={handleChange} required>
+        <option value=""></option>
+        {product.map(p => (
+          <option key={p.prod_id} value={p.prod_id}>{p.prod_id}</option>
+        ))}
+      </select>
+            
+            
+           <label className="distributor-label ml-2" >Product Id</label>
+            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            
+          </div>
+
+
+
+
+
+
+
 
       {/* Base Units */}
       <div className="col-md-12 col-lg-6 col-sm-12">

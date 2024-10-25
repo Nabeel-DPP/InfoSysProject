@@ -79,13 +79,13 @@ const columns = [
         field: 'name', 
         headerName: 'Name', 
         width: 250, 
-        type: 'string' 
+      
       },
       { 
         field: 'remarks', 
         headerName: 'Remarks', 
         width: 250, 
-        type: 'string' 
+        
       },
       
    

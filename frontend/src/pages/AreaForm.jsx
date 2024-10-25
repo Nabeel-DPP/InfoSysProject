@@ -26,29 +26,6 @@ const AreaEditForm = () => {
     province:''
   });
 
-  // Populate form data from row data
-  // useEffect(() => {
-  //   console.log("This is the Data coming from Area Table : ", rowData);
-  //   if (rowData) {
-  //     setFormData({
-  //       AreaId: rowData.AreaId,
-  //       AreaName: rowData.AreaName,
-  //       Manager: rowData.Manager,
-  //       E_Mail: rowData.E_Mail,
-  //       ZoneId: rowData.ZoneId,
-  //       status: rowData.status,
-  //       lead_days: rowData.lead_days,
-  //       Manager_nick: rowData.Manager_nick,
-  //       area_manager: rowData.area_manager,
-  //       area_manager_email: rowData.area_manager_email,
-  //       area_manager_phone: rowData.area_manager_phone,
-  //       manager_phone: rowData.manager_phone,
-  //       FixPay: rowData.FixPay
-  //     });
-
-      
-  //   }
-  // }, [rowData]);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -60,25 +37,6 @@ const AreaEditForm = () => {
   };
 
 
-
-  
-
-  // Handle form submission
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //    console.log('Inserted Data : ',formData)
-  //   try {
-  //    const response = await axios.post("http://localhost:5555/area", formData);
-      
-  //    if (response.status === 201)
-  //    {
-  //    navigate("/areaTable"); // Navigate back to AreaTable after successful update
-  //    }
-   
-  //   } catch (error) {
-  //     console.error("Error: Inserting area data: ", error);
-  //   }
-  // };
 
 
 
@@ -163,7 +121,7 @@ const AreaEditForm = () => {
           </div>
         </div>
         <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+        <i class="input-icon fa-solid fa-diagram-project mr-5"></i>
             <select
               required
               name="status"
@@ -177,7 +135,7 @@ const AreaEditForm = () => {
                </option>
               <option value="0">0</option>
               <option value="1">1</option>
-              {/* <option value="Dropshipping">Dropshipping</option> */}
+              
 
             </select>
             
@@ -208,7 +166,8 @@ const AreaEditForm = () => {
             />
             
             <label className="distributor-label">Area Name</label>
-            <i class="input-icon fa-solid fa-envelope"></i>
+            {/* <i class="input-icon fa-solid fa-envelope"></i> */}
+            <i class="input-icon fa-solid fa-street-view"></i>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid email address</div>
           </div>
@@ -226,7 +185,7 @@ const AreaEditForm = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Manger</label>
-            <i class="input-icon fa-solid fa-phone-flip"></i>
+            <i className="input-icon fa fa-user"></i>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
           </div>
@@ -247,7 +206,8 @@ const AreaEditForm = () => {
               autoComplete="off"
             />
             <label className="distributor-label">E-mail</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
+            {/* <i class="input-icon  fa-solid fa-location-crosshairs"></i> */}
+            <i class="input-icon fa-regular fa-envelope"></i>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
@@ -294,9 +254,11 @@ const AreaEditForm = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Zone ID</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
+            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i>
+            </div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid NTC Value</div>
-            <i class="input-icon fa-brands fa-cc-diners-club"></i>
+            {/* <i class="input-icon fa-brands fa-cc-diners-club"></i> */}
+            <i class="input-icon fa-solid fa-location-dot"></i>
           </div>
         </div>
 
@@ -315,7 +277,8 @@ const AreaEditForm = () => {
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid CNIC Number</div>
             <label className="distributor-label">Lead Days</label>
-            <i class="input-icon fa-solid fa-address-card"></i>
+            {/* <i class="input-icon fa-solid fa-address-card"></i> */}
+            <i class="input-icon fa-solid fa-calendar-check"></i>
           </div>
         </div>
        
@@ -355,38 +318,17 @@ const AreaEditForm = () => {
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid Status of SSR
           </div>
-            <i class="input-icon fa-solid fa-file-shield"></i>
+            {/* <i class="input-icon fa-solid fa-file-shield"></i> */}
+            <i class="input-icon fa-solid fa-user-tie"></i>
           </div>
         </div>
        
  </div>
 
 
-      {/* Select Dropdown for Distributor Category */}
+      
       <div className="row">
-        {/* <div className="col-md-12 col-lg-6 col-sm-12">
-          <div className="distributor-input-group">
-            <select
-              required
-              name="strn"
-              value={formData.strn}
-              onChange={handleChange}
-              className="distributor-input"
-            >
-              <option value="" disabled hidden>
-
-              </option>
-              
-              <option value="Wholesale">Registered</option>
-              <option value="Retail">Unregistered</option>
-              
-            </select>
-            <label className="distributor-label">STRN</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid STRN Status</div>
-            <i class="input-icon mr-2 fa-regular fa-file-lines"></i>
-          </div>
-        </div> */}
+      
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
             <input
@@ -401,7 +343,7 @@ const AreaEditForm = () => {
             <label className="distributor-label">Area Manager' Email</label>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid number of Days</div>
-            <i class="input-icon fa-solid fa-lock"></i>
+          <i class="input-icon fa-regular fa-envelope"></i>
           </div>
         </div>
         <div className="col-md-12 col-lg-6 col-sm-12">
@@ -418,7 +360,8 @@ const AreaEditForm = () => {
             <label className="distributor-label">Area Manager's Phone</label>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid number of Days</div>
-            <i class="input-icon fa-solid fa-lock"></i>
+            {/* <i class="input-icon fa-solid fa-lock"></i> */}
+            <i class="input-icon fa-solid fa-phone-flip"></i>
           </div>
         </div>
   </div>
@@ -441,7 +384,7 @@ const AreaEditForm = () => {
             <label className="distributor-label">Manager's Phone</label>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid number of Days</div>
-            <i class="input-icon fa-solid fa-lock"></i>
+          <i class="input-icon fa-solid fa-phone-flip"></i>
           </div>
         </div>
         <div className="col-md-12 col-lg-6 col-sm-12">
@@ -458,7 +401,7 @@ const AreaEditForm = () => {
             <label className="distributor-label">Fixed Pay</label>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid number of Days</div>
-            <i class="input-icon fa-solid fa-lock"></i>
+          <i class="input-icon fa-solid fa-money-bill-wave"></i>
           </div>
         </div>
   </div>
@@ -484,7 +427,7 @@ const AreaEditForm = () => {
             <label className="distributor-label">Type</label>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid number of Days</div>
-            <i class="input-icon fa-solid fa-lock"></i>
+          <i class="input-icon fa-solid fa-list"></i>
           </div>
         </div>
         <div className="col-md-12 col-lg-6 col-sm-12">
@@ -501,7 +444,7 @@ const AreaEditForm = () => {
             <label className="distributor-label">Province</label>
             <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid number of Days</div>
-            <i class="input-icon fa-solid fa-lock"></i>
+          <i class="input-icon fa-solid fa-city"></i>
           </div>
         </div>
   </div>

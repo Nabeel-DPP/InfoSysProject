@@ -12,6 +12,7 @@ const roleSchema = new mongoose.Schema({
   AreaId: {
     type: Number,  // Use String or Number depending on the ZoneId format
     required: true,
+    ref:"Area"
   },
 
 
@@ -24,6 +25,7 @@ const roleSchema = new mongoose.Schema({
   DistId: {
     type: Number,
     required: true,
+    ref:"Distributor"
   },
   instiId: {
     type: Number,  // Use String or Number depending on the ZoneId format
@@ -39,6 +41,7 @@ const roleSchema = new mongoose.Schema({
   rightId: {
     type: String,
     required: true,
+    ref:"Rights"
   },
   status: {
     type: String,  // Use String or Number depending on the ZoneId format

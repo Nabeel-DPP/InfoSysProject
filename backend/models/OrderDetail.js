@@ -8,10 +8,12 @@ const orderDetailSchema = new mongoose.Schema({
    order_id: {
     type: Number,
     required: true,
+    ref: "Order"
   },
   product_id: {
     type: Number,  
     required: true,
+    ref: "Product"
   },
   base_units: {
     type: Number,  
