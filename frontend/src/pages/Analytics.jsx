@@ -4,9 +4,9 @@ import { RenderCharts } from '../../js/chart';
 
 
 export const Analytics = () => {
-  useEffect(() => {
-    RenderCharts();
-}, []);
+//   useEffect(() => {
+//     RenderCharts();
+// }, []);
   return (
     <div>
        

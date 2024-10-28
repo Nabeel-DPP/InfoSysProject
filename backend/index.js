@@ -73,15 +73,34 @@ app.use("/product", productRoute );
 
 
 
+// mongoose
+//   .connect(mongoDBURL)
+//   .then(() => {
+//     console.log('App connected to database');
+//     app.listen(PORT, () => {
+//       console.log(`App is listening to port: ${PORT}`);
+     
+//     });
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+
+
+
+// This is the modified code to connect mongodb and make the backend accessable for all the computers in the network 
+
+
 mongoose
   .connect(mongoDBURL)
   .then(() => {
     console.log('App connected to database');
-    app.listen(PORT, () => {
-      console.log(`App is listening to port: ${PORT}`);
-     
+    // Change the server to listen on `0.0.0.0` instead of the default `localhost`
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`App is listening on port: ${PORT} and accessible on all network interfaces`);
     });
   })
   .catch((error) => {
-    console.log(error);
+    console.log('Error connecting to the database:', error);
   });

@@ -3,12 +3,12 @@ import { useEffect , useState } from 'react';
 import { RenderCharts } from '../../js/chart';
 // import "../../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"
 // import "../js/chart.js";
-import "../../js/custom.js"
+// import "../../js/custom.js"
 // import "../../js/mono.js"
 // import "../../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js";
 export const Dashboard = () => {
-  useEffect(() => {
-//     // Chart 1
+  // useEffect(() => {
+    // Chart 1
 //     const splinaArea1 = document.querySelector("#spline-area-1");
 //     if (splinaArea1) {
 //       const splinaAreaOptions1 = {
@@ -205,7 +205,7 @@ export const Dashboard = () => {
 //  }
 
 
-   RenderCharts();
+  //  RenderCharts();
 // Call the RenderCharts function to initialize charts
 // const renderCharts = RenderCharts();
 
@@ -213,8 +213,7 @@ export const Dashboard = () => {
 // return () => {
 //   renderCharts.forEach(renderChart => {
 //     if (renderChart) renderChart.destroy(); // Clean up each chart
-//   });
-// };
+//   })
 
 
 
@@ -224,7 +223,7 @@ export const Dashboard = () => {
     //   if (renderSplinaArea2) renderSplinaArea2.destroy();
     //   // Add destroy calls for other charts if needed
     // };
-  }, []); // Empty dependency array ensures this runs once on mount
+  // }, []); 
 
 
 
