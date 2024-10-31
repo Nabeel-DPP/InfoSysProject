@@ -18,12 +18,17 @@ import roleRoute from "./routes/roleRoute.js";
 import productLogRoute from "./routes/productLogRoute.js";
 import productQuotaRoute from "./routes/productQuotaRoute.js";
 import productRoute from "./routes/productRoute.js";
-
-
 import { importRoleData } from './importData/roleData.js';
 import { importExcelData } from './importData/excelData.js';
 import { importAreaData } from './importData/areaData.js';
 import { importBankData } from './importData/bankData.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+// const path = require('path');
+import path from "path"
 
 const app = express();
 
@@ -73,18 +78,18 @@ app.use("/product", productRoute );
 
 
 
-// mongoose
-//   .connect(mongoDBURL)
-//   .then(() => {
-//     console.log('App connected to database');
-//     app.listen(PORT, () => {
-//       console.log(`App is listening to port: ${PORT}`);
+mongoose
+  .connect(mongoDBURL)
+  .then(() => {
+    console.log('App connected to database');
+    app.listen(PORT, () => {
+      console.log(`App is listening to port: ${PORT}`);
      
-//     });
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 
 
@@ -92,15 +97,15 @@ app.use("/product", productRoute );
 // This is the modified code to connect mongodb and make the backend accessable for all the computers in the network 
 
 
-mongoose
-  .connect(mongoDBURL)
-  .then(() => {
-    console.log('App connected to database');
-    // Change the server to listen on `0.0.0.0` instead of the default `localhost`
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`App is listening on port: ${PORT} and accessible on all network interfaces`);
-    });
-  })
-  .catch((error) => {
-    console.log('Error connecting to the database:', error);
-  });
+// mongoose
+//   .connect(mongoDBURL)
+//   .then(() => {
+//     console.log('App connected to database');
+
+//     app.listen(PORT, '0.0.0.0', () => {
+//       console.log(`App is listening on port: ${PORT} and accessible on all network interfaces`);
+//     });
+//   })
+//   .catch((error) => {
+//     console.log('Error connecting to the database:', error);
+//   });
