@@ -18,17 +18,7 @@ import roleRoute from "./routes/roleRoute.js";
 import productLogRoute from "./routes/productLogRoute.js";
 import productQuotaRoute from "./routes/productQuotaRoute.js";
 import productRoute from "./routes/productRoute.js";
-import { importRoleData } from './importData/roleData.js';
-import { importExcelData } from './importData/excelData.js';
-import { importAreaData } from './importData/areaData.js';
-import { importBankData } from './importData/bankData.js';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-// const path = require('path');
-import path from "path"
 
 const app = express();
 

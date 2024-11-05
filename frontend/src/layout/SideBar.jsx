@@ -9,7 +9,7 @@ export const SideBar = () => {
             <div className="app-brand">
               <Link to="/">
                 <img src="images/Logo.png" style={{height:"45px"}} alt="Mono"/>
-                <span className="brand-name">InfoSys</span>
+                <span className="brand-name">RAAZEE</span>
               </Link>
             </div>
         
