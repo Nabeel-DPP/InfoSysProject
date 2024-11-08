@@ -10,12 +10,24 @@
 
 // vite.config.js
 import { defineConfig } from 'vite';
+import ViteSass from 'vite-plugin-sass';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), ViteSass()],
   server: {
     port: 3000,
   
+  },
+  build: {
+    minify: false,
+    cssCodeSplit: true,
   }
 });
+
+
+
+
+
+
+

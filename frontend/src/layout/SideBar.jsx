@@ -9,7 +9,7 @@ export const SideBar = () => {
             <div className="app-brand">
               <Link to="/">
                 <img src="images/Logo.png" style={{height:"45px"}} alt="Mono"/>
-                <span className="brand-name">RAAZEE</span>
+                <span className="brand-name">InfoSys</span>
               </Link>
             </div>
         
@@ -50,23 +50,31 @@ export const SideBar = () => {
                         
                           
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/orderTable"} className="sidenav-item-link">
     
     <span className="nav-text">
-      Orders
+      Order 
     </span>
   </Link>
                             </li>
                       
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/orderDetail"} className="sidenav-item-link">
     
     <span className="nav-text">
-      Operations
+      Order Detail
     </span>
   </Link>
                             </li>
                             <li >
+                            <Link to={"/orderInsert"} className="sidenav-item-link">
+    
+    <span className="nav-text">
+     Add Order
+    </span>
+  </Link>
+                            </li>
+                            {/* <li >
                             <Link to={"/"} className="sidenav-item-link">
     
     <span className="nav-text">
@@ -89,7 +97,7 @@ export const SideBar = () => {
       Execute Query
     </span>
   </Link>
-                            </li>
+                            </li> */}
                           
                         
                       </div>
@@ -228,15 +236,15 @@ export const SideBar = () => {
   </Link>
                             </li>
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/dispatchTable"} className="sidenav-item-link">
     
     <span className="nav-text">
-    Area of Dispatch
+    Product Dispatch
     </span>
   </Link>
                             </li>
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/bankTable"} className="sidenav-item-link">
     
     <span className="nav-text">
       Banks
@@ -244,7 +252,7 @@ export const SideBar = () => {
   </Link>
                             </li>
                             <li >
-                            <Link to={"/dist"} className="sidenav-item-link">
+                            <Link to={"/distTable"} className="sidenav-item-link">
     
     <span className="nav-text">
       Distributors
@@ -252,19 +260,48 @@ export const SideBar = () => {
   </Link>
                             </li>
 
-                            <li >
+                            {/* <li >
                             <Link to={"/"} className="sidenav-item-link">
     
     <span className="nav-text">
       Disable Login
     </span>
   </Link>
-                            </li>
+                            </li> */}
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/goodsTable"} className="sidenav-item-link">
     
     <span className="nav-text">
       Goods Transporter
+     </span>
+  </Link>
+                            </li>
+
+                            <li >
+                            <Link to={"/productTable"} className="sidenav-item-link">
+    
+    <span className="nav-text">
+     Products (All)
+     </span>
+  </Link>
+                            </li>
+
+                            <li >
+                            <Link to={"/productLog"} className="sidenav-item-link">
+    
+    <span className="nav-text">
+     Product Log
+     </span>
+  </Link>
+                            </li>
+
+
+
+                            <li >
+                            <Link to={"/productQuota"} className="sidenav-item-link">
+    
+    <span className="nav-text">
+     Product Quota
      </span>
   </Link>
                             </li>
@@ -306,23 +343,7 @@ export const SideBar = () => {
   </Link>
                             </li>
 
-                            <li >
-                            <Link to={"/"} className="sidenav-item-link">
-    
-    <span className="nav-text">
-     Products (All)
-     </span>
-  </Link>
-                            </li>
-
-                            <li >
-                            <Link to={"/"} className="sidenav-item-link">
-    
-    <span className="nav-text">
-     Products (Bonus)
-     </span>
-  </Link>
-                            </li>
+                            
 
                             
                             <li >
@@ -362,7 +383,7 @@ export const SideBar = () => {
                         
                           
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/loginTable"} className="sidenav-item-link">
     
     <span className="nav-text">
       Logins
@@ -379,7 +400,7 @@ export const SideBar = () => {
   </Link>
                             </li>
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/rights"} className="sidenav-item-link">
     
     <span className="nav-text">
      User & Rights
@@ -387,10 +408,10 @@ export const SideBar = () => {
   </Link>
                             </li>
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/rightSection"} className="sidenav-item-link">
     
     <span className="nav-text">
-      Rights
+      Rights Section
     </span>
   </Link>
                             </li>
@@ -403,7 +424,7 @@ export const SideBar = () => {
   </Link>
                             </li>
                             <li >
-                            <Link to={"/"} className="sidenav-item-link">
+                            <Link to={"/roleTable"} className="sidenav-item-link">
     
     <span className="nav-text">
       Assign Roles
