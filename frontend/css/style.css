@@ -53,14 +53,14 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Karla", sans-serif;
+  font-family: "Karla", sans-serif !important ;
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.5;
   color: #8a909d;
   text-align: left;
-  background-color: #f0f1f5;
- 
+  /* background-color: #f0f1f5; */
+  background-color: #F0F1F5 !important;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -4037,11 +4037,11 @@ input[type=button].btn-block {
 }
 
 .nav {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 0;
+  display: flex ;
+  flex-wrap: wrap ;
+  padding-left: 0 ;
   margin-bottom: 0;
-  list-style: none;
+  list-style: none ;
 }
 
 .nav-link {
@@ -4117,11 +4117,11 @@ input[type=button].btn-block {
 
 .navbar {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: flex ;
+  flex-wrap: wrap ;
+  align-items: center ;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0rem !important ;
 }
 .navbar .container,
 .navbar .container-fluid,
@@ -11856,6 +11856,7 @@ button {
   align-items: center;
   border: 1px solid #9e6de0;
   color: #9e6de0;
+ 
 }
 .card-default .card-header .btn.mdi:hover {
   background-color: #9e6de0;
@@ -13962,7 +13963,7 @@ label {
 .sidebar-fixed-offcanvas .left-sidebar .sidebar-with-footer .sidebar-footer,
 .sidebar-fixed .left-sidebar .sidebar-with-footer .sidebar-footer {
   position: absolute;
-  bottom: 0;
+  bottom: -10px !important;
 }
 @media (min-width: 768px) {
   .sidebar-fixed-offcanvas .page-wrapper,
