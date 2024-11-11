@@ -14,3 +14,19 @@
 {
     color: rgb(0, 96, 160);
 }
+
+
+.table-caption
+{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.form-head-text
+{
+    border-top-right-radius:10px ;
+    border-top-left-radius:10px ;
+    background-color:#385F98 !important;
+    color: white;
+    
+}
