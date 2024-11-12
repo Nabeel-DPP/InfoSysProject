@@ -6,11 +6,17 @@ export const SideBar = () => {
      <aside className="left-sidebar sidebar-dark" id="left-sidebar">
           <div id="sidebar" className="sidebar sidebar-with-footer">
             
-            <div className="app-brand">
+            {/* <div className="app-brand">
               <Link to="/">
                 <img src="images/Logo.png" style={{height:"45px"}} alt="Mono"/>
                 <span className="brand-name">InfoSys</span>
               </Link>
+            </div> */}
+            <div className="company">
+               
+                <img src="images/Logo.png" style={{height:"50px" , marginTop:"7px "}} alt="Mono"/>
+                <Link className='logoName' to="/">InfoSys</Link>
+              
             </div>
         
             <div className="sidebar-left" data-simplebar  style={{height: "100%"}}  >

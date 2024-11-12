@@ -13445,6 +13445,26 @@ label {
   transition: width 0.3s ease-in-out;
   padding-left: 0.70rem;
 }
+.company
+{
+  display: flex !important ;
+  /* justify-content: space-around !important; */
+  margin-left: 20px !important;
+  margin-top: 10px !important;
+}
+.logoName
+{
+  font-size: 30px !important;
+  color: white !important;
+  margin-top: 8px !important;
+  margin-left: 10px !important;
+  font-weight: 600 !important;
+}
+.logoName:hover
+{
+  
+  text-decoration: none !important;
+}
 @media (prefers-reduced-motion: reduce) {
   .app-brand a {
     transition: none;
