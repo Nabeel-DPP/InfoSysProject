@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
-import '../DemoForm.css'; // Assuming you have a separate CSS file for custom styles
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
+import '../DemoForm.css'; // Assuming you have a separate CSS file htmlFor custom styles
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap htmlFor styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ThemeToggle from '../components/ThemeToggle';

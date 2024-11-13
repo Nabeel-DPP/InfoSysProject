@@ -660,7 +660,7 @@ export const SideBar = () => {
                     <a className="sidenav-item-link"  data-toggle="collapse" data-target="#users"
                       aria-expanded="false" aria-controls="users">
                       {/* <i className="mdi mdi-image-filter-none"></i> */}
-                      <i class="mdi mdi-account-circle"></i>
+                      <i className="mdi mdi-account-circle"></i>
                       <span className="nav-text">User</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="users"

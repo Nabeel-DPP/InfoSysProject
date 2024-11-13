@@ -136,7 +136,7 @@ function Navbar()
                                 </a>
                               </div>
                               <div className="media-body">
-                                <a href="user-profile.html">
+                                {/* <a href="user-profile.html">
                                   <span className="title mb-0">Add request</span>
                                   <span className="discribe">Add Dany Jones as your contact.</span>
                                   <div className="buttons">
@@ -146,7 +146,7 @@ function Navbar()
                                   <span className="time">
                                     <time>6 hrs ago</time>...
                                   </span>
-                                </a>
+                                </a> */}
                               </div>
                             </div>
 
@@ -267,7 +267,7 @@ function Navbar()
                                 </a>
                               </div>
                               <div className="media-body">
-                                <a href="user-profile.html">
+                                {/* <a href="user-profile.html">
                                   <span className="title mb-0">Add request</span>
                                   <span className="discribe">Add Dany Jones as your contact.</span>
                                   <div className="buttons">
@@ -277,7 +277,7 @@ function Navbar()
                                   <span className="time">
                                     <time>6 hrs ago</time>...
                                   </span>
-                                </a>
+                                </a> */}
                               </div>
                             </div>
 

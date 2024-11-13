@@ -507,12 +507,12 @@ export const Dashboard = () => {
                           <div className="col-lg-8">
                             <h3 className="h5 mb-5">Product Information</h3>
                             <div className="form-group mb-5">
-                              <label for="new-product">Product Title</label>
+                              <label htmlFor="new-product">Product Title</label>
                               <input type="text" className="form-control" id="new-product" placeholder="Add Product"/>
                             </div>
                             <div className="form-row mb-4">
                               <div className="col">
-                                <label for="price">Price</label>
+                                <label htmlFor="price">Price</label>
                                 <div className="input-group">
                                   <div className="input-group-prepend">
                                     <span className="input-group-text" id="basic-addon1">$</span>
@@ -522,7 +522,7 @@ export const Dashboard = () => {
                                 </div>
                               </div>
                               <div className="col">
-                                <label for="sale-price">Sale Price</label>
+                                <label htmlFor="sale-price">Sale Price</label>
                                 <div className="input-group">
                                   <div className="input-group-prepend">
                                     <span className="input-group-text" id="basic-addon1">$</span>
@@ -534,29 +534,29 @@ export const Dashboard = () => {
                             </div>
 
                             <div className="product-type mb-3 ">
-                              <label className="d-block" for="sale-price">Product Type <i className="mdi mdi-help-circle-outline"></i> </label>
+                              <label className="d-block" htmlFor="sale-price">Product Type <i className="mdi mdi-help-circle-outline"></i> </label>
                               <div>
 
                                 <div className="custom-control custom-radio d-inline-block mr-3 mb-3">
                                   <input type="radio" id="customRadio1" name="customRadio" className="custom-control-input" checked="checked"/>
-                                  <label className="custom-control-label" for="customRadio1">Physical Good</label>
+                                  <label className="custom-control-label" htmlFor="customRadio1">Physical Good</label>
                                 </div>
 
                                 <div className="custom-control custom-radio d-inline-block mr-3 mb-3">
                                   <input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
-                                  <label className="custom-control-label" for="customRadio2">Digital Good</label>
+                                  <label className="custom-control-label" htmlFor="customRadio2">Digital Good</label>
                                 </div>
 
                                 <div className="custom-control custom-radio d-inline-block mr-3 mb-3">
                                   <input type="radio" id="customRadio3" name="customRadio" className="custom-control-input"/>
-                                  <label className="custom-control-label" for="customRadio3">Service</label>
+                                  <label className="custom-control-label" htmlFor="customRadio3">Service</label>
                                 </div>
 
                               </div>
                             </div>
 
                             <div className="editor">
-                              <label className="d-block" for="sale-price">Description <i className="mdi mdi-help-circle-outline"></i></label>
+                              <label className="d-block" htmlFor="sale-price">Description <i className="mdi mdi-help-circle-outline"></i></label>
                               <div id="standalone">
                                 <div id="toolbar">
                                   <span className="ql-formats">
@@ -590,7 +590,7 @@ export const Dashboard = () => {
 
                               <div className="custom-control custom-checkbox d-inline-block mt-2">
                                 <input type="checkbox" className="custom-control-input" id="customCheck2"/>
-                                <label className="custom-control-label" for="customCheck2">Hide product from published site</label>
+                                <label className="custom-control-label" htmlFor="customCheck2">Hide product from published site</label>
                               </div>
 
                             </div>
