@@ -46,7 +46,7 @@ export const SideBar = () => {
 <li  className="has-sub" >
                     <a className="sidenav-item-link" data-toggle="collapse" data-target="#order"
                       aria-expanded="false" aria-controls="order">
-                     <i class="fa-regular fa-pen-to-square"></i>
+                     <i className="fa-regular fa-pen-to-square"></i>
                       <span className="nav-text">Order</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="order"
@@ -112,7 +112,7 @@ export const SideBar = () => {
 <li  className="has-sub" >
                     <a className="sidenav-item-link" data-toggle="collapse" data-target="#stock"
                       aria-expanded="false" aria-controls="stock">
-                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <i className="fa-solid fa-boxes-stacked"></i>
                       <span className="nav-text">Stock & Salary</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="stock"
@@ -215,7 +215,7 @@ export const SideBar = () => {
 <li  className="has-sub" >
                     <a className="sidenav-item-link" data-toggle="collapse" data-target="#manage"
                       aria-expanded="false" aria-controls="manage">
-                    <i class="fa-solid fa-user-shield"></i>
+                    <i className="fa-solid fa-user-shield"></i>
                       <span className="nav-text">Management</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="manage"
@@ -379,7 +379,7 @@ export const SideBar = () => {
 <li  className="has-sub" >
                     <a className="sidenav-item-link" data-toggle="collapse" data-target="#rights"
                       aria-expanded="false" aria-controls="rights">
-                      <i class="fa-solid fa-people-roof"></i>
+                      <i className="fa-solid fa-people-roof"></i>
                       <span className="nav-text">Users & Rights</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="rights"
@@ -453,7 +453,7 @@ export const SideBar = () => {
 <li  className="has-sub" >
                     <a className="sidenav-item-link" data-toggle="collapse" data-target="#reports"
                       aria-expanded="false" aria-controls="reports">
-                      <i class="fa-solid fa-file-invoice-dollar"></i>
+                      <i className="fa-solid fa-file-invoice-dollar"></i>
                       <span className="nav-text">Reports</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="reports"
@@ -503,7 +503,7 @@ export const SideBar = () => {
 <li  className="has-sub" >
                     <a className="sidenav-item-link" data-toggle="collapse" data-target="#download"
                       aria-expanded="false" aria-controls="download">
-                      <i class="fa-solid fa-download"></i>
+                      <i className="fa-solid fa-download"></i>
                       <span className="nav-text">Download</span> <b className="caret"></b>
                     </a>
                     <ul  className="collapse"  id="download"

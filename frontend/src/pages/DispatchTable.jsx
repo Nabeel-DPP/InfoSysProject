@@ -173,7 +173,7 @@ const cancelDelete = () => {
     <h3 className="text-center col-md-6 border form-head-text p-2">Dispatch List</h3>
     </div>
 
-    <Paper style={{ height: "60%", width: '100%'  }}>
+    <Paper style={{ height: 700, width: '100%'  }}>
    
       <DataGrid
         rows={rows}

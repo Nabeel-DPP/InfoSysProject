@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect , useState } from 'react';
-
 import { Box, Card, CardHeader, CardContent, IconButton, Menu, MenuItem } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IncomeGraph from '../graph/IncomeGraph';
@@ -8,7 +7,8 @@ import SalesGraph from '../graph/SaleGraph';
 import RevenueGraph from '../graph/RevenueGraph';
 import ExpenseGraph from '../graph/ExpenseGraph';
 import ProfitGraph from '../graph/ProfitGraph';
-
+import Map from '../components/Map';
+import SalesTable from './SalesTable';
 export const Dashboard = () => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -21,25 +21,6 @@ export const Dashboard = () => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <div  className='content-wrapper' >
@@ -204,32 +185,32 @@ export const Dashboard = () => {
                     
                     <div className="card card-default">
                       <div className="card-header">
-                        <h2>Top Customers</h2>
+                        <h2>Top Distributors</h2>
                       </div>
                       <div className="card-body">
                         <table className="table table-borderless table-thead-border">
                           <thead>
                             <tr>
                               <th>Name</th>
-                              <th className="text-right">Income</th>
+                            
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="text-dark font-weight-bold">Gunter Reich</td>
-                              <td className="text-right">$2,560</td>
+                              <td className="text-dark font-weight-bold">Premier Sales Limited</td>
+                             
                             </tr>
                             <tr>
-                              <td className="text-dark font-weight-bold">Anke Kirsch</td>
-                              <td className="text-right">$1,720</td>
+                              <td className="text-dark font-weight-bold">Shifa Medical Company</td>
+                              
                             </tr>
                             <tr>
-                              <td className="text-dark font-weight-bold">Karolina Beer</td>
-                              <td className="text-right">$1,230</td>
+                              <td className="text-dark font-weight-bold">AL-Noor Traders</td>
+                             
                             </tr>
                             <tr>
-                              <td className="text-dark font-weight-bold">Lucia Christ</td>
-                              <td className="text-right">$875</td>
+                              <td className="text-dark font-weight-bold">Nisar Enterprises</td>
+                            
                             </tr>
                           </tbody>
                           <tfoot className="border-top">
@@ -253,7 +234,7 @@ export const Dashboard = () => {
                           <i className="mdi mdi-menu-down"></i>
                         </div>
                       </div>
-                      <div className="card-body py-0" >
+                      <div className="card-body pb-3" >
                         {/* <div className="row pb-4">
                           <div className="col-lg-12 border-right-lg">
                             <div className="vec-map-wrapper" >
@@ -266,7 +247,8 @@ export const Dashboard = () => {
                             </div>
                           </div>
                         </div> */}
-                      
+                       <Map/> 
+                       
   
                       </div>
                     </div>
@@ -274,7 +256,7 @@ export const Dashboard = () => {
                 </div>
 
               <div className="row">
-                <div className="col-lg-12">
+                {/* <div className="col-lg-12">
                   
                     
                     <div className="card card-default">
@@ -387,7 +369,8 @@ export const Dashboard = () => {
                       </div>
                     </div>
 
-                </div>
+                </div> */}
+                <SalesTable/>
                 {/* <div className="col-xl-4">
                   
                     

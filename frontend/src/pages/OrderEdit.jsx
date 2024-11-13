@@ -343,7 +343,7 @@ const handleSubmit = async (e) => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-calendar"></i>
       <input
@@ -361,7 +361,20 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Feed Date</label>
     </div>
+  </div> */}
+  <div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="FeedDate"
+      value={formData.FeedDate}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Feed Date</label>
   </div>
+</div>
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -510,7 +523,7 @@ const handleSubmit = async (e) => {
 
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -528,12 +541,25 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Forward Date</label>
     </div>
+  </div> */}
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="forward_date"
+      value={formData.forward_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Forward Date</label>
   </div>
+</div>
 
 
 
-
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -551,10 +577,25 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Confirm Date</label>
     </div>
+  </div> */}
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="confirm_date"
+      value={formData.confirm_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Confirm Date</label>
   </div>
+</div>
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-dollar-sign"></i>
       <input
@@ -572,9 +613,22 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Cancel Date</label>
     </div>
-  </div>
-
+  </div> */}
   <div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="cancel_date"
+      value={formData.cancel_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Cancel Date</label>
+  </div>
+</div>
+
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-dollar-sign"></i>
       <input
@@ -592,7 +646,22 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Restore Date</label>
     </div>
+  </div> */}
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="restore_date"
+      value={formData.restore_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Restore Date</label>
   </div>
+</div>
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -689,7 +758,7 @@ const handleSubmit = async (e) => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -707,8 +776,21 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Invoice Date</label>
     </div>
-  </div>
+  </div> */}
 
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="innvoiceDate"
+      value={formData.invoiceDate}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Invoice Date</label>
+  </div>
+</div>
 
 
   <div className="col-md-12 col-lg-6 col-sm-12">
@@ -915,7 +997,7 @@ const handleSubmit = async (e) => {
 
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -933,9 +1015,21 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Dispatch Date</label>
     </div>
+  </div> */}
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="disp_date"
+      value={formData.disp_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Dispatch Date</label>
   </div>
-
-
+</div>
 
 
   <div className="col-md-12 col-lg-6 col-sm-12">
@@ -998,7 +1092,7 @@ const handleSubmit = async (e) => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-dollar-sign"></i>
       <input
@@ -1016,9 +1110,24 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Edit Date</label>
     </div>
-  </div>
+  </div> */}
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="edit_date"
+      value={formData.edit_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Edit Date</label>
+  </div>
+</div>
+
+
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-calendar"></i>
       <input
@@ -1036,8 +1145,23 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Previous Forward Date</label>
     </div>
-  </div>
+  </div> */}
 
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="prvs_frwd_date"
+      value={formData.prvs_frwd_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Previously Forward Date</label>
+  </div>
+</div>
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -1060,7 +1184,7 @@ const handleSubmit = async (e) => {
   </div>
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-calendar"></i>
       <input
@@ -1078,7 +1202,24 @@ const handleSubmit = async (e) => {
       </div>
       <label className="distributor-label">Payment Max Date</label>
     </div>
+  </div> */}
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="payment_max_date"
+      value={formData.payment_max_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Payment Max Date</label>
   </div>
+</div>
+
+
+
 
 
   <div className="col-md-12 col-lg-6 col-sm-12">

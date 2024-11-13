@@ -1,12 +1,6 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { RenderCharts } from '../../js/chart';
-
-
 export const Analytics = () => {
-//   useEffect(() => {
-//     RenderCharts();
-// }, []);
+
   return (
     <div>
        
