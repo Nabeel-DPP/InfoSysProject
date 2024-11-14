@@ -276,7 +276,7 @@ const DispatchInsert = () => {
   </div> */}
 
 <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+        <i className="input-icon fa-solid fa-street-view mr-5"></i>
             
 
 
@@ -289,8 +289,8 @@ const DispatchInsert = () => {
             
             
            <label className="distributor-label ml-2" >Goods Transporter ID</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
             
           </div>
 

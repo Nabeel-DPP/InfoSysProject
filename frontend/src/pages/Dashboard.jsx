@@ -11,7 +11,7 @@ import Map from '../components/Map';
 import SalesTable from './SalesTable';
 export const Dashboard = () => {
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleMenuClick = (event) => {
@@ -532,7 +532,7 @@ export const Dashboard = () => {
                                 </div>
                               </div>
                             </div>
-
+{/* 
                             <div className="product-type mb-3 ">
                               <label className="d-block" htmlFor="sale-price">Product Type <i className="mdi mdi-help-circle-outline"></i> </label>
                               <div>
@@ -553,7 +553,7 @@ export const Dashboard = () => {
                                 </div>
 
                               </div>
-                            </div>
+                            </div> */}
 
                             <div className="editor">
                               <label className="d-block" htmlFor="sale-price">Description <i className="mdi mdi-help-circle-outline"></i></label>

@@ -207,59 +207,9 @@ const OrderInsert = () => {
     </div>
   </div>
 
-
-{/* in these two input fields data is coming from the DB of Area and Distributor */}
-
-  {/* <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
-            
-
-
-            <select name="tblAreaId" className="distributor-input" onChange={handleChange} required>
-        <option value=""></option>
-        {area.map(a => (
-          <option key={a.AreaId} value={a.AreaId}>{a.AreaName}</option>
-        ))}
-      </select>
-            
-            
-           <label className="distributor-label ml-2" >Area Name</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
-            
-          </div>
-
-
-
-
-          <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
-            
-
-
-            <select name="tblDistId" className="distributor-input" onChange={handleChange} required>
-        <option value=""></option>
-        {dist.map(d => (
-          <option key={d.DistId} value={d.DistId}>{d.distName}</option>
-        ))}
-      </select>
-            
-            
-           <label className="distributor-label ml-2" >Distributor Name</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
-            
-          </div> */}
-
-
-
-
-
-
-
-
+  
 <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+        <i className="input-icon fa-solid fa-street-view mr-5"></i>
             
 
 
@@ -272,8 +222,8 @@ const OrderInsert = () => {
             
             
            <label className="distributor-label ml-2" >Area ID</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
             
           </div>
 
@@ -281,7 +231,7 @@ const OrderInsert = () => {
 
 
           <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+        <i className="input-icon fa-solid fa-street-view mr-5"></i>
             
 
 
@@ -294,57 +244,10 @@ const OrderInsert = () => {
             
             
            <label className="distributor-label ml-2" >Distributor ID</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
             
           </div>
-
-
-
-
-
-
-  {/* <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="number"
-        name="tblDistId"
-        value={formData.tblDistId}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Distributor ID.
-      </div>
-      <label className="distributor-label">Distributor ID</label>
-    </div>
-  </div>
-
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="number"
-        name="tblAreaId"
-        value={formData.tblAreaId}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
-      </div>
-      <label className="distributor-label">Area ID</label>
-    </div>
-  </div> */}
-
-
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">

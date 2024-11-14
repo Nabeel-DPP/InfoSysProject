@@ -18,7 +18,7 @@ export default function OrderTable() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/order");
+        const response = await axios.get("http://90.0.0.91:5555/order");
         setRows(response.data);
         setLoading(false);
       } catch (error) {
@@ -198,7 +198,7 @@ const cancelDelete = () => {
               size="small"
               onClick={() => handleEditClick(params.row._id)}
             >
-             <i class="tableIcons edit-btn fa-solid fa-pencil"></i>
+             <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
             </button>
             <button
               data-bs-toggle="modal"
@@ -207,7 +207,7 @@ const cancelDelete = () => {
               onClick={() => handleDeleteClick(params.row._id)}
               style={{ marginLeft: 10 }}
             >
-             <i class="tableIcons delete-btn fa-solid fa-trash"></i>
+             <i className="tableIcons delete-btn fa-solid fa-trash"></i>
             </button>
           </>
         ),
@@ -233,7 +233,7 @@ const cancelDelete = () => {
     <div className='mx-5'>
 
 <div className="add-btn d-flex w-100 mb-5 justify-content-end">
-    <Link to="/orderInsert" className='btn  btn-outline-success' > <i class="fa-regular fa-pen-to-square"></i></Link>
+    <Link to="/orderInsert" className='btn  btn-outline-success' > <i className="fa-regular fa-pen-to-square"></i></Link>
    
     
     </div>

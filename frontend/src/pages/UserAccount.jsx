@@ -2,73 +2,73 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 export const UserAccount = () => {
   return (
-    <div class="content-wrapper">
-          <div class="content">
-<div class="card card-default card-profile">
+    <div className="content-wrapper">
+          <div className="content">
+<div className="card card-default card-profile">
 
-  <div class="card-header-bg" style={{image:"url(assets/img/user/user-bg-01.jpg)"}}></div>
+  <div className="card-header-bg" style={{image:"url(assets/img/user/user-bg-01.jpg)"}}></div>
 
-  <div class="card-body card-profile-body">
+  <div className="card-body card-profile-body">
 
-    <div class="profile-avata">
-      <img class="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image"/>
-      <a class="h5 d-block mt-3 mb-2" href="#">Albrecht Straub</a>
-      <a class="d-block text-color" href="#">albercht@example.com</a>
+    <div className="profile-avata">
+      <img className="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image"/>
+      <a className="h5 d-block mt-3 mb-2" href="#">Albrecht Straub</a>
+      <a className="d-block text-color" href="#">albercht@example.com</a>
     </div>
 
-    <ul class="nav nav-profile-follow">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1503</span>
-          <span class="text-color d-block">Friends</span>
+    <ul className="nav nav-profile-follow">
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          <span className="h5 d-block">1503</span>
+          <span className="text-color d-block">Friends</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">2905</span>
-          <span class="text-color d-block">Followers</span>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          <span className="h5 d-block">2905</span>
+          <span className="text-color d-block">Followers</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1200</span>
-          <span class="text-color d-block">Following</span>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          <span className="h5 d-block">1200</span>
+          <span className="text-color d-block">Following</span>
         </a>
       </li>
 
     </ul>
 
-    <div class="profile-button">
-      <a class="btn btn-primary btn-pill" href="user-planing-settings.html">Upgrade Plan</a>
+    <div className="profile-button">
+      <a className="btn btn-primary btn-pill" href="user-planing-settings.html">Upgrade Plan</a>
     </div>
 
   </div>
 
-  <div class="card-footer card-profile-footer">
-    {/* <ul class="nav nav-border-top justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link" href="user-profile.html">Profile</a>
+  <div className="card-footer card-profile-footer">
+    {/* <ul className="nav nav-border-top justify-content-center">
+      <li className="nav-item">
+        <a className="nav-link" href="user-profile.html">Profile</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="user-activities.html">Activities</a>
+      <li className="nav-item">
+        <a className="nav-link" href="user-activities.html">Activities</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="user-profile-settings.html">Settings</a>
+      <li className="nav-item">
+        <a className="nav-link active" href="user-profile-settings.html">Settings</a>
       </li>
 
     </ul> */}
-     <ul class="nav nav-border-top justify-content-center">
-      <li class="nav-item">
-        {/* <a class="nav-link active" href="user-profile.html">Profile</a> */}
-        <Link class="nav-link " to="/userProfile">Profile</Link>
+     <ul className="nav nav-border-top justify-content-center">
+      <li className="nav-item">
+        {/* <a className="nav-link active" href="user-profile.html">Profile</a> */}
+        <Link className="nav-link " to="/userProfile">Profile</Link>
       </li>
-      <li class="nav-item">
-        {/* <a class="nav-link" href="user-activities.html">Activities</a> */}
-        <Link class="nav-link" to="/userActivity">Activities</Link>
+      <li className="nav-item">
+        {/* <a className="nav-link" href="user-activities.html">Activities</a> */}
+        <Link className="nav-link" to="/userActivity">Activities</Link>
       </li>
-      <li class="nav-item">
-        {/* <a class="nav-link" href="user-profile-settings.html">Settings</a> */}
-        <Link class="nav-link active" to="/userAccount">Settings</Link>
+      <li className="nav-item">
+        {/* <a className="nav-link" href="user-profile-settings.html">Settings</a> */}
+        <Link className="nav-link active" to="/userAccount">Settings</Link>
       </li>
 
     </ul>
@@ -76,40 +76,40 @@ export const UserAccount = () => {
 
 </div>
 
-<div class="row">
-  {/* <div class="col-xl-3">
+<div className="row">
+  {/* <div className="col-xl-3">
     
-    <div class="card card-default">
-      <div class="card-header">
+    <div className="card card-default">
+      <div className="card-header">
         <h2>Settings</h2>
       </div>
 
-      <div class="card-body pt-0">
+      <div className="card-body pt-0">
 
-        <ul class="nav nav-settings">
-          <li class="nav-item">
-            <a class="nav-link" href="user-profile-settings.html">
-              <i class="mdi mdi-account-outline mr-1"></i> Profile
+        <ul className="nav nav-settings">
+          <li className="nav-item">
+            <a className="nav-link" href="user-profile-settings.html">
+              <i className="mdi mdi-account-outline mr-1"></i> Profile
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="user-account-settings.html">
-              <i class="mdi mdi-settings-outline mr-1"></i> Account
+          <li className="nav-item">
+            <a className="nav-link active" href="user-account-settings.html">
+              <i className="mdi mdi-settings-outline mr-1"></i> Account
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user-planing-settings.html">
-              <i class="mdi mdi-currency-usd mr-1"></i> Planing
+          <li className="nav-item">
+            <a className="nav-link" href="user-planing-settings.html">
+              <i className="mdi mdi-currency-usd mr-1"></i> Planing
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user-billing.html">
-              <i class="mdi mdi-set-top-box mr-1"></i> Billing
+          <li className="nav-item">
+            <a className="nav-link" href="user-billing.html">
+              <i className="mdi mdi-set-top-box mr-1"></i> Billing
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user-notify-settings.html">
-              <i class="mdi mdi-bell-outline mr-1"></i> Notifications
+          <li className="nav-item">
+            <a className="nav-link" href="user-notify-settings.html">
+              <i className="mdi mdi-bell-outline mr-1"></i> Notifications
             </a>
           </li>
         </ul>
@@ -118,56 +118,56 @@ export const UserAccount = () => {
 
     </div>
   </div> */}
-  <div class="col-lg-12">
+  <div className="col-lg-12">
     
-    <div class="card card-default">
-      <div class="card-header">
-        <h2 class="mb-5">Account Settings</h2>
+    <div className="card card-default">
+      <div className="card-header">
+        <h2 className="mb-5">Account Settings</h2>
 
       </div>
 
-      <div class="card-body">
+      <div className="card-body">
 
         <form>
-          <div class="row mb-2">
-            <div class="col-lg-6">
-              <div class="form-group">
+          <div className="row mb-2">
+            <div className="col-lg-6">
+              <div className="form-group">
                 <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName"/ >
+                <input type="text" className="form-control" id="firstName"/ >
               </div>
             </div>
 
-            <div class="col-lg-6">
-              <div class="form-group">
+            <div className="col-lg-6">
+              <div className="form-group">
                 <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName"/>
+                <input type="text" className="form-control" id="lastName"/>
               </div>
             </div>
           </div>
 
-          <div class="form-group mb-4">
+          <div className="form-group mb-4">
             <label for="userName">User name</label>
-            <input type="text" class="form-control" id="userName"/>
-            <span class="d-block mt-1">Accusamus nobis at omnis consequuntur culpa tempore saepe animi.</span>
+            <input type="text" className="form-control" id="userName"/>
+            <span className="d-block mt-1">Accusamus nobis at omnis consequuntur culpa tempore saepe animi.</span>
           </div>
 
-          <div class="form-group mb-4">
+          <div className="form-group mb-4">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email"/>
+            <input type="email" className="form-control" id="email"/>
           </div>
 
-          <div class="form-group mb-4">
+          <div className="form-group mb-4">
             <label for="newPassword">New password</label>
-            <input type="password" class="form-control" id="newPassword"/>
+            <input type="password" className="form-control" id="newPassword"/>
           </div>
 
-          <div class="form-group mb-4">
+          <div className="form-group mb-4">
             <label for="conPassword">Confirm password</label>
-            <input type="password" class="form-control" id="conPassword"/>
+            <input type="password" className="form-control" id="conPassword"/>
           </div>
 
-          <div class="d-flex justify-content-end mt-6">
-            <button type="submit" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
+          <div className="d-flex justify-content-end mt-6">
+            <button type="submit" className="btn btn-primary mb-2 btn-pill">Update Profile</button>
           </div>
 
         </form>

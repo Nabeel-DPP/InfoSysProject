@@ -150,15 +150,15 @@ const LoginInsert = () => {
               className="distributor-input"
               autoComplete="off"
             />
-          <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback">  <i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid distributor name </div>
+          <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback">  <i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid distributor name </div>
             <label className="distributor-label">Login ID</label>
             <i className="input-icon fa fa-user"></i>
           </div>
         </div>
 
         <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+        <i className="input-icon fa-solid fa-street-view mr-5"></i>
             
 
 
@@ -171,14 +171,14 @@ const LoginInsert = () => {
             
             
            <label className="distributor-label ml-2" >Area Name</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
             
           </div>
 
 
           <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+        <i className="input-icon fa-solid fa-street-view mr-5"></i>
             
 
 
@@ -191,8 +191,8 @@ const LoginInsert = () => {
             
             
            <label className="distributor-label ml-2" >Distributor Name</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
             
           </div>
 
@@ -200,7 +200,7 @@ const LoginInsert = () => {
 
 
         <div className="distributor-input-group col-md-12 col-lg-6 col-sm-12">
-        <i class="input-icon fa-solid fa-street-view mr-5"></i>
+        <i className="input-icon fa-solid fa-street-view mr-5"></i>
             <select
               required
               name="type"
@@ -220,8 +220,8 @@ const LoginInsert = () => {
             
             
            <label className="distributor-label ml-2" >Type</label>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-          <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+          <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please select a sale area.</div>
             
           </div> 
  </div>
@@ -245,9 +245,9 @@ const LoginInsert = () => {
             />
             
             <label className="distributor-label">Login</label>
-            <i class="input-icon fa-solid fa-envelope"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid email address</div>
+            <i className="input-icon fa-solid fa-envelope"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid email address</div>
           </div>
         </div>
        
@@ -263,9 +263,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Password</label>
-            <i class="input-icon fa-solid fa-phone-flip"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+            <i className="input-icon fa-solid fa-phone-flip"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
           </div>
         </div>
         
@@ -284,9 +284,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Name</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
+            <i className="input-icon  fa-solid fa-location-crosshairs"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
         </div>
 
@@ -302,9 +302,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Designation</label>
-            <i class="input-icon fa-solid fa-calendar-days"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
+            <i className="input-icon fa-solid fa-calendar-days"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
           </div>
         </div>
 
@@ -325,9 +325,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Department</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
+            <i className="input-icon  fa-solid fa-location-crosshairs"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
         </div>
 
@@ -343,9 +343,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Area ID</label>
-            <i class="input-icon fa-solid fa-calendar-days"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
+            <i className="input-icon fa-solid fa-calendar-days"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
           </div>
         </div>
 
@@ -367,9 +367,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Area Name</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
+            <i className="input-icon  fa-solid fa-location-crosshairs"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
         </div> */}
 
@@ -385,9 +385,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Distributor ID</label>
-            <i class="input-icon fa-solid fa-calendar-days"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
+            <i className="input-icon fa-solid fa-calendar-days"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
           </div>
         </div>
 
@@ -408,9 +408,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Active</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
+            <i className="input-icon  fa-solid fa-location-crosshairs"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
         </div>
 
@@ -426,9 +426,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Passw</label>
-            <i class="input-icon fa-solid fa-calendar-days"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
+            <i className="input-icon fa-solid fa-calendar-days"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
           </div>
         </div>
 
@@ -469,9 +469,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Zonal</label>
-            <i class="input-icon  fa-solid fa-location-crosshairs"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
+            <i className="input-icon  fa-solid fa-location-crosshairs"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid address</div>
           </div>
         </div>
 
@@ -487,9 +487,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Nick Name</label>
-            <i class="input-icon fa-solid fa-calendar-days"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
+            <i className="input-icon fa-solid fa-calendar-days"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
           </div>
         </div>
 
@@ -508,9 +508,9 @@ const LoginInsert = () => {
               autoComplete="off"
             />
             <label className="distributor-label">Sub Area</label>
-            <i class="input-icon fa-solid fa-calendar-days"></i>
-            <div className="valid-feedback"><i class="fa-regular fa-circle-check"></i></div>
-            <div className="invalid-feedback"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
+            <i className="input-icon fa-solid fa-calendar-days"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
           </div>
         </div>
 

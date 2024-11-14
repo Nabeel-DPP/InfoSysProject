@@ -1,4 +1,5 @@
 import React from 'react'
+
 export const Analytics = () => {
 
   return (
@@ -6,52 +7,23 @@ export const Analytics = () => {
        
         <div className="content-wrapper">
           <div className="content">          
-                <div className="row justify-content-between mb-5 pb-5 ">
-                  <div className="col-lg-6">
+                {/* <div className="row justify-content-between">
+                  <div className="col-lg-12">
                     <div className="row">
-                      <div className="col-md-4">
-                        <div className="mini-status">
-                          <div className="text-content">
-                            <span className="title">My income</span>
-                            <span className="status text-primary"><i className="mdi mdi-currency-usd"></i>47,171</span>
-                          </div>
-                          <div className="chart-content">
-                            <div id="status-sm-chart-01"></div>
-                          </div>
-                        </div>
+                      <div className="col-lg-6">
+                      <MonthlySaleGraph/>
+                        
                       </div>
-                      <div className="col-md-4">
-                        <div className="mini-status">
-                          <div className="text-content ">
-                            <span className="title">site traffic</span>
-                            <span className="status text-success"><i className="mdi mdi-progress-upload"></i>45%</span>
-                          </div>
-                          <div className="chart-content">
-                            <div id="status-sm-chart-02"></div>
-                          </div>
-                        </div>
+                      <div className="col-lg-6">
+                      <MonthlyJoin/>
+                        
                       </div>
-                      <div className="col-md-4">
-                        <div className="mini-status">
-                          <div className="text-content">
-                            <span className="title">site orders</span>
-                            <span className="status text-info"><i className="mdi mdi-cart"></i>2447</span>
-                          </div>
-                          <div className="chart-content">
-                            <div id="status-sm-chart-03"></div>
-                          </div>
-                        </div>
-                      </div>
+                     
                     </div>
                   </div>
-                  <div className="col-lg-6 d-flex justify-content-xl-end flex-column flex-wrap align-items-lg-end">
-                    <div id="mini-status-range" className="date-range date-range-lg bg-white">
-                      <span className="date-holder text-dark"></span>
-                      <i className="mdi mdi-menu-down"></i>
-                    </div>
-                    <span className="time-zone">Timezone: (+06:00) Asia - Dhaka</span>
-                  </div>
-                </div>
+                
+                </div> */}
+               
 
 
                 

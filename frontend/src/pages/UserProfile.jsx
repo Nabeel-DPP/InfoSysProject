@@ -4,61 +4,61 @@ export const UserProfile = () => {
 
     
   return (
-    <div class="content-wrapper">
-          <div class="content">
-<div class="card card-default card-profile">
+    <div className="content-wrapper">
+          <div className="content">
+<div className="card card-default card-profile">
 
-  <div class="card-header-bg" style={{image:"url(assets/img/user/user-bg-01.jpg)"}}></div>
+  <div className="card-header-bg" style={{image:"url(assets/img/user/user-bg-01.jpg)"}}></div>
 
-  <div class="card-body card-profile-body">
+  <div className="card-body card-profile-body">
 
-    <div class="profile-avata">
-      <img class="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image"/>
-      <span class="h5 d-block mt-3 mb-2">Albrecht Straub</span>
-      <span class="d-block">Albrecht.straub@gmail.com</span>
+    <div className="profile-avata">
+      <img className="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image"/>
+      <span className="h5 d-block mt-3 mb-2">Albrecht Straub</span>
+      <span className="d-block">Albrecht.straub@gmail.com</span>
     </div>
 
-    <ul class="nav nav-profile-follow">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1503</span>
-          <span class="text-color d-block">Friends</span>
+    <ul className="nav nav-profile-follow">
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          <span className="h5 d-block">1503</span>
+          <span className="text-color d-block">Friends</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">2905</span>
-          <span class="text-color d-block">Followers</span>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          <span className="h5 d-block">2905</span>
+          <span className="text-color d-block">Followers</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1200</span>
-          <span class="text-color d-block">Following</span>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          <span className="h5 d-block">1200</span>
+          <span className="text-color d-block">Following</span>
         </a>
       </li>
 
     </ul>
 
-    <div class="profile-button">
-      <a class="btn btn-primary btn-pill" href="user-planing-settings.html">Upgrade Plan</a>
+    <div className="profile-button">
+      <a className="btn btn-primary btn-pill" href="user-planing-settings.html">Upgrade Plan</a>
     </div>
 
   </div>
 
-  <div class="card-footer card-profile-footer">
-    <ul class="nav nav-border-top justify-content-center">
-      <li class="nav-item">
-        {/* <a class="nav-link active" href="user-profile.html">Profile</a> */}
-        <Link class="nav-link active" to="/userProfile">Profile</Link>
+  <div className="card-footer card-profile-footer">
+    <ul className="nav nav-border-top justify-content-center">
+      <li className="nav-item">
+        {/* <a className="nav-link active" href="user-profile.html">Profile</a> */}
+        <Link className="nav-link active" to="/userProfile">Profile</Link>
       </li>
-      <li class="nav-item">
-        {/* <a class="nav-link" href="user-activities.html">Activities</a> */}
-        <Link class="nav-link" to="/userActivity">Activities</Link>
+      <li className="nav-item">
+        {/* <a className="nav-link" href="user-activities.html">Activities</a> */}
+        <Link className="nav-link" to="/userActivity">Activities</Link>
       </li>
-      <li class="nav-item">
-        {/* <a class="nav-link" href="user-profile-settings.html">Settings</a> */}
-        <Link class="nav-link" to="/userAccount">Settings</Link>
+      <li className="nav-item">
+        {/* <a className="nav-link" href="user-profile-settings.html">Settings</a> */}
+        <Link className="nav-link" to="/userAccount">Settings</Link>
       </li>
 
     </ul>
@@ -66,54 +66,54 @@ export const UserProfile = () => {
 
 </div>
 
-<div class="row">
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-default">
-      <div class="d-flex p-5">
-        <div class="icon-md bg-secondary rounded-circle mr-3">
-          <i class="mdi mdi-account-plus-outline"></i>
+<div className="row">
+  <div className="col-xl-3 col-md-6">
+    <div className="card card-default">
+      <div className="d-flex p-5">
+        <div className="icon-md bg-secondary rounded-circle mr-3">
+          <i className="mdi mdi-account-plus-outline"></i>
         </div>
-        <div class="text-left">
-          <span class="h2 d-block">890</span>
+        <div className="text-left">
+          <span className="h2 d-block">890</span>
           <p>New Users</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-default">
-      <div class="d-flex p-5">
-        <div class="icon-md bg-success rounded-circle mr-3">
-          <i class="mdi mdi-table-edit"></i>
+  <div className="col-xl-3 col-md-6">
+    <div className="card card-default">
+      <div className="d-flex p-5">
+        <div className="icon-md bg-success rounded-circle mr-3">
+          <i className="mdi mdi-table-edit"></i>
         </div>
-        <div class="text-left">
-          <span class="h2 d-block">350</span>
+        <div className="text-left">
+          <span className="h2 d-block">350</span>
           <p>Order Placed</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-default">
-      <div class="d-flex p-5">
-        <div class="icon-md bg-primary rounded-circle mr-3">
-          <i class="mdi mdi-content-save-edit-outline"></i>
+  <div className="col-xl-3 col-md-6">
+    <div className="card card-default">
+      <div className="d-flex p-5">
+        <div className="icon-md bg-primary rounded-circle mr-3">
+          <i className="mdi mdi-content-save-edit-outline"></i>
         </div>
-        <div class="text-left">
-          <span class="h2 d-block">1360</span>
+        <div className="text-left">
+          <span className="h2 d-block">1360</span>
           <p>Total Sales</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-default">
-      <div class="d-flex p-5">
-        <div class="icon-md bg-info rounded-circle mr-3">
-          <i class="mdi mdi-bell"></i>
+  <div className="col-xl-3 col-md-6">
+    <div className="card card-default">
+      <div className="d-flex p-5">
+        <div className="icon-md bg-info rounded-circle mr-3">
+          <i className="mdi mdi-bell"></i>
         </div>
-        <div class="text-left">
-          <span class="h2 d-block">$8930</span>
+        <div className="text-left">
+          <span className="h2 d-block">$8930</span>
           <p>Monthly Revenue</p>
         </div>
       </div>
@@ -121,46 +121,46 @@ export const UserProfile = () => {
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-12">
+<div className="row">
+  <div className="col-lg-12">
     
-    <div class="card card-default" data-scroll-height="530">
-      <div class="card-header">
-        <h2 class="mb-5">Notification</h2>
+    <div className="card card-default" data-scroll-height="530">
+      <div className="card-header">
+        <h2 className="mb-5">Notification</h2>
       </div>
 
-      <div class="card-body slim-scroll">
-        <ul class="list-group">
-          <li class="list-group-item list-group-item-action">
-            <div class="media media-sm mb-0">
-              <div class="media-sm-wrapper">
+      <div className="card-body slim-scroll">
+        <ul className="list-group">
+          <li className="list-group-item list-group-item-action">
+            <div className="media media-sm mb-0">
+              <div className="media-sm-wrapper">
                 <img src="images/user/user-sm-01.jpg" alt="User Image"/>
               </div>
-              <div class="media-body">
-                <span class="title">The stars are twinkling.</span>
+              <div className="media-body">
+                <span className="title">The stars are twinkling.</span>
                 <p>Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at highly months do things on at.</p>
               </div>
             </div>
           </li>
-          <li class="list-group-item list-group-item-action">
-            <div class="media media-sm mb-0">
-              <div class="media-sm-wrapper">
+          <li className="list-group-item list-group-item-action">
+            <div className="media media-sm mb-0">
+              <div className="media-sm-wrapper">
                 <img src="images/user/user-sm-02.jpg" alt="User Image"/>
               </div>
-              <div class="media-body">
-                <span class="title">This is a Japanese doll.</span>
+              <div className="media-body">
+                <span className="title">This is a Japanese doll.</span>
                 <p>Marianne or husbands if at stronger ye. Considered is as middletons uncommonly. Promotion perfectly ye
                   consisted so.</p>
               </div>
             </div>
           </li>
-          <li class="list-group-item list-group-item-action">
-            <div class="media media-sm mb-0">
-              <div class="media-sm-wrapper">
+          <li className="list-group-item list-group-item-action">
+            <div className="media media-sm mb-0">
+              <div className="media-sm-wrapper">
                 <img src="images/user/user-sm-03.jpg" alt="User Image"/>
               </div>
-              <div class="media-body">
-                <span class="title">Support Ticket</span>
+              <div className="media-body">
+                <span className="title">Support Ticket</span>
                 <p>Unpleasant nor diminution excellence apartments imprudence the met new. Draw part them he an to he roof
                   only.
                   Music
@@ -168,13 +168,13 @@ export const UserProfile = () => {
               </div>
             </div>
           </li>
-          <li class="list-group-item list-group-item-action">
-            <div class="media media-sm mb-0">
-              <div class="media-sm-wrapper">
+          <li className="list-group-item list-group-item-action">
+            <div className="media media-sm mb-0">
+              <div className="media-sm-wrapper">
                 <img src="images/user/user-sm-04.jpg" alt="User Image"/>
               </div>
-              <div class="media-body">
-                <span class="title">New Order</span>
+              <div className="media-body">
+                <span className="title">New Order</span>
                 <p>Farther related bed and passage comfort civilly. Dashwoods see frankness objection abilities the. As
                   hastened
                   oh
@@ -187,66 +187,66 @@ export const UserProfile = () => {
       </div>
     </div>
   </div>
-  {/* <div class="col-lg-6">
+  {/* <div className="col-lg-6">
     
-    <div class="card card-default pb-4" id="todo">
-      <div class="card-header mb-3">
+    <div className="card card-default pb-4" id="todo">
+      <div className="card-header mb-3">
         <h2>To Do list</h2>
 
-        <a class="btn btn-primary btn-pill" id="add-task" href="#" role="button"> Add task </a>
+        <a className="btn btn-primary btn-pill" id="add-task" href="#" role="button"> Add task </a>
       </div>
 
-      <div class="card-body" data-simplebar style={{height: "385px"}}>
-        <div class="todo-single-item d-none" id="todo-input">
+      <div className="card-body" data-simplebar style={{height: "385px"}}>
+        <div className="todo-single-item d-none" id="todo-input">
           <form>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Enter Todo" autofocus/>
+            <div className="form-group">
+              <input type="text" className="form-control" placeholder="Enter Todo" autofocus/>
             </div>
           </form>
         </div>
-        <div class="todo-list" id="todo-list">
-          <div class="todo-single-item d-flex flex-row justify-content-between finished">
-            <i class="mdi"></i>
+        <div className="todo-list" id="todo-list">
+          <div className="todo-single-item d-flex flex-row justify-content-between finished">
+            <i className="mdi"></i>
             <span>Finish Dashboard UI Kit update</span>
-            <span class="badge badge-primary">Finished</span>
+            <span className="badge badge-primary">Finished</span>
           </div>
-          <div class="todo-single-item d-flex flex-row justify-content-between current">
-            <i class="mdi"></i>
+          <div className="todo-single-item d-flex flex-row justify-content-between current">
+            <i className="mdi"></i>
             <span>Create new prototype for the landing page</span>
-            <span class="badge badge-primary">Today</span>
+            <span className="badge badge-primary">Today</span>
           </div>
-          <div class="todo-single-item d-flex flex-row justify-content-between ">
-            <i class="mdi"></i>
+          <div className="todo-single-item d-flex flex-row justify-content-between ">
+            <i className="mdi"></i>
             <span> Add new Google Analytics code to all main files </span>
-            <span class="badge badge-danger">Yesterday</span>
+            <span className="badge badge-danger">Yesterday</span>
           </div>
 
-          <div class="todo-single-item d-flex flex-row justify-content-between ">
-            <i class="mdi"></i>
+          <div className="todo-single-item d-flex flex-row justify-content-between ">
+            <i className="mdi"></i>
             <span>Update parallax scroll on team page</span>
-            <span class="badge badge-success">Dec 15, 2018</span>
+            <span className="badge badge-success">Dec 15, 2018</span>
           </div>
 
-          <div class="todo-single-item d-flex flex-row justify-content-between ">
-            <i class="mdi"></i>
+          <div className="todo-single-item d-flex flex-row justify-content-between ">
+            <i className="mdi"></i>
             <span>Update parallax scroll on team page</span>
-            <span class="badge badge-success">Dec 15, 2018</span>
+            <span className="badge badge-success">Dec 15, 2018</span>
           </div>
-          <div class="todo-single-item d-flex flex-row justify-content-between ">
-            <i class="mdi"></i>
+          <div className="todo-single-item d-flex flex-row justify-content-between ">
+            <i className="mdi"></i>
             <span>Create online customer list book</span>
-            <span class="badge badge-success">Dec 15, 2018</span>
+            <span className="badge badge-success">Dec 15, 2018</span>
           </div>
-          <div class="todo-single-item d-flex flex-row justify-content-between ">
-            <i class="mdi"></i>
+          <div className="todo-single-item d-flex flex-row justify-content-between ">
+            <i className="mdi"></i>
             <span>Lorem ipsum dolor sit amet, consectetur.</span>
-            <span class="badge badge-success">Dec 15, 2018</span>
+            <span className="badge badge-success">Dec 15, 2018</span>
           </div>
 
-          <div class="todo-single-item d-flex flex-row justify-content-between mb-1">
-            <i class="mdi"></i>
+          <div className="todo-single-item d-flex flex-row justify-content-between mb-1">
+            <i className="mdi"></i>
             <span>Update parallax scroll on team page</span>
-            <span class="badge badge-success">Dec 15, 2018</span>
+            <span className="badge badge-success">Dec 15, 2018</span>
           </div>
         </div>
       </div>
@@ -258,25 +258,25 @@ export const UserProfile = () => {
   </div> */}
 </div>
             
-                <div class="row">
-                  <div class="col-12">
-                    <div class="card card-default">
-                      <div class="card-header">
+                <div className="row">
+                  <div className="col-12">
+                    <div className="card card-default">
+                      <div className="card-header">
                         <h2>Products Inventory</h2>
-                        <div class="dropdown">
-                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        <div className="dropdown">
+                          <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> Yearly Chart
                           </a>
 
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                            <a className="dropdown-item" href="#">Action</a>
+                            <a className="dropdown-item" href="#">Another action</a>
+                            <a className="dropdown-item" href="#">Something else here</a>
                           </div>
                         </div>
                       </div>
-                      <div class="card-body">
-                        <table id="productsTable" class="table table-hover table-product" style={{width:"100%"}}>
+                      <div className="card-body">
+                        <table id="productsTable" className="table table-hover table-product" style={{width:"100%"}}>
                           <thead>
                             <tr>
                               <th></th>
@@ -294,7 +294,7 @@ export const UserProfile = () => {
                           <tbody>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-01.jpg" alt="Product Image"/>
                               </td>
                               <td>Coach Swagger</td>
@@ -308,22 +308,22 @@ export const UserProfile = () => {
                               <td>4</td>
                               <td>18</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-02.jpg" alt="Product Image"/>
                               </td>
                               <td>Toddler Shoes, Gucci Watch</td>
@@ -337,22 +337,22 @@ export const UserProfile = () => {
                               <td>1</td>
                               <td>14</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-03.jpg" alt="Product Image"/>
                               </td>
                               <td>Hat Black Suits</td>
@@ -366,22 +366,22 @@ export const UserProfile = () => {
                               <td>6</td>
                               <td>26</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-04.jpg" alt="Product Image"/>
                               </td>
                               <td>Backpack Gents</td>
@@ -395,22 +395,22 @@ export const UserProfile = () => {
                               <td>6</td>
                               <td>7</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-05.jpg" alt="Product Image"/>
                               </td>
                               <td>Speed 500 Ignite</td>
@@ -424,22 +424,22 @@ export const UserProfile = () => {
                               <td>8</td>
                               <td>42</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-06.jpg" alt="Product Image"/>
                               </td>
                               <td>Olay</td>
@@ -453,22 +453,22 @@ export const UserProfile = () => {
                               <td>79</td>
                               <td>12</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-07.jpg" alt="Product Image"/>
                               </td>
                               <td>Ledger Nano X</td>
@@ -482,22 +482,22 @@ export const UserProfile = () => {
                               <td>76</td>
                               <td>36</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-08.jpg" alt="Product Image"/>
                               </td>
                               <td>Surface Laptop 2</td>
@@ -511,22 +511,22 @@ export const UserProfile = () => {
                               <td>38</td>
                               <td>5</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-09.jpg" alt="Product Image"/>
                               </td>
                               <td>TIGI Bed Head Superstar Queen</td>
@@ -540,22 +540,22 @@ export const UserProfile = () => {
                               <td>6</td>
                               <td>46</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-10.jpg" alt="Product Image"/>
                               </td>
                               <td>Wattbike Atom</td>
@@ -569,22 +569,22 @@ export const UserProfile = () => {
                               <td>3</td>
                               <td>19</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-11.jpg" alt="Product Image"/>
                               </td>
                               <td>Smart Watch</td>
@@ -598,22 +598,22 @@ export const UserProfile = () => {
                               <td>3</td>
                               <td>17</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-12.jpg" alt="Product Image"/>
                               </td>
                               <td>Magic Bullet Blender</td>
@@ -627,22 +627,22 @@ export const UserProfile = () => {
                               <td>26</td>
                               <td>9</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-13.jpg" alt="Product Image"/>
                               </td>
                               <td>Kanana rucksack</td>
@@ -656,22 +656,22 @@ export const UserProfile = () => {
                               <td>9</td>
                               <td>55</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-14.jpg" alt="Product Image"/>
                               </td>
                               <td>Copic Opaque White</td>
@@ -685,22 +685,22 @@ export const UserProfile = () => {
                               <td>7</td>
                               <td>15</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
                             </tr>
 
                             <tr>
-                              <td class="py-0">
+                              <td className="py-0">
                                 <img src="images/products/products-xs-15.jpg" alt="Product Image"/>
                               </td>
                               <td>Headphones</td>
@@ -714,15 +714,15 @@ export const UserProfile = () => {
                               <td>6</td>
                               <td>98</td>
                               <td>
-                                <div class="dropdown">
-                                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                <div className="dropdown">
+                                  <a className="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                   </a>
 
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
                                   </div>
                                 </div>
                               </td>
