@@ -47,12 +47,12 @@ const areaSchema = new mongoose.Schema({
   
   },
   area_manager_phone: {
-    type: String,  // Example: 'Active', 'Inactive', or other statuses
+    type: Number,  // Example: 'Active', 'Inactive', or other statuses
     
   },
   manager_phone:
   {
-    type: String,
+    type: Number,
     // required: true,
   }
   ,

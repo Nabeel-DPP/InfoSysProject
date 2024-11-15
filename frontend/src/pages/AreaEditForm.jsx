@@ -17,6 +17,7 @@ const AreaEditForm = () => {
     E_Mail: '',
     ZoneId: '',
     status: '',
+    arr_date: Date,
     lead_days: '',
     Manager_nick: '',
     area_manager: '',
@@ -40,6 +41,7 @@ const AreaEditForm = () => {
         lead_days: rowData.lead_days,
         Manager_nick: rowData.Manager_nick,
         area_manager: rowData.area_manager,
+        arr_date: rowData.arr_date ? new Date(rowData.arr_date).toISOString().split('T')[0] : '',
         area_manager_email: rowData.area_manager_email,
         area_manager_phone: rowData.area_manager_phone,
         manager_phone: rowData.manager_phone,
@@ -215,9 +217,9 @@ const AreaEditForm = () => {
            <div className="distributor-input-group">
              <input
                required
-               type="text"
-               name="distSince"
-               value={formData.date}
+               type="date"
+               name="arr_date"
+               value={formData.arr_date}
                onChange={handleChange}
                className="distributor-input"
                autoComplete="off"

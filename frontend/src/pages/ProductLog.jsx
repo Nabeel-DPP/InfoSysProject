@@ -52,7 +52,7 @@ const confirmDelete = async () => {
   if (recordToDelete) {
     try {
       // Send DELETE request to the server
-      await axios.delete(`http://localhost:5555/productLog/${recordToDelete}`); // Adjust to your delete endpoint
+      await axios.delete(`http://localhost:5555/prodLog/${recordToDelete}`); // Adjust to your delete endpoint
       // Update local state to remove the deleted record
       setRows(rows.filter((row) => row._id !== recordToDelete));
     } catch (error) {

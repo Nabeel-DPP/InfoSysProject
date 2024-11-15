@@ -83,6 +83,13 @@ const cancelDelete = () => {
     { field: 'E_Mail', headerName: 'Email ID', width: 180 },
     { field: 'ZoneId', headerName: 'Zone ID', width: 130 },
     { field: 'status', headerName: 'Status', width: 120 },
+    {
+      field: 'arr_date',
+      headerName: 'Date',
+      width: 150,
+      renderCell: (params) =>
+        params.row.arr_date ? format(new Date(params.row.arr_date), 'dd/MM/yyyy') : '',
+    },
     { field: 'lead_days', headerName: 'Lead Days', width: 130 },
     { field: 'Manager_nick', headerName: 'Manager Nickname', width: 150 },
     { field: 'area_manager', headerName: 'Area Manager', width: 150 },

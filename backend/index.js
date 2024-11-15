@@ -2,8 +2,6 @@ import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import cors from 'cors';
-// import AreaRoute from "./routes/areaRoute.js";
-// import areaRoutes from "./routes/areaRoute.js";
 import areaRoute from "./routes/areaRoute.js";
 import bankRoute from "./routes/bankRoute.js";
 import goodsRoute from "./routes/goodsRoute.js";
@@ -18,6 +16,8 @@ import roleRoute from "./routes/roleRoute.js";
 import productLogRoute from "./routes/productLogRoute.js";
 import productQuotaRoute from "./routes/productQuotaRoute.js";
 import productRoute from "./routes/productRoute.js";
+import instRoute from "./routes/instRoute.js";
+import subRoute from "./routes/subRoute.js";
 
 
 const app = express();
@@ -60,8 +60,8 @@ app.use("/role", roleRoute );
 app.use("/prodLog", productLogRoute );
 app.use("/pdQuota", productQuotaRoute );
 app.use("/product", productRoute );
-
-
+app.use("/subArea", subRoute );
+app.use("/inst", instRoute );
 
 
 

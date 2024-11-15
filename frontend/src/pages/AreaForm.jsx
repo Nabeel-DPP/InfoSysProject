@@ -15,6 +15,7 @@ const AreaEditForm = () => {
     E_Mail: '',
     ZoneId: '',
     status: '',
+    arr_date: Date,
     lead_days: '',
     Manager_nick: '',
     area_manager: '',
@@ -213,13 +214,13 @@ const AreaEditForm = () => {
           </div>
         </div>
 
-        <div className="col-md-12 col-lg-6 col-sm-12">
+        {/* <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="distributor-input-group">
             <input
               required
-              type="text"
-              name="distSince"
-              value={formData.date}
+              type="date"
+              name="arr_date"
+              value={formData.arr_date}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
@@ -229,8 +230,21 @@ const AreaEditForm = () => {
             <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter the year since the distributor started</div>
           </div>
-        </div>
+        </div> */}
 
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="arr_date"
+      value={formData.arr_date}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Date</label>
+  </div>
+</div>
 
 
 
