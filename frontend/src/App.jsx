@@ -78,6 +78,7 @@ import RtEdit from "./pages/RtEdit.jsx";
 import Rights from "./pages/Rights.jsx";
 import RightsInsert from "./pages/RightsInsert.jsx";
 import RightsEdit from "./pages/RightsEdit.jsx";
+import CreateOrder from "./pages/CreateOrder.jsx";
 
  export const App = () => {
    return (
@@ -145,6 +146,7 @@ import RightsEdit from "./pages/RightsEdit.jsx";
           <Route path="/rights" element={<Rights/>}/>
           <Route path="/rightsInsert" element={<RightsInsert/>}/>
           <Route path="/rightsEdit" element={<RightsEdit/>}/>
+          <Route path="/createOrder" element={<CreateOrder/>}/>
           {/* <Route path="/createForm" element={<CreateForm/>} /> */}
           {/* <Route path="/management" element={<ManageSection />} /> */}
           <Route path="/userProfile" element={<UserProfile />} />

@@ -6,15 +6,15 @@ const subAreaSchema = new mongoose.Schema({
     unique: true,  // Ensures no two areas have the same AreaId
   },
   area_id: {
-    type: String,
+    type: Number,
     required: true,
   },
   name: {
     type: String,  // Use String or Number depending on the ZoneId format
     required: true,
   },
-  main_area: {
-    type: String,  // Example: 'Active', 'Inactive', or other statuses
+  date: {
+    type: Date,  // Example: 'Active', 'Inactive', or other statuses
     required: true,
   },
   status: {

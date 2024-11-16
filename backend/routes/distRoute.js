@@ -108,4 +108,21 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+
+
+// READ: Get distributors by AreaID
+router.get('/area/:areaId', async (req, res) => {
+  console.log("Request Reached at Dist Route");
+  const { areaId } = req.params;
+  console.log("This is the Coming Area ID from Form:", areaId);
+  try {
+    const distributors = await Distributor.find({ areaID: areaId }).select('distName distType DistId');
+    console.log("Corresponding Distributor Data : " , distributors);
+    res.status(200).json(distributors);
+  } catch (error) {
+    console.error('Error fetching distributors:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
 export default router;

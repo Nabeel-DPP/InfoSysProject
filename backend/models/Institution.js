@@ -5,6 +5,11 @@ const institutionSchema = new mongoose.Schema({
     required: true,
     unique: true,  // Ensures no two areas have the same AreaId
   },
+  inst_name:
+  {
+    type:String,
+    required:true
+  },
   area_name: {
     type: String,
     required: true,
