@@ -10,8 +10,8 @@ const institutionSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  area_name: {
-    type: String,
+  area_id: {
+    type:Number,
     required: true,
   },
   status: {

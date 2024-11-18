@@ -4,20 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ThemeToggle from '../components/ThemeToggle';
-import { Institution } from '../../../backend/models/Institution';
-
 const CreateOrder = () => {
   const navigate = useNavigate();
   const [areas, setAreas] = useState([]);
   const [distributors, setDistributors] = useState([]);
   const [selectedAreaId, setSelectedAreaId] = useState(null);
   const [ subArea , setSubArea] = useState([]);
-  const [AreaName , setAreaName] = useState("");
   const [institution , setInstitution] = useState([]);
+  const [distributorType , setDistributorType]= useState([]);
   const [formData, setFormData] = useState({
     OrderId: '',
     tblAreaId: '',
-    // area_name:'', 
     tblDistId: '',
     distType:'',
     subAreaName: '',
@@ -39,6 +36,19 @@ const CreateOrder = () => {
     fetchAreas();
   }, []);
 
+  useEffect(() => {
+    const fetchAreas = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5555/distributor/type/${formData.tblDistId}`);
+        setDistributorType(response.data);
+           console.log("Distributor Type Found : " , distributorType);
+      } catch (error) {
+        console.error("Error fetching areas:", error);
+      }
+    };
+    fetchAreas();
+  }, [formData.tblDistId]);
+
   // Fetch distributors based on selected Area ID
   useEffect(() => {
     if (selectedAreaId) {
@@ -57,6 +67,13 @@ const CreateOrder = () => {
       fetchDistributors();
     }
   }, [selectedAreaId]);
+
+
+
+
+
+
+
 
 
 
@@ -87,18 +104,19 @@ const CreateOrder = () => {
   useEffect(() => {
     const fetchInstitute = async () => {
         try {
-          console.log("Area Name for Institution is : ", AreaName);
+          console.log("Area ID for Institution is : ", selectedAreaId);
           const response = await axios.get(
-            `http://localhost:5555/inst/${AreaName}`  // Correct URL format, as your backend expects :areaName
+            `http://localhost:5555/inst/areaId/${selectedAreaId}`  // Correct URL format, as your backend expects :areaName
           );
-          setInstitution(response.data);  // Set the institution data
+          setInstitution(response.data);
+          console.log("Coming institution from database is : " , institution);  // Set the institution data
         } catch (error) {
           console.error("Error fetching Institution:", error);
         }
       };
       fetchInstitute();
   
-  }, []);
+  }, [selectedAreaId]);
   
 
  
@@ -116,10 +134,8 @@ const CreateOrder = () => {
     if (name === "tblAreaId") {
       setSelectedAreaId(value);
     }
+   
     
-
-
-
 
   };
 
@@ -207,8 +223,9 @@ const CreateOrder = () => {
               </div>
             </div>
 
-
-            <div className="col-md-6">
+  {/* Correct Dist Type Field  */}
+           
+{/* <div className="col-md-6">
   <div className="distributor-input-group">
     <select
       name="distType"
@@ -226,7 +243,32 @@ const CreateOrder = () => {
     </select>
     <label className="distributor-label">Distributor Type</label>
   </div>
+</div> */}
+
+
+
+<div className="col-md-6">
+  <div className="distributor-input-group">
+    <select
+      name="distType"
+      className="distributor-input"
+      onChange={handleChange}
+      value={formData.distType}
+      required
+    >
+      {distributorType.map((dist) => (
+                    <option key={dist._id} value={dist.distType}>
+                      {dist.distType}
+                    </option>
+                  ))}
+    </select>
+    <label className="distributor-label">Distributor Type</label>
+  </div>
 </div>
+
+
+
+
 
 
 

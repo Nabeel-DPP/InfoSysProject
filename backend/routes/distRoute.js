@@ -125,4 +125,23 @@ router.get('/area/:areaId', async (req, res) => {
   }
 });
 
+router.get('/type/:distId', async (req, res) => {
+  console.log("Request Reached at Dist Route Requesting Dist Type");
+  const { distId } = req.params;
+  console.log("This is the Coming Distributor ID from Form:", distId);
+  try {
+    const distributorType = await Distributor.find({DistId: distId}).select('distType');
+    console.log("Corresponding Distributor Type is  : " , distributorType);
+    res.status(200).json(distributorType);
+  } catch (error) {
+    console.error('Error fetching distributors:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+
+
+
+
+
 export default router;

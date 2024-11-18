@@ -71,12 +71,12 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-router.get('/:areaName', async (req, res) => {
+router.get('/areaId/:id', async (req, res) => {
   console.log("Request Reached at Institution Route");
-  const { areaName } = req.params; // Accessing areaName from URL parameter
-  console.log("Area Name is for Institution:", areaName);
+  const { id } = req.params; // Accessing areaName from URL parameter
+  console.log("Area ID is for Institution:", id);
   try {
-    const institution = await Institution.find({ area_name: areaName }); // Finding institutions based on area_name
+    const institution = await Institution.find({ area_id: id }); // Finding institutions based on area_name
     console.log("Corresponding Area Name Data is:", institution);
     res.status(200).json(institution); // Sending the data back
   } catch (error) {
