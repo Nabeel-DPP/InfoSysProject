@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const newOrders = new Orders(req.body); 
-    console.log("Insert Request Reached at Route", newOrders);
+    console.log("Insert Request Reached at Order Route", newOrders);
     const savedOrders = await newOrders.save();
     console.log("Confirmation of Save:", savedOrders);
     res.status(201).json(savedOrders); // Respond with the saved order object
@@ -15,6 +15,32 @@ router.post('/', async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+
+router.get('/latest', async (req, res) => {
+
+  try {
+    console.log("Request Reached at Order Route !!");
+    // const latestOrder = await Orders.findOne({OrderId:9000}) // Sort by OrderId in descending order and get the first document
+    const latestOrder = await Orders.findOne().sort({ OrderId: -1 });
+    if (!latestOrder) {
+      return res.status(404).json({ message: "No orders found" }); // Handle case when no order is found
+    }
+
+    // Send just the OrderId in the response
+    // res.json({ latestOrderId: latestOrder.OrderId });
+  res.json({ latestOrderId: latestOrder.OrderId });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching latest OrderId" });
+  }
+});
+
+
+
+
+
+
+
 
 // READ: Get all orders entries
 router.get('/', async (req, res) => {
@@ -60,5 +86,8 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+
+
 
 export default router;

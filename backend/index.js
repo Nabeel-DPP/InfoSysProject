@@ -44,8 +44,6 @@ app.get('/', (request, response) => {
 });
 
 
-
-
 app.use("/area", areaRoute );
 app.use("/bank", bankRoute );
 app.use("/goods", goodsRoute );
@@ -62,10 +60,6 @@ app.use("/pdQuota", productQuotaRoute );
 app.use("/product", productRoute );
 app.use("/subArea", subRoute );
 app.use("/inst", instRoute );
-
-
-
-
 
 
 mongoose

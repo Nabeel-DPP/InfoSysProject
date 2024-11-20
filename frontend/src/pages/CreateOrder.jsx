@@ -13,7 +13,7 @@ const CreateOrder = () => {
   const [institution , setInstitution] = useState([]);
   const [distributorType , setDistributorType]= useState([]);
   const [formData, setFormData] = useState({
-    OrderId: '',
+    OrderId: '' ,
     tblAreaId: '',
     tblDistId: '',
     distType:'',
@@ -23,6 +23,31 @@ const CreateOrder = () => {
     status:''
   });
 
+  useEffect(() => {
+    const fetchLatestOrderId = async () => {
+      try 
+      {
+        const response = await axios.get("http://localhost:5555/order/latest");  // Endpoint to fetch the latest order ID
+        // setLatestOrderId(response.data.latestOrderId); 
+        console.log("This is Useffect response",response.data.latestOrderId); 
+        const resId= response.data.latestOrderId;
+        console.log("Order ID coming from DB is : " , resId);
+        const incId= resId +1 ;
+        // setLatestOrderId(incId);
+
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          OrderId: incId
+        }));
+
+
+      } 
+      catch (error) {
+        console.error("Error fetching latest OrderId:", error);
+      }
+    };
+    fetchLatestOrderId();
+  }, []);
   // Fetch areas on component load
   useEffect(() => {
     const fetchAreas = async () => {
@@ -38,6 +63,7 @@ const CreateOrder = () => {
 
   useEffect(() => {
     const fetchAreas = async () => {
+      if(formData.tblDistId){
       try {
         const response = await axios.get(`http://localhost:5555/distributor/type/${formData.tblDistId}`);
         setDistributorType(response.data);
@@ -45,6 +71,7 @@ const CreateOrder = () => {
       } catch (error) {
         console.error("Error fetching areas:", error);
       }
+    }
     };
     fetchAreas();
   }, [formData.tblDistId]);
@@ -103,6 +130,8 @@ const CreateOrder = () => {
 
   useEffect(() => {
     const fetchInstitute = async () => {
+      if(selectedAreaId)
+      {
         try {
           console.log("Area ID for Institution is : ", selectedAreaId);
           const response = await axios.get(
@@ -113,6 +142,8 @@ const CreateOrder = () => {
         } catch (error) {
           console.error("Error fetching Institution:", error);
         }
+      }
+       
       };
       fetchInstitute();
   
@@ -129,6 +160,8 @@ const CreateOrder = () => {
       ...formData,
       [name]: value,
     });
+
+
 
     // Update selected Area ID
     if (name === "tblAreaId") {
@@ -151,20 +184,33 @@ const CreateOrder = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Data of Form:", formData);
+
+    const currentDate = new Date().toISOString().split('T')[0]; 
+
+    const updatedFormData = { ...formData, FeedDate: currentDate };
+
+    console.log("Form data being submitted:", updatedFormData);
+
+
+
+   
+
     try {
       const response = await axios.post(
-        "http://localhost:5555/order",
+        "http://localhost:5555/order/",
         formData
       );
       if (response.status === 201) {
         alert("Order created successfully!");
         setFormData({
+          OrderId: '' ,
           tblAreaId: '',
           tblDistId: '',
-          subAreaId: '',
+          distType:'',
+          subAreaName: '',
           instiId: '',
           FeedDate: '',
+          status:''
         });
         navigate("/orderTable");
       } else {
@@ -222,29 +268,6 @@ const CreateOrder = () => {
                 <label className="distributor-label">Distributor</label>
               </div>
             </div>
-
-  {/* Correct Dist Type Field  */}
-           
-{/* <div className="col-md-6">
-  <div className="distributor-input-group">
-    <select
-      name="distType"
-      className="distributor-input"
-      onChange={handleChange}
-      value={formData.distType}
-      required
-    >
-      <option value=""></option>
-      {distributors.map((dist) => (
-        <option key={dist.DistId} value={dist.distType}>
-          {dist.distType}
-        </option>
-      ))}
-    </select>
-    <label className="distributor-label">Distributor Type</label>
-  </div>
-</div> */}
-
 
 
 <div className="col-md-6">
@@ -328,9 +351,8 @@ const CreateOrder = () => {
       required
     >
        <option value=""></option>
-      <option value="TP">TP</option>
+      <option value="General">General</option>
       <option value="SP">SP</option>
-      <option value="XD">XD</option>
     </select>
     <label className="distributor-label">Sale Type</label>
   </div>
@@ -348,8 +370,8 @@ const CreateOrder = () => {
     >
       <option value=""></option>
       {subArea.map((sub) => (
-        <option key={`${sub.AreaId}-${sub.id}`} value={sub.name}>
-          {sub.name} # {sub.id}
+        <option key={`${sub.AreaId}-${sub.id}`} value={sub.id}>
+          {sub.name} # {sub.id} 
         </option>
       ))}
     </select>
@@ -369,7 +391,7 @@ const CreateOrder = () => {
                 >
                   <option value=""></option>
                   {institution.map((inst) => (
-                    <option key={inst.id} value={inst.inst_name}>
+                    <option key={inst.id} value={inst.id}>
                       {inst.inst_name}
                     </option>
                   ))}
