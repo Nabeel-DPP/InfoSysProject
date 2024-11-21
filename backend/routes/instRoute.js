@@ -17,6 +17,28 @@ router.post('/', async (req, res) => {
   }
 });
 
+
+router.get('/areaId/:id', async (req, res) => {
+  
+  console.log("Request Reached at Institution Route");
+  const { id } = req.params; // Accessing areaName from URL parameter
+  console.log("Area ID is for Institution:", id);
+  
+  try {
+    const institution = await Institution.find({ area_id: id }); // Finding institutions based on area_name
+    console.log("Corresponding Area Name Data is:", institution);
+    res.status(200).json(institution); // Sending the data back
+  } catch (error) {
+    console.error('Error fetching Institution Data:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+
+
+
+
+
 // READ: Get all Institutions
 router.get('/', async (req, res) => {
   try {
@@ -29,16 +51,16 @@ router.get('/', async (req, res) => {
 });
 
 // READ: Get a specific Institution entry by ID
-router.get('/:id', async (req, res) => {
-  try {
-    const institution = await Institution.findById(req.params.id);
-    if (!institution) return res.status(404).json({ message: 'Institution not found' });
-    res.status(200).json(institution); // Respond with the specific Institution object
-  } catch (err) {
-    console.error("Error fetching Institution by ID:", err);
-    res.status(500).json({ message: err.message });
-  }
-});
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const institution = await Institution.findById(req.params.id);
+//     if (!institution) return res.status(404).json({ message: 'Institution not found' });
+//     res.status(200).json(institution); // Respond with the specific Institution object
+//   } catch (err) {
+//     console.error("Error fetching Institution by ID:", err);
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
 // UPDATE: Update an existing Institution entry by ID
 router.put('/:id', async (req, res) => {
@@ -71,19 +93,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-router.get('/areaId/:id', async (req, res) => {
-  console.log("Request Reached at Institution Route");
-  const { id } = req.params; // Accessing areaName from URL parameter
-  console.log("Area ID is for Institution:", id);
-  try {
-    const institution = await Institution.find({ area_id: id }); // Finding institutions based on area_name
-    console.log("Corresponding Area Name Data is:", institution);
-    res.status(200).json(institution); // Sending the data back
-  } catch (error) {
-    console.error('Error fetching Institution Data:', error);
-    res.status(500).json({ message: 'Server Error' });
-  }
-});
+
 
 
 

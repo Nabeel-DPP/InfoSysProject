@@ -29,11 +29,11 @@ const ordersSchema = new mongoose.Schema({
   },
   dd_amount: {
     type: Number,  // Name of the manager
-    required: true,
+    // required: true,
   },
   order_value: {
     type: Number,  // Email of the manager
-    required: true,
+    // required: true,
     
   },
   Period: {
@@ -42,18 +42,18 @@ const ordersSchema = new mongoose.Schema({
  instructions: 
   { 
     type: String, 
-    required: true,
+    // required: true,
 
 },
 ddNumber: {
     type: Number,  
-    required: true,
+    // required: true,
 
 },
 
 orderType: {
     type: String,  
-    required: true,
+    // required: true,
 
 },
 status: 

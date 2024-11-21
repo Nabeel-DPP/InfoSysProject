@@ -63,22 +63,25 @@ const CreateOrder = () => {
 
   useEffect(() => {
     const fetchAreas = async () => {
-      if(formData.tblDistId){
+      
       try {
         const response = await axios.get(`http://localhost:5555/distributor/type/${formData.tblDistId}`);
-        setDistributorType(response.data);
+       console.log("This is the Response that have dist Type:",response);
+       const resData = response.data;
+       console.log("This is Response Data :",resData );
+        await setDistributorType(resData);
            console.log("Distributor Type Found : " , distributorType);
       } catch (error) {
         console.error("Error fetching areas:", error);
       }
-    }
+  
     };
     fetchAreas();
   }, [formData.tblDistId]);
 
   // Fetch distributors based on selected Area ID
   useEffect(() => {
-    if (selectedAreaId) {
+    
       console.log(selectedAreaId);
       const fetchDistributors = async () => {
         try {
@@ -92,7 +95,7 @@ const CreateOrder = () => {
         }
       };
       fetchDistributors();
-    }
+    
   }, [selectedAreaId]);
 
 
@@ -130,19 +133,22 @@ const CreateOrder = () => {
 
   useEffect(() => {
     const fetchInstitute = async () => {
-      if(selectedAreaId)
-      {
+      
         try {
           console.log("Area ID for Institution is : ", selectedAreaId);
           const response = await axios.get(
             `http://localhost:5555/inst/areaId/${selectedAreaId}`  // Correct URL format, as your backend expects :areaName
           );
-          setInstitution(response.data);
+
+          console.log("This is the Response from Institution : ",response.data);
+         setInstitution(response.data);
           console.log("Coming institution from database is : " , institution);  // Set the institution data
         } catch (error) {
           console.error("Error fetching Institution:", error);
         }
-      }
+      
+      
+       
        
       };
       fetchInstitute();
@@ -150,8 +156,7 @@ const CreateOrder = () => {
   }, [selectedAreaId]);
   
 
- 
-  
+
 
   // Handle input changes
   const handleChange = (e) => {
@@ -168,7 +173,6 @@ const CreateOrder = () => {
       setSelectedAreaId(value);
     }
    
-    
 
   };
 
@@ -184,13 +188,20 @@ const CreateOrder = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+console.log("The Name of Distributor Type is : " , distributorType);
 
     const currentDate = new Date().toISOString().split('T')[0]; 
 
     const updatedFormData = { ...formData, FeedDate: currentDate };
 
-    console.log("Form data being submitted:", updatedFormData);
+    console.log("Update Form Values:", updatedFormData);
+     
+   
 
+
+ 
+
+    
 
 
    
@@ -198,7 +209,7 @@ const CreateOrder = () => {
     try {
       const response = await axios.post(
         "http://localhost:5555/order/",
-        formData
+        updatedFormData
       );
       if (response.status === 201) {
         alert("Order created successfully!");
@@ -278,13 +289,17 @@ const CreateOrder = () => {
       onChange={handleChange}
       value={formData.distType}
       required
+      
     >
+        <option value="" disabled></option>
       {distributorType.map((dist) => (
                     <option key={dist._id} value={dist.distType}>
                       {dist.distType}
                     </option>
-                  ))}
+    ))
+      }
     </select>
+    
     <label className="distributor-label">Distributor Type</label>
   </div>
 </div>
@@ -326,15 +341,15 @@ const CreateOrder = () => {
       <option value="Jan">January</option>
       <option value="Feb">Februrary</option>
       <option value="Mar">March</option>
-      <option value="Jan">April</option>
-      <option value="Feb">May</option>
-      <option value="Mar">June</option>
-      <option value="Jan">July</option>
-      <option value="Feb">August</option>
-      <option value="Mar">September</option>
-      <option value="Jan">October</option>
-      <option value="Feb">November</option>
-      <option value="Mar">December</option>
+      <option value="Apr">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="Jul">July</option>
+      <option value="Aug">August</option>
+      <option value="Sep">September</option>
+      <option value="Oct">October</option>
+      <option value="Nov">November</option>
+      <option value="Dec">December</option>
     </select>
     <label className="distributor-label">Sale Month</label>
   </div>
@@ -383,10 +398,10 @@ const CreateOrder = () => {
 <div className="col-md-6">
               <div className="distributor-input-group">
                 <select
-                  name="institution"
+                  name="instiId"
                   className="distributor-input"
                   onChange={handleChange}
-                  value={formData.institution}
+                  value={formData.instiId}
                   required
                 >
                   <option value=""></option>
