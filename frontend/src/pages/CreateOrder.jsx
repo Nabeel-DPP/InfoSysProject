@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ThemeToggle from '../components/ThemeToggle';
+import SelectProduct from './SelectProduct';
 const CreateOrder = () => {
   const navigate = useNavigate();
   const [areas, setAreas] = useState([]);
@@ -21,6 +22,13 @@ const CreateOrder = () => {
     instiId: '',
     FeedDate: '',
     status:''
+  });
+
+  const [displayData, setDisplayData] = useState({
+    distributorName: '',
+    saleAreaName: '',
+    saleTypeName: '',
+    saleMonthName: '',
   });
 
   useEffect(() => {
@@ -177,6 +185,38 @@ const CreateOrder = () => {
   };
 
 
+  useEffect(() => {
+    const selectedDistributor = distributors.find(
+      (dist) => dist.DistId == formData.tblDistId
+    );
+    console.log("UseEffect Distrtibutor:",selectedDistributor);
+
+    const selectedArea = areas.find(
+      (area) => area.AreaId == formData.tblAreaId
+    );
+    console.log("UseEffect Area:",selectedArea);
+
+    setDisplayData((prevDisplayData) => ({
+      ...prevDisplayData,
+      distributorName: selectedDistributor?.distName || '',
+      saleAreaName: selectedArea?.AreaName || '',
+      saleTypeName:
+        formData.saleType === 'General'
+          ? 'General Sale'
+          : formData.saleType === 'SP'
+          ? 'Special Sale'
+          : '',
+      saleMonthName: formData.saleMonth || '',
+    }));
+  }, [formData, areas, distributors]);
+
+
+
+
+
+
+
+
   const [theme, setTheme] = useState('white'); // Initial form theme
 
   const handleThemeChange = (newTheme) => {
@@ -198,36 +238,31 @@ console.log("The Name of Distributor Type is : " , distributorType);
      
    
 
-
- 
-
-    
-
+   console.log('Display Data:', displayData)
 
    
 
     try {
-      const response = await axios.post(
-        "http://localhost:5555/order/",
-        updatedFormData
-      );
-      if (response.status === 201) {
-        alert("Order created successfully!");
-        setFormData({
-          OrderId: '' ,
-          tblAreaId: '',
-          tblDistId: '',
-          distType:'',
-          subAreaName: '',
-          instiId: '',
-          FeedDate: '',
-          status:''
-        });
-        navigate("/orderTable");
-      } else {
-        alert("Failed to create order.");
-      }
-    } catch (error) {
+      // const response = await axios.post(
+      //   "http://localhost:5555/order//",
+      //   updatedFormData
+      // );
+      // if (response.status === 201) {
+      //   alert("Order created successfully!");
+      //   setFormData({
+      //     OrderId: '' ,
+      //     tblAreaId: '',
+      //     tblDistId: '',
+      //     distType:'',
+      //     subAreaName: '',
+      //     instiId: '',
+      //     FeedDate: '',
+      //     status:''
+      //   });
+        // navigate("/selectProduct");
+        navigate("/selectProduct", { state: { displayData } });
+    }
+     catch (error) {
       console.error("Error:", error);
       alert("Error occurred while submitting the form.");
     }

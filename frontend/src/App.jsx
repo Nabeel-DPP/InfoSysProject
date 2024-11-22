@@ -8,10 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/style.css";
 import "../js/custom.js";
 import 'react-quill/dist/quill.snow.css';
-// import hotkeys from 'hotkeys-js';
+import hotkeys from 'hotkeys-js';
 // import "../plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js";
 
-// import $ from 'jquery';
+import $ from 'jquery';
 
 // import "../js/chart.js";
 // import { SignUp } from "./pages/SignUp.jsx";
@@ -79,6 +79,7 @@ import Rights from "./pages/Rights.jsx";
 import RightsInsert from "./pages/RightsInsert.jsx";
 import RightsEdit from "./pages/RightsEdit.jsx";
 import CreateOrder from "./pages/CreateOrder.jsx";
+import SelectProduct from "./pages/SelectProduct.jsx";
 
  export const App = () => {
    return (
@@ -147,6 +148,7 @@ import CreateOrder from "./pages/CreateOrder.jsx";
           <Route path="/rightsInsert" element={<RightsInsert/>}/>
           <Route path="/rightsEdit" element={<RightsEdit/>}/>
           <Route path="/createOrder" element={<CreateOrder/>}/>
+          <Route path="/selectProduct" element={<SelectProduct/>}/>
           {/* <Route path="/createForm" element={<CreateForm/>} /> */}
           {/* <Route path="/management" element={<ManageSection />} /> */}
           <Route path="/userProfile" element={<UserProfile />} />

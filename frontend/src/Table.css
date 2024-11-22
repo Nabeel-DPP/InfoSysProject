@@ -30,3 +30,21 @@
     color: white;
     
 }
+
+.state-card-header
+{
+    background-color: #385F98 !important;
+    height: 50px !important;
+    color: white ;
+    display: flex !important;
+    justify-content: center ;
+    align-items: center;
+    font-size: 25px !important;
+    font-weight: 500 !important;
+    
+}
+
+.stateInfoContainer
+{
+    border-radius: 10% !important;
+}
