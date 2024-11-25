@@ -251,17 +251,3 @@ const BankInsert = () => {
 };
 
 export default BankInsert;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

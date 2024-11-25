@@ -80,6 +80,7 @@ import RightsInsert from "./pages/RightsInsert.jsx";
 import RightsEdit from "./pages/RightsEdit.jsx";
 import CreateOrder from "./pages/CreateOrder.jsx";
 import SelectProduct from "./pages/SelectProduct.jsx";
+import FinalOrder from "./pages/FinalOrder.jsx";
 
  export const App = () => {
    return (
@@ -149,6 +150,7 @@ import SelectProduct from "./pages/SelectProduct.jsx";
           <Route path="/rightsEdit" element={<RightsEdit/>}/>
           <Route path="/createOrder" element={<CreateOrder/>}/>
           <Route path="/selectProduct" element={<SelectProduct/>}/>
+          <Route path="/finalOrder" element={<FinalOrder/>}/>
           {/* <Route path="/createForm" element={<CreateForm/>} /> */}
           {/* <Route path="/management" element={<ManageSection />} /> */}
           <Route path="/userProfile" element={<UserProfile />} />

@@ -126,8 +126,12 @@ const processRowUpdate = async (newRow, oldRow) => {
       value: saleValue,
     };
 
-    // Optionally, save the updated data to the backend
-    // await axios.put(`http://localhost:5555/product/${newRow._id}`, updatedRow);
+
+
+    setTotalPurchase((prevTotal) => prevTotal + saleValue);
+    const updatedRows = rows.map((row) => (row._id === newRow._id ? updatedRow : row));
+    setRows(updatedRows);
+
 
     return updatedRow;
   } catch (error) {
@@ -202,6 +206,10 @@ const columns = [
   }
 
 
+  const handleProceedToLastStep = () => {
+    navigate('/finalOrder', { state: { rows ,displayData , totalPurchase } });
+  };
+
   return (
     
     <div className='mx-5'>
@@ -213,7 +221,7 @@ const columns = [
     </div>
 
     <div className="stateInfoContainer mt-5 mb-5">
-      <h1 className="text-center mb-4">Select Product</h1>
+     {/* <h1 className="text-center mb-4">Select Product</h1> */}
       {displayData ? (
         <div className="card shadow-sm">
           <div className="state-card-header  ">
@@ -317,6 +325,15 @@ const columns = [
     {showModal && (
         <PopUpModal onConfirm={confirmDelete} onCancel={cancelDelete} />
       )}
+
+<div className="container w-100 mt-5">
+        <button
+          onClick={handleProceedToLastStep}
+          className='btn btn-success mt-5'
+        >
+          Proceed to Last Step
+        </button>
+      </div>
     </div>
   );
 }
