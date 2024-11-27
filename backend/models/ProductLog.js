@@ -7,12 +7,6 @@ const productLogSchema = new mongoose.Schema({
     unique:true
     
   },
-  // prd_id: {
-  //   type: Number,  // Use String or Number depending on the format of your AreaId
-  //   required: true,
-  //   unique: true,  // Ensures no two areas have the same AreaId
-  // },
-
   prod_id: {
     type: Number, // Reference to the Area document
     required: true,
@@ -56,9 +50,10 @@ const productLogSchema = new mongoose.Schema({
   },
 
 
-  bonus_status: {
+  log_status: {
     type:String,  // Date when the area was added or arrived
-  // Set the default to the current date
+    required: true  
+    // Set the default to the current date
   },
 
  

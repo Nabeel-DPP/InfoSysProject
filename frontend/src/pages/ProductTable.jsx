@@ -35,7 +35,10 @@ export default function ProductTable() {
     navigate('/productEdit', { state: { rowData: selectedRow } });
   };
 
-
+  const handleEditBonus = (id) => {
+    const selectedRow = rows.find((row) => row._id === id);
+    navigate('/pdBonusEdit', { state: { rowData: selectedRow } });
+  };
 
 
 
@@ -87,6 +90,24 @@ const columns = [
     { field: 'thera', headerName: 'Therapeutic className', width: 150 },
     { field: 'strength', headerName: 'Strength', width: 150 },
     { field: 'status', headerName: 'Status', width: 130 },
+    {
+      field: 'editBonus',
+      headerName: 'Edit Bonus',
+      width: 150,
+      sortable: false,
+      renderCell: (params) => (
+        <>
+          <button
+           
+            size="small"
+            onClick={() => handleEditBonus(params.row._id)}
+          >
+           <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
+          </button>
+          
+        </>
+      ),
+    },
     {
       field: 'arr_date',
       headerName: 'Arrival Date',

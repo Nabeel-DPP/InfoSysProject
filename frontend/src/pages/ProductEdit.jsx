@@ -105,20 +105,13 @@ const ProductEdit = () => {
     setTheme(newTheme); // Update the form theme
   };
 
-
-
-
-
-
-
-
   return (
     <div> 
     <ThemeToggle onThemeChange={handleThemeChange} />
     <div className={` distributor-form__container ${theme} mt-5`}>
      
     <form onSubmit={handleSubmit} >
-    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product Information</h1>
+    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product General Information</h1>
     <div className="row">
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
@@ -154,13 +147,13 @@ const ProductEdit = () => {
       />
       <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
       <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Distributor ID.
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a Valid Product Name.
       </div>
       <label className="distributor-label">Product Name</label>
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -174,14 +167,14 @@ const ProductEdit = () => {
       />
       <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
       <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Product Form ID.
       </div>
       <label className="distributor-label">Product Form ID</label>
     </div>
-  </div>
+  </div> */}
 
 
-
+{/* 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
@@ -196,16 +189,44 @@ const ProductEdit = () => {
       />
       <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
       <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Area ID.
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Product Name.
       </div>
-      <label className="distributor-label">Product Form Name</label>
+      <label className="distributor-label">Product Form</label>
     </div>
+  </div> */}
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <i className="input-icon fa fa-user"></i>
+    <select
+      required
+      name="prod_form_name"
+      value={formData.prod_form_name}
+      onChange={handleChange}
+      className="distributor-input"
+    >
+      <option value="" disabled>
+        Select Product Form
+      </option>
+      <option value="Inj">Inj</option>
+      <option value="Cap">Cap</option>
+      <option value="Tab">Tab</option>
+      <option value="Susp">Susp</option>
+    </select>
+    <div className="valid-feedback">
+      <i className="fa-regular fa-circle-check"></i>
+    </div>
+    <div className="invalid-feedback">
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please select a valid Product Form.
+    </div>
+    <label className="distributor-label">Product Form</label>
   </div>
+</div>
 
 
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -223,7 +244,7 @@ const ProductEdit = () => {
       </div>
       <label className="distributor-label">Product Type</label>
     </div>
-  </div>
+  </div> */}
 
 
   <div className="col-md-12 col-lg-6 col-sm-12">
@@ -248,7 +269,7 @@ const ProductEdit = () => {
 
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -266,7 +287,7 @@ const ProductEdit = () => {
       </div>
       <label className="distributor-label">Compose</label>
     </div>
-  </div>
+  </div> */}
 
 
 
@@ -294,7 +315,7 @@ const ProductEdit = () => {
 
 
 
-
+{/* 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
@@ -313,13 +334,13 @@ const ProductEdit = () => {
       </div>
       <label className="distributor-label">Thera</label>
     </div>
-  </div>
+  </div> */}
 
 
 
 
   
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -337,14 +358,14 @@ const ProductEdit = () => {
       </div>
       <label className="distributor-label">Strength</label>
     </div>
-  </div>
+  </div> */}
 
 
 
 
 
   
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-user"></i>
       <input
@@ -362,13 +383,13 @@ const ProductEdit = () => {
       </div>
       <label className="distributor-label">Status</label>
     </div>
-  </div>
+  </div> */}
 
 
 
 
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
   <div className="distributor-input-group">
     <input
       type="date"
@@ -380,12 +401,12 @@ const ProductEdit = () => {
     />
     <label className="distributor-label">Arrival Date</label>
   </div>
-</div>
+</div> */}
 
 
 
 
-<div className="col-md-12 col-lg-6 col-sm-12">
+{/* <div className="col-md-12 col-lg-6 col-sm-12">
   <div className="distributor-input-group">
     <input
       type="date"
@@ -397,11 +418,11 @@ const ProductEdit = () => {
     />
     <label className="distributor-label">Ter Date</label>
   </div>
-</div>
+</div> */}
 
 
 
-<div className="col-md-12 col-lg-6 col-sm-12">
+{/* <div className="col-md-12 col-lg-6 col-sm-12">
   <div className="distributor-input-group">
     <input
       type="date"
@@ -413,7 +434,7 @@ const ProductEdit = () => {
     />
     <label className="distributor-label">Change Price Date</label>
   </div>
-</div>
+</div> */}
 
 
 
@@ -438,7 +459,7 @@ const ProductEdit = () => {
     </div>
   </div>
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
+  {/* <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
       <i className="input-icon fa fa-dollar-sign"></i>
       <input
@@ -456,7 +477,7 @@ const ProductEdit = () => {
       </div>
       <label className="distributor-label">Trading</label>
     </div>
-  </div>
+  </div> */}
 
   
 

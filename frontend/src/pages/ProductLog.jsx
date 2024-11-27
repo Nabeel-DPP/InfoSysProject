@@ -118,7 +118,7 @@ const columns = [
       width: 130 
     },
     { 
-      field: 'bonus_status', 
+      field: 'log_status', 
       headerName: 'Bonus Status', 
       width: 150 
     },

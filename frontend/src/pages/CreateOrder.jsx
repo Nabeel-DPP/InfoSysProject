@@ -250,8 +250,6 @@ console.log("The Name of Distributor Type is : " , distributorType);
     console.log("Update Form is :" , formData)
    }
    
-   
-
     try {
       // const response = await axios.post(
       //   "http://localhost:5555/order//",
@@ -269,8 +267,9 @@ console.log("The Name of Distributor Type is : " , distributorType);
       //     FeedDate: '',
       //     status:''
       //   });
+      navigate("/selectProduct", { state: { displayData , formData } });
         
-        navigate("/selectProduct", { state: { displayData , formData } });
+      
 
     }
      catch (error) {

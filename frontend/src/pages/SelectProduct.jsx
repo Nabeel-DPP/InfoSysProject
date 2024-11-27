@@ -32,20 +32,21 @@ const SelectProduct =()=>
   
         // Combine the data into a unified structure
         const combinedData = productResponse.data.map((product) => {
-          const productLog = productLogResponse.data.find((log) => log.prod_id === product.prod_id);
+          const productLog = productLogResponse.data.find((log) => log.prod_id === product.prod_id && log.log_status==1  );
           const orderDetail = orderDetailResponse.data.find((detail) => detail.product_id === product.prod_id);
   
 
           const baseSchemeValue = productLog?.bonus_scheme ? Math.floor(productLog.bonus_scheme / 10) : 0;
           const bonusSchemeValue = productLog?.bonus_units ? Math.floor(productLog.bonus_units / 10) : 0;
           const schemeValue = `${baseSchemeValue}+${bonusSchemeValue}`;
-         
+          
+          
 
           return {
             _id: product._id,
             prod_id: product.prod_id,
             prod_name: product.prod_name,
-            f_price: productLog?.fp || "N/A", // Price from product log
+           f_price: productLog?.fp || "N/A", // Price from product log
             scheme: schemeValue || "N/A",       // Calculated scheme
             // base_units: orderDetail?.base_units || "N/A", // Base packs from order detail
             // bonus_units: orderDetail?.bonus_units || "N/A", // Bonus packs from order detail
@@ -56,7 +57,8 @@ const SelectProduct =()=>
 
           };
 
-        });
+        }).filter((item) => item.f_price !== "N/A");
+        ;
   
 console.log(orderDetailResponse);
 
@@ -68,7 +70,14 @@ console.log(orderDetailResponse);
         setLoading(false);
       }
     };
-  
+
+
+
+
+
+
+
+
     fetchData();
   }, []);
   

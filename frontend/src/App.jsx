@@ -81,6 +81,7 @@ import RightsEdit from "./pages/RightsEdit.jsx";
 import CreateOrder from "./pages/CreateOrder.jsx";
 import SelectProduct from "./pages/SelectProduct.jsx";
 import FinalOrder from "./pages/FinalOrder.jsx";
+import ProductBonusEdit from "./pages/ProductBonusEdit.jsx";
 
  export const App = () => {
    return (
@@ -132,6 +133,7 @@ import FinalOrder from "./pages/FinalOrder.jsx";
           <Route path="/dispatchEdit" element={<DispatchEdit/>} />
           <Route path="/productTable" element={<ProductTable/>} />
           <Route path="/productEdit" element={<ProductEdit/>} />
+          <Route path="/pdBonusEdit" element={<ProductBonusEdit/>}/>
           <Route path="/productInsert" element={<ProductInsert/>} />
           <Route path="/pdLoginInsert" element={<PdLoginInsert/>} />
           <Route path="/pdLogEdit" element={<PdLogEdit/>} />
