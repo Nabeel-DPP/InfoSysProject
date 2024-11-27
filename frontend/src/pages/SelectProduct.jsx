@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 const SelectProduct =()=> 
 { 
   const location = useLocation();
-  const { displayData } = location.state || {};
+  const { displayData , formData } = location.state || {};
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
@@ -275,6 +275,75 @@ const columns = [
           <strong>No data available.</strong>
         </div>
       )}
+
+
+  
+
+
+{formData ? (
+        <div className="card shadow-sm mt-5">
+          <div className="state-card-header  ">
+            <span>Order Form Submitted Data</span>
+          </div>
+          <div className="card-body">
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Order ID :</strong>
+              </div>
+              <div className="col-md-6">
+                {formData.OrderId}
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Area ID:</strong>
+              </div>
+              <div className="col-md-6">
+                {formData.tblAreaId}
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Distributor ID:</strong>
+              </div>
+              <div className="col-md-6">
+                {formData.tblDistId}
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Sub Area ID:</strong>
+              </div>
+              <div className="col-md-6">
+                {formData.subAreaId}
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Institute ID:</strong>
+              </div>
+              <div className="col-md-6">
+              {formData.instiId}
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Discount %:</strong>
+              </div>
+              <div className="col-md-6">
+              {formData.extra}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="alert alert-warning text-center">
+          <strong>No data available.</strong>
+        </div>
+      )}
+
+
+
     </div>
     <div className="table-caption">
     <h3 className="text-center col-md-6 border form-head-text p-2">Product List</h3>

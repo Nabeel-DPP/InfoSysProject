@@ -18,10 +18,11 @@ const CreateOrder = () => {
     tblAreaId: '',
     tblDistId: '',
     distType:'',
-    subAreaName: '',
+    subAreaId: '',
     instiId: '',
     FeedDate: '',
-    status:''
+    // status:'',
+    extra:'',
   });
 
   const [displayData, setDisplayData] = useState({
@@ -232,14 +233,23 @@ console.log("The Name of Distributor Type is : " , distributorType);
 
     const currentDate = new Date().toISOString().split('T')[0]; 
 
-    const updatedFormData = { ...formData, FeedDate: currentDate };
+    // const updatedFormData = { ...formData, FeedDate: currentDate };
 
-    console.log("Update Form Values:", updatedFormData);
+    // console.log("Update Form Values:", updatedFormData);
      
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      FeedDate: currentDate,
+    }));
    
 
    console.log('Display Data:', displayData)
 
+   if(formData.FeedDate)
+   {
+    console.log("Update Form is :" , formData)
+   }
+   
    
 
     try {
@@ -259,8 +269,9 @@ console.log("The Name of Distributor Type is : " , distributorType);
       //     FeedDate: '',
       //     status:''
       //   });
-        // navigate("/selectProduct");
-        navigate("/selectProduct", { state: { displayData } });
+        
+        navigate("/selectProduct", { state: { displayData , formData } });
+
     }
      catch (error) {
       console.error("Error:", error);
@@ -273,7 +284,7 @@ console.log("The Name of Distributor Type is : " , distributorType);
       <ThemeToggle onThemeChange={handleThemeChange} />
       <div className={` distributor-form__container ${theme}`}>
         <form onSubmit={handleSubmit}>
-          <h1 className="distributor-form__title p-1 w-50 mb-5">Order Information</h1>
+          <h1 className="distributor-form__title p-1 w-50 mb-5">Create Order</h1>
           <div className="row">
             <div className="col-md-6">
               <div className="distributor-input-group">
@@ -340,18 +351,34 @@ console.log("The Name of Distributor Type is : " , distributorType);
 </div>
 
 
-
-
-
-
-
 <div className="col-md-6">
   <div className="distributor-input-group">
     <select
-      name="status" // New input field for distributor type
+      name="extra" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={formData.status} // Reflect distType in the form data
+      value={formData.extra} // Reflect distType in the form data
+      required
+    >
+      <option value=""></option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+    <label className="distributor-label">Extra Comission</label>
+  </div>
+</div>
+
+
+
+
+
+{/* <div className="col-md-6">
+  <div className="distributor-input-group">
+    <select
+      name="status"
+      className="distributor-input"
+      onChange={handleChange}
+      value={formData.status} 
       required
     >
       <option value=""></option>
@@ -360,7 +387,7 @@ console.log("The Name of Distributor Type is : " , distributorType);
     </select>
     <label className="distributor-label">Status</label>
   </div>
-</div>
+</div> */}
 
 
 <div className="col-md-6">
@@ -373,18 +400,18 @@ console.log("The Name of Distributor Type is : " , distributorType);
       required
     >
        <option value=""></option>
-      <option value="Jan">January</option>
-      <option value="Feb">Februrary</option>
-      <option value="Mar">March</option>
-      <option value="Apr">April</option>
-      <option value="May">May</option>
-      <option value="June">June</option>
-      <option value="Jul">July</option>
-      <option value="Aug">August</option>
-      <option value="Sep">September</option>
-      <option value="Oct">October</option>
-      <option value="Nov">November</option>
-      <option value="Dec">December</option>
+      <option value="Jan-24">January-2024</option>
+      <option value="Feb-24">Februrar-2024</option>
+      <option value="Mar-24">March-2024</option>
+      <option value="Apr-24">April-2024</option>
+      <option value="May-24">May-2024</option>
+      <option value="June-24">June-2024</option>
+      <option value="Jul-24">July-2024</option>
+      <option value="Aug-24">August-2024</option>
+      <option value="Sep-24">September-2024</option>
+      <option value="Oct-24">October-2024</option>
+      <option value="Nov-24">November-2024</option>
+      <option value="Dec-24">December-2024</option>
     </select>
     <label className="distributor-label">Sale Month</label>
   </div>
@@ -412,10 +439,10 @@ console.log("The Name of Distributor Type is : " , distributorType);
 <div className="col-md-6">
   <div className="distributor-input-group">
     <select
-      name="subAreaName"
+      name="subAreaId"
       className="distributor-input"
       onChange={handleChange}
-      value={formData.subAreaName}
+      value={formData.subAreaId}
       required
     >
       <option value=""></option>
