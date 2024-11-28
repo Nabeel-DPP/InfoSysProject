@@ -119,7 +119,7 @@ const columns = [
     },
     { 
       field: 'log_status', 
-      headerName: 'Bonus Status', 
+      headerName: 'Log Status', 
       width: 150 
     },
     { 

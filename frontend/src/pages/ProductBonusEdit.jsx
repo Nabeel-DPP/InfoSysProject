@@ -8,10 +8,34 @@ const ProductBonusEdit = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { rowData } = location.state || {};
+    const [prodLog, setProdLog] = useState({
+      bonus_scheme: "",
+      bonus_units: "",
+    });
   
 
-    
- 
+    useEffect(() => {
+      const fetchLog = async () => {
+        try {
+          const response = await axios.get(`http://localhost:5555/prodLog/prod_id/${rowData.prod_id}`);
+          console.log("Response from Product Log", response.data);
+  
+          // Assuming response.data contains an object with bonus_scheme and bonus_units
+          if (response.data.length > 0) {
+            setProdLog({
+              bonus_scheme: response.data[0].bonus_scheme,
+              bonus_units: response.data[0].bonus_units,
+            });
+          }
+        } catch (err) {
+          console.error("Error fetching product log:", err);
+        }
+      };
+  
+      fetchLog();
+    }, [rowData.prod_id]);
+
+
   const [formData, setFormData] = useState({
     prod_id: '',           
   prod_name: '',                 
@@ -36,6 +60,15 @@ const ProductBonusEdit = () => {
 
 
 
+  const handleLog = (e) => {
+    const { name, value } = e.target;
+    setProdLog((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+
 
 
 
@@ -48,6 +81,8 @@ const ProductBonusEdit = () => {
       ...formData,
       [name]: value
     });
+
+   
   };
 
 
@@ -58,10 +93,10 @@ const ProductBonusEdit = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   console.log("Submitted Data of Form : ", formData);
+   console.log("Submitted Data of Form : ", prodLog);
    try {
-    await axios.put(`http://localhost:5555/product/${rowData._id}`, formData);
-    navigate("/productTable"); // Navigate back to AreaTable after successful update
+    await axios.put(`http://localhost:5555/prodLog/prod_id/${rowData.prod_id}`, prodLog);
+    navigate("/productLog"); // Navigate back to AreaTable after successful update
   } catch (error) {
     console.error("Error updating Product data: ", error);
   }
@@ -84,81 +119,110 @@ const ProductBonusEdit = () => {
     <div className={` distributor-form__container ${theme} mt-5`}>
      
     <form onSubmit={handleSubmit} >
-    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product General Information</h1>
+    <h1 className="distributor-form__title p-1 w-50 mb-5 ">Product Bonus Information</h1>
     <div className="row">
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="number"
-        name="prod_id"
-        value={formData.prod_id}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Order ID.
-      </div>
-      <label className="distributor-label">Product ID</label>
-    </div>
-  </div>
+  
 
-  <div className="col-md-12 col-lg-6 col-sm-12">
-    <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
-      <input
-        required
-        type="text"
-        name="prod_name"
-        value={formData.prod_name}
-        onChange={handleChange}
-        className="distributor-input"
-        autoComplete="off"
-      />
-      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-      <div className="invalid-feedback">
-        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a Valid Product Name.
-      </div>
-      <label className="distributor-label">Product Name</label>
-    </div>
-  </div>
-
- 
 
 <div className="col-md-12 col-lg-6 col-sm-12">
   <div className="distributor-input-group">
-    <i className="input-icon fa fa-user"></i>
-    <select
+    <i className="fa-regular fa-id-badge input-icon"></i>
+    <input
       required
-      name="prod_form_name"
-      value={formData.prod_form_name}
+      type="number"
+      name="prod_id"
+      value={formData.prod_id}
       onChange={handleChange}
-      className="distributor-input"
-    >
-      <option value="" disabled>
-       
-      </option>
-      <option value="Inj">Inj</option>
-      <option value="Cap">Cap</option>
-      <option value="Tab">Tab</option>
-      <option value="Susp">Susp</option>
-    </select>
+      className={`distributor-input ${
+        formData.prod_id ? "distributor-input-prefilled" : ""
+      }`}
+      autoComplete="off"
+      readOnly={!!formData.prod_id}
+/>
     <div className="valid-feedback">
       <i className="fa-regular fa-circle-check"></i>
     </div>
     <div className="invalid-feedback">
-      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please select a valid Product Form.
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Order ID.
     </div>
-    <label className="distributor-label">Product Form</label>
+    <label
+      className={`distributor-label ${
+        formData.prod_id ? "distributor-label-prefilled" : ""
+      }`}
+    >
+      Product ID
+    </label>
+  </div>
+</div>
+
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+<div className="distributor-input-group">
+  <i class="fa-solid fa-capsules input-icon"></i>
+  <input
+    required
+    type="text"
+    name="prod_name"
+    value={formData.prod_name}
+    onChange={handleChange}
+    className="distributor-input distributor-input-prefilled"
+    autoComplete="off"
+    readOnly
+  />
+  <div className="valid-feedback">
+    <i className="fa-regular fa-circle-check"></i>
+  </div>
+  <div className="invalid-feedback">
+    <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please
+    enter a Valid Product Name.
+  </div>
+  <label className="distributor-label distributor-label-prefilled">Product Name</label>
+</div>
+</div>
+
+
+ 
+
+
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <i class="fa-solid fa-layer-group input-icon"></i>
+    <input
+      required
+      type="text"
+      name="prod_form_name"
+      value={formData.prod_form_name}
+      onChange={handleChange}
+      className={`distributor-input ${
+        formData.prod_form_name ? "distributor-input-prefilled" : ""
+      }`}
+      autoComplete="off"
+      readOnly={!!formData.prod_form_name}
+    />
+    <div className="valid-feedback">
+      <i className="fa-regular fa-circle-check"></i>
+    </div>
+    <div className="invalid-feedback">
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please
+      enter a Valid Product Form.
+    </div>
+    <label
+      className={`distributor-label ${
+        formData.prod_form_name ? "distributor-label-prefilled" : ""
+      }`}
+    >
+      Product Form
+    </label>
   </div>
 </div>
 
 
 
 
+
  
 
 
@@ -166,13 +230,13 @@ const ProductBonusEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
+    <i class="fa-solid fa-briefcase input-icon"></i>
       <input
         required
         type="number"
-        name="base_pack"
-        value={formData.base_pack}
-        onChange={handleChange}
+        name="bonus_scheme"
+        value={prodLog.bonus_scheme}
+        onChange={handleLog}
         className="distributor-input"
         autoComplete="off"
       />
@@ -185,13 +249,13 @@ const ProductBonusEdit = () => {
   </div>
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
+    <i class="fa-solid fa-briefcase-medical input-icon"></i>
       <input
         required
         type="number"
-        name="bonus_pack"
-        value={formData.bonus_pack}
-        onChange={handleChange}
+        name="bonus_units"
+        value={prodLog.bonus_units}
+        onChange={handleLog}
         className="distributor-input"
         autoComplete="off"
       />

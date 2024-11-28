@@ -423,3 +423,47 @@ background: linear-gradient(135deg, rgba(215,55,201,1) 2%, rgba(68,148,153,1) 63
   align-items: center;
   padding: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pre-filled Input Styling */
+.distributor-input-prefilled {
+  background-color: #f9f9f9; /* Subtle background color for readonly fields */
+  cursor: not-allowed; /* Indicate it's non-editable */
+  border: 2px solid #b0bec5; /* Lighter border for readonly input */
+}
+
+.distributor-input-prefilled:focus {
+  border: 2px solid #1a73e8; /* Optional focus effect for readonly input */
+}
+
+.distributor-label-prefilled {
+  position: absolute;
+  left: 15px;
+  top: -7px; /* Always keep the label on top */
+  padding: 0 5px;
+  color: #333333 !important; /* Keep the label prominent */
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Ensure the label remains in the "top" state */
+.distributor-input-prefilled:focus ~ .distributor-label-prefilled,
+.distributor-input-prefilled:valid ~ .distributor-label-prefilled,
+.distributor-input-prefilled[readonly] ~ .distributor-label-prefilled {
+  top: -7px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}

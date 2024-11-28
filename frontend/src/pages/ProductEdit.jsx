@@ -12,21 +12,12 @@ const ProductEdit = () => {
  
   const [formData, setFormData] = useState({
     prod_id: '',           
-  prod_name: '',           
-  prod_form_id: '',       
-  prod_form_name: '',     
-  prd_type: '',          
-  generic: '',           
-  compose: '',            
-  pack: '',               
-  thera: '',               
-  strength: '',           
-  status: '',             
-  arr_date: Date,            
-  ter_date: Date,            
-  change_price_date: Date,  
+  prod_name: '',               
+  prod_form_name: '',               
+  generic: '',                      
+  pack: '',                                       
   ssr_enabled: '',         
-  trading: '',             
+             
   });
 
  
@@ -35,26 +26,13 @@ const ProductEdit = () => {
     if (rowData) {
       setFormData({
         prod_id: rowData.prod_id || '',                 
-      prod_name: rowData.prod_name || '',             
-      prod_form_id: rowData.prod_form_id || '',       
-      prod_form_name: rowData.prod_form_name || '',  
-      prd_type: rowData.prd_type || '',               
-      generic: rowData.generic || '',                
-      compose: rowData.compose || '',                
+      prod_name: rowData.prod_name || '',                 
+      prod_form_name: rowData.prod_form_name || '',              
+      generic: rowData.generic || '',                                
       pack: rowData.pack || '',                       
-      thera: rowData.thera || '',                    
-      strength: rowData.strength || '',              
-      status: rowData.status || '',                 
-      
-      // Handle dates, if provided format them correctly, otherwise use the current date
-      arr_date: rowData.arr_date ? new Date(rowData.arr_date).toISOString().split('T')[0] : '',   
-      ter_date: rowData.ter_date ? new Date(rowData.ter_date).toISOString().split('T')[0] : '',   
-      change_price_date: rowData.change_price_date ? new Date(rowData.change_price_date).toISOString().split('T')[0] : '',
-
       ssr_enabled: rowData.ssr_enabled || '',         
-      trading: rowData.trading || '',                 
-        
-      });
+                 
+       });
     }
   }, [rowData]);
 
@@ -115,7 +93,7 @@ const ProductEdit = () => {
     <div className="row">
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
+    <i class="fa-regular fa-id-badge input-icon"></i>
       <input
         required
         type="number"
@@ -135,7 +113,7 @@ const ProductEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
+    <i class="fa-solid fa-capsules input-icon"></i>
       <input
         required
         type="text"
@@ -197,7 +175,7 @@ const ProductEdit = () => {
 
 <div className="col-md-12 col-lg-6 col-sm-12">
   <div className="distributor-input-group">
-    <i className="input-icon fa fa-user"></i>
+  <i class="fa-solid fa-layer-group input-icon"></i>
     <select
       required
       name="prod_form_name"
@@ -249,7 +227,7 @@ const ProductEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
+    <i class="fa-brands fa-react input-icon"></i>
       <input
         required
         type="text"
@@ -295,7 +273,7 @@ const ProductEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-user"></i>
+    <i class="fa-solid fa-box-archive input-icon"></i>
       <input
         required
         type="text"
@@ -441,7 +419,7 @@ const ProductEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-      <i className="input-icon fa fa-dollar-sign"></i>
+    <i class="fa-solid fa-file-pen input-icon"></i>
       <input
         required
         type="number"

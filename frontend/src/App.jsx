@@ -82,6 +82,7 @@ import CreateOrder from "./pages/CreateOrder.jsx";
 import SelectProduct from "./pages/SelectProduct.jsx";
 import FinalOrder from "./pages/FinalOrder.jsx";
 import ProductBonusEdit from "./pages/ProductBonusEdit.jsx";
+import ProductPriceEdit from "./pages/ProductPriceEdit.jsx";
 
  export const App = () => {
    return (
@@ -137,6 +138,7 @@ import ProductBonusEdit from "./pages/ProductBonusEdit.jsx";
           <Route path="/productInsert" element={<ProductInsert/>} />
           <Route path="/pdLoginInsert" element={<PdLoginInsert/>} />
           <Route path="/pdLogEdit" element={<PdLogEdit/>} />
+          <Route path="/pdPriceEdit" element={<ProductPriceEdit/>} />
           <Route path="/productLog" element={<ProductLog/>} />
           <Route path="/productQuota" element={<ProductQuota/>} />
           <Route path="/pdQuotaInsert" element={<PdQuotaInsert/>} />

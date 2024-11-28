@@ -51,7 +51,7 @@ const productLogSchema = new mongoose.Schema({
 
 
   log_status: {
-    type:String,  // Date when the area was added or arrived
+    type:Number,  // Date when the area was added or arrived
     required: true  
     // Set the default to the current date
   },

@@ -39,7 +39,10 @@ export default function ProductTable() {
     const selectedRow = rows.find((row) => row._id === id);
     navigate('/pdBonusEdit', { state: { rowData: selectedRow } });
   };
-
+  const handleEditPrice = (id) => {
+    const selectedRow = rows.find((row) => row._id === id);
+    navigate('/pdPriceEdit', { state: { rowData: selectedRow } });
+  };
 
 
 
@@ -128,6 +131,24 @@ const columns = [
       width: 150,
       renderCell: (params) =>
         params.row.change_price_date ? format(new Date(params.row.change_price_date), 'dd/MM/yyyy') : '',
+    },
+    {
+      field: 'editPrice',
+      headerName: 'Edit Price',
+      width: 150,
+      sortable: false,
+      renderCell: (params) => (
+        <>
+          <button
+           
+            size="small"
+            onClick={() => handleEditPrice(params.row._id)}
+          >
+           <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
+          </button>
+          
+        </>
+      ),
     },
     { field: 'ssr_enabled', headerName: 'SSR Enabled', width: 150 },
     { field: 'trading', headerName: 'Trading', width: 130 },
