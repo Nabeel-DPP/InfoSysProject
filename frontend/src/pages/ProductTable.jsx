@@ -7,6 +7,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 import { format } from 'date-fns';
+import { EditModal } from './EditModal';
 export default function ProductTable() {
   const navigate = useNavigate();
 
@@ -14,6 +15,11 @@ export default function ProductTable() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [editRow , setEditRow] = useState(null);
+
+
+  const [showEditModal, setShowEditModal] = useState(false); // Modal visibility
+const [editRowData, setEditRowData] = useState(null); // Row data for modal
+
 
   useEffect(() => {
     const fetchAreas = async () => {
@@ -45,7 +51,12 @@ export default function ProductTable() {
   };
 
 
-
+  const handleEditClickModal = (id) => {
+    const selectedRow = rows.find((row) => row._id === id);
+    setEditRowData(selectedRow); // Store row data for modal
+    setShowEditModal(true); // Show modal
+  };
+  
 
 
 
@@ -82,7 +93,7 @@ const cancelDelete = () => {
 
 
 const columns = [
-    { field: 'prod_id', headerName: 'Product ID', width: 130 },
+    { field: 'prod_id', headerName: 'Product ID', width: 130  },
     { field: 'prod_name', headerName: 'Product Name', width: 180 },
     { field: 'prod_form_id', headerName: 'Product Form ID', width: 150 },
     { field: 'prod_form_name', headerName: 'Product Form Name', width: 150 },
@@ -93,24 +104,24 @@ const columns = [
     { field: 'thera', headerName: 'Therapeutic className', width: 150 },
     { field: 'strength', headerName: 'Strength', width: 150 },
     { field: 'status', headerName: 'Status', width: 130 },
-    {
-      field: 'editBonus',
-      headerName: 'Edit Bonus',
-      width: 150,
-      sortable: false,
-      renderCell: (params) => (
-        <>
-          <button
+    // {
+    //   field: 'editBonus',
+    //   headerName: 'Edit Bonus',
+    //   width: 150,
+    //   sortable: false,
+    //   renderCell: (params) => (
+    //     <>
+    //       <button
            
-            size="small"
-            onClick={() => handleEditBonus(params.row._id)}
-          >
-           <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
-          </button>
+    //         size="small"
+    //         onClick={() => handleEditBonus(params.row._id)}
+    //       >
+    //        <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
+    //       </button>
           
-        </>
-      ),
-    },
+    //     </>
+    //   ),
+    // },
     {
       field: 'arr_date',
       headerName: 'Arrival Date',
@@ -132,24 +143,24 @@ const columns = [
       renderCell: (params) =>
         params.row.change_price_date ? format(new Date(params.row.change_price_date), 'dd/MM/yyyy') : '',
     },
-    {
-      field: 'editPrice',
-      headerName: 'Edit Price',
-      width: 150,
-      sortable: false,
-      renderCell: (params) => (
-        <>
-          <button
+    // {
+    //   field: 'editPrice',
+    //   headerName: 'Edit Price',
+    //   width: 150,
+    //   sortable: false,
+    //   renderCell: (params) => (
+    //     <>
+    //       <button
            
-            size="small"
-            onClick={() => handleEditPrice(params.row._id)}
-          >
-           <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
-          </button>
+    //         size="small"
+    //         onClick={() => handleEditPrice(params.row._id)}
+    //       >
+    //        <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
+    //       </button>
           
-        </>
-      ),
-    },
+    //     </>
+    //   ),
+    // },
     { field: 'ssr_enabled', headerName: 'SSR Enabled', width: 150 },
     { field: 'trading', headerName: 'Trading', width: 130 },
 
@@ -159,14 +170,11 @@ const columns = [
         width: 150,
         sortable: false,
         renderCell: (params) => (
-          <>
-            <button
-             
-              size="small"
-              onClick={() => handleEditClick(params.row._id)}
-            >
-             <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
-            </button>
+          <div className='d-flex justify-content-between mx-4'>
+           <button onClick={() => handleEditClickModal(params.row._id)}>
+            <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
+          </button>
+        
             <button
               data-bs-toggle="modal"
   data-bs-target="#staticBackdrop"
@@ -176,9 +184,10 @@ const columns = [
             >
              <i className="tableIcons delete-btn fa-solid fa-trash"></i>
             </button>
-          </>
+          </div>
         ),
       },
+     
   ];
   if (loading) {
     return <div>Loading...</div>;
@@ -241,6 +250,15 @@ const columns = [
     {showModal && (
         <PopUpModal onConfirm={confirmDelete} onCancel={cancelDelete} />
       )}
+      {showEditModal && (
+  <EditModal
+    rowData={editRowData} // Pass selected row data
+    onClose={() => setShowEditModal(false)} // Close modal
+    onEdit={handleEditClick} // Pass edit handler
+    onEditBonus={handleEditBonus} // Pass bonus edit handler
+    onEditPrice={handleEditPrice} // Pass price edit handler
+  />
+)}
     </div>
   );
 }

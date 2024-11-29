@@ -57,39 +57,64 @@ const ProductPriceEdit = () => {
       }, [rowData.prod_id]);
     
   
-      const columns = [
-        { field: "scheme_id", headerName: "Scheme #", width: 90 },
-        { field: "bonus_scheme", headerName: "Bonus Scheme", width:110 },
-        { field: "bonus_units", headerName: "Bonus Units", width: 110 },
-        { field: "fp", headerName: "Factory Price", width: 120 },
-        { field: "tp", headerName: "Trader Price", width: 110 },
-        { field: "log_status", headerName: "Log Status", width: 90 }, 
-        {
-            field: 'toggle_scheme',
-            headerName: 'Change Scheme',
-            width: 120,
-            sortable: false,
-            renderCell: (params) => (
-              <>
-                <button
+      // const columns = [
+      //   { field: "scheme_id", headerName: "Scheme #", width: 90 },
+      //   { field: "bonus_scheme", headerName: "Bonus Scheme", width:110 },
+      //   { field: "bonus_units", headerName: "Bonus Units", width: 110 },
+      //   { field: "fp", headerName: "Factory Price", width: 120 },
+      //   { field: "tp", headerName: "Trader Price", width: 110 },
+      //   { field: "log_status", headerName: "Log Status", width: 90 }, 
+      //   {
+      //       field: 'toggle_scheme',
+      //       headerName: 'Change Scheme',
+      //       width: 120,
+      //       sortable: false,
+      //       renderCell: (params) => (
+      //         <>
+      //           <button
                   
-                 className='btn-success btn'
-                  onClick={() => handletoggle(params.row._id)}
-                >
-                 <i class="fa-solid fa-repeat"></i>
-                </button>
+      //            className='btn-success btn'
+      //             onClick={() => handletoggle(params.row._id)}
+      //           >
+      //            <i class="fa-solid fa-repeat"></i>
+      //           </button>
                 
-              </>
-            ),
-          },
+      //         </>
+      //       ),
+      //     },
         
       
 
-        // Add other relevant fields here
+      //   // Add other relevant fields here
+      // ];
+
+
+
+
+      const columns = [
+        { field: "scheme_id", headerName: "Scheme #", width: 90, flex: 1 }, // You can use `flex` instead of `width`
+        { field: "bonus_scheme", headerName: "Bonus Scheme", width: 110, flex: 1 },
+        { field: "bonus_units", headerName: "Bonus Units", width: 110, flex: 1 },
+        { field: "fp", headerName: "Factory Price", width: 120, flex: 1 },
+        { field: "tp", headerName: "Trader Price", width: 110, flex: 1 },
+        { field: "log_status", headerName: "Log Status", width: 90, flex: 1 },
+        {
+          field: 'toggle_scheme',
+          headerName: 'Change Scheme',
+          width: 120,
+          sortable: false,
+          renderCell: (params) => (
+            <button
+              className='btn-success btn'
+              onClick={() => handletoggle(params.row._id)}
+            >
+              <i className="fa-solid fa-repeat"></i>
+            </button>
+          ),
+          flex: 1, // Flex for the action column as well
+        },
       ];
-
-
-
+      
 
 
 

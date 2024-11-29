@@ -155,52 +155,31 @@ const handleProcessRowUpdateError = (error) => {
 
 
 const columns = [
-  { field: 'prod_id', headerName: 'Sr. #', width: 75 },
-  { field: 'prod_name', headerName: 'Product Name', width: 230 },
-  { field: 'f_price', headerName: 'Price', width: 80 },
-  { field: 'scheme', headerName: 'Scheme', width: 80 },
+  { field: 'prod_id', headerName: 'Sr. #', width: 75 , flex:1 },
+  { field: 'prod_name', headerName: 'Product Name', width: 230 , flex:1 },
+  { field: 'f_price', headerName: 'Price', width: 80, flex:1 } ,
+  { field: 'scheme', headerName: 'Scheme', width: 80 , flex:1 },
   {
     field: 'base_units',
     headerName: 'Base Packs',
     width: 100,
     editable: true, // Allow editing
+    flex:1
   },
   {
     field: 'bonus_units',
     headerName: 'Bonus Packs',
     width: 110,
+     flex:1
   },
   {
     field: 'value',
     headerName: 'Sale Value',
     width: 100,
+     flex:1
   },
-  { field: 'narration', headerName: 'Narration', width: 100 },
-  {
-    field: 'action',
-    headerName: 'Actions',
-    width: 80,
-    sortable: false,
-    renderCell: (params) => (
-      <>
-        <button
-          size="small"
-          onClick={() => handleEditClick(params.row._id)}
-        >
-          <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
-        </button>
-        <button
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
-          size="small"
-          onClick={() => handleDeleteClick(params.row._id)}
-          style={{ marginLeft: 10 }}
-        >
-          <i className="tableIcons delete-btn fa-solid fa-trash"></i>
-        </button>
-      </>
-    ),
-  },
+  { field: 'narration', headerName: 'Narration', width: 100 , flex:1 },
+ 
 ];
 
 
@@ -216,7 +195,7 @@ const columns = [
 
 
   const handleProceedToLastStep = () => {
-    navigate('/finalOrder', { state: { rows ,displayData , totalPurchase } });
+    navigate('/finalOrder', { state: { rows ,displayData , totalPurchase, formData } });
   };
 
   return (
@@ -288,8 +267,8 @@ const columns = [
 
   
 
-
-{formData ? (
+{/* This is just for testing that form Data is reached at SelectProduct component or not : its passing !! */}
+{/* {formData ? (
         <div className="card shadow-sm mt-5">
           <div className="state-card-header  ">
             <span>Order Form Submitted Data</span>
@@ -349,7 +328,7 @@ const columns = [
         <div className="alert alert-warning text-center">
           <strong>No data available.</strong>
         </div>
-      )}
+      )} */}
 
 
 
