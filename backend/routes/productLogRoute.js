@@ -1,5 +1,6 @@
 import express from 'express';
-import { ProductLog } from '../models/ProductLog.js'; // Assuming ProductLog model is defined
+import { ProductLog } from '../models/ProductLog.js';
+import { Product } from '../models/Product.js'; // Assuming ProductLog model is defined
 const router = express.Router();
 
 //Sir Logic for Bonus Scheme 
@@ -83,6 +84,8 @@ router.put('/prod_id/:id', async (req, res) => {
       // Set the current timestamp
       await newLog.save();
       console.log("New Product Log Created:", newLog);
+
+      
 
       return res.status(201).json({
         message: 'New log created successfully',
@@ -180,6 +183,20 @@ router.put('/price/:id', async (req, res) => {
 
       await newLog.save();
       console.log("New Log Created:", newLog);
+
+      const currentDate = new Date(); // Or parsed date
+      console.log("Hello",currentDate);
+
+const updatedProduct = await Product.findOneAndUpdate(
+  { prod_id },
+  { $set: { change_price_date: currentDate } },
+  { new: true } // Return the updated document
+);
+if (!updatedProduct) {
+  return res.status(404).json({ message: 'Product not found' });
+}
+console.log("Updated Product:", updatedProduct);
+
       return res.status(201).json({
         message: 'New log created successfully',
         data: newLog,
