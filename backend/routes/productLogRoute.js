@@ -1,60 +1,198 @@
 import express from 'express';
-import { ProductLog } from '../models/ProductLog.js';  // Assuming ProductLog model is defined
+import { ProductLog } from '../models/ProductLog.js'; // Assuming ProductLog model is defined
 const router = express.Router();
 
-// CREATE: Add a new product log
+//Sir Logic for Bonus Scheme 
+
 router.put('/prod_id/:id', async (req, res) => {
   try {
     const prod_id = req.params.id; // Extract prod_id from the route parameter
     const { bonus_scheme, bonus_units } = req.body; // Extract updated values from the request body
-   
-    // Find the document with the specified prod_id and update the values
-    const updatedProductLog = await ProductLog.findOneAndUpdate(
-      { prod_id, log_status: 1 }, // Query to find the document by prod_id
-      { $set: { bonus_scheme, bonus_units } }, // Fields to update
-      { new: true, runValidators: true } // Options: return the updated document
-    );
+    console.log("Request Reached at prod_id route");
 
-    if (!updatedProductLog) {
-      return res.status(404).json({ message: 'Product log not found' });
+    // Step 1: Find all logs for the given product ID
+    const productLogs = await ProductLog.find({ prod_id });
+
+    let matchedLog = null;
+
+    // Step 2: Check if any existing log matches the provided values (bonus_scheme, bonus_units)
+    for (let log of productLogs) {
+      if (
+        log.bonus_scheme === bonus_scheme &&
+        log.bonus_units === bonus_units
+      ) {
+        matchedLog = log;
+        break;
+      }
     }
-   
-    res.status(200).json({ message: 'Product log updated successfully', data: updatedProductLog });
+
+    if (matchedLog) {
+      // Step 3: Update the matched log to `log_status: 1` and reset others to `log_status: 0`
+      await ProductLog.updateMany({ prod_id }, { $set: { log_status: 0 } }); // Reset all logs
+
+      // Set the log_status to 1 for the matched log
+      matchedLog.log_status = 1;
+      await matchedLog.save();
+      console.log("Updated Log:", matchedLog);
+
+      return res.status(200).json({
+        message: 'Matching log updated successfully',
+        data: matchedLog,
+      });
+    } else {
+      // Step 4: Prepare data for the new log
+
+      // Find the active log to copy `fp`, `tp`, `mrp`, and `type`
+      const activeLog = productLogs.find(log => log.log_status === 1);
+      if (!activeLog) {
+        return res.status(404).json({ message: 'No active log found' });
+      }
+
+      const { fp, tp, mrp, type } = activeLog; // Extract from the active log
+
+      // Increment `prod_log_id` (use a counter collection or fetch max value from ProductLog)
+      const maxProdLogId = await ProductLog.findOne({}).sort({ prod_log_id: -1 }).select('prod_log_id');
+      const prod_log_id = maxProdLogId ? maxProdLogId.prod_log_id + 1 : 1;
+
+      // Increment `scheme_id` based on the active log
+      const scheme_id = activeLog.scheme_id + 1;
+
+      // Step 5: Reset all `log_status` to 0 for the current product
+      await ProductLog.updateMany({ prod_id }, { $set: { log_status: 0 } });
+
+      // Step 6: Create a new log with `remarks` set to "Bonus Scheme Change"
+      const parsedEntryDate = req.body.entry_date
+        ? new Date(req.body.entry_date.split('-').reverse().join('-')) // Convert from DD-MM-YY to Date
+        : new Date(); // Default to current date if not provided
+
+      const newLog = new ProductLog({
+        prod_log_id,
+        prod_id,
+        scheme_id,
+        bonus_scheme,
+        bonus_units,
+        fp, // From the active log
+        tp, // From the active log
+        mrp, // From the active log
+        entry_date: parsedEntryDate, // Parsed date or current date
+        remarks: 'Bonus Scheme Change', // Remarks
+        type, // From the active log
+        log_status: 1, // Set log_status to 1 for the newly created log
+      });
+
+      // Set the current timestamp
+      await newLog.save();
+      console.log("New Product Log Created:", newLog);
+
+      return res.status(201).json({
+        message: 'New log created successfully',
+        data: newLog,
+      });
+
+     
+    }
   } catch (error) {
-    console.error('Error updating product log:', error);
-    res.status(500).json({ message: 'Error updating product log', error: error.message });
+    console.error('Error handling product logs:', error);
+    res.status(500).json({
+      message: 'Error handling product logs',
+      error: error.message,
+    });
   }
 });
 
 
-
-
-//For inserting the values of FP and TP
+//New Logic by Sir Amir to Update FP TP MRP 
+//Final Director's Cut 
 router.put('/price/:id', async (req, res) => {
   try {
     const prod_id = req.params.id; // Extract prod_id from the route parameter
-    const { fp, tp } = req.body; // Extract updated values from the request body
-    
-    // Find the document with the specified prod_id and update the values
-    const updatedProductLog = await ProductLog.findOneAndUpdate(
-      { prod_id, log_status: 1 }, // Query to find the document by prod_id
-      { $set: { fp, tp } }, // Fields to update
-      { new: true, runValidators: true } // Options: return the updated document
-    );
+    const { fp, tp, mrp, entry_date } = req.body; // Extract updated values from the request body
+    console.log("Request Reached at merged route");
 
-    if (!updatedProductLog) {
-      return res.status(404).json({ message: 'Product log not found' });
+    // Parse entry_date to a valid Date object using moment
+    const parsedEntryDate = entry_date
+      ? moment(entry_date, 'DD-MM-YY').toDate() // Parse with moment
+      : new Date(); // Default to current date if not provided
+
+    if (!parsedEntryDate || isNaN(parsedEntryDate)) {
+      return res.status(400).json({ message: 'Invalid entry_date format' });
     }
-    console.log("Updated Log:" , updatedProductLog);
-    res.status(200).json({ message: 'Product log updated successfully', data: updatedProductLog });
+
+    // Step 1: Find all logs for the given product ID
+    const productLogs = await ProductLog.find({ prod_id });
+
+    let matchedLog = null;
+
+    // Step 2: Check if any existing log matches the provided fp, tp, and mrp values
+    for (let log of productLogs) {
+      if (log.fp === fp && log.tp === tp && log.mrp === mrp) {
+        matchedLog = log;
+        break;
+      }
+    }
+
+    if (matchedLog) {
+      // Step 3: Update the matched log to `log_status: 1` and reset others to `log_status: 0`
+      await ProductLog.updateMany({ prod_id }, { $set: { log_status: 0 } }); // Reset all logs
+      matchedLog.log_status = 1;
+      matchedLog.entry_date = parsedEntryDate; // Update the entry_date to the parsed date
+      await matchedLog.save();
+      console.log("Updated Log:", matchedLog);
+      return res.status(200).json({
+        message: 'Matching log updated successfully',
+        data: matchedLog,
+      });
+    } else {
+      // Step 4: Handle case where no matching log is found and create a new log
+
+      // Find the active log for the product (log_status: 1)
+      const activeLog = productLogs.find(log => log.log_status === 1);
+
+      // Increment prod_log_id (get the highest prod_log_id and increment)
+      const maxProdLogId = await ProductLog.findOne({}).sort({ prod_log_id: -1 }).select('prod_log_id');
+      const prod_log_id = maxProdLogId ? maxProdLogId.prod_log_id + 1 : 1;
+
+      // Increment scheme_id based on the active log
+      const scheme_id = activeLog ? activeLog.scheme_id + 1 : 1;
+
+      // Set bonus_scheme, bonus_units, and type from the active log if it exists, otherwise default values
+      const bonus_scheme = activeLog ? activeLog.bonus_scheme : 0;
+      const bonus_units = activeLog ? activeLog.bonus_units : 0;
+      const type = activeLog ? activeLog.type : 0;
+
+      // Step 5: Reset all logs for the product to log_status: 0 and create a new log
+      await ProductLog.updateMany({ prod_id }, { $set: { log_status: 0 } });
+
+      const newLog = new ProductLog({
+        prod_log_id,
+        prod_id,
+        scheme_id,
+        bonus_scheme,
+        bonus_units,
+        fp,
+        tp,
+        mrp,
+        entry_date: parsedEntryDate, // Set the parsed entry_date here
+        remarks: 'Price Change',
+        type,
+        log_status: 1,
+      });
+
+      await newLog.save();
+      console.log("New Log Created:", newLog);
+      return res.status(201).json({
+        message: 'New log created successfully',
+        data: newLog,
+      });
+    }
   } catch (error) {
-    console.error('Error updating product log:', error);
-    res.status(500).json({ message: 'Error updating product log', error: error.message });
+    console.error('Error handling product logs:', error);
+    res.status(500).json({
+      message: 'Error handling product logs',
+      error: error.message,
+    });
   }
 });
-
-
-
 
 
 

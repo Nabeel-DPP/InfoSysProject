@@ -101,6 +101,16 @@ const columns = [
       width: 130 
     },
     { 
+      field: 'tp', 
+      headerName: 'TP', 
+      width: 150 
+    },
+    { 
+      field: 'mrp', 
+      headerName: 'MRP', 
+      width: 130 
+    },
+    { 
       field: 'entry_date', 
       headerName: 'Entry Date', 
       width: 180, 
@@ -122,16 +132,7 @@ const columns = [
       headerName: 'Log Status', 
       width: 150 
     },
-    { 
-      field: 'tp', 
-      headerName: 'TP', 
-      width: 150 
-    },
-    { 
-      field: 'mrp', 
-      headerName: 'MRP', 
-      width: 130 
-    },
+    
     {
         field: 'action',
         headerName: 'Actions',

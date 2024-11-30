@@ -17,6 +17,7 @@ const ProductPriceEdit = () => {
     const [prodLog, setProdLog] = useState({
     fp:"",
     tp:"",
+    mrp:""
     });
   
     const [logs, setLogs] = useState([]); // State to store fetched logs
@@ -32,6 +33,7 @@ const ProductPriceEdit = () => {
             setProdLog({
               fp: response.data[0].fp,
               tp: response.data[0].tp,
+              mrp: response.data[0].mrp,
             });
           }
         } catch (err) {
@@ -97,6 +99,7 @@ const ProductPriceEdit = () => {
         { field: "bonus_units", headerName: "Bonus Units", width: 110, flex: 1 },
         { field: "fp", headerName: "Factory Price", width: 120, flex: 1 },
         { field: "tp", headerName: "Trader Price", width: 110, flex: 1 },
+        { field: "mrp", headerName: "Market Retail Price", width: 110, flex: 1 },
         { field: "log_status", headerName: "Log Status", width: 90, flex: 1 },
         {
           field: 'toggle_scheme',
@@ -191,7 +194,8 @@ const ProductPriceEdit = () => {
     if (selectedRow) {
       setProdLog({
         fp: selectedRow.fp, // Set factory price
-        tp: selectedRow.tp, // Set trader price
+        tp: selectedRow.tp,
+        mrp: selectedRow.mrp, // Set trader price
       });
     }
   };
@@ -355,6 +359,27 @@ const ProductPriceEdit = () => {
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid DD Amount.
       </div>
       <label className="distributor-label">Trader Price</label>
+    </div>
+  </div>
+
+  <div className="col-md-12 col-lg-6 col-sm-12">
+    <div className="distributor-input-group">
+    <i class="fa-solid fa-store input-icon"></i>
+      <input
+        required
+        type="number"
+        name="mrp"
+        value={prodLog.mrp}
+        // onChange={handleLog}
+        onChange={(e) => setProdLog({ ...prodLog, mrp: e.target.value })}
+        className="distributor-input"
+        autoComplete="off"
+      />
+      <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+      <div className="invalid-feedback">
+        <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid DD Amount.
+      </div>
+      <label className="distributor-label">Max Retail Price</label>
     </div>
   </div>
  
