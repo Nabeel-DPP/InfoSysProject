@@ -54,6 +54,7 @@ const SelectProduct =()=>
             base_units:"",
             bonus_units:"",
             value:"",
+            rpb:productLog?.rpb
 
           };
 
@@ -123,10 +124,23 @@ const cancelDelete = () => {
 const processRowUpdate = async (newRow, oldRow) => {
   try {
     // Calculate bonus_units and value dynamically based on the new base_units
-    const [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
+    let [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
     console.log("Base :",baseSchemeValue);
     console.log("Bonus :",bonusSchemeValue);
-    const bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue ); // Example: 10% of base_units
+    console.log(newRow.rpb);
+    let bonusUnits=0;
+    if(newRow.base_units >= newRow.rpb)
+    {
+     bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue );  
+    }
+    else 
+    {
+      bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * 1 );
+      bonusSchemeValue = 1; // Change the bonus scheme value
+      newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`; // Update the scheme field
+    }
+    
+    // const bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue ); // Example: 10% of base_units
     const saleValue = Math.floor(newRow.base_units * newRow.f_price); // Example: base_units * f_price
 
     const updatedRow = {

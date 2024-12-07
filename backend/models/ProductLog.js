@@ -24,6 +24,11 @@ const productLogSchema = new mongoose.Schema({
     type: Number,  // Example: 'Active', 'Inactive', or other statuses
     required: true,
   },
+  rpb:
+  {
+    type:Number
+  },
+  
   fp: {
     type:Number,  // Date when the area was added or arrived
   // Set the default to the current date
