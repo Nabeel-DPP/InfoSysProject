@@ -8,7 +8,7 @@ const router = express.Router();
 router.put('/prod_id/:id', async (req, res) => {
   try {
     const prod_id = req.params.id; // Extract prod_id from the route parameter
-    const { bonus_scheme, bonus_units } = req.body; // Extract updated values from the request body
+    const { bonus_scheme, bonus_units , fp , tp , mrp } = req.body; // Extract updated values from the request body
     console.log("Request Reached at prod_id route");
 
     // Step 1: Find all logs for the given product ID
@@ -18,11 +18,13 @@ router.put('/prod_id/:id', async (req, res) => {
 
     // Step 2: Check if any existing log matches the provided values (bonus_scheme, bonus_units)
     for (let log of productLogs) {
+  
       if (
-        log.bonus_scheme === bonus_scheme &&
-        log.bonus_units === bonus_units
+        log.bonus_scheme == bonus_scheme &&
+        log.bonus_units ==bonus_units && log.fp == fp && log.tp == tp && log.mrp == mrp
       ) {
         matchedLog = log;
+        console.log("All Conditions are True");
         break;
       }
     }
@@ -109,7 +111,7 @@ router.put('/prod_id/:id', async (req, res) => {
 router.put('/price/:id', async (req, res) => {
   try {
     const prod_id = req.params.id; // Extract prod_id from the route parameter
-    const { fp, tp, mrp, entry_date } = req.body; // Extract updated values from the request body
+    const { fp, tp, mrp, entry_date , base , bonus} = req.body; // Extract updated values from the request body
     console.log("Request Reached at merged route");
 
     // Parse entry_date to a valid Date object using moment
@@ -128,7 +130,7 @@ router.put('/price/:id', async (req, res) => {
 
     // Step 2: Check if any existing log matches the provided fp, tp, and mrp values
     for (let log of productLogs) {
-      if (log.fp === fp && log.tp === tp && log.mrp === mrp) {
+      if (log.fp === fp && log.tp === tp && log.mrp === mrp && log.bonus_scheme === base && log.bonus_units==bonus) {
         matchedLog = log;
         break;
       }

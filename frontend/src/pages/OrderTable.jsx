@@ -20,6 +20,7 @@ export default function OrderTable() {
       try {
         const response = await axios.get("http://localhost:5555/order");
         setRows(response.data);
+        console.log(response.data[917]);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching the areas data: ", error);

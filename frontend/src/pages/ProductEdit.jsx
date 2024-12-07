@@ -8,7 +8,7 @@ const ProductEdit = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { rowData } = location.state || {};
-  
+    const [snackbar , setSnackbar] = useState(false);
  
   const [formData, setFormData] = useState({
     prod_id: '',           
@@ -66,7 +66,8 @@ const ProductEdit = () => {
    console.log("Submitted Data of Form : ", formData);
    try {
     await axios.put(`http://localhost:5555/product/${rowData._id}`, formData);
-    navigate("/productTable"); // Navigate back to AreaTable after successful update
+    // navigate("/productTable"); // Navigate back to AreaTable after successful update
+    navigate("/productTable" , { state: { snackbar:true , formData  } })
   } catch (error) {
     console.error("Error updating Product data: ", error);
   }

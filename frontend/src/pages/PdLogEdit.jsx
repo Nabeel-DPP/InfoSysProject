@@ -21,7 +21,7 @@ const PdLogEdit = () => {
     entry_date: Date, // Entry Date (Date)
     remarks: '',            // Remarks (String)
     type: '',               // Type (Number)
-    bonus_status: '',       // Bonus Status (String)
+    log_status: '',       // Bonus Status (String)
     tp: '',                 // Lead Days (Number)
     mrp: '',                // Maximum Retail Price (Number)
 });
@@ -291,8 +291,8 @@ useEffect(() => {
       <input
         required
         type="text"
-        name="bonus_status"
-        value={formData.bonus_status}
+        name="log_status"
+        value={formData.log_status}
         onChange={handleChange}
         className="distributor-input"
         autoComplete="off"
@@ -301,7 +301,7 @@ useEffect(() => {
       <div className="invalid-feedback">
         <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Period.
       </div>
-      <label className="distributor-label">Bonus Status</label>
+      <label className="distributor-label">Log Status</label>
     </div>
   </div>
 

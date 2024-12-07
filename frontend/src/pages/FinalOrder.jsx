@@ -9,6 +9,9 @@ const FinalOrder = () => {
   const location = useLocation();
   const { rows } = location.state || {};
   const { totalPurchase, displayData , formData } = location.state || {};
+  console.log("Display Data for Testing" , displayData);
+  console.log("Form Data for Testing" , formData);
+  console.log("Total Purchase for Testing" , totalPurchase);
   const filteredRows = rows.filter(row => row.base_units && row.bonus_units && row.value);
   console.log("Rows Data : " , rows);
 
@@ -50,6 +53,7 @@ const FinalOrder = () => {
         <strong>Sale Type:</strong>
       </div>
       <div className="col-md-6">{displayData.saleTypeName}</div>
+      
     </div>
     <div className="row mb-3">
       <div className="col-md-6">
@@ -171,7 +175,7 @@ const FinalOrder = () => {
 
      
     </div>
-     <FinalOrderForm/>
+     <FinalOrderForm formData={formData} rows ={filteredRows} orderValue={totalPurchase} />
      </div>
   );
 };

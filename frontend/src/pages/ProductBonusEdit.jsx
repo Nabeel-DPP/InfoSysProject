@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap for styling
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ThemeToggle from '../components/ThemeToggle';
+import BonusSnackbar from './BonusSnackbar';
 const ProductBonusEdit = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -11,20 +12,26 @@ const ProductBonusEdit = () => {
     const [prodLog, setProdLog] = useState({
       bonus_scheme: "",
       bonus_units: "",
+      fp:"",
+      tp:"",
+      mrp:""
     });
-  
+    const [snackbar, setSnackbar] = useState(false);
 
     useEffect(() => {
       const fetchLog = async () => {
         try {
           const response = await axios.get(`http://localhost:5555/prodLog/prod_id/${rowData.prod_id}`);
-          console.log("Response from Product Log", response.data);
+          console.log("Response in PD Bonus from Product Log", response.data);
   
           // Assuming response.data contains an object with bonus_scheme and bonus_units
           if (response.data.length > 0) {
             setProdLog({
               bonus_scheme: response.data[0].bonus_scheme,
               bonus_units: response.data[0].bonus_units,
+              fp: response.data[0].fp,
+              tp: response.data[0].tp,
+              mrp: response.data[0].mrp,
             });
           }
         } catch (err) {
@@ -96,7 +103,8 @@ const ProductBonusEdit = () => {
    console.log("Submitted Data of Form : ", prodLog);
    try {
     await axios.put(`http://localhost:5555/prodLog/prod_id/${rowData.prod_id}`, prodLog);
-    navigate("/productLog"); // Navigate back to AreaTable after successful update
+    // setShowSnackbar(true);
+    navigate("/productLog" , {state:{snackbar:true , formData , prodLog}}); // Navigate back to AreaTable after successful update
   } catch (error) {
     console.error("Error updating Product data: ", error);
   }
@@ -159,7 +167,7 @@ const ProductBonusEdit = () => {
 
 <div className="col-md-12 col-lg-6 col-sm-12">
 <div className="distributor-input-group">
-  <i class="fa-solid fa-capsules input-icon"></i>
+  <i className="fa-solid fa-capsules input-icon"></i>
   <input
     required
     type="text"
@@ -189,7 +197,7 @@ const ProductBonusEdit = () => {
 
 <div className="col-md-12 col-lg-6 col-sm-12">
   <div className="distributor-input-group">
-    <i class="fa-solid fa-layer-group input-icon"></i>
+    <i className="fa-solid fa-layer-group input-icon"></i>
     <input
       required
       type="text"
@@ -223,6 +231,104 @@ const ProductBonusEdit = () => {
 
 
 
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <i className="fa-solid fa-layer-group input-icon"></i>
+    <input
+      required
+      type="text"
+      name="fp"
+      value={prodLog.fp}
+      onChange={handleChange}
+      className={`distributor-input ${
+        formData.prod_form_name ? "distributor-input-prefilled" : ""
+      }`}
+      autoComplete="off"
+      readOnly
+    />
+    <div className="valid-feedback">
+      <i className="fa-regular fa-circle-check"></i>
+    </div>
+    <div className="invalid-feedback">
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please
+      enter a Valid Product Form.
+    </div>
+    <label
+      className={`distributor-label ${
+        formData.prod_form_name ? "distributor-label-prefilled" : ""
+      }`}
+    >
+      Factory Price
+    </label>
+  </div>
+</div>
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <i className="fa-solid fa-layer-group input-icon"></i>
+    <input
+      required
+      type="text"
+      name="tp"
+      value={prodLog.tp}
+      onChange={handleChange}
+      className={`distributor-input ${
+        formData.prod_form_name ? "distributor-input-prefilled" : ""
+      }`}
+      autoComplete="off"
+      readOnly
+    />
+    <div className="valid-feedback">
+      <i className="fa-regular fa-circle-check"></i>
+    </div>
+    <div className="invalid-feedback">
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please
+      enter a Valid Product Form.
+    </div>
+    <label
+      className={`distributor-label ${
+        formData.prod_form_name ? "distributor-label-prefilled" : ""
+      }`}
+    >
+      Trade Price
+    </label>
+  </div>
+</div>
+
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <i className="fa-solid fa-layer-group input-icon"></i>
+    <input
+      required
+      type="text"
+      name="mrp"
+      value={prodLog.mrp}
+      onChange={handleChange}
+      className={`distributor-input ${
+        formData.prod_form_name ? "distributor-input-prefilled" : ""
+      }`}
+      autoComplete="off"
+      readOnly
+    />
+    <div className="valid-feedback">
+      <i className="fa-regular fa-circle-check"></i>
+    </div>
+    <div className="invalid-feedback">
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please
+      enter a Valid Product Form.
+    </div>
+    <label
+      className={`distributor-label ${
+        formData.prod_form_name ? "distributor-label-prefilled" : ""
+      }`}
+    >
+      Market Retail Price
+    </label>
+  </div>
+</div>
  
 
 
@@ -230,7 +336,7 @@ const ProductBonusEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-    <i class="fa-solid fa-briefcase input-icon"></i>
+    <i className="fa-solid fa-briefcase input-icon"></i>
       <input
         required
         type="number"
@@ -249,7 +355,7 @@ const ProductBonusEdit = () => {
   </div>
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-    <i class="fa-solid fa-briefcase-medical input-icon"></i>
+    <i className="fa-solid fa-briefcase-medical input-icon"></i>
       <input
         required
         type="number"
@@ -294,7 +400,9 @@ const ProductBonusEdit = () => {
       
       
     </form>
+    
   </div>
+ 
   </div>
   );
 };

@@ -1,0 +1,54 @@
+.custom-snackbar {
+    z-index: 1400; /* Ensures the Snackbar is above other elements */
+  }
+  
+  .custom-alert {
+    background-color: #212121 !important; 
+    /* background-color: #155BB5 !important; */
+   
+    /* color: white; White text */
+    width: 320px;
+    font-family: Arial, sans-serif;
+    color: #E0F7FA !important;
+  }
+  
+  .snackbar-content {
+    text-align: left;
+  }
+  
+  .snackbar-title {
+    font-size: 18px;
+   
+    margin-bottom: 8px;
+    /* color: #2196f3; Blue title for emphasis */
+    /* color: white !important; */
+    color : #E0F7FA !important;
+  }
+  
+  .snackbar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px 0;
+  }
+  
+  .snackbar-list li {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .snackbar-list li strong
+  {
+    font-size: 15px !important;
+  }
+  
+  .MuiLinearProgress-root {
+    margin-top: 8px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .MuiLinearProgress-bar {
+    background-color: #155BB5 !important ; 
+   
+  }
+  

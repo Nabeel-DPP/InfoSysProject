@@ -14,22 +14,23 @@ const CreateOrder = () => {
   const [institution , setInstitution] = useState([]);
   const [distributorType , setDistributorType]= useState([]);
   const [formData, setFormData] = useState({
-    OrderId: '' ,
+    OrderId: '',
     tblAreaId: '',
     tblDistId: '',
-    distType:'',
+    // distType:'',
     subAreaId: '',
     instiId: '',
-    FeedDate: '',
+    // FeedDate: '',
     // status:'',
     extra:'',
+    orderType:'',
   });
 
   const [displayData, setDisplayData] = useState({
-    distributorName: '',
-    saleAreaName: '',
-    saleTypeName: '',
-    saleMonthName: '',
+    distributorName:'',
+    saleAreaName:'',
+    saleTypeName:'',
+    saleMonthName:'',
   });
 
   useEffect(() => {
@@ -202,9 +203,9 @@ const CreateOrder = () => {
       distributorName: selectedDistributor?.distName || '',
       saleAreaName: selectedArea?.AreaName || '',
       saleTypeName:
-        formData.saleType === 'General'
+        formData.orderType == 'General'
           ? 'General Sale'
-          : formData.saleType === 'SP'
+          : formData.orderType == 'SP'
           ? 'Special Sale'
           : '',
       saleMonthName: formData.saleMonth || '',
@@ -230,6 +231,7 @@ const CreateOrder = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 console.log("The Name of Distributor Type is : " , distributorType);
+console.log("submitted data of form",formData);
 
     const currentDate = new Date().toISOString().split('T')[0]; 
 
@@ -326,7 +328,7 @@ console.log("The Name of Distributor Type is : " , distributorType);
             </div>
 
 
-<div className="col-md-6">
+{/* <div className="col-md-6">
   <div className="distributor-input-group">
     <select
       name="distType"
@@ -347,7 +349,7 @@ console.log("The Name of Distributor Type is : " , distributorType);
     
     <label className="distributor-label">Distributor Type</label>
   </div>
-</div>
+</div> */}
 
 
 <div className="col-md-6">
@@ -420,10 +422,10 @@ console.log("The Name of Distributor Type is : " , distributorType);
 <div className="col-md-6">
   <div className="distributor-input-group">
     <select
-      name="saleType" // New input field for distributor type
+      name="orderType" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={formData.saleType} // Reflect distType in the form data
+      value={formData.orderType} // Reflect distType in the form data
       required
     >
        <option value=""></option>

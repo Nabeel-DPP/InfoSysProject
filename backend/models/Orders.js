@@ -25,7 +25,7 @@ const ordersSchema = new mongoose.Schema({
   },
   FeedDate: {
     type: Date,  // Number of lead days
-    required: true,
+    // required: true,
   },
   dd_amount: {
     type: Number,  // Name of the manager
@@ -46,7 +46,7 @@ const ordersSchema = new mongoose.Schema({
 
 },
 ddNumber: {
-    type: Number,  
+    type: String,  
     // required: true,
 
 },

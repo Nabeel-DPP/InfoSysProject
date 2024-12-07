@@ -1,0 +1,103 @@
+/* .modal-header-custom {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .modal-body-custom {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .modal-content-wrapper {
+    text-align: left;
+  }
+  
+  .modal-content-title {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .modal-content-list li {
+    margin-bottom: 10px;
+  }
+  
+  .modal-footer-custom {
+    justify-content: center;
+  }
+   */
+
+
+
+   /* General Modal Styling */
+.modal-header-custom {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    border-bottom: 2px solid #007bff; /* Blue accent border */
+  }
+  
+  .modal-body-custom {
+    background-color: #1e1e1e; /* Darker grey background */
+    color: #ccc; /* Light grey text */
+    font-family: "Arial", sans-serif;
+    padding: 25px;
+    
+    /* border-radius: 0 0 8px 8px; */
+  }
+  
+  .modal-content-wrapper {
+    text-align: left;
+  }
+  
+  .modal-content-title {
+    color: #ffffff; /* Blue text for titles */
+    font-weight: bold;
+    font-size: 1.8rem;
+    /* margin-bottom: 15px; */
+    margin: auto !important;
+  }
+  
+  .modal-content-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .modal-content-list li {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .modal-content-list li strong {
+    color: #fff; /* Highlighted label text */
+  }
+  
+  .modal-footer-custom {
+    background-color: #333; /* Match header styling */
+    border-top: none;
+    justify-content: center;
+  }
+  
+  /* Button Styling */
+  .btn-primary {
+    background-color: #007bff; /* Blue button */
+    border-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+  }
+  
+  /* .mdcontainer
+  {
+   background-color: red !important;
+   height: 70% ;
+   width: 40%;
+   padding: 0px !important;
+  } */

@@ -3,13 +3,27 @@ import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import "../Table.css";
-import { useNavigate, Link } from 'react-router-dom';
+import {useLocation, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 import { format } from 'date-fns';
 import { EditModal } from './EditModal';
+import GeneralSnackbar from './GeneralSnackbar';
 export default function ProductTable() {
   const navigate = useNavigate();
+
+
+  const [toastSnackbar , setToastSnackbar] = useState(false);
+  const location = useLocation();
+  const { snackbar , formData , prodLog } = location.state || {};
+
+  useEffect(() => {
+  
+    if (snackbar) {
+      setToastSnackbar(snackbar);
+    }
+  }, [snackbar]);
+
 
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -259,6 +273,12 @@ const columns = [
     onEditPrice={handleEditPrice} // Pass price edit handler
   />
 )}
+
+<GeneralSnackbar
+        open={toastSnackbar}
+        onClose={() => setToastSnackbar(false)}
+        productDetails={{ ...formData, ...prodLog }}
+      />
     </div>
   );
 }

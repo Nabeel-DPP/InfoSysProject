@@ -19,7 +19,7 @@ const bankSchema = new mongoose.Schema({
   },
   add_date: {
     type: Date,  // Date when the area was added or arrived
-    default: Date.now,  // Set the default to the current date
+    
   },
   bank_abr: {
     type: String,  // Number of lead days

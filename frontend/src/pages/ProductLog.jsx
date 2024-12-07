@@ -3,13 +3,26 @@ import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import "../Table.css";
-import { useNavigate, Link } from 'react-router-dom';
+import { useLocation,useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 import { format } from 'date-fns'; // Make sure to install date-fns
-
+import CustomSnackbar from './CustomSnackbar';
+import BonusSnackbar from './BonusSnackbar';
 export default function ProductLog() {
   const navigate = useNavigate();
+  const [toastSnackbar , setToastSnackbar] = useState(false);
+  const location = useLocation();
+  const { snackbar , formData , prodLog } = location.state || {};
+  console.log("Snack Status : " ,snackbar);
+  console.log("Coming FormData for Snack" , formData)
+  console.log("Product Log for Snack :" , prodLog);
+  useEffect(() => {
+  
+    if (snackbar) {
+      setToastSnackbar(snackbar);
+    }
+  }, [snackbar]);
 
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -93,6 +106,11 @@ const columns = [
     { 
       field: 'bonus_units', 
       headerName: 'Bonus Units', 
+      width: 150 
+    },
+    { 
+      field: 'rpb', 
+      headerName: 'Required Bonus Packs', 
       width: 150 
     },
     { 
@@ -222,6 +240,17 @@ const columns = [
     {showModal && (
         <PopUpModal onConfirm={confirmDelete} onCancel={cancelDelete} />
       )}
+      <CustomSnackbar
+        open={toastSnackbar}
+        onClose={() => setToastSnackbar(false)}
+        productDetails={{ ...formData, ...prodLog }}
+      />
+ <BonusSnackbar
+        open={toastSnackbar}
+        onClose={() => setToastSnackbar(false)}
+        productDetails={{ ...formData, ...prodLog }}
+      />
+
     </div>
   );
 }

@@ -31,6 +31,8 @@ export default function BankTable() {
     fetchAreas();
   }, []);
 
+
+
   const handleEditClick = (id) => {
     const selectedRow = rows.find((row) => row._id === id);
     navigate('/bankEdit', { state: { rowData: selectedRow } });
@@ -83,6 +85,7 @@ const cancelDelete = () => {
     renderCell: (params) =>
       params.row.add_date ? format(new Date(params.row.add_date), 'dd/MM/yyyy') : '',
   },
+
     { field: 'bank_abr', headerName: 'Bank Abbrevation', width: 180 },
   
     {

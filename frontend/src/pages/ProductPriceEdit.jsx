@@ -6,8 +6,8 @@ import axios from 'axios';
 import ThemeToggle from '../components/ThemeToggle';
 import { DataGrid } from "@mui/x-data-grid";
 import { Paper } from "@mui/material";
-
-
+import PriceEditModal from './PriceEditModal';
+import CustomSnackbar from './CustomSnackbar';
 
 
 const ProductPriceEdit = () => {
@@ -17,11 +17,21 @@ const ProductPriceEdit = () => {
     const [prodLog, setProdLog] = useState({
     fp:"",
     tp:"",
-    mrp:""
+    mrp:"",
+    base:"",
+    bonus:""
     });
   
+    const [snackbar , setSnackbar] = useState(false);
     const [logs, setLogs] = useState([]); // State to store fetched logs
-
+    const [showModal, setShowModal] = useState(false); // State to manage modal visibility
+    const closeModal = async() => {
+      setShowModal(false);
+    await axios.put(`http://localhost:5555/prodLog/price/${rowData.prod_id}`, prodLog);
+      navigate("/productLog"); // Navigate to the product log after closing the modal
+    };
+   
+    
     useEffect(() => {
       const fetchLog = async () => {
         try {
@@ -34,6 +44,8 @@ const ProductPriceEdit = () => {
               fp: response.data[0].fp,
               tp: response.data[0].tp,
               mrp: response.data[0].mrp,
+              base:response.data[0].bonus_scheme,
+              bonus:response.data[0].bonus_units,
             });
           }
         } catch (err) {
@@ -58,41 +70,6 @@ const ProductPriceEdit = () => {
         fetchLog();
       }, [rowData.prod_id]);
     
-  
-      // const columns = [
-      //   { field: "scheme_id", headerName: "Scheme #", width: 90 },
-      //   { field: "bonus_scheme", headerName: "Bonus Scheme", width:110 },
-      //   { field: "bonus_units", headerName: "Bonus Units", width: 110 },
-      //   { field: "fp", headerName: "Factory Price", width: 120 },
-      //   { field: "tp", headerName: "Trader Price", width: 110 },
-      //   { field: "log_status", headerName: "Log Status", width: 90 }, 
-      //   {
-      //       field: 'toggle_scheme',
-      //       headerName: 'Change Scheme',
-      //       width: 120,
-      //       sortable: false,
-      //       renderCell: (params) => (
-      //         <>
-      //           <button
-                  
-      //            className='btn-success btn'
-      //             onClick={() => handletoggle(params.row._id)}
-      //           >
-      //            <i class="fa-solid fa-repeat"></i>
-      //           </button>
-                
-      //         </>
-      //       ),
-      //     },
-        
-      
-
-      //   // Add other relevant fields here
-      // ];
-
-
-
-
       const columns = [
         { field: "scheme_id", headerName: "Scheme #", width: 90, flex: 1 }, // You can use `flex` instead of `width`
         { field: "bonus_scheme", headerName: "Bonus Scheme", width: 110, flex: 1 },
@@ -118,26 +95,6 @@ const ProductPriceEdit = () => {
         },
       ];
       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   const [formData, setFormData] = useState({
     prod_id: '',           
@@ -192,11 +149,22 @@ const ProductPriceEdit = () => {
   const handletoggle = (rowId) => {
     const selectedRow = logs.find((log) => log._id === rowId); // Find the clicked row
     if (selectedRow) {
-      setProdLog({
-        fp: selectedRow.fp, // Set factory price
-        tp: selectedRow.tp,
-        mrp: selectedRow.mrp, // Set trader price
-      });
+      // setProdLog({
+      //   fp: selectedRow.fp, // Set factory price
+      //   tp: selectedRow.tp,
+      //   mrp: selectedRow.mrp,
+      //   base: selectedRow.bonus_scheme,
+      //   bonus: selectedRow.bonus_units,  // Set trader price
+      // });
+      setProdLog((prevProdLog) => ({
+        ...prevProdLog, // Keep all current values from prodLog
+        fp: selectedRow.fp, // Update factory price
+        tp: selectedRow.tp, // Update trader price
+        mrp: selectedRow.mrp, // Update MRP
+        // Ensure base and bonus remain unchanged
+        base: prevProdLog.base,
+        bonus: prevProdLog.bonus,
+      }));
     }
   };
   
@@ -207,8 +175,11 @@ const ProductPriceEdit = () => {
     e.preventDefault();
    console.log("Submitted Data of Form : ", prodLog);
    try {
+   
     await axios.put(`http://localhost:5555/prodLog/price/${rowData.prod_id}`, prodLog);
-    navigate("/productLog"); // Navigate back to AreaTable after successful update
+   
+    navigate("/productLog" , { state: { snackbar:true , formData , prodLog } })
+    // Navigate back to AreaTable after successful update
   } catch (error) {
     console.error("Error updating Product data: ", error);
   }
@@ -313,7 +284,57 @@ const ProductPriceEdit = () => {
   </div>
 </div>
 
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <i className="fa-solid fa-layer-group input-icon"></i>
+    <input
+      required
+      type="text"
+      name="base"
+      value={prodLog.base}
+      onChange={handleChange}
+      className={`distributor-input ${formData.prod_form_name ? 'distributor-input-prefilled' : ''}`}
+      autoComplete="off"
+      readOnly
+    />
+    <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+    <div className="invalid-feedback">
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Product Form.
+    </div>
+    <label
+      className={`distributor-label ${formData.prod_form_name ? 'distributor-label-prefilled' : ''}`}
+    >
+      Base Units
+    </label>
+  </div>
+</div>
 
+
+
+<div className="col-md-12 col-lg-6 col-sm-12">
+  <div className="distributor-input-group">
+    <i className="fa-solid fa-layer-group input-icon"></i>
+    <input
+      required
+      type="text"
+      name="bonus"
+      value={prodLog.bonus}
+      onChange={handleChange}
+      className={`distributor-input ${formData.prod_form_name ? 'distributor-input-prefilled' : ''}`}
+      autoComplete="off"
+      readOnly
+    />
+    <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+    <div className="invalid-feedback">
+      <i className="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;Please enter a valid Product Form.
+    </div>
+    <label
+      className={`distributor-label ${formData.prod_form_name ? 'distributor-label-prefilled' : ''}`}
+    >
+      Bonus Units
+    </label>
+  </div>
+</div>
 
 
  
@@ -323,13 +344,13 @@ const ProductPriceEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-    <i class="fa-solid fa-industry input-icon"></i>
+    <i className="fa-solid fa-industry input-icon"></i>
       <input
         required
         type="number"
         name="fp"
         value={prodLog.fp}
-        // onChange={handleLog}
+        
         onChange={(e) => setProdLog({ ...prodLog, fp: e.target.value })}
         className="distributor-input"
         autoComplete="off"
@@ -343,7 +364,7 @@ const ProductPriceEdit = () => {
   </div>
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-    <i class="fa-solid fa-scale-unbalanced-flip input-icon"></i>
+    <i className="fa-solid fa-scale-unbalanced-flip input-icon"></i>
       <input
         required
         type="number"
@@ -364,7 +385,7 @@ const ProductPriceEdit = () => {
 
   <div className="col-md-12 col-lg-6 col-sm-12">
     <div className="distributor-input-group">
-    <i class="fa-solid fa-store input-icon"></i>
+    <i className="fa-solid fa-store input-icon"></i>
       <input
         required
         type="number"
@@ -383,9 +404,6 @@ const ProductPriceEdit = () => {
     </div>
   </div>
  
-
-  
-
 
 </div>
 
@@ -443,22 +461,10 @@ const ProductPriceEdit = () => {
         />
       </Paper>
   </div>
+ 
   </div>
   );
 };
 
 export default ProductPriceEdit;
-
-
-
-
-
-
-
-
-
-
-
-
-
 

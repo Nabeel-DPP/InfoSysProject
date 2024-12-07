@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 import { format } from 'date-fns';
 
-// ...
+
 
 export default function OrderDetailTable() {
   const navigate = useNavigate();
@@ -34,8 +34,10 @@ export default function OrderDetailTable() {
   }, []);
 
   const handleEditClick = (id) => {
-    const selectedRow = rows.find((row) => row._id === id);
-    navigate('/orderDetailEdit', { state: { rowData: selectedRow } });
+
+  const selectedRow = rows.find((row) => row._id === id);
+  navigate('/orderDetailEdit', { state: { rowData: selectedRow } });
+  
   };
 
 
@@ -93,11 +95,11 @@ const cancelDelete = () => {
     { field: 'sch', headerName: 'SCH', width: 130 },
     { field: 'pack_on_sch', headerName: 'Pack on Sch', width: 120 },
     {
-      field: 'dispatch_date',
-      headerName: 'Dispatch Date',
+      field:'disp_date',
+      headerName:'Dispatch Date',
       width: 150,
       renderCell: (params) =>
-        params.row.dispatch_date ? format(new Date(params.row.dispatch_date), 'dd/MM/yyyy') : '',
+        params.row.disp_date ? format(new Date(params.row.disp_date), 'dd/MM/yyyy') : '',
     },
     { field: 'type', headerName: 'Order Type', width: 100 } ,
     { field: 'trade_price', headerName: 'Trade Price ', width: 100 },

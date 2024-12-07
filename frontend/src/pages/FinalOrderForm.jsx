@@ -5,11 +5,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from '../components/ThemeToggle';
 import axios from 'axios';
 
-const FinalOrderForm = () => {
+const FinalOrderForm = ({formData , rows , orderValue }) => {
 
   const navigate = useNavigate();
- 
-  const [formData, setFormData] = useState({
+ const [orderFormData , setOrderFromData] = useState(formData);
+  const [orderData, setOrderData] = useState({
     bank_id: '',
     bank_name: '',
     status: '',
@@ -18,8 +18,11 @@ const FinalOrderForm = () => {
     bank_abr: '',
     
   });
+ 
+  console.log("OrderFormData finally came from create Order", orderFormData);
 
-
+  console.log("Selected Order Table finally came from create Order",rows);
+  console.log("Order Value of all Selected  poructs",orderValue);
 
   const [theme, setTheme] = useState('white'); // Initial form theme
 
@@ -45,8 +48,8 @@ useEffect(() => {
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setOrderData({
+      ...orderData,
       [name]: value
     });
   };
@@ -59,24 +62,24 @@ useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   console.log("Submitted Data of Form : ", formData);
+   console.log("Submitted Data of Form : ", orderFormData);
     try {
         
-        const response = await axios.post("http://localhost:5555/bank", formData); // Post request to the server's '/area' endpoint
+        const response = await axios.post("http://localhost:5555/order",orderFormData); // Post request to the server's '/area' endpoint
           console.log(response);
         if (response.status === 201) {  // Check if the response is OK
           alert('Area added successfully!');
           
-          setFormData({
-            bank_id: '',
-    bank_name: '',
-    status: '',
-    branch_code: '',
-    add_date: '',
-    bank_abr: '',
+    //       setOrderData({
+    //         bank_id: '',
+    // bank_name: '',
+    // status: '',
+    // branch_code: '',
+    // add_date: '',
+    // bank_abr: '',
     
-          });
-          navigate("/bankTable");
+    //       });
+          navigate("/orderTable");
         } else {
           alert('Failed to add area.');
         }
@@ -99,11 +102,11 @@ useEffect(() => {
 
   return (
     <div className="bankInsert">
-     
+     <button className='btn btn-info mt-5 mx-5' onClick={handleSubmit}>Place Order</button>
       <ThemeToggle onThemeChange={handleThemeChange} />
     <div className={` distributor-form__container ${theme}`}>
      
-    <form onSubmit={handleSubmit} >
+    <form  >
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Payment Information</h1>
       <div className="row">
         <div className="col-md-12 col-lg-5 col-sm-12">
@@ -113,7 +116,7 @@ useEffect(() => {
               required
               type="number"
               name="bank_id"
-              value={formData.bank_id}
+              value={orderData.bank_id}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
@@ -140,7 +143,7 @@ useEffect(() => {
                   name="bankName"
                   className="distributor-input"
                   onChange={handleChange}
-                  value={formData.bank}
+                  value={orderData.bank}
                   required
                 >
                   <option value=""></option>
@@ -163,7 +166,7 @@ useEffect(() => {
       name="method" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={formData.method} // Reflect distType in the form data
+      value={orderData.method} // Reflect distType in the form data
       required
     >
       <option value=""></option>
@@ -181,7 +184,7 @@ useEffect(() => {
               required
               type="number"
               name="ddNumber"
-              value={formData.ddNumber}
+              value={orderData.ddNumber}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
@@ -198,7 +201,7 @@ useEffect(() => {
     <input
       type="date"
       name="payDate"
-      value={formData.payDate}
+      value={orderData.payDate}
       onChange={handleChange}
       className="distributor-input"
       autoComplete="off"
@@ -218,7 +221,7 @@ useEffect(() => {
                   name="bankName2"
                   className="distributor-input"
                   onChange={handleChange}
-                  value={formData.bankName2}
+                  value={orderData.bankName2}
                   required
                 >
                   <option value=""></option>
@@ -241,7 +244,7 @@ useEffect(() => {
       name="method2" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={formData.method2} // Reflect distType in the form data
+      value={orderData.method2} // Reflect distType in the form data
       required
     >
       <option value=""></option>
@@ -259,7 +262,7 @@ useEffect(() => {
               required
               type="number"
               name="ddNumber2"
-              value={formData.ddNumber2}
+              value={orderData.ddNumber2}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
@@ -276,7 +279,7 @@ useEffect(() => {
     <input
       type="date"
       name="payDate2"
-      value={formData.payDate2}
+      value={orderData.payDate2}
       onChange={handleChange}
       className="distributor-input"
       autoComplete="off"
@@ -297,7 +300,7 @@ useEffect(() => {
                    name="bankName3"
                    className="distributor-input"
                    onChange={handleChange}
-                   value={formData.bankName3}
+                   value={orderData.bankName3}
                    required
                  >
                    <option value=""></option>
@@ -320,7 +323,7 @@ useEffect(() => {
        name="method3" // New input field for distributor type
        className="distributor-input"
        onChange={handleChange}
-       value={formData.method3} // Reflect distType in the form data
+       value={orderData.method3} // Reflect distType in the form data
        required
      >
        <option value=""></option>
@@ -338,7 +341,7 @@ useEffect(() => {
                required
                type="number"
                name="ddNumber3"
-               value={formData.ddNumber3}
+               value={orderData.ddNumber3}
                onChange={handleChange}
                className="distributor-input"
                autoComplete="off"
@@ -355,7 +358,7 @@ useEffect(() => {
      <input
        type="date"
        name="payDate3"
-       value={formData.payDate3}
+       value={orderData.payDate3}
        onChange={handleChange}
        className="distributor-input"
        autoComplete="off"
@@ -376,7 +379,7 @@ useEffect(() => {
                required
                type="text"
                name="remarks"
-               value={formData.remarks}
+               value={orderData.remarks}
                onChange={handleChange}
                className="distributor-input"
                autoComplete="off"
@@ -395,7 +398,7 @@ useEffect(() => {
       name="dipatchMode" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={formData.dispatchMode} // Reflect distType in the form data
+      value={orderData.dispatchMode} // Reflect distType in the form data
       required
     >
       <option value=""></option>
@@ -412,7 +415,7 @@ useEffect(() => {
       name="siv" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={formData.siv} // Reflect distType in the form data
+      value={orderData.siv} // Reflect distType in the form data
       required
     >
       <option value=""></option>
