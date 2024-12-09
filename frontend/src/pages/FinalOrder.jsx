@@ -13,7 +13,7 @@ const FinalOrder = () => {
   console.log("Display Data for Testing" , displayData);
   console.log("Form Data for Testing" , formData);
   console.log("Total Purchase for Testing" , totalPurchase);
-  const filteredRows = rows.filter(row => row.base_units && row.bonus_units && row.value);
+  const filteredRows = rows.filter(row => row.base_units && row.value);
   console.log("Rows Data : " , rows);
 
   const columns = [
