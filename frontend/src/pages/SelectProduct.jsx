@@ -32,10 +32,10 @@ const SelectProduct =()=>
   
         // Combine the data into a unified structure
         const combinedData = productResponse.data.map((product) => {
-          const productLog = productLogResponse.data.find((log) => log.prod_id === product.prod_id && log.log_status==1  );
+          const productLog = productLogResponse.data.find((log) => log.prod_id === product.prod_id && log.log_status==1 && log.bonus_units !==0 );
           const orderDetail = orderDetailResponse.data.find((detail) => detail.product_id === product.prod_id);
   
-
+          
           const baseSchemeValue = productLog?.bonus_scheme ? Math.floor(productLog.bonus_scheme / 10) : 0;
           const bonusSchemeValue = productLog?.bonus_units ? Math.floor(productLog.bonus_units / 10) : 0;
           const schemeValue = `${baseSchemeValue}+${bonusSchemeValue}`;
@@ -54,7 +54,8 @@ const SelectProduct =()=>
             base_units:"",
             bonus_units:"",
             value:"",
-            rpb:productLog?.rpb
+            rpb:productLog?.rpb,
+            originalBonusSchemeValue: bonusSchemeValue,
 
           };
 
@@ -127,17 +128,33 @@ const processRowUpdate = async (newRow, oldRow) => {
     let [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
     console.log("Base :",baseSchemeValue);
     console.log("Bonus :",bonusSchemeValue);
-    console.log(newRow.rpb);
-    let bonusUnits=0;
+    // console.log(newRow.rpb);  This line shows the RPB value for this Product
+  
+    const originalBonusSchemeValue = newRow.originalBonusSchemeValue || bonusSchemeValue;
+   
+    let bonusUnits;
+
     if(newRow.base_units >= newRow.rpb)
     {
-     bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue );  
+    //  bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue );  
+    bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+    newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field
     }
     else 
-    {
-      bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * 1 );
-      bonusSchemeValue = 1; // Change the bonus scheme value
-      newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`; // Update the scheme field
+    { 
+      // bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * 1 );
+      bonusUnits=0;
+      bonusSchemeValue = 0; // Change the bonus scheme value
+      newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`;
+      // if(newRow.base_units < 10)
+      // {
+      //   bonusUnits=0;
+      //   bonusSchemeValue=0 ;
+      //   newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`
+      // }
+      
+      // Update the scheme field
+     
     }
     
     // const bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue ); // Example: 10% of base_units
@@ -151,7 +168,8 @@ const processRowUpdate = async (newRow, oldRow) => {
 
 
 
-    setTotalPurchase((prevTotal) => prevTotal + saleValue);
+    // setTotalPurchase((prevTotal) => prevTotal + saleValue);
+    setTotalPurchase((prevTotal) => prevTotal - oldRow.value + saleValue);
     const updatedRows = rows.map((row) => (row._id === newRow._id ? updatedRow : row));
     setRows(updatedRows);
 
@@ -162,6 +180,8 @@ const processRowUpdate = async (newRow, oldRow) => {
     return oldRow; // Revert back to the old row in case of an error
   }
 };
+
+
 
 const handleProcessRowUpdateError = (error) => {
   console.error("Error during row update:", error);
@@ -225,7 +245,7 @@ const columns = [
     <div className="stateInfoContainer mt-5 mb-5">
      {/* <h1 className="text-center mb-4">Select Product</h1> */}
       {displayData ? (
-        <div className="card shadow-sm">
+        <div className="card shadow-sm display-data">
           <div className="state-card-header  ">
             <span>Order Summary</span>
           </div>
@@ -264,10 +284,10 @@ const columns = [
             </div>
             <div className="row mb-3">
               <div className="col-md-6">
-                <strong>Total Purchase:</strong>
+              <span className='t-purchase'>  Total Purchase: </span>
               </div>
               <div className="col-md-6">
-              {totalPurchase}
+             <span className='t-value'> {totalPurchase} </span>
               </div>
             </div>
           </div>

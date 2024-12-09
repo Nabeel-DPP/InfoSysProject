@@ -48,3 +48,17 @@
 {
     border-radius: 10% !important;
 }
+
+.t-purchase
+{
+    color: rgb(97, 97, 97) !important;
+    font-size: 20px;
+    font-weight: 600 !important;
+    
+}
+.t-value
+{
+    color: rgb(97, 97, 97) !important;
+    font-size: 20px;
+    font-weight: 600 !important;
+}

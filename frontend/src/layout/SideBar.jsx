@@ -59,7 +59,7 @@ export const SideBar = () => {
                             <Link to={"/orderTable"} className="sidenav-item-link">
     
     <span className="nav-text">
-      Order 
+      Orders 
     </span>
   </Link>
                             </li>
@@ -68,12 +68,12 @@ export const SideBar = () => {
                             <Link to={"/orderDetail"} className="sidenav-item-link">
     
     <span className="nav-text">
-      Order Detail
+      Orders Detail
     </span>
   </Link>
                             </li>
                             <li >
-                            <Link to={"/orderInsert"} className="sidenav-item-link">
+                            <Link to={"/createOrder"} className="sidenav-item-link">
     
     <span className="nav-text">
      Add Order

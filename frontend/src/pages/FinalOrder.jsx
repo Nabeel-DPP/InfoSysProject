@@ -4,6 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import { useLocation } from 'react-router-dom';
 import FinalOrderForm from './FinalOrderForm';
+import "../Table.css";
 
 const FinalOrder = () => {
   const location = useLocation();
@@ -62,11 +63,13 @@ const FinalOrder = () => {
       <div className="col-md-6">{displayData.saleMonthName}</div>
     </div>
     <div className="row mb-3">
-      <div className="col-md-6">
-        <strong>Total Purchase:</strong>
-      </div>
-      <div className="col-md-6">{totalPurchase}</div>
-    </div>
+              <div className="col-md-6">
+              <span className='t-purchase'>  Total Purchase: </span>
+              </div>
+              <div className="col-md-6">
+             <span className='t-value'> {totalPurchase} </span>
+              </div>
+            </div>
     </div>
     </div> 
 
