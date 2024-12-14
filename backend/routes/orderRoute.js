@@ -4,6 +4,21 @@ import { Orders } from '../models/Orders.js'; // Assuming Orders model is alread
 const router = express.Router();
 
 // CREATE: Add a new order entry
+router.post('/placeOrder/', async (req, res) => {
+  try {
+    console.log("Place Order Body",req.body)
+    const newOrders = new Orders(req.body); 
+    console.log("Insert Request Reached at Order Route", newOrders);
+    const savedOrders = await newOrders.save();
+    console.log("Confirmation of Save:", savedOrders);
+    res.status(201).json(savedOrders); // Respond with the saved order object
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+
+
 router.post('/', async (req, res) => {
   try {
     const newOrders = new Orders(req.body); 
@@ -15,6 +30,8 @@ router.post('/', async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+
 
 
 router.get('/latest', async (req, res) => {

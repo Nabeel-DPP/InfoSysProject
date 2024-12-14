@@ -8,33 +8,41 @@ import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
 import { format } from 'date-fns';
 import { useLocation } from 'react-router-dom';
+import QuotaSnackbar from './QuotaSnackbar';
 const SelectProduct =()=> 
 { 
   const location = useLocation();
   const { displayData , formData } = location.state || {};
+  console.log("FormData is come from Create Order" ,formData)
+  const [snackbar , setSnackbar] = useState(false);
   const navigate = useNavigate();
 
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [quota , setQuota]=useState("")
   const [error, setError] = useState(null);
   const [editRow , setEditRow] = useState(null);
   const [totalPurchase, setTotalPurchase] = useState(0);
+  const [productData , setProductData ] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const [productResponse, productLogResponse, orderDetailResponse] = await Promise.all([
+        const [productResponse, productLogResponse, orderDetailResponse ,quotaDetailResponse ] = await Promise.all([
           axios.get("http://localhost:5555/product"),        // Fetch products
           axios.get("http://localhost:5555/prodLog"),     // Fetch product logs
           axios.get("http://localhost:5555/orderDetail"),    // Fetch order details
+          axios.get("http://localhost:5555/pdQuota") // Fetch Quota Details 
         ]);
   
         // Combine the data into a unified structure
         const combinedData = productResponse.data.map((product) => {
           const productLog = productLogResponse.data.find((log) => log.prod_id === product.prod_id && log.log_status==1 && log.bonus_units !==0 );
           const orderDetail = orderDetailResponse.data.find((detail) => detail.product_id === product.prod_id);
-  
+         const quotaDetail =quotaDetailResponse.data.find((detail) => detail. PrdId == product.prod_id);
+         let prodQuota = quotaDetail?.Quota;
+         console.log("Quota Found " , prodQuota);
           
           const baseSchemeValue = productLog?.bonus_scheme ? Math.floor(productLog.bonus_scheme / 10) : 0;
           const bonusSchemeValue = productLog?.bonus_units ? Math.floor(productLog.bonus_units / 10) : 0;
@@ -46,7 +54,8 @@ const SelectProduct =()=>
             _id: product._id,
             prod_id: product.prod_id,
             prod_name: product.prod_name,
-           f_price: productLog?.fp || "N/A", // Price from product log
+           f_price: productLog?.fp || "N/A",
+           t_price: productLog?.tp || "N/A",  // Price from product log
             scheme: schemeValue || "N/A",       // Calculated scheme
             // base_units: orderDetail?.base_units || "N/A", // Base packs from order detail
             // bonus_units: orderDetail?.bonus_units || "N/A", // Bonus packs from order detail
@@ -56,7 +65,7 @@ const SelectProduct =()=>
             value:"",
             rpb:productLog?.rpb,
             originalBonusSchemeValue: bonusSchemeValue,
-
+            quota:prodQuota || ""
           };
 
         }).filter((item) => item.f_price !== "N/A");
@@ -72,13 +81,6 @@ console.log(orderDetailResponse);
         setLoading(false);
       }
     };
-
-
-
-
-
-
-
 
     fetchData();
   }, []);
@@ -128,18 +130,54 @@ const processRowUpdate = async (newRow, oldRow) => {
     let [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
     console.log("Base :",baseSchemeValue);
     console.log("Bonus :",bonusSchemeValue);
+    const prod_quota = newRow.quota;
+    setQuota(prod_quota);
+    
+   
+  await setProductData(newRow);
+
+  
+
     // console.log(newRow.rpb);  This line shows the RPB value for this Product
   
     const originalBonusSchemeValue = newRow.originalBonusSchemeValue || bonusSchemeValue;
    
     let bonusUnits;
 
-    if(newRow.base_units >= newRow.rpb)
+    if(newRow.base_units >= newRow.rpb )
     {
-    //  bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue );  
-    bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
-    newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field
+
+
+
+    if(prod_quota)
+{
+      if(newRow.base_units<= prod_quota)
+      {
+        bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+        newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field    
+      }
+      else
+      {
+        // alert(`You cannot Exceed from the Quota : ${prod_quota}`);
+        setSnackbar(true);
+       
+        newRow.base_units=prod_quota;
+        bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+        newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field 
+      }
+
     }
+
+
+
+
+
+ bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue );  
+ bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+ newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field
+    
+  }
+  
     else 
     { 
       // bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * 1 );
@@ -212,6 +250,13 @@ const columns = [
     width: 100,
      flex:1
   },
+  {
+    field: 'quota',
+    headerName: 'Quota',
+    width: 100,
+     flex:1
+  },
+  
   { field: 'narration', headerName: 'Narration', width: 100 , flex:1 },
  
 ];
@@ -302,7 +347,7 @@ const columns = [
   
 
 {/* This is just for testing that form Data is reached at SelectProduct component or not : its passing !! */}
-{/* {formData ? (
+{formData ? (
         <div className="card shadow-sm mt-5">
           <div className="state-card-header  ">
             <span>Order Form Submitted Data</span>
@@ -356,13 +401,23 @@ const columns = [
               {formData.extra}
               </div>
             </div>
+
+
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Date:</strong>
+              </div>
+              <div className="col-md-6">
+              {formData.FeedDate}
+              </div>
+            </div>
           </div>
         </div>
       ) : (
         <div className="alert alert-warning text-center">
           <strong>No data available.</strong>
         </div>
-      )} */}
+      )}
 
 
 
@@ -425,6 +480,11 @@ const columns = [
           Proceed to Last Step
         </button>
       </div>
+      <QuotaSnackbar
+        open={snackbar}
+        onClose={() => setSnackbar(false)}
+        productData= {productData}
+      />
     </div>
   );
 }

@@ -17,13 +17,15 @@ export default function OrderDetailTable() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [editRow , setEditRow] = useState(null);
-
+  
   useEffect(() => {
     const fetchAreas = async () => {
       try {
         const response = await axios.get("http://localhost:5555/orderDetail");
+        console.log("Order Detail Response: " , response.data)
         setRows(response.data);
         setLoading(false);
+       
       } catch (error) {
         console.error("Error fetching the Order Details data: ", error);
         setError(error);
@@ -84,9 +86,9 @@ const cancelDelete = () => {
     // { field: '_id', headerName: 'ID', width: 90 },
     { field: 'orderDetailID', headerName: 'Order Detail ID', width: 130 },
     { field: 'order_id', headerName: 'Order ID', width: 180 },
-    { field: 'product_id', headerName: 'Product ID', width: 150 },
+    { field: 'prod_id', headerName: 'Product ID', width: 150 },
     { field: 'base_units', headerName: 'Base Units', width: 150 },
-    { field: 'cash_price', headerName: 'Cash Price', width: 150 },
+    { field: 'f_price', headerName: 'Cash Price', width: 150 },
     { field: 'bonus_units', headerName: 'Bonus Units', width: 150 },
     { field: 'value', headerName: 'Value', width: 130 },
     { field: 'comments', headerName: 'Comments', width: 130 },
@@ -102,7 +104,7 @@ const cancelDelete = () => {
         params.row.disp_date ? format(new Date(params.row.disp_date), 'dd/MM/yyyy') : '',
     },
     { field: 'type', headerName: 'Order Type', width: 100 } ,
-    { field: 'trade_price', headerName: 'Trade Price ', width: 100 },
+    { field: 't_price', headerName: 'Trade Price ', width: 100 },
     { field: 'product_scheme', headerName: 'Product Scheme', width: 150 },
     // { field: 'units_convert_date', headerName: 'Units Convert Date', width: 150 },
     {

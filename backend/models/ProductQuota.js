@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 const productQuotaSchema = new mongoose.Schema({
-  QId: {
+  Qid: {
     type: Number,  // Use String or Number depending on the format of your AreaId
     required: true,
-    unique: true,  // Ensures no two areas have the same AreaId
+    // unique: true,  // Ensures no two areas have the same AreaId
   },
   AreaId: {
     type: Number,

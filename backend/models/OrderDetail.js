@@ -2,38 +2,39 @@ import mongoose, { Schema } from 'mongoose';
 const orderDetailSchema = new mongoose.Schema({
  orderDetailID: {
     type: Number,  
-    required: true,
-    unique: true,  
+    // required: true,
+    // unique: true,  
   },
    order_id: {
     type: Number,
-    required: true,
-    ref: "Order"
+    // required: true,
+    // ref: "Order"
   },
-  product_id: {
+  prod_id: {
     type: Number,  
-    required: true,
-    ref: "Product"
+    // required: true,
+    // ref: "Product"
   },
   base_units: {
     type: Number,  
-    required: true,
+    // required: true,
   },
-   cash_price: {
+  //changing cash_price into f_price
+   f_price: {
     type: Number,  
-    required: true  
+    // required: true  
   },
   bonus_units: {
     type: Number,  
-    required: true,
+    // required: true,
   },
   value: {
     type: Number,  
-    required: true,
+    // required: true,
   },
   comments: {
     type: String,
-    required: true,
+    // required: true,
     
   },
   prd_remarks: {
@@ -42,7 +43,7 @@ const orderDetailSchema = new mongoose.Schema({
   dispatch_status: 
   { 
     type: String, 
-    required: true,
+    // required: true,
 
 },
 
@@ -64,10 +65,11 @@ type:
   type:String
 }
 ,
-trade_price:
+//changing trade_price into t_price
+t_price:
 {
     type:Number ,
-     required : true
+    //  required : true
 },
 product_scheme:
 {

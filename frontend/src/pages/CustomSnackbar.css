@@ -12,6 +12,21 @@
     color: #E0F7FA !important;
   }
   
+
+  .quota-alert {
+    background-color: #c50000 !important; 
+    /* background-color: #155BB5 !important; */
+   
+    /* color: white; White text */
+    width: 320px;
+    font-family: Arial, sans-serif;
+    color: #E0F7FA !important;
+  }
+
+
+
+
+
   .snackbar-content {
     text-align: left;
   }
@@ -49,6 +64,7 @@
   
   .MuiLinearProgress-bar {
     background-color: #155BB5 !important ; 
+    /* background-color: #E0F7FA !important; */
    
   }
   

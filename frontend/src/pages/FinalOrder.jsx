@@ -1,20 +1,80 @@
 // FinalOrder.js
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 import FinalOrderForm from './FinalOrderForm';
 import "../Table.css";
 
 const FinalOrder = () => {
   const location = useLocation();
+ const navigate = useNavigate();
   const { rows } = location.state || {};
   const { totalPurchase, displayData , formData } = location.state || {};
+  formData.order_value = totalPurchase;
   console.log("Display Data for Testing" , displayData);
   console.log("Form Data for Testing" , formData);
   console.log("Total Purchase for Testing" , totalPurchase);
   const filteredRows = rows.filter(row => row.base_units && row.value);
-  console.log("Rows Data : " , rows);
+  const [latestOrderDetailId, setLatestOrderDetailId] = useState(null);
+  const [orderDetailId, setOrderDetailId] = useState(null);
+
+  useEffect(() => {
+    const fetchLatestOrderId = async () => {
+      try {
+        const response = await axios.get("http://localhost:5555/orderDetail/latest");
+        const newOrderDetailId = response.data.latestOrderDetailId;
+        console.log("Fetched Latest Order ID:", newOrderDetailId);
+
+        // Update FormData with the new OrderId
+        setLatestOrderDetailId(newOrderDetailId);
+        await setOrderDetailId(newOrderDetailId);
+        console.log("Lattest Order ID is : " , newOrderDetailId);
+      } catch (error) {
+        console.error("Error fetching latest OrderId:", error);
+      }
+    };
+
+    fetchLatestOrderId();
+  }, []);
+
+
+
+
+
+
+
+
+  // console.log("Rows Data : " , rows);
+  console.log("These are the Selected Products Data : " , filteredRows);
+
+  const handlePlaceOrder = async () => {
+    try {
+      // Order API call
+      
+     await  axios.post("http://localhost:5555/order/placeOrder", formData);
+     const order_id =formData.OrderId;
+     console.log("This is my Order ID : ",order_id);
+     console.log("This is orderDetail ID : " ,orderDetailId);
+     filteredRows.forEach(row => {
+      delete row._id;
+    }); 
+     const orderPayload = 
+    {
+      orderId: order_id,
+      selectedProducts: filteredRows ,
+      orderDetailID : orderDetailId
+    }  
+    
+    await  axios.post("http://localhost:5555/orderDetail/placeOrder", orderPayload);
+  alert('Order placed successfully');
+  navigate("/orderDetail");
+    } catch (error) {
+      console.error('Error placing order:', error);
+    }
+  };
+  
 
   const columns = [
     { field: 'prod_id', headerName: 'Sr. #', width: 75 , flex:1 },
@@ -74,7 +134,7 @@ const FinalOrder = () => {
     </div> 
 
 {/* This is just for testing that "formData" is reached at SelectProduct component or not : its coming !! */}
-{/* <div className="">
+<div className="">
   <h3>Order Form Data</h3>
   {formData ? (
         <div className="card shadow-sm mt-5">
@@ -88,6 +148,14 @@ const FinalOrder = () => {
               </div>
               <div className="col-md-6">
                 {formData.OrderId}
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-md-6">
+                <strong>Feed Date :</strong>
+              </div>
+              <div className="col-md-6">
+                {formData.FeedDate}
               </div>
             </div>
             <div className="row mb-3">
@@ -137,7 +205,7 @@ const FinalOrder = () => {
           <strong>No data available.</strong>
         </div>
       )}
-</div> */}
+</div>
 
       <div className="table-caption">
         <h3 className="text-center col-md-6 border form-head-text p-2">Final Order</h3>
@@ -178,7 +246,8 @@ const FinalOrder = () => {
 
      
     </div>
-     <FinalOrderForm formData={formData} rows ={filteredRows} orderValue={totalPurchase} />
+    <button className='btn btn-info mt-5 mx-5' onClick={handlePlaceOrder}>Place Order</button>
+     {/* <FinalOrderForm formData={formData} rows ={filteredRows} orderValue={totalPurchase} /> */}
      </div>
   );
 };

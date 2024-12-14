@@ -20,7 +20,7 @@ const CreateOrder = () => {
     // distType:'',
     subAreaId: '',
     instiId: '',
-    // FeedDate: '',
+    FeedDate: '',
     // status:'',
     extra:'',
     orderType:'',
@@ -42,7 +42,7 @@ const CreateOrder = () => {
         console.log("This is Useffect response",response.data.latestOrderId); 
         const resId= response.data.latestOrderId;
         console.log("Order ID coming from DB is : " , resId);
-        const incId= resId +1 ;
+        const incId= resId + 1 ;
         // setLatestOrderId(incId);
 
         setFormData((prevFormData) => ({
@@ -231,27 +231,29 @@ const CreateOrder = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 console.log("The Name of Distributor Type is : " , distributorType);
-console.log("submitted data of form",formData);
+// console.log("submitted data of form",formData);
 
     const currentDate = new Date().toISOString().split('T')[0]; 
 
-    // const updatedFormData = { ...formData, FeedDate: currentDate };
+console.log("This is the Current Date" , currentDate)
+    const updatedFormData = { ...formData, FeedDate: currentDate };
 
     // console.log("Update Form Values:", updatedFormData);
      
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      FeedDate: currentDate,
-    }));
-   
+  //  setFormData((prevFormData) => ({
+  //     ...prevFormData,
+  //     FeedDate: currentDate,
+  //   }));
 
-   console.log('Display Data:', displayData)
+  
+
+  setFormData(updatedFormData);
+
+  //  console.log('Display Form Data:', displayData)
 
    if(formData.FeedDate)
    {
     console.log("Update Form is :" , formData)
-   }
-   
     try {
       // const response = await axios.post(
       //   "http://localhost:5555/order//",
@@ -269,7 +271,8 @@ console.log("submitted data of form",formData);
       //     FeedDate: '',
       //     status:''
       //   });
-      navigate("/selectProduct", { state: { displayData , formData } });
+      navigate("/selectProduct", { state: { displayData , formData} });
+      
         
       
 
@@ -278,6 +281,9 @@ console.log("submitted data of form",formData);
       console.error("Error:", error);
       alert("Error occurred while submitting the form.");
     }
+   }
+   
+   
   };
 
   return (

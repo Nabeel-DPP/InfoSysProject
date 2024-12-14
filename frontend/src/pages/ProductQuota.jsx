@@ -70,29 +70,34 @@ const cancelDelete = () => {
 
 const columns = [
     { 
-      field: 'QId', 
+      field: 'Qid', 
       headerName: 'Quota ID', 
-      width: 150 
+      width: 150 ,
+      flex:1
     },
     { 
       field: 'AreaId', 
       headerName: 'Area ID', 
-      width: 150 
+      width: 150 ,
+      flex:1
     },
     { 
       field: 'DistId', 
       headerName: 'Distributor ID', 
-      width: 150 
+      width: 150 ,
+      flex:1
     },
     { 
       field: 'PrdId', 
       headerName: 'Product ID', 
-      width: 150 
+      width: 150 ,
+      flex:1
     },
     { 
       field: 'Quota', 
       headerName: 'Quota', 
-      width: 130 
+      width: 130 ,
+      flex:1 
     }
    ,
     {
@@ -100,6 +105,8 @@ const columns = [
         headerName: 'Actions',
         width: 150,
         sortable: false,
+        
+      flex:1,
         renderCell: (params) => (
           <>
             <button
