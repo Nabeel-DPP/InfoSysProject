@@ -294,44 +294,28 @@ const processRowUpdate = async (newRow, oldRow) => {
 
    
           
-      // const filteredProductsWithMatchingDetails = quotaData.map((quotaItem) => {
-      //   // Find all order details matching the current quota product
-      //   const matchingDetails = filteredOrderDetails.filter(
-      //     (detail) => detail.prod_id === quotaItem.PrdId
-      //   );
-      
-      //   // Return the quota item along with matching details if found
-      //   if (matchingDetails.length > 0) {
-      //     // console.log(matchingDetails);
-      //   }
-      
-      //   // If no matching details, return the quota item with empty matching details
-      //   return {
-      //     // Include all properties of the quota item
-      //     matchingDetails // No matching details found
-      //   };
-      // });
-      
-     
-      
-      
-      const matchingDetailsArray = quotaData.reduce((acc, quotaItem) => {
+      const filteredProductsWithMatchingDetails = quotaData.filter((quotaItem) => {
         // Find all order details matching the current quota product
         const matchingDetails = filteredOrderDetails.filter(
           (detail) => detail.prod_id === quotaItem.PrdId
         );
       
-        // If there are matching details, add them to the accumulator
+        // Return the quota item along with matching details if found
         if (matchingDetails.length > 0) {
-          acc.push(...matchingDetails); // Spread to add each matching detail to the array
+          // console.log(matchingDetails);
         }
       
-        return acc;
-      }, []);
+        // If no matching details, return the quota item with empty matching details
+        return {
+          // Include all properties of the quota item
+          matchingDetails // No matching details found
+        };
+      });
       
-      // Return only the matching details array
-      console.log(matchingDetailsArray);
+     
       
+      
+   
 
 
 
