@@ -18,15 +18,20 @@ const SelectProduct =()=>
   console.log("FormData is come from Create Order" ,formData)
   const [snackbar , setSnackbar] = useState(false);
   const navigate = useNavigate();
-
+  const [recordToDelete, setRecordToDelete] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [quota , setQuota]=useState("")
   const [error, setError] = useState(null);
   const [editRow , setEditRow] = useState(null);
   const [totalPurchase, setTotalPurchase] = useState(0);
-  const [productData , setProductData ] = useState("");
-  const [quotaData , setQuotaData] =useState("");
+  const [productData , setProductData ] = useState([]);
+  const [quotaData , setQuotaData] =useState([]);
+  const [orderData , setOrderData] = useState([]);
+const [orderDetailData , setOrderDetailData] =useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,14 +46,14 @@ const SelectProduct =()=>
   
         setQuotaData(quotaDetailResponse.data);
 
+   
         // Combine the data into a unified structure
         const combinedData = productResponse.data.map((product) => {
           const productLog = productLogResponse.data.find((log) => log.prod_id === product.prod_id && log.log_status==1 && log.bonus_units !==0 );
           const orderDetail = orderDetailResponse.data.find((detail) => detail.product_id === product.prod_id);
          const quotaDetail =quotaDetailResponse.data.find((detail) => detail. PrdId == product.prod_id);
          let prodQuota = quotaDetail?.Quota;
-         console.log("Quota Found " , prodQuota);
-          
+        //  console.log("Quota Found " , prodQuota);
           const baseSchemeValue = productLog?.bonus_scheme ? Math.floor(productLog.bonus_scheme / 10) : 0;
           const bonusSchemeValue = productLog?.bonus_units ? Math.floor(productLog.bonus_units / 10) : 0;
           const schemeValue = `${baseSchemeValue}+${bonusSchemeValue}`;
@@ -89,6 +94,187 @@ console.log(orderDetailResponse);
 
     fetchData();
   }, []);
+
+
+
+
+  useEffect(()=>
+    {
+    
+    const fetchDatabase = async () => {
+      try {
+        const orderResponse = await axios.get("http://localhost:5555/order");
+        console.log("DB Required 1: " , orderResponse.data)
+        setOrderData(orderResponse.data);
+  
+  
+        const response = await axios.get("http://localhost:5555/orderDetail");
+        console.log("DB Required 2: " , response.data)
+        setOrderDetailData(response.data);
+  
+      } catch (error) {
+        console.error("Error fetching the data: ", error);
+        setError(error);
+        
+      }
+    };
+    fetchDatabase();
+  
+  
+  
+  },[])
+  
+
+// This is the useEffect for fetching the Updated Quota Values based on Previous Placed Order
+  useEffect(() => {
+
+    const adjustQuota = () => {
+         
+            // Filter orders within the given conditions
+          const filteredOrders = orderData.filter(
+            (order) =>
+              order.tblDistId == formData.tblDistId &&
+              new Date(order.FeedDate) >= new Date("2024-12-1")
+          );
+      
+          console.log("Log1 :",filteredOrders)
+      
+          if (filteredOrders.length > 0) {
+            // Extract order IDs from filtered orders
+            const orderIDs = filteredOrders.map((order) => order.OrderId);
+      
+            console.log("Distributor has placed this order:" , orderIDs)
+      
+            // Filter order details based on the product ID and order IDs
+            // const filteredOrderDetails = orderDetailData.filter((detail) =>
+            //   orderIDs.includes(detail.order_id) && detail.prod_id === newRow.prod_id
+            // );
+            const filteredOrderDetails = orderDetailData.filter((detail) =>
+              orderIDs.includes(detail.order_id)
+            );
+            console.log("Order Details" ,filteredOrderDetails)
+            // console.log("Quota Details" , quotaData);
+      
+      
+      
+      
+      
+      const quotaProducts = quotaData.filter((prod) => {
+        const filterOrder = filteredOrderDetails.filter((detail) => {
+          return detail.prod_id === prod.PrdId; // Explicit return for the condition
+        });
+      
+        // console.log(filterOrder); // To log the filtered orders for debugging
+      
+        return filterOrder.length > 0; // Return true if filterOrder contains items
+      });
+      
+      console.log("Quota Product that match Product ID : ",quotaProducts); // Use this further as needed
+      
+      const requiredRecord = quotaProducts.filter((q)=>
+      {
+        return q.AreaId ==formData.tblAreaId && q.DistId== formData.tblDistId
+        
+      })
+      
+      //Previous Product with Quota
+      console.log("Required Product :" , requiredRecord)
+      
+      // const reqRecId = requiredRecord.map((reqRec)=>{
+      //   return reqRec.PrdId
+      // })
+      // console.log(reqRecId);
+      
+       
+      
+      //Overall Quota on Product 
+      const pwq = rows.filter((r)=>
+      {
+        return r.quota > 0
+      })
+      
+      console.log(pwq);
+      
+      
+      
+      function updateQuota(requiredRecord, filterOrderDetails, pwq ) {
+        // Step 1: Extract PrdId from requiredRecord into an array ok
+        const prdIds = requiredRecord.map((record) => record.PrdId);
+        // Step 2: Loop over each record in rows and check if prod_id is in prdIds
+        const updatedPwq = pwq.map((pwq) => {
+          // Check if row's prod_id matches any in prdIds
+          if (prdIds.includes(pwq.prod_id)) {
+              console.log(pwq.quota);
+                setQuota(pwq.quota)
+              
+            
+              
+            // Step 3: Find the corresponding base_units from filterOrderDetails for the matching prod_id
+            const orderDetail = filterOrderDetails.find((detail) => detail.prod_id == pwq.prod_id);
+             
+          //  console.log("Order of Quota : " , orderDetail.base_units)
+            if (orderDetail) {
+              // Subtract base_units from the quota
+              return { ...pwq, quota: pwq.quota - orderDetail.base_units };
+            }
+          }
+          // If prod_id doesn't match or no base_units found, return the row unchanged
+          return pwq;
+        });
+        // console.log(updatedPwq);
+      
+        return updatedPwq;
+      }
+      
+      
+      
+      // Call the function and get the updated rows with adjusted quotas
+      const updatedPwq = updateQuota(requiredRecord,filteredOrderDetails , pwq );
+      
+      console.log("Updated PWQ:", updatedPwq); 
+      
+      // setRows(updatedPwq);
+      
+      
+      
+      const mergedRows = rows.map((row) => {
+        // Check if there's an updated quota for the current row's prod_id
+        const updatedRow = updatedPwq.find((item) => item.prod_id == row.prod_id);
+      
+        // console.log("Updated Row : " , updatedRow)
+        // If updatedRow exists, update the quota, otherwise keep the existing row
+        return updatedRow ? { ...row, quota: updatedRow.quota } : row
+      });
+      
+      console.log("Updated Quota in Rows : ",mergedRows);
+      
+       setRows(mergedRows)
+      // setMergeData(mergedRows);
+      
+      
+      // setRows(mergeData);
+      
+            // Calculate total base packs already purchased
+           
+      
+      
+      
+      
+            
+          }
+      
+          
+  
+    
+    };
+  
+    // Call adjustQuota after rows are rendered
+    adjustQuota();
+  }, [orderData , orderDetailData]); // Add dependencies
+  
+  
+
+
   
 
   const handleEditClick = (id) => {
@@ -97,8 +283,6 @@ console.log(orderDetailResponse);
   };
 
 
-const [recordToDelete, setRecordToDelete] = useState(null);
-const [showModal, setShowModal] = useState(false);
 
 const handleDeleteClick = (id) => {
   setRecordToDelete(id); // Set the record ID to delete
@@ -126,268 +310,340 @@ const cancelDelete = () => {
   setRecordToDelete(null); // Clear the record ID
 };
 
-const [orderData , setOrderData] = useState([]);
-const [orderDetailData , setOrderDetailData] =useState([]);
-
-useEffect(()=>
-  {
-  
-  const fetchDatabase = async () => {
-    try {
-      const orderResponse = await axios.get("http://localhost:5555/order");
-      console.log("DB Required 1: " , orderResponse.data)
-      setOrderData(orderResponse.data);
-
-
-      const response = await axios.get("http://localhost:5555/orderDetail");
-      console.log("DB Required 2: " , response.data)
-      setOrderDetailData(response.data);
-
-    } catch (error) {
-      console.error("Error fetching the data: ", error);
-      setError(error);
-      
-    }
-  };
-  fetchDatabase();
-
-
-
-},[])
 
 
 
 
 
-// const processRowUpdate = async (newRow, oldRow) => {
-//   try {
-//     // Calculate bonus_units and value dynamically based on the new base_units
-//     let [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
-//     console.log("Base :",baseSchemeValue);
-//     console.log("Bonus :",bonusSchemeValue);
-//     const prod_quota = newRow.quota;
-//     setQuota(prod_quota);
-    
-   
-//   await setProductData(newRow);
-
-  
-
-//     // console.log(newRow.rpb);  This line shows the RPB value for this Product
-  
-//     const originalBonusSchemeValue = newRow.originalBonusSchemeValue || bonusSchemeValue;
-   
-//     let bonusUnits;
-
-//     if(newRow.base_units >= newRow.rpb )
-//     {
-
-
-
-//     if(prod_quota)
-// {
-//       if(newRow.base_units<= prod_quota)
-//       {
-//         bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
-//         newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field    
-//       }
-//       else
-//       {
-//         // alert(`You cannot Exceed from the Quota : ${prod_quota}`);
-//         setSnackbar(true);
-       
-//         newRow.base_units=prod_quota;
-//         bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
-//         newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field 
-//       }
-
-//     }
-
-
-
-
-
-//  bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue );  
-//  bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
-//  newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field
-    
-//   }
-  
-//     else 
-//     { 
-//       // bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * 1 );
-//       bonusUnits=0;
-//       bonusSchemeValue = 0; // Change the bonus scheme value
-//       newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`;
-//       // if(newRow.base_units < 10)
-//       // {
-//       //   bonusUnits=0;
-//       //   bonusSchemeValue=0 ;
-//       //   newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`
-//       // }
-      
-//       // Update the scheme field
-     
-//     }
-    
-//     // const bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * bonusSchemeValue ); // Example: 10% of base_units
-//     const saleValue = Math.floor(newRow.base_units * newRow.f_price); // Example: base_units * f_price
-
-//     const updatedRow = {
-//       ...newRow,
-//       bonus_units: bonusUnits,
-//       value: saleValue,
-//     };
-
-
-
-//     // setTotalPurchase((prevTotal) => prevTotal + saleValue);
-//     setTotalPurchase((prevTotal) => prevTotal - oldRow.value + saleValue);
-//     const updatedRows = rows.map((row) => (row._id === newRow._id ? updatedRow : row));
-//     setRows(updatedRows);
-
-
-//     return updatedRow;
-//   } catch (error) {
-//     console.error("Error during row update:", error);
-//     return oldRow; // Revert back to the old row in case of an error
-//   }
-// };
-
+//This is the Perfect Function for updating a row
 const processRowUpdate = async (newRow, oldRow) => {
   try {
-    // Parse scheme values
+    // Calculate bonus_units and value dynamically based on the new base_units
     let [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
-    console.log("Base Scheme Value:", baseSchemeValue);
-    console.log("Bonus Scheme Value:", bonusSchemeValue);
-
-    // Set initial quota
+    console.log("Base :",baseSchemeValue);
+    console.log("Bonus :",bonusSchemeValue);
     const prod_quota = newRow.quota;
+    console.log("Product Quota is :",prod_quota);
+    console.log("Base Packs : ", newRow.base_units);
     setQuota(prod_quota);
-
-    // Filter orders within the given conditions
-    const filteredOrders = orderData.filter(
-      (order) =>
-        order.tblDistId == formData.tblDistId &&
-        new Date(order.FeedDate) >= new Date("2024-12-1")
-    );
-
-    // console.log("Log1 :",filteredOrders)
-
-    let totalBasePacksPurchased = 0;
-
-    if (filteredOrders.length > 0) {
-      // Extract order IDs from filtered orders
-      const orderIDs = filteredOrders.map((order) => order.OrderId);
-
-      // console.log("Distributor has placed this order:" , orderIDs)
-
-      // Filter order details based on the product ID and order IDs
-      // const filteredOrderDetails = orderDetailData.filter((detail) =>
-      //   orderIDs.includes(detail.order_id) && detail.prod_id === newRow.prod_id
-      // );
-      const filteredOrderDetails = orderDetailData.filter((detail) =>
-        orderIDs.includes(detail.order_id)
-      );
-      console.log("Order Details" ,filteredOrderDetails)
-      console.log("Quota Details" , quotaData);
-
+    
    
-          
-      const filteredProductsWithMatchingDetails = quotaData.filter((quotaItem) => {
-        // Find all order details matching the current quota product
-        const matchingDetails = filteredOrderDetails.filter(
-          (detail) => detail.prod_id === quotaItem.PrdId
-        );
-      
-        // Return the quota item along with matching details if found
-        if (matchingDetails.length > 0) {
-          // console.log(matchingDetails);
-        }
-      
-        // If no matching details, return the quota item with empty matching details
-        return {
-          // Include all properties of the quota item
-          matchingDetails // No matching details found
-        };
-      });
-      
-     
-      
-      
+setProductData(newRow);
+
+  
+
+    // console.log(newRow.rpb);  This line shows the RPB value for this Product
+
+
+
+
+    const originalBonusSchemeValue = newRow.originalBonusSchemeValue || bonusSchemeValue;
    
-
-
-
-
-
-
-      // Calculate total base packs already purchased
-      totalBasePacksPurchased = filteredOrderDetails.reduce(
-        (total, detail) => total + detail.base_units,
-        0
-      );
-
-
-
-
-      
-    }
-
-    // Adjust quota based on previous purchases
-    const adjustedQuota = prod_quota - totalBasePacksPurchased;
-    console.log("Adjusted Quota:", adjustedQuota);
 
     let bonusUnits;
+//If Base Units are greater than the RPB
+    if(newRow.base_units >= newRow.rpb )
+    {
 
-    if (newRow.base_units >= newRow.rpb) {
-      if (adjustedQuota > 0) {
-        if (newRow.base_units <= adjustedQuota) {
-          bonusUnits = Math.floor(
-            (newRow.base_units / baseSchemeValue) * bonusSchemeValue
-          );
-        } else {
-          setSnackbar(true);
-          newRow.base_units = adjustedQuota; // Restrict base_units to adjustedQuota
-          bonusUnits = Math.floor(
-            (newRow.base_units / baseSchemeValue) * bonusSchemeValue
-          );
-        }
-      } else {
-        setSnackbar(true);
-        newRow.base_units = 0; // If no quota is left, base_units become zero
-        bonusUnits = 0;
-      }
-    } else {
-      bonusUnits = 0;
-      bonusSchemeValue = 0; // Update the bonus scheme value
+//If the Base Units are greater and have Quota on it 
+            if(prod_quota)
+              {
+                  if(newRow.base_units <= prod_quota)
+                  {
+                    bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+                    newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field 
+                    
+                   
+                  }
+                  else
+                  { 
+                    console.log("Exeed the Quota")
+                    console.log("RPB for this Row is : " , newRow.rpb);
+                    // alert(`You cannot Exceed from the Quota : ${prod_quota}`);
+                    setSnackbar(true);
+                  
+                    newRow.base_units=prod_quota;
+                    if(newRow.base_units >= newRow.rpb ) {bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue) } else {bonusUnits=0;bonusSchemeValue=0}
+                    newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`;
+                    console.log("Scheme has been changed : " , newRow.scheme);
+                   
+                  }
+
+              }
+               else 
+               {
+                //If the Base Units are greater and have no Quota on it 
+                 bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * originalBonusSchemeValue);  
+                 //  bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+                 newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field
+               
+               }
+
+    
+  }
+  //If Base Units are less than the RPB
+    else 
+    { 
+
+   // bonusUnits = Math.floor((newRow.base_units/baseSchemeValue) * 1 );
+      bonusUnits=0;
+      bonusSchemeValue = 0; // Change the bonus scheme value
+      newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`;
+      
+      // console.log("Your New Row Scheme is : " , newRow.scheme);
+            //If base units are less than RPB then we again check Quota on it
+               if(prod_quota)
+               {
+                     if(newRow.base_units <= prod_quota)
+                       {
+                               // bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+                               bonusUnits=0;
+                               newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`; // Update the scheme field    
+                            
+                        }
+                     else
+                        { 
+                               console.log("Exeed the Quota")
+                              // alert(`You cannot Exceed from the Quota : ${prod_quota}`);
+                              setSnackbar(true);
+         
+                          newRow.base_units=prod_quota;
+                          newRow.scheme = `${baseSchemeValue}+${bonusSchemeValue}`;
+                        // bonusUnits = Math.floor((newRow.base_units / baseSchemeValue) * originalBonusSchemeValue);
+                          // newRow.scheme = `${baseSchemeValue}+${originalBonusSchemeValue}`; // Update the scheme field 
+                          
+                        }
+
+                }
+
+     
+     
     }
+                                                                    // Example: 10% of base_units
+    const saleValue = Math.floor(newRow.base_units * newRow.f_price); // Example: base_units * f_price
 
-    // Calculate sale value
-    const saleValue = Math.floor(newRow.base_units * newRow.f_price);
-
-    // Prepare updated row
     const updatedRow = {
       ...newRow,
       bonus_units: bonusUnits,
       value: saleValue,
     };
 
-    // Update total purchase value
+    // setTotalPurchase((prevTotal) => prevTotal + saleValue);
+
     setTotalPurchase((prevTotal) => prevTotal - oldRow.value + saleValue);
-
-    // Update rows state
-    const updatedRows = rows.map((row) =>
-      row._id === newRow._id ? updatedRow : row
-    );
+    const updatedRows = rows.map((row) => (row._id === newRow._id ? updatedRow : row));
     setRows(updatedRows);
+    // const updatedRows = rows.map((row) => (row._id === newRow._id ? updatedRow : row));
+    // setRows(updatedRows);
 
+    console.log("Values in Updated Rows : " , updatedRow);
     return updatedRow;
   } catch (error) {
     console.error("Error during row update:", error);
-    return oldRow; // Revert to the old row in case of an error
+    return oldRow; // Revert back to the old row in case of an error
   }
 };
+
+
+
+//This is the Trial Function for Implementing Product Quota with respect to the distributer placed order 
+// const processRowUpdate = async (newRow, oldRow) => {
+//   try {
+//     // Parse scheme values
+//     let [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
+//     console.log("Base Scheme Value:", baseSchemeValue);
+//     console.log("Bonus Scheme Value:", bonusSchemeValue);
+
+//     // Set initial quota
+//     const prod_quota = newRow.quota;
+//     setQuota(prod_quota);
+
+  
+//     // Filter orders within the given conditions
+//     const filteredOrders = orderData.filter(
+//       (order) =>
+//         order.tblDistId == formData.tblDistId &&
+//         new Date(order.FeedDate) >= new Date("2024-12-1")
+//     );
+
+//     // console.log("Log1 :",filteredOrders)
+
+//     if (filteredOrders.length > 0) {
+//       // Extract order IDs from filtered orders
+//       const orderIDs = filteredOrders.map((order) => order.OrderId);
+
+//       // console.log("Distributor has placed this order:" , orderIDs)
+
+//       // Filter order details based on the product ID and order IDs
+//       // const filteredOrderDetails = orderDetailData.filter((detail) =>
+//       //   orderIDs.includes(detail.order_id) && detail.prod_id === newRow.prod_id
+//       // );
+//       const filteredOrderDetails = orderDetailData.filter((detail) =>
+//         orderIDs.includes(detail.order_id)
+//       );
+//       console.log("Order Details" ,filteredOrderDetails)
+//       // console.log("Quota Details" , quotaData);
+
+
+
+
+
+// const quotaProducts = quotaData.filter((prod) => {
+//   const filterOrder = filteredOrderDetails.filter((detail) => {
+//     return detail.prod_id === prod.PrdId; // Explicit return for the condition
+//   });
+
+//   // console.log(filterOrder); // To log the filtered orders for debugging
+
+//   return filterOrder.length > 0; // Return true if filterOrder contains items
+// });
+
+// console.log("Quota Product that match Product ID : ",quotaProducts); // Use this further as needed
+
+// const requiredRecord = quotaProducts.filter((q)=>
+// {
+//   return q.AreaId ==formData.tblAreaId && q.DistId== formData.tblDistId
+  
+// })
+
+// //Previous Product with Quota
+// console.log("Required Product :" , requiredRecord)
+
+// // const reqRecId = requiredRecord.map((reqRec)=>{
+// //   return reqRec.PrdId
+// // })
+// // console.log(reqRecId);
+
+ 
+
+// //Overall Quota on Product 
+// const pwq = rows.filter((r)=>
+// {
+//   return r.quota > 0
+// })
+
+// console.log(pwq);
+
+
+
+// function updateQuota(requiredRecord, filterOrderDetails, pwq ) {
+//   // Step 1: Extract PrdId from requiredRecord into an array ok
+//   const prdIds = requiredRecord.map((record) => record.PrdId);
+//   // Step 2: Loop over each record in rows and check if prod_id is in prdIds
+//   const updatedPwq = pwq.map((pwq) => {
+//     // Check if row's prod_id matches any in prdIds
+//     if (prdIds.includes(pwq.prod_id)) {
+//         console.log(pwq.quota);
+      
+        
+//       // Step 3: Find the corresponding base_units from filterOrderDetails for the matching prod_id
+//       const orderDetail = filterOrderDetails.find((detail) => detail.prod_id == pwq.prod_id);
+       
+//     //  console.log("Order of Quota : " , orderDetail.base_units)
+//       if (orderDetail) {
+//         // Subtract base_units from the quota
+//         return { ...pwq, quota: pwq.quota - orderDetail.base_units };
+//       }
+//     }
+//     // If prod_id doesn't match or no base_units found, return the row unchanged
+//     return pwq;
+//   });
+//   // console.log(updatedPwq);
+
+//   return updatedPwq;
+// }
+
+
+
+// // Call the function and get the updated rows with adjusted quotas
+// const updatedPwq = updateQuota(requiredRecord,filteredOrderDetails , pwq );
+
+// console.log("Updated PWQ:", updatedPwq); 
+
+// // setRows(updatedPwq);
+
+
+
+// const mergedRows = rows.map((row) => {
+//   // Check if there's an updated quota for the current row's prod_id
+//   const updatedRow = updatedPwq.find((item) => item.prod_id == row.prod_id);
+
+//   // console.log("Updated Row : " , updatedRow)
+//   // If updatedRow exists, update the quota, otherwise keep the existing row
+//   return updatedRow ? { ...row, quota: updatedRow.quota } : row
+// });
+
+// console.log("Updated Quota in Rows : ",mergedRows);
+
+//  setRows(mergedRows)
+// // setMergeData(mergedRows);
+
+
+// // setRows(mergeData);
+
+//       // Calculate total base packs already purchased
+     
+
+
+
+
+      
+//     }
+
+//     // Adjust quota based on previous purchases
+   
+//     let bonusUnits;
+
+//     if (newRow.base_units >= newRow.rpb) {
+//       if (adjustedQuota > 0) {
+//         if (newRow.base_units <= adjustedQuota) {
+//           bonusUnits = Math.floor(
+//             (newRow.base_units / baseSchemeValue) * bonusSchemeValue
+//           );
+//         } else {
+//           setSnackbar(true);
+//           newRow.base_units = adjustedQuota; // Restrict base_units to adjustedQuota
+//           bonusUnits = Math.floor(
+//             (newRow.base_units / baseSchemeValue) * bonusSchemeValue
+//           );
+//         }
+//       } else {
+//         setSnackbar(true);
+//         newRow.base_units = 0; // If no quota is left, base_units become zero
+//         bonusUnits = 0;
+//       }
+//     } else {
+//       bonusUnits = 0;
+//       bonusSchemeValue = 0; // Update the bonus scheme value
+//     }
+
+//     // Calculate sale value
+//     const saleValue = Math.floor(newRow.base_units * newRow.f_price);
+
+//     // Prepare updated row
+//     const updatedRow = {
+//       ...newRow,
+//       bonus_units: bonusUnits,
+//       value: saleValue,
+//     };
+
+//     // Update total purchase value
+//     setTotalPurchase((prevTotal) => prevTotal - oldRow.value + saleValue);
+
+//     //This is the function to updated the state of Rows in the Table i comment it because the rows are updated earlier in setRows(mergedRows)
+//     // Update rows state
+//     // const updatedRows = rows.map((row) =>
+//     //   row._id === newRow._id ? updatedRow : row
+//     // );
+//     // setRows(updatedRows);
+
+//     return updatedRow;
+//     // return rows;
+//   } catch (error) {
+//     console.error("Error during row update:", error);
+//     return oldRow; // Revert to the old row in case of an error
+//   }
+// };
 
 
 

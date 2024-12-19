@@ -10,12 +10,13 @@ import "../Table.css";
 const FinalOrder = () => {
   const location = useLocation();
  const navigate = useNavigate();
-  const { rows } = location.state || {};
-  const { totalPurchase, displayData , formData } = location.state || {};
+  // const { rows } = location.state || {};
+  const {rows, totalPurchase, displayData , formData } = location.state || {};
   formData.order_value = totalPurchase;
   console.log("Display Data for Testing" , displayData);
   console.log("Form Data for Testing" , formData);
   console.log("Total Purchase for Testing" , totalPurchase);
+  console.log("Rows are Received : " , rows);
   const filteredRows = rows.filter(row => row.base_units && row.value);
   const [latestOrderDetailId, setLatestOrderDetailId] = useState(null);
   const [orderDetailId, setOrderDetailId] = useState(null);
