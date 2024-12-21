@@ -6,16 +6,15 @@ import "../Table.css";
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PopUpModal } from '../components/Modal';
-import { format } from 'date-fns';
 import { useLocation } from 'react-router-dom';
 import QuotaSnackbar from './QuotaSnackbar';
-import { OrderDetail } from '../../../backend/models/OrderDetail';
-import { Orders } from '../../../backend/models/Orders';
-const SelectProduct =()=> 
+import QuotaReport from './QuotaReport';
+const QuotaReportTable =()=> 
 { 
   const location = useLocation();
-  const { displayData , formData } = location.state || {};
+  const {  displayData,formData } = location.state || {};
   console.log("FormData is come from Create Order" ,formData)
+  console.log("Display data of the Form" ,displayData)
   const [snackbar , setSnackbar] = useState(false);
   const navigate = useNavigate();
   const [recordToDelete, setRecordToDelete] = useState(null);
@@ -66,13 +65,14 @@ const [updatedQuota , setUpdatedQuota] =useState([]);
             prod_name: product.prod_name,
            f_price: productLog?.fp || "N/A",
            t_price: productLog?.tp || "N/A",  // Price from product log
-            scheme: schemeValue || "N/A",       // Calculated scheme
-            // base_units: orderDetail?.base_units || "N/A", // Base packs from order detail
-            // bonus_units: orderDetail?.bonus_units || "N/A", // Bonus packs from order detail
+           mr_price: productLog?.mrp || "N/A",  // Price from product log 
+           scheme: schemeValue || "N/A",       // Calculated scheme
+            base_units: productLog?.bonus_scheme || "N/A", // Base packs from order detail
+            bonus_units: productLog?.bonus_units || "N/A", // Bonus packs from order detail
             // value: orderDetail?.value || "N/A", // Bonus packs from order detail
-            base_units:"",
-            bonus_units:"",
-            value:"",
+            // base_units:"",
+            // bonus_units:"",
+            // value:"",
             rpb:productLog?.rpb,
             originalBonusSchemeValue: bonusSchemeValue,
             quota:prodQuota || ""
@@ -130,12 +130,23 @@ console.log(orderDetailResponse);
 
     const adjustQuota = () => {
          
+      const userStartDate = new Date(formData.startDate); // User-provided start date
+const userEndDate = new Date(formData.endDate);     // User-provided end date
+
+const filteredOrders = orderData.filter((order) => {
+  const orderDate = new Date(order.FeedDate); // Convert order's FeedDate to Date object
+  return (
+    order.tblDistId == formData.tblDistId &&
+    orderDate >= userStartDate &&
+    orderDate <= userEndDate
+  );
+});
             // Filter orders within the given conditions
-          const filteredOrders = orderData.filter(
-            (order) =>
-              order.tblDistId == formData.tblDistId &&
-              new Date(order.FeedDate) >= new Date("2024-12-1")
-          );
+          // const filteredOrders = orderData.filter(
+          //   (order) =>
+          //     order.tblDistId == formData.tblDistId &&
+          //     new Date(order.FeedDate) >= new Date("2024-12-1")
+          // );
       
           console.log("Log1 :",filteredOrders)
       
@@ -492,207 +503,6 @@ setProductData(newRow);
 
 
 
-//This is the Trial Function for Implementing Product Quota with respect to the distributer placed order 
-// const processRowUpdate = async (newRow, oldRow) => {
-//   try {
-//     // Parse scheme values
-//     let [baseSchemeValue, bonusSchemeValue] = newRow.scheme.split("+").map(Number);
-//     console.log("Base Scheme Value:", baseSchemeValue);
-//     console.log("Bonus Scheme Value:", bonusSchemeValue);
-
-//     // Set initial quota
-//     const prod_quota = newRow.quota;
-//     setQuota(prod_quota);
-
-  
-//     // Filter orders within the given conditions
-//     const filteredOrders = orderData.filter(
-//       (order) =>
-//         order.tblDistId == formData.tblDistId &&
-//         new Date(order.FeedDate) >= new Date("2024-12-1")
-//     );
-
-//     // console.log("Log1 :",filteredOrders)
-
-//     if (filteredOrders.length > 0) {
-//       // Extract order IDs from filtered orders
-//       const orderIDs = filteredOrders.map((order) => order.OrderId);
-
-//       // console.log("Distributor has placed this order:" , orderIDs)
-
-//       // Filter order details based on the product ID and order IDs
-//       // const filteredOrderDetails = orderDetailData.filter((detail) =>
-//       //   orderIDs.includes(detail.order_id) && detail.prod_id === newRow.prod_id
-//       // );
-//       const filteredOrderDetails = orderDetailData.filter((detail) =>
-//         orderIDs.includes(detail.order_id)
-//       );
-//       console.log("Order Details" ,filteredOrderDetails)
-//       // console.log("Quota Details" , quotaData);
-
-
-
-
-
-// const quotaProducts = quotaData.filter((prod) => {
-//   const filterOrder = filteredOrderDetails.filter((detail) => {
-//     return detail.prod_id === prod.PrdId; // Explicit return for the condition
-//   });
-
-//   // console.log(filterOrder); // To log the filtered orders for debugging
-
-//   return filterOrder.length > 0; // Return true if filterOrder contains items
-// });
-
-// console.log("Quota Product that match Product ID : ",quotaProducts); // Use this further as needed
-
-// const requiredRecord = quotaProducts.filter((q)=>
-// {
-//   return q.AreaId ==formData.tblAreaId && q.DistId== formData.tblDistId
-  
-// })
-
-// //Previous Product with Quota
-// console.log("Required Product :" , requiredRecord)
-
-// // const reqRecId = requiredRecord.map((reqRec)=>{
-// //   return reqRec.PrdId
-// // })
-// // console.log(reqRecId);
-
- 
-
-// //Overall Quota on Product 
-// const pwq = rows.filter((r)=>
-// {
-//   return r.quota > 0
-// })
-
-// console.log(pwq);
-
-
-
-// function updateQuota(requiredRecord, filterOrderDetails, pwq ) {
-//   // Step 1: Extract PrdId from requiredRecord into an array ok
-//   const prdIds = requiredRecord.map((record) => record.PrdId);
-//   // Step 2: Loop over each record in rows and check if prod_id is in prdIds
-//   const updatedPwq = pwq.map((pwq) => {
-//     // Check if row's prod_id matches any in prdIds
-//     if (prdIds.includes(pwq.prod_id)) {
-//         console.log(pwq.quota);
-      
-        
-//       // Step 3: Find the corresponding base_units from filterOrderDetails for the matching prod_id
-//       const orderDetail = filterOrderDetails.find((detail) => detail.prod_id == pwq.prod_id);
-       
-//     //  console.log("Order of Quota : " , orderDetail.base_units)
-//       if (orderDetail) {
-//         // Subtract base_units from the quota
-//         return { ...pwq, quota: pwq.quota - orderDetail.base_units };
-//       }
-//     }
-//     // If prod_id doesn't match or no base_units found, return the row unchanged
-//     return pwq;
-//   });
-//   // console.log(updatedPwq);
-
-//   return updatedPwq;
-// }
-
-
-
-// // Call the function and get the updated rows with adjusted quotas
-// const updatedPwq = updateQuota(requiredRecord,filteredOrderDetails , pwq );
-
-// console.log("Updated PWQ:", updatedPwq); 
-
-// // setRows(updatedPwq);
-
-
-
-// const mergedRows = rows.map((row) => {
-//   // Check if there's an updated quota for the current row's prod_id
-//   const updatedRow = updatedPwq.find((item) => item.prod_id == row.prod_id);
-
-//   // console.log("Updated Row : " , updatedRow)
-//   // If updatedRow exists, update the quota, otherwise keep the existing row
-//   return updatedRow ? { ...row, quota: updatedRow.quota } : row
-// });
-
-// console.log("Updated Quota in Rows : ",mergedRows);
-
-//  setRows(mergedRows)
-// // setMergeData(mergedRows);
-
-
-// // setRows(mergeData);
-
-//       // Calculate total base packs already purchased
-     
-
-
-
-
-      
-//     }
-
-//     // Adjust quota based on previous purchases
-   
-//     let bonusUnits;
-
-//     if (newRow.base_units >= newRow.rpb) {
-//       if (adjustedQuota > 0) {
-//         if (newRow.base_units <= adjustedQuota) {
-//           bonusUnits = Math.floor(
-//             (newRow.base_units / baseSchemeValue) * bonusSchemeValue
-//           );
-//         } else {
-//           setSnackbar(true);
-//           newRow.base_units = adjustedQuota; // Restrict base_units to adjustedQuota
-//           bonusUnits = Math.floor(
-//             (newRow.base_units / baseSchemeValue) * bonusSchemeValue
-//           );
-//         }
-//       } else {
-//         setSnackbar(true);
-//         newRow.base_units = 0; // If no quota is left, base_units become zero
-//         bonusUnits = 0;
-//       }
-//     } else {
-//       bonusUnits = 0;
-//       bonusSchemeValue = 0; // Update the bonus scheme value
-//     }
-
-//     // Calculate sale value
-//     const saleValue = Math.floor(newRow.base_units * newRow.f_price);
-
-//     // Prepare updated row
-//     const updatedRow = {
-//       ...newRow,
-//       bonus_units: bonusUnits,
-//       value: saleValue,
-//     };
-
-//     // Update total purchase value
-//     setTotalPurchase((prevTotal) => prevTotal - oldRow.value + saleValue);
-
-//     //This is the function to updated the state of Rows in the Table i comment it because the rows are updated earlier in setRows(mergedRows)
-//     // Update rows state
-//     // const updatedRows = rows.map((row) =>
-//     //   row._id === newRow._id ? updatedRow : row
-//     // );
-//     // setRows(updatedRows);
-
-//     return updatedRow;
-//     // return rows;
-//   } catch (error) {
-//     console.error("Error during row update:", error);
-//     return oldRow; // Revert to the old row in case of an error
-//   }
-// };
-
-
-
 const handleProcessRowUpdateError = (error) => {
   console.error("Error during row update:", error);
 };
@@ -707,7 +517,7 @@ const columns = [
     field: 'base_units',
     headerName: 'Base Packs',
     width: 100,
-    editable: true, // Allow editing
+    // editable: true, // Allow editing
     flex:1
   },
   {
@@ -716,12 +526,12 @@ const columns = [
     width: 110,
      flex:1
   },
-  {
-    field: 'value',
-    headerName: 'Sale Value',
-    width: 100,
-     flex:1
-  },
+  // {
+  //   field: 'value',
+  //   headerName: 'Sale Value',
+  //   width: 100,
+  //    flex:1
+  // },
   {
     field: 'quota',
     headerName: 'Quota',
@@ -729,7 +539,7 @@ const columns = [
      flex:1
   },
   
-  { field: 'narration', headerName: 'Narration', width: 100 , flex:1 },
+  // { field: 'narration', headerName: 'Narration', width: 100 , flex:1 },
  
 ];
 
@@ -746,7 +556,7 @@ const columns = [
 
 
   const handleProceedToLastStep = () => {
-    navigate('/finalOrder', { state: { rows ,displayData , totalPurchase, formData } });
+    navigate('/finalOrder', { state: { rows , totalPurchase, formData } });
   };
 
   return (
@@ -758,82 +568,22 @@ const columns = [
    
     
     </div>
+    <div className="container d-flex justify-content-around">
+      <div className="date row ">
+      <p>From :</p> <p> {formData.startDate} </p>
+      </div>
+      <div className="date row">
+      <p>To :</p> <p>{formData.endDate} </p>
+      </div>
+    </div>
 
-    <div className="stateInfoContainer mt-5 mb-5">
-     {/* <h1 className="text-center mb-4">Select Product</h1> */}
-      {displayData ? (
+    {displayData ? (
         <div className="card shadow-sm display-data">
           <div className="state-card-header  ">
-            <span>Order Summary</span>
+            <span>Distributor Details</span>
           </div>
           <div className="card-body">
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <strong>Distributor Name:</strong>
-              </div>
-              <div className="col-md-6">
-                {displayData.distributorName}
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <strong>Sale Area Name:</strong>
-              </div>
-              <div className="col-md-6">
-                {displayData.saleAreaName}
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <strong>Sale Type:</strong>
-              </div>
-              <div className="col-md-6">
-                {displayData.saleTypeName}
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <strong>Sale Month:</strong>
-              </div>
-              <div className="col-md-6">
-                {displayData.saleMonthName}
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-              <span className='t-purchase'>  Total Purchase: </span>
-              </div>
-              <div className="col-md-6">
-             <span className='t-value'> {totalPurchase} </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="alert alert-warning text-center">
-          <strong>No data available.</strong>
-        </div>
-      )}
-
-
-  
-
-{/* This is just for testing that form Data is reached at SelectProduct component or not : its passing !! */}
-{formData ? (
-        <div className="card shadow-sm mt-5">
-          <div className="state-card-header  ">
-            <span>Order Form Submitted Data</span>
-          </div>
-          <div className="card-body">
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <strong>Order ID :</strong>
-              </div>
-              <div className="col-md-6">
-                {formData.OrderId}
-              </div>
-            </div>
-            <div className="row mb-3">
+          <div className="row mb-3">
               <div className="col-md-6">
                 <strong>Area ID:</strong>
               </div>
@@ -851,38 +601,21 @@ const columns = [
             </div>
             <div className="row mb-3">
               <div className="col-md-6">
-                <strong>Sub Area ID:</strong>
+                <strong>Distributor Name:</strong>
               </div>
               <div className="col-md-6">
-                {formData.subAreaId}
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <strong>Institute ID:</strong>
-              </div>
-              <div className="col-md-6">
-              {formData.instiId}
+                {displayData.distributorName}
               </div>
             </div>
             <div className="row mb-3">
               <div className="col-md-6">
-                <strong>Discount %:</strong>
+                <strong>Sale Area Name:</strong>
               </div>
               <div className="col-md-6">
-              {formData.extra}
+                {displayData.saleAreaName}
               </div>
             </div>
 
-
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <strong>Date:</strong>
-              </div>
-              <div className="col-md-6">
-              {formData.FeedDate}
-              </div>
-            </div>
           </div>
         </div>
       ) : (
@@ -892,10 +625,13 @@ const columns = [
       )}
 
 
+<div className="stateInfoContainer mt-5 mb-5">
+     {/* <h1 className="text-center mb-4">Select Product</h1> */}
+    
 
     </div>
     <div className="table-caption">
-    <h3 className="text-center col-md-6 border form-head-text p-2">Product List</h3>
+    <h3 className="text-center col-md-6 border form-head-text p-2">Product Quota List</h3>
     </div>
 
    
@@ -944,14 +680,7 @@ const columns = [
         <PopUpModal onConfirm={confirmDelete} onCancel={cancelDelete} />
       )}
 
-<div className="container w-100 mt-5">
-        <button
-          onClick={handleProceedToLastStep}
-          className='btn btn-success mt-5'
-        >
-          Proceed to Last Step
-        </button>
-      </div>
+
       <QuotaSnackbar
         open={snackbar}
         onClose={() => setSnackbar(false)}
@@ -961,4 +690,4 @@ const columns = [
   );
 }
 
-export default SelectProduct;
+export default QuotaReportTable;

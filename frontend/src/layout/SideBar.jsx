@@ -460,7 +460,14 @@ export const SideBar = () => {
                       data-parent="#sidebar-menu">
                       <div className="sub-menu">
                         
-                        
+                      <li >
+                            <Link to={"/quotaReport"} className="sidenav-item-link">
+    
+    <span className="nav-text">
+    Product Quota Report
+    </span>
+  </Link>
+                            </li>
                           
                             <li >
                             <Link to={"/"} className="sidenav-item-link">

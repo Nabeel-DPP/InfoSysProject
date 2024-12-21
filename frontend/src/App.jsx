@@ -25,10 +25,7 @@ import { UserActivity } from "./pages/UserActivity.jsx";
 import { UserAccount } from "./pages/UserAccount.jsx";
 // import { UserSetting } from "./pages/UserSetting.jsx";
 import { Dashboard } from "./pages/Dashboard.jsx";
-// import { WebLayout } from "./webLayout/WebLayout.jsx";
-// import { OrderSection } from "./OrderSection.jsx";
-// import { StockSection } from "./StockSection.jsx";
-// import { ManageSection } from "./ManageSection.jsx";
+
 import { Distributer } from "./Distributer.jsx";
 // import { TableForm } from "./TableForm.jsx";
 // import { CreateForm } from "./CreateForm.jsx";
@@ -83,7 +80,8 @@ import SelectProduct from "./pages/SelectProduct.jsx";
 import FinalOrder from "./pages/FinalOrder.jsx";
 import ProductBonusEdit from "./pages/ProductBonusEdit.jsx";
 import ProductPriceEdit from "./pages/ProductPriceEdit.jsx";
-
+import QuotaReport from "./pages/QuotaReport.jsx";
+import QuotaReportTable from "./pages/QuotaReportTable.jsx";
  export const App = () => {
    return (
  <Router>
@@ -155,6 +153,8 @@ import ProductPriceEdit from "./pages/ProductPriceEdit.jsx";
           <Route path="/createOrder" element={<CreateOrder/>}/>
           <Route path="/selectProduct" element={<SelectProduct/>}/>
           <Route path="/finalOrder" element={<FinalOrder/>}/>
+          <Route path="/quotaReport" element={<QuotaReport/>}/>
+          <Route path="/qtRpTable" element={<QuotaReportTable/>}/>
           {/* <Route path="/createForm" element={<CreateForm/>} /> */}
           {/* <Route path="/management" element={<ManageSection />} /> */}
           <Route path="/userProfile" element={<UserProfile />} />
