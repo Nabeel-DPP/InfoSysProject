@@ -90,11 +90,14 @@ const cancelDelete = () => {
     renderCell: (params) =>
       params.row.FeedDate ? format(new Date(params.row.FeedDate), 'dd/MM/yyyy') : '',
   },
-  { field: 'dd_amount', headerName: 'DD Amount', width: 130 },
+  { field: 'dd_number1', headerName: 'DD Number 1', width: 130 },
+  { field: 'dd_amount1', headerName: 'DD Amount 1', width: 130 },
+  { field: 'dd_banks1', headerName: 'DD Banks 1', width: 130 },
+  { field: 'pay_method1', headerName: 'Pay Method 1', width: 130 },
   { field: 'order_value', headerName: 'Order Value', width: 130 },
   { field: 'Period', headerName: 'Period', width: 100 },
   { field: 'instructions', headerName: 'Instructions', width: 200 },
-  { field: 'ddNumber', headerName: 'DD Number', width: 130 },
+ 
   { field: 'orderType', headerName: 'Order Type', width: 120 },
   { field: 'status', headerName: 'Status', width: 100 },
   {
@@ -177,7 +180,7 @@ const cancelDelete = () => {
     renderCell: (params) =>
       params.row.prvs_frwd_date ? format(new Date(params.row.prvs_frwd_date), 'dd/MM/yyyy') : '',
   },
-  { field: 'dd_banks', headerName: 'DD Banks', width: 130 },
+  
   {
     field: 'payment_max_date',
     headerName: 'Payment Max Date',
@@ -187,33 +190,61 @@ const cancelDelete = () => {
   },
   { field: 'AdvTax', headerName: 'Advance Tax', width: 130 },
   { field: 'validatePayment', headerName: 'Validate Payment', width: 130 },
-    {
-        field: 'action',
-        headerName: 'Actions',
-        width: 150,
-        sortable: false,
-        renderCell: (params) => (
-          <>
-            <button
-             
-              size="small"
-              onClick={() => handleEditClick(params.row._id)}
-            >
-             <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
-            </button>
-            <button
-              data-bs-toggle="modal"
-  data-bs-target="#staticBackdrop"
-              size="small"
-              onClick={() => handleDeleteClick(params.row._id)}
-              style={{ marginLeft: 10 }}
-            >
-             <i className="tableIcons delete-btn fa-solid fa-trash"></i>
-            </button>
-          </>
-        ),
-      },
-  ];
+   
+  { field: 'dd_number2', headerName: 'DD Number 2', width: 130 },
+  { field: 'dd_amount2', headerName: 'DD Amount 2', width: 130 },
+  { field: 'dd_banks2', headerName: 'DD Banks 2', width: 130 },
+  { field: 'pay_method2', headerName: 'Pay Method 2', width: 130 },
+
+
+
+  { field: 'dd_number3', headerName: 'DD Number 3', width: 130 },
+  { field: 'dd_amount3', headerName: 'DD Amount 3', width: 130 },
+  { field: 'dd_banks3', headerName: 'DD Banks 3', width: 130 },
+  { field: 'pay_method3', headerName: 'Pay Method 3', width: 130 },
+
+
+  { field: 'dd_number4', headerName: 'DD Number 4', width: 130 },
+  { field: 'dd_amount4', headerName: 'DD Amount 4', width: 130 },
+  { field: 'dd_banks4', headerName: 'DD Banks 4', width: 130 },
+  { field: 'pay_method4', headerName: 'Pay Method 4', width: 130 },
+
+
+
+  { field: 'dd_number5', headerName: 'DD Number 5', width: 130 },
+  { field: 'dd_amount5', headerName: 'DD Amount 5', width: 130 },
+  { field: 'dd_banks5', headerName: 'DD Banks 5', width: 130 },
+  { field: 'pay_method5', headerName: 'Pay Method 5', width: 130 },
+
+  {
+    field: 'action',
+    headerName: 'Actions',
+    width: 150,
+    sortable: false,
+    renderCell: (params) => (
+      <>
+        <button
+         
+          size="small"
+          onClick={() => handleEditClick(params.row._id)}
+        >
+         <i className="tableIcons edit-btn fa-solid fa-pencil"></i>
+        </button>
+        <button
+          data-bs-toggle="modal"
+data-bs-target="#staticBackdrop"
+          size="small"
+          onClick={() => handleDeleteClick(params.row._id)}
+          style={{ marginLeft: 10 }}
+        >
+         <i className="tableIcons delete-btn fa-solid fa-trash"></i>
+        </button>
+      </>
+    ),
+  },
+  
+
+];
 
   if (loading) {
     return <div>Loading...</div>;

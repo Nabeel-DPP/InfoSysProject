@@ -8,6 +8,7 @@ const PdQuotaEdit = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { rowData } = location.state || {};
+    console.log("Product Quota Details for Edit :",rowData);
  
   const [formData, setFormData] = useState({
     QId: '',           
@@ -24,7 +25,7 @@ const PdQuotaEdit = () => {
   useEffect(() => {
     if (rowData) {
       setFormData({
-        QId: rowData.QId || '',                 
+        QId: rowData.Qid || '',                 
       AreaId: rowData.AreaId || '',             
       DistId: rowData.DistId || '',       
       PrdId: rowData.PrdId || '',  

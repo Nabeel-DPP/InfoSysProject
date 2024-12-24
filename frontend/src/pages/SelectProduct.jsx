@@ -130,15 +130,68 @@ console.log(orderDetailResponse);
 
     const adjustQuota = () => {
          
-            // Filter orders within the given conditions
-          const filteredOrders = orderData.filter(
-            (order) =>
-              order.tblDistId == formData.tblDistId &&
-              new Date(order.FeedDate) >= new Date("2024-12-1")
-          );
+            // Filter orders within the given conditions of Date Period Perfectly
+          // const filteredOrders = orderData.filter(
+          //   (order) =>
+          //     order.tblDistId == formData.tblDistId &&
+          //     new Date(order.FeedDate) >= new Date("2024-12-1")
+          // );
+        
+
+          
+
+
+          //Try another function for checking the date period this function manage the date from 25th to next 25th month automatically
+          console.log("Feed Date of Order: ", formData.FeedDate);
+          const feedDate = new Date(formData.FeedDate);
+          
+          const filteredOrders = orderData.filter((order) => {
+            // Convert order.FeedDate to a Date object
+            const orderFeedDate = new Date(order.FeedDate);
+          
+            const currentYear = feedDate.getFullYear();
+            const currentMonth = feedDate.getMonth(); // 0-indexed: 0 = Jan, 11 = Dec
+          
+            // Determine the start and end dates of the quota period
+            let startDate, endDate;
+            if (feedDate.getDate() < 25) {
+              // If the feedDate is less than 25th, start from the 25th of the previous month
+              startDate = new Date(currentYear, currentMonth - 1, 25);
+              endDate = new Date(currentYear, currentMonth, 25); // Exclusive
+            } else {
+              // If the feedDate is 25th or later, start from the 25th of the current month
+              startDate = new Date(currentYear, currentMonth, 25);
+              endDate = new Date(currentYear, currentMonth + 1, 25); // Exclusive
+            }
+          
+            console.log("Quota Period Start Date: ", startDate);
+            console.log("Quota Period End Date (Exclusive): ", endDate);
+          
+            // Check if the order's FeedDate is within the quota period
+            const isInQuotaPeriod =
+              orderFeedDate >= startDate && orderFeedDate < endDate; // Exclusive end date
+          
+            // Debugging: Log details for each order
+            console.log(
+              `Order FeedDate: ${orderFeedDate}, In Quota Period: ${isInQuotaPeriod}`
+            );
+          
+            // Return orders that match tblDistId and fall within the quota period
+            return (
+              order.tblDistId == formData.tblDistId && isInQuotaPeriod
+            );
+          });
+          
+          console.log("Previous Orders: ", filteredOrders);
+          
+          
+
+
+       
       
-          console.log("Log1 :",filteredOrders)
-      
+
+
+          
           if (filteredOrders.length > 0) {
             // Extract order IDs from filtered orders
             const orderIDs = filteredOrders.map((order) => order.OrderId);

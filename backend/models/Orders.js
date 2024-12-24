@@ -27,10 +27,108 @@ const ordersSchema = new mongoose.Schema({
     type: Date,  // Number of lead days
     // required: true,
   },
-  dd_amount: {
+
+  dd_amount1: {
     type: Number,  // Name of the manager
     // required: true,
   },
+  ddNumber1: {
+    type: String,  
+    // required: true,
+
+},
+dd_banks1:
+{ 
+    type: String 
+},
+pay_method1:
+{
+    type: String
+},
+
+
+
+dd_amount2: {
+    type: Number,  // Name of the manager
+    // required: true,
+  },
+  ddNumber2: {
+    type: String,  
+    // required: true,
+
+},
+dd_banks2:
+{ 
+    type: String 
+},
+pay_method2:
+{
+    type: String
+},
+
+
+
+dd_amount3: {
+    type: Number,  // Name of the manager
+    // required: true,
+  },
+  ddNumber3: {
+    type: String,  
+    // required: true,
+
+},
+dd_banks3:
+{ 
+    type: String 
+},
+pay_method3:
+{
+    type: String
+},
+
+
+
+
+
+dd_amount4: {
+    type: Number,  // Name of the manager
+    // required: true,
+  },
+  ddNumber4: {
+    type: String,  
+    // required: true,
+
+},
+dd_banks4:
+{ 
+    type: String 
+},
+pay_method4:
+{
+    type: String
+},
+
+
+
+dd_amount5: {
+    type: Number,  // Name of the manager
+    // required: true,
+  },
+  ddNumber5: {
+    type: String,  
+    // required: true,
+
+},
+dd_banks5:
+{ 
+    type: String 
+},
+pay_method5:
+{
+    type: String
+},
+
+
   order_value: {
     type: Number,  // Email of the manager
     // required: true,
@@ -45,11 +143,7 @@ const ordersSchema = new mongoose.Schema({
     // required: true,
 
 },
-ddNumber: {
-    type: String,  
-    // required: true,
 
-},
 
 orderType: {
     type: String,  
@@ -180,8 +274,6 @@ prvs_frwd_date :
 {
     type:Date
 },
-dd_banks:
-{ type: String },
 
 
 payment_max_date:
