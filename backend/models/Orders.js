@@ -28,11 +28,27 @@ const ordersSchema = new mongoose.Schema({
     // required: true,
   },
 
+  pay_slip_date1: {
+    type: Date
+  },
+  pay_slip_date2: {
+    type: Date
+  },
+  pay_slip_date3: {
+    type: Date
+  },
+  pay_slip_date4: {
+    type: Date
+  },
+  pay_slip_date5: {
+    type: Date
+  },
+
   dd_amount1: {
     type: Number,  // Name of the manager
     // required: true,
   },
-  ddNumber1: {
+  dd_number1: {
     type: String,  
     // required: true,
 
@@ -52,7 +68,7 @@ dd_amount2: {
     type: Number,  // Name of the manager
     // required: true,
   },
-  ddNumber2: {
+  dd_number2: {
     type: String,  
     // required: true,
 
@@ -72,7 +88,7 @@ dd_amount3: {
     type: Number,  // Name of the manager
     // required: true,
   },
-  ddNumber3: {
+  dd_number3: {
     type: String,  
     // required: true,
 
@@ -94,7 +110,7 @@ dd_amount4: {
     type: Number,  // Name of the manager
     // required: true,
   },
-  ddNumber4: {
+  dd_number4: {
     type: String,  
     // required: true,
 
@@ -114,7 +130,7 @@ dd_amount5: {
     type: Number,  // Name of the manager
     // required: true,
   },
-  ddNumber5: {
+  dd_number5: {
     type: String,  
     // required: true,
 
@@ -127,6 +143,12 @@ pay_method5:
 {
     type: String
 },
+
+total_payment:
+{
+    type:Number
+}
+,
 
 
   order_value: {

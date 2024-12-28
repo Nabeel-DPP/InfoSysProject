@@ -20,7 +20,6 @@ export default function OrderTable() {
       try {
         const response = await axios.get("http://localhost:5555/order");
         setRows(response.data);
-        console.log(response.data[917]);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching the areas data: ", error);
@@ -94,6 +93,7 @@ const cancelDelete = () => {
   { field: 'dd_amount1', headerName: 'DD Amount 1', width: 130 },
   { field: 'dd_banks1', headerName: 'DD Banks 1', width: 130 },
   { field: 'pay_method1', headerName: 'Pay Method 1', width: 130 },
+  // { field: 'pay_slip_date1', headerName: 'Pay Slip Date 1', width: 130 },
   { field: 'order_value', headerName: 'Order Value', width: 130 },
   { field: 'Period', headerName: 'Period', width: 100 },
   { field: 'instructions', headerName: 'Instructions', width: 200 },
@@ -195,26 +195,27 @@ const cancelDelete = () => {
   { field: 'dd_amount2', headerName: 'DD Amount 2', width: 130 },
   { field: 'dd_banks2', headerName: 'DD Banks 2', width: 130 },
   { field: 'pay_method2', headerName: 'Pay Method 2', width: 130 },
-
+  // { field: 'pay_slip_date2', headerName: 'Pay Slip Date 2', width: 130 },
 
 
   { field: 'dd_number3', headerName: 'DD Number 3', width: 130 },
   { field: 'dd_amount3', headerName: 'DD Amount 3', width: 130 },
   { field: 'dd_banks3', headerName: 'DD Banks 3', width: 130 },
   { field: 'pay_method3', headerName: 'Pay Method 3', width: 130 },
-
+  // { field: 'pay_slip_date3', headerName: 'Pay Slip Date 3', width: 130 },
 
   { field: 'dd_number4', headerName: 'DD Number 4', width: 130 },
   { field: 'dd_amount4', headerName: 'DD Amount 4', width: 130 },
   { field: 'dd_banks4', headerName: 'DD Banks 4', width: 130 },
   { field: 'pay_method4', headerName: 'Pay Method 4', width: 130 },
-
+  // { field: 'pay_slip_date4', headerName: 'Pay Slip Date 4', width: 130 },
 
 
   { field: 'dd_number5', headerName: 'DD Number 5', width: 130 },
   { field: 'dd_amount5', headerName: 'DD Amount 5', width: 130 },
   { field: 'dd_banks5', headerName: 'DD Banks 5', width: 130 },
   { field: 'pay_method5', headerName: 'Pay Method 5', width: 130 },
+  // { field: 'pay_slip_date5', headerName: 'Pay Slip Date 5', width: 130 },
 
   {
     field: 'action',

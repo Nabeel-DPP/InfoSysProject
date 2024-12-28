@@ -8,15 +8,16 @@ import FinalOrderForm from './FinalOrderForm';
 import "../Table.css";
 
 const FinalOrder = () => {
+ 
   const location = useLocation();
  const navigate = useNavigate();
   // const { rows } = location.state || {};
   const {rows, totalPurchase, displayData , formData } = location.state || {};
   formData.order_value = totalPurchase;
-  console.log("Display Data for Testing" , displayData);
-  console.log("Form Data for Testing" , formData);
-  console.log("Total Purchase for Testing" , totalPurchase);
-  console.log("Rows are Received : " , rows);
+  // console.log("Display Data for Testing" , displayData);
+  // console.log("Form Data for Testing" , formData);
+  // console.log("Total Purchase for Testing" , totalPurchase);
+  // console.log("Rows are Received : " , rows);
   const filteredRows = rows.filter(row => row.base_units && row.value);
   const [latestOrderDetailId, setLatestOrderDetailId] = useState(null);
   const [orderDetailId, setOrderDetailId] = useState(null);
@@ -26,12 +27,12 @@ const FinalOrder = () => {
       try {
         const response = await axios.get("http://localhost:5555/orderDetail/latest");
         const newOrderDetailId = response.data.latestOrderDetailId;
-        console.log("Fetched Latest Order ID:", newOrderDetailId);
+        // console.log("Fetched Latest Order ID:", newOrderDetailId);
 
         // Update FormData with the new OrderId
         setLatestOrderDetailId(newOrderDetailId);
         await setOrderDetailId(newOrderDetailId);
-        console.log("Lattest Order ID is : " , newOrderDetailId);
+        // console.log("Lattest Order ID is : " , newOrderDetailId);
       } catch (error) {
         console.error("Error fetching latest OrderId:", error);
       }
@@ -40,24 +41,25 @@ const FinalOrder = () => {
     fetchLatestOrderId();
   }, []);
 
-
-
-
-
-
-
-
   // console.log("Rows Data : " , rows);
-  console.log("These are the Selected Products Data : " , filteredRows);
+  // console.log("These are the Selected Products Data : " , filteredRows);
+
+//This is the Date that is coming back from the FinalOrderForm 
+  const [submittedOrderData, setSubmittedOrderData] = useState([]);
 
   const handlePlaceOrder = async () => {
     try {
       // Order API call
-      
-     await  axios.post("http://localhost:5555/order/placeOrder", formData);
+      const orderBankPayLoad = 
+      {
+        formData: formData,
+        bankData: submittedOrderData
+      }  
+      await  axios.post("http://localhost:5555/order/placeOrder", orderBankPayLoad);
+    //  await  axios.post("http://localhost:5555/order/placeOrder", formData);
      const order_id =formData.OrderId;
-     console.log("This is my Order ID : ",order_id);
-     console.log("This is orderDetail ID : " ,orderDetailId);
+    //  console.log("This is my Order ID : ",order_id);
+    //  console.log("This is orderDetail ID : " ,orderDetailId);
      filteredRows.forEach(row => {
       delete row._id;
     }); 
@@ -68,14 +70,21 @@ const FinalOrder = () => {
       orderDetailID : orderDetailId
     }  
     
-    await  axios.post("http://localhost:5555/orderDetail/placeOrder", orderPayload);
+    // await  axios.post("http://localhost:5555/orderDetail/placeOrder", orderPayload);
   alert('Order placed successfully');
-  navigate("/orderDetail");
+  // navigate("/orderDetail");
     } catch (error) {
       console.error('Error placing order:', error);
     }
+  // console.log("Payment Details Data : " , submittedOrderData);
   };
+ 
   
+  const handleOrderSubmit = (data) => {
+    console.log('Data received from FinalOrderForm:', data);
+    setSubmittedOrderData(data);
+    // Perform any additional operations if necessary
+  };
 
   const columns = [
     { field: 'prod_id', headerName: 'Sr. #', width: 75 , flex:1 },
@@ -248,7 +257,10 @@ const FinalOrder = () => {
      
     </div>
     <button className='btn btn-info mt-5 mx-5' onClick={handlePlaceOrder}>Place Order</button>
-     {/* <FinalOrderForm formData={formData} rows ={filteredRows} orderValue={totalPurchase} /> */}
+     <FinalOrderForm 
+     formData={formData} rows ={filteredRows} orderValue={totalPurchase}
+     onOrderSubmit={handleOrderSubmit} 
+     />
      </div>
   );
 };

@@ -5,17 +5,57 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from '../components/ThemeToggle';
 import axios from 'axios';
 
-const FinalOrderForm = ({formData , rows , orderValue }) => {
+const FinalOrderForm = ({formData , rows , orderValue , onOrderSubmit}) => {
 
   const navigate = useNavigate();
  const [orderFormData , setOrderFromData] = useState(formData);
+
   const [orderData, setOrderData] = useState({
-    bank_id: '',
-    bank_name: '',
-    status: '',
-    branch_code: '',
-    add_date: Date,
-    bank_abr: '',
+    
+    dd_banks1: '',
+    dd_amount1:'',
+    dd_number1:'',
+    pay_slip_date1:'',
+    pay_method1:'',
+
+
+    dd_banks2: '',
+    dd_amount2:'',
+    dd_number2:'',
+    pay_slip_date2:'',
+    pay_method2:'',
+
+
+    dd_banks3: '',
+    dd_amount3:'',
+    dd_number3:'',
+    pay_slip_date3:'',
+    pay_method3:'',
+
+
+
+    dd_banks4: '',
+    dd_amount4:'',
+    dd_number4:'',
+    pay_slip_date4:'',
+    pay_method4:'',
+
+
+
+    dd_banks5: '',
+    dd_amount5:'',
+    dd_number5:'',
+    pay_slip_date5:'',
+    pay_method5:'',
+
+
+
+    total_payment:"",
+    remarks:'',
+    dispatch_mode:'',
+    siv:''
+
+
     
   });
  
@@ -62,32 +102,8 @@ useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   console.log("Submitted Data of Form : ", orderFormData);
-    try {
-        
-        const response = await axios.post("http://localhost:5555/order",orderFormData); // Post request to the server's '/area' endpoint
-          console.log(response);
-        if (response.status === 201) {  // Check if the response is OK
-          alert('Area added successfully!');
-          
-    //       setOrderData({
-    //         bank_id: '',
-    // bank_name: '',
-    // status: '',
-    // branch_code: '',
-    // add_date: '',
-    // bank_abr: '',
-    
-    //       });
-          navigate("/orderTable");
-        } else {
-          alert('Failed to add area.');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Error occurred while submitting the form.');
-      }
-    
+    console.log('Submitted Data of Form:', orderData);
+    onOrderSubmit(orderData);
   };
 
 
@@ -102,21 +118,22 @@ useEffect(() => {
 
   return (
     <div className="bankInsert">
-     <button className='btn btn-info mt-5 mx-5' onClick={handleSubmit}>Place Order</button>
+   
       <ThemeToggle onThemeChange={handleThemeChange} />
     <div className={` distributor-form__container ${theme}`}>
      
-    <form  >
+    <form  onSubmit={handleSubmit}>
     <h1 className="distributor-form__title p-1 w-50 mb-5 ">Payment Information</h1>
       <div className="row">
         <div className="col-md-12 col-lg-5 col-sm-12">
           <div className="distributor-input-group">
            
             <input
+              
               required
               type="number"
-              name="bank_id"
-              value={orderData.bank_id}
+              name="total_payment"
+              value={orderData.total_payment}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
@@ -134,16 +151,16 @@ useEffect(() => {
 
       
 <h3>Instrument #1 </h3>
-<br />
+<br/>
       <div className="row">
        
-      <div className="col-md-12 col-lg-4 col-sm-12">
+      <div className="col-md-12 col-lg-3 col-sm-12">
       <div className="distributor-input-group">
                 <select
-                  name="bankName"
+                  name="dd_banks1"
                   className="distributor-input"
                   onChange={handleChange}
-                  value={orderData.bank}
+                  value={orderData.dd_banks1}
                   required
                 >
                   <option value=""></option>
@@ -159,14 +176,33 @@ useEffect(() => {
               </div>
          
         </div>
-       
+
+
         <div className="col-md-12 col-lg-3 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_amount1"
+              value={orderData.dd_amount1}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label">Amount</label>
+            <i class="fa-solid fa-money-bill-wave input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+        <div className="col-md-12 col-lg-2 col-sm-12">
     <div className="distributor-input-group">
     <select
-      name="method" // New input field for distributor type
+      name="pay_method1" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={orderData.method} // Reflect distType in the form data
+      value={orderData.pay_method1} // Reflect distType in the form data
       required
     >
       <option value=""></option>
@@ -178,18 +214,19 @@ useEffect(() => {
     <i class="fa-regular fa-credit-card input-icon"></i>
   </div>
         </div>
-        <div className="col-md-12 col-lg-3 col-sm-12">
+
+        <div className="col-md-12 col-lg-2 col-sm-12">
           <div className="distributor-input-group">
             <input
               required
               type="number"
-              name="ddNumber"
-              value={orderData.ddNumber}
+              name="dd_number1"
+              value={orderData.dd_number1}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
             />
-            <label className="distributor-label">DD Number</label>
+            <label className="distributor-label">DD #</label>
             <i class="fa-solid fa-receipt input-icon"></i>
             <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
@@ -200,8 +237,8 @@ useEffect(() => {
   <div className="distributor-input-group">
     <input
       type="date"
-      name="payDate"
-      value={orderData.payDate}
+      name="pay_slip_date1"
+      value={orderData.pay_slip_date1}
       onChange={handleChange}
       className="distributor-input"
       autoComplete="off"
@@ -211,17 +248,22 @@ useEffect(() => {
   </div>
 </div>
       </div>
+      
+      
+      
+
+
       <h3>Instrument #2 </h3>
-      <br />
+<br/>
       <div className="row">
        
-      <div className="col-md-12 col-lg-4 col-sm-12">
+      <div className="col-md-12 col-lg-3 col-sm-12">
       <div className="distributor-input-group">
                 <select
-                  name="bankName2"
+                  name="dd_banks2"
                   className="distributor-input"
                   onChange={handleChange}
-                  value={orderData.bankName2}
+                  value={orderData.dd_banks2}
                   required
                 >
                   <option value=""></option>
@@ -237,37 +279,57 @@ useEffect(() => {
               </div>
          
         </div>
-       
-        <div className="col-md-12 col-lg-3 col-sm-12">
-    <div className="distributor-input-group">
-    <select
-      name="method2" // New input field for distributor type
-      className="distributor-input"
-      onChange={handleChange}
-      value={orderData.method2} // Reflect distType in the form data
-      required
-    >
-      <option value=""></option>
-      <option value="0">Online</option>
-      <option value="1">DD</option>
-      <option value="1">TT</option>
-    </select>
-    <label className="distributor-label">Method</label>
-    <i class="fa-regular fa-credit-card input-icon"></i>
-  </div>
-        </div>
+
+
         <div className="col-md-12 col-lg-3 col-sm-12">
           <div className="distributor-input-group">
             <input
               required
               type="number"
-              name="ddNumber2"
-              value={orderData.ddNumber2}
+              name="dd_amount2"
+              value={orderData.dd_amount2}
               onChange={handleChange}
               className="distributor-input"
               autoComplete="off"
             />
-            <label className="distributor-label">DD Number</label>
+            <label className="distributor-label input-icon">Amount</label>
+            <i class="fa-solid fa-money-bill-wave input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+        <div className="col-md-12 col-lg-2 col-sm-12">
+    <div className="distributor-input-group">
+    <select
+      name="pay_method2" // New input field for distributor type
+      className="distributor-input"
+      onChange={handleChange}
+      value={orderData.pay_method2} // Reflect distType in the form data
+      required
+    >
+      <option value=""></option>
+      <option value="ON">Online</option>
+      <option value="DD">DD</option>
+      <option value="TT">TT</option>
+    </select>
+    <label className="distributor-label">Method</label>
+    <i class="fa-regular fa-credit-card input-icon"></i>
+  </div>
+        </div>
+
+        <div className="col-md-12 col-lg-2 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_number2"
+              value={orderData.dd_number2}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label">DD #</label>
             <i class="fa-solid fa-receipt input-icon"></i>
             <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
             <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
@@ -278,8 +340,8 @@ useEffect(() => {
   <div className="distributor-input-group">
     <input
       type="date"
-      name="payDate2"
-      value={orderData.payDate2}
+      name="pay_slip_date2"
+      value={orderData.pay_slip_date2}
       onChange={handleChange}
       className="distributor-input"
       autoComplete="off"
@@ -289,86 +351,307 @@ useEffect(() => {
   </div>
 </div>
       </div>
+      
 
       <h3>Instrument #3 </h3>
-      <br />
+<br/>
       <div className="row">
        
-       <div className="col-md-12 col-lg-4 col-sm-12">
-       <div className="distributor-input-group">
-                 <select
-                   name="bankName3"
-                   className="distributor-input"
-                   onChange={handleChange}
-                   value={orderData.bankName3}
-                   required
-                 >
-                   <option value=""></option>
-                   {bank.map((bank) => (
-                   
-                     <option key={bank.bank_id} value={bank.bank_name}>
-                       {bank.bank_name}
-                     </option>
-                   ))}
-                 </select>
-                 <label className="distributor-label">Bank Name</label>
-                 <i className="input-icon fa-solid fa-building-columns"></i>
-               </div>
-          
-         </div>
-        
-         <div className="col-md-12 col-lg-3 col-sm-12">
-     <div className="distributor-input-group">
-     <select
-       name="method3" // New input field for distributor type
-       className="distributor-input"
-       onChange={handleChange}
-       value={orderData.method3} // Reflect distType in the form data
-       required
-     >
-       <option value=""></option>
-       <option value="0">Online</option>
-       <option value="1">DD</option>
-       <option value="1">TT</option>
-     </select>
-     <label className="distributor-label">Method</label>
-     <i class="fa-regular fa-credit-card input-icon"></i>
-   </div>
-         </div>
-         <div className="col-md-12 col-lg-3 col-sm-12">
-           <div className="distributor-input-group">
-             <input
-               required
-               type="number"
-               name="ddNumber3"
-               value={orderData.ddNumber3}
-               onChange={handleChange}
-               className="distributor-input"
-               autoComplete="off"
-             />
-             <label className="distributor-label">DD Number</label>
-             <i class="fa-solid fa-receipt input-icon"></i>
-             <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
-             <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
-           </div>
-         </div>
-        
-        <div className="col-md-12 col-lg-2 col-sm-12">
-   <div className="distributor-input-group">
-     <input
-       type="date"
-       name="payDate3"
-       value={orderData.payDate3}
-       onChange={handleChange}
-       className="distributor-input"
-       autoComplete="off"
-     />
-     <label className="distributor-label">Date</label>
-     {/* <i className="input-icon fa-solid fa-calendar-days"></i> */}
-   </div>
- </div>
-       </div>
+      <div className="col-md-12 col-lg-3 col-sm-12">
+      <div className="distributor-input-group">
+                <select
+                  name="dd_banks3"
+                  className="distributor-input"
+                  onChange={handleChange}
+                  value={orderData.dd_banks3}
+                  required
+                >
+                  <option value=""></option>
+                  {bank.map((bank) => (
+                  
+                    <option key={bank.bank_id} value={bank.bank_name}>
+                      {bank.bank_name}
+                    </option>
+                  ))}
+                </select>
+                <label className="distributor-label">Bank Name</label>
+                <i className="input-icon fa-solid fa-building-columns"></i>
+              </div>
+         
+        </div>
 
+
+        <div className="col-md-12 col-lg-3 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_amount3"
+              value={orderData.dd_amount3}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label">Amount</label>
+            <i class="fa-solid fa-money-bill-wave input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+        <div className="col-md-12 col-lg-2 col-sm-12">
+    <div className="distributor-input-group">
+    <select
+      name="pay_method3" // New input field for distributor type
+      className="distributor-input"
+      onChange={handleChange}
+      value={orderData.pay_method3} // Reflect distType in the form data
+      required
+    >
+      <option value=""></option>
+      <option value="0">Online</option>
+      <option value="1">DD</option>
+      <option value="1">TT</option>
+    </select>
+    <label className="distributor-label">Method</label>
+    <i class="fa-regular fa-credit-card input-icon"></i>
+  </div>
+        </div>
+
+        <div className="col-md-12 col-lg-2 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_number3"
+              value={orderData.dd_number3}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label">DD #</label>
+            <i class="fa-solid fa-receipt input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+       <div className="col-md-12 col-lg-2 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="pay_slip_date3"
+      value={orderData.pay_slip_date3}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Date</label>
+    {/* <i className="input-icon fa-solid fa-calendar-days"></i> */}
+  </div>
+</div>
+      </div>
+
+
+
+      <h3>Instrument #4 </h3>
+<br/>
+      <div className="row">
+       
+      <div className="col-md-12 col-lg-3 col-sm-12">
+      <div className="distributor-input-group">
+                <select
+                  name="dd_banks4"
+                  className="distributor-input"
+                  onChange={handleChange}
+                  value={orderData.dd_banks4}
+                  required
+                >
+                  <option value=""></option>
+                  {bank.map((bank) => (
+                  
+                    <option key={bank.bank_id} value={bank.bank_name}>
+                      {bank.bank_name}
+                    </option>
+                  ))}
+                </select>
+                <label className="distributor-label">Bank Name</label>
+                <i className="input-icon fa-solid fa-building-columns"></i>
+              </div>
+         
+        </div>
+
+
+        <div className="col-md-12 col-lg-3 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_amount4"
+              value={orderData.dd_amount4}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label ">Amount</label>
+            <i class="fa-solid fa-money-bill-wave input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+        <div className="col-md-12 col-lg-2 col-sm-12">
+    <div className="distributor-input-group">
+    <select
+      name="pay_method4" // New input field for distributor type
+      className="distributor-input"
+      onChange={handleChange}
+      value={orderData.pay_method4} // Reflect distType in the form data
+      required
+    >
+      <option value=""></option>
+      <option value="ON">Online</option>
+      <option value="DD">DD</option>
+      <option value="TT">TT</option>
+    </select>
+    <label className="distributor-label">Method</label>
+    <i class="fa-regular fa-credit-card input-icon"></i>
+  </div>
+        </div>
+
+        <div className="col-md-12 col-lg-2 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_number4"
+              value={orderData.dd_number4}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label">DD #</label>
+            <i class="fa-solid fa-receipt input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+       <div className="col-md-12 col-lg-2 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="pay_slip_date4"
+      value={orderData.pay_slip_date4}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Date</label>
+    {/* <i className="input-icon fa-solid fa-calendar-days"></i> */}
+  </div>
+</div>
+      </div>
+
+
+      <h3>Instrument #5 </h3>
+<br/>
+      <div className="row">
+       
+      <div className="col-md-12 col-lg-3 col-sm-12">
+      <div className="distributor-input-group">
+                <select
+                  name="dd_banks5"
+                  className="distributor-input"
+                  onChange={handleChange}
+                  value={orderData.dd_banks5}
+                  required
+                >
+                  <option value=""></option>
+                  {bank.map((bank) => (
+                  
+                    <option key={bank.bank_id} value={bank.bank_name}>
+                      {bank.bank_name}
+                    </option>
+                  ))}
+                </select>
+                <label className="distributor-label">Bank Name</label>
+                <i className="input-icon fa-solid fa-building-columns"></i>
+              </div>
+         
+        </div>
+
+
+        <div className="col-md-12 col-lg-3 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_amount5"
+              value={orderData.dd_amount5}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label input-icon">Amount</label>
+            <i class="fa-solid fa-money-bill-wave input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+        <div className="col-md-12 col-lg-2 col-sm-12">
+    <div className="distributor-input-group">
+    <select
+      name="pay_method5" // New input field for distributor type
+      className="distributor-input"
+      onChange={handleChange}
+      value={orderData.pay_method5} // Reflect distType in the form data
+      required
+    >
+      <option value=""></option>
+      <option value="ON">Online</option>
+      <option value="DD">DD</option>
+      <option value="TT">TT</option>
+    </select>
+    <label className="distributor-label">Method</label>
+    <i class="fa-regular fa-credit-card input-icon"></i>
+  </div>
+        </div>
+
+        <div className="col-md-12 col-lg-2 col-sm-12">
+          <div className="distributor-input-group">
+            <input
+              required
+              type="number"
+              name="dd_number5"
+              value={orderData.dd_number5}
+              onChange={handleChange}
+              className="distributor-input"
+              autoComplete="off"
+            />
+            <label className="distributor-label">DD #</label>
+            <i class="fa-solid fa-receipt input-icon"></i>
+            <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
+            <div className="invalid-feedback"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; Please enter a valid 11-digit phone number</div>
+          </div>
+        </div>
+       
+       <div className="col-md-12 col-lg-2 col-sm-12">
+  <div className="distributor-input-group">
+    <input
+      type="date"
+      name="pay_slip_date5"
+      value={orderData.pay_slip_date5}
+      onChange={handleChange}
+      className="distributor-input"
+      autoComplete="off"
+    />
+    <label className="distributor-label">Date</label>
+    {/* <i className="input-icon fa-solid fa-calendar-days"></i> */}
+  </div>
+</div>
+      </div>
 
 
       <div className="row">
@@ -395,10 +678,10 @@ useEffect(() => {
          <div className="col-md-12 col-lg-4 col-sm-12">
          <div className="distributor-input-group">
     <select
-      name="dipatchMode" // New input field for distributor type
+      name="dipatch_mode" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={orderData.dispatchMode} // Reflect distType in the form data
+      value={orderData.dipatch_mode} // Reflect distType in the form data
       required
     >
       <option value=""></option>
