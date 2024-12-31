@@ -50,6 +50,7 @@ const FinalOrder = () => {
   const handlePlaceOrder = async () => {
     try {
       // Order API call
+      console.log("Submitted Order Bank Data is : " , submittedOrderData);
       const orderBankPayLoad = 
       {
         formData: formData,
@@ -70,7 +71,7 @@ const FinalOrder = () => {
       orderDetailID : orderDetailId
     }  
     
-    // await  axios.post("http://localhost:5555/orderDetail/placeOrder", orderPayload);
+    await  axios.post("http://localhost:5555/orderDetail/placeOrder", orderPayload);
   alert('Order placed successfully');
   // navigate("/orderDetail");
     } catch (error) {

@@ -4,51 +4,56 @@ import { Orders } from '../models/Orders.js'; // Assuming Orders model is alread
 const router = express.Router();
 
 // CREATE: Add a new order entry
-// router.post('/placeOrder/', async (req, res) => {
-//   try {
-//     console.log("Place Order Body",req.body)
-//     const newOrders = new Orders(req.body); 
-//     console.log("Insert Request Reached at Order Route", newOrders);
-//     const savedOrders = await newOrders.save();
-//     console.log("Confirmation of Save:", savedOrders);
-//     res.status(201).json(savedOrders); // Respond with the saved order object
-//   }
-//   catch (err) {
-//     res.status(400).json({ message: err.message });
-//   }
-// });
-
-
-
 router.post('/placeOrder/', async (req, res) => {
   try {
-    const { formData, bankData } = req.body; // Destructure formData and bankData from the request body
-
-    console.log("Place Order Body", req.body);
-
-    // Log the extracted data for debugging
+    const { formData, bankData } = req.body;
+    
     console.log("Form Data:", formData);
     console.log("Bank Data:", bankData);
-
-    // Combine or process the data as needed for the `Orders` model
-    const newOrder = new Orders({
-      ...formData, // Spread the fields from formData
-      bankDetails: bankData // Add bankData to a specific field (e.g., 'bankDetails')
-    });
-
-    console.log("Insert Request Reached at Order Route", newOrder);
-
-    // Save the new order to the database
-    // const savedOrder = await newOrder.save();
-    console.log("Confirmation of Save:", savedOrder);
-
-    // Respond with the saved order object
-    res.status(201).json(savedOrder);
-  } catch (err) {
-    console.error("Error while saving the order:", err.message);
+    const orderData = {
+      ...formData,
+      ...bankData, // Nested object for bankData
+    };
+    console.log("Complete payload for Order is  : " , orderData);
+    const newOrders = new Orders(orderData); 
+    // console.log("Insert Request Reached at Order Route", newOrders);
+    const savedOrders = await newOrders.save();
+    console.log("Confirmation of Save:", savedOrders);
+    res.status(201).json(savedOrders); // Respond with the saved order object
+  }
+  catch (err) {
     res.status(400).json({ message: err.message });
   }
 });
+
+
+
+// router.post('/placeOrder/', async (req, res) => {
+//   try {
+//     const { formData, bankData } = req.body; // Destructure formData and bankData from the request body
+//     // Log the extracted data for debugging
+//     console.log("Form Data:", formData);
+//     console.log("Bank Data:", bankData);
+
+//     // Combine or process the data as needed for the `Orders` model
+//     const newOrder = new Orders({
+//       ...formData, // Spread the fields from formData
+//       bankDetails: bankData // Add bankData to a specific field (e.g., 'bankDetails')
+//     });
+
+//     console.log("Insert Request Reached at Order Route", newOrder);
+
+//     // Save the new order to the database
+//     // const savedOrder = await newOrder.save();
+//     console.log("Confirmation of Save:", savedOrder);
+
+//     // Respond with the saved order object
+//     res.status(201).json(savedOrder);
+//   } catch (err) {
+//     console.error("Error while saving the order:", err.message);
+//     res.status(400).json({ message: err.message });
+//   }
+// });
 
 
 

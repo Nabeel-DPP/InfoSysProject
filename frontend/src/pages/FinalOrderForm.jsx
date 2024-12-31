@@ -59,10 +59,10 @@ const FinalOrderForm = ({formData , rows , orderValue , onOrderSubmit}) => {
     
   });
  
-  console.log("OrderFormData finally came from create Order", orderFormData);
+  // console.log("OrderFormData finally came from create Order", orderFormData);
 
-  console.log("Selected Order Table finally came from create Order",rows);
-  console.log("Order Value of all Selected  poructs",orderValue);
+  // console.log("Selected Order Table finally came from create Order",rows);
+  // console.log("Order Value of all Selected  poructs",orderValue);
 
   const [theme, setTheme] = useState('white'); // Initial form theme
 
@@ -86,13 +86,35 @@ useEffect(() => {
 
 
   // Handle input changes
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setOrderData({
+  //     ...orderData,
+  //     [name]: value
+  //   });
+  // };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setOrderData({
-      ...orderData,
-      [name]: value
+  
+    // Update the state with the new input value
+    setOrderData((prevData) => {
+      // Create a new object with the updated value
+      const updatedData = { ...prevData, [name]: value };
+  
+      // Calculate the total payment
+      const totalPayment = [
+        updatedData.dd_amount1,
+        updatedData.dd_amount2,
+        updatedData.dd_amount3,
+        updatedData.dd_amount4,
+        updatedData.dd_amount5,
+      ].reduce((sum, amount) => sum + (parseFloat(amount) || 0), 0);
+  
+      // Return the updated state including the new total payment
+      return { ...updatedData, total_payment: totalPayment };
     });
   };
+  
 
 
 
@@ -135,13 +157,14 @@ useEffect(() => {
               name="total_payment"
               value={orderData.total_payment}
               onChange={handleChange}
-              className="distributor-input"
-              autoComplete="off"
+              readOnly
+              className={`distributor-input ${orderData.total_payment ? 'distributor-input-prefilled' : ''}`}
             />
           <div className="valid-feedback"><i className="fa-regular fa-circle-check"></i></div>
           <div className="invalid-feedback">  <i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp;Please enter a valid distributor name </div>
-            <label className="distributor-label">Total Enclosed Payment</label>
-            <i class="fa-solid fa-money-bill-wave input-icon"></i>
+            <label className={`distributor-label ${orderData.total_payment ? 'distributor-label-prefilled' : ''}`}>Total Enclosed Payment</label>
+            
+            <i class="fa-solid fa-coins input-icon"></i>
           </div>
         </div>
        
@@ -264,7 +287,7 @@ useEffect(() => {
                   className="distributor-input"
                   onChange={handleChange}
                   value={orderData.dd_banks2}
-                  required
+                  
                 >
                   <option value=""></option>
                   {bank.map((bank) => (
@@ -284,7 +307,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-3 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+            
               type="number"
               name="dd_amount2"
               value={orderData.dd_amount2}
@@ -306,7 +329,7 @@ useEffect(() => {
       className="distributor-input"
       onChange={handleChange}
       value={orderData.pay_method2} // Reflect distType in the form data
-      required
+      
     >
       <option value=""></option>
       <option value="ON">Online</option>
@@ -321,7 +344,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-2 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+             
               type="number"
               name="dd_number2"
               value={orderData.dd_number2}
@@ -364,7 +387,7 @@ useEffect(() => {
                   className="distributor-input"
                   onChange={handleChange}
                   value={orderData.dd_banks3}
-                  required
+                 
                 >
                   <option value=""></option>
                   {bank.map((bank) => (
@@ -384,7 +407,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-3 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+             
               type="number"
               name="dd_amount3"
               value={orderData.dd_amount3}
@@ -406,7 +429,7 @@ useEffect(() => {
       className="distributor-input"
       onChange={handleChange}
       value={orderData.pay_method3} // Reflect distType in the form data
-      required
+     
     >
       <option value=""></option>
       <option value="0">Online</option>
@@ -421,7 +444,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-2 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+             
               type="number"
               name="dd_number3"
               value={orderData.dd_number3}
@@ -465,7 +488,7 @@ useEffect(() => {
                   className="distributor-input"
                   onChange={handleChange}
                   value={orderData.dd_banks4}
-                  required
+                 
                 >
                   <option value=""></option>
                   {bank.map((bank) => (
@@ -485,7 +508,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-3 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+              
               type="number"
               name="dd_amount4"
               value={orderData.dd_amount4}
@@ -507,7 +530,7 @@ useEffect(() => {
       className="distributor-input"
       onChange={handleChange}
       value={orderData.pay_method4} // Reflect distType in the form data
-      required
+     
     >
       <option value=""></option>
       <option value="ON">Online</option>
@@ -522,7 +545,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-2 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+              
               type="number"
               name="dd_number4"
               value={orderData.dd_number4}
@@ -565,7 +588,7 @@ useEffect(() => {
                   className="distributor-input"
                   onChange={handleChange}
                   value={orderData.dd_banks5}
-                  required
+                
                 >
                   <option value=""></option>
                   {bank.map((bank) => (
@@ -585,7 +608,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-3 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+          
               type="number"
               name="dd_amount5"
               value={orderData.dd_amount5}
@@ -607,7 +630,7 @@ useEffect(() => {
       className="distributor-input"
       onChange={handleChange}
       value={orderData.pay_method5} // Reflect distType in the form data
-      required
+      
     >
       <option value=""></option>
       <option value="ON">Online</option>
@@ -622,7 +645,7 @@ useEffect(() => {
         <div className="col-md-12 col-lg-2 col-sm-12">
           <div className="distributor-input-group">
             <input
-              required
+              
               type="number"
               name="dd_number5"
               value={orderData.dd_number5}
@@ -678,10 +701,10 @@ useEffect(() => {
          <div className="col-md-12 col-lg-4 col-sm-12">
          <div className="distributor-input-group">
     <select
-      name="dipatch_mode" // New input field for distributor type
+      name="dispatch_mode" // New input field for distributor type
       className="distributor-input"
       onChange={handleChange}
-      value={orderData.dipatch_mode} // Reflect distType in the form data
+      value={orderData.dispatch_mode} // Reflect distType in the form data
       required
     >
       <option value=""></option>
@@ -702,8 +725,8 @@ useEffect(() => {
       required
     >
       <option value=""></option>
-      <option value="Y">Yes</option>
-      <option value="N">No</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
       
     </select>
     <label className="distributor-label">S I V</label>

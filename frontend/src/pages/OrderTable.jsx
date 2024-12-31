@@ -95,6 +95,7 @@ const cancelDelete = () => {
   { field: 'pay_method1', headerName: 'Pay Method 1', width: 130 },
   // { field: 'pay_slip_date1', headerName: 'Pay Slip Date 1', width: 130 },
   { field: 'order_value', headerName: 'Order Value', width: 130 },
+  { field: 'total_payment', headerName: 'Total Payment', width: 130 },
   { field: 'Period', headerName: 'Period', width: 100 },
   { field: 'instructions', headerName: 'Instructions', width: 200 },
  
